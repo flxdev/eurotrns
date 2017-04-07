@@ -1,0 +1,101 @@
+include _mixins.pug
+.box
+	.footer__main
+		.footer-main-nav
+			a(href="#", style='background-image:url(img/logo.png)').m-logo
+			a(href="#",data-modal='callback').btn.js-popup-button
+				//дата-атрибут только на этой кнопке, больше нигде нету 
+				span(data-text='Обратный звонок') Заказать обратный звонок
+		.footer-dop-nav
+			.footer-column-wrap
+				.footer-column
+					ul.footer-column-list
+						+footerb('Рейсы')
+						+footerb('Трансфер в аэропорт')
+						+footerb('Аренда автобусов')
+					ul.footer-column-list
+						+footerb('Клиентам')
+						+footerb('Агентствам')
+						+footerb('Перевозчикам')
+						+footerb('Контакты')
+						+footerb('Бюро находок')
+						+footerb('Личный кабинет')
+				.footer-column
+					+Infoblock('Бронирование')
+						li.info-block-item
+							//в ссылках может присутствовать спан с текстом
+							a.info-block-link(href="tel:+375295000252") +375 (29) 5000-252
+						li.info-block-item
+							a.info-block-link(href="tel:+375295000252") +375 (29) 5000-252
+						li.info-block-item
+							a.info-block-link(href="tel:+79055591545") +375 (29) 5000-252
+					+Infoblock('')
+						li.info-block-item
+							a.info-block-link(href="tel:+74952818817") +7 (495) 281-88-17
+								span Москва
+						li.info-block-item
+							a.info-block-link(href="tel:+78122442019") +7 (812) 244-20-19
+								span Санкт-Петербург
+				.footer-column
+					+Infoblock('Адрес')
+						li.info-block-item
+							.info-block-link г.Минск, ул.Новаторская, 5
+					+Infoblock('E-mail')
+						li.info-block-item
+							a.info-block-link(href="mailto:service@eurotrans.by") service@eurotrans.by 
+								span для обращений
+						li.info-block-item
+							a.info-block-link(href="mailto:job@eurotrans.by") job@eurotrans.by
+								span для резюме
+						li.info-block-item
+							a.info-block-link(href="mailto:info@eurotrans.by") info@eurotrans.by
+				.footer-column
+					+Infoblock('Skype')
+						li.info-block-item
+							a.info-block-link(href="skype:Eurotrans_bot") Eurotrans_bot
+					+Infoblock('Telegram')
+						li.info-block-item
+							.info-block-link Eurotrans_bot
+					+Infoblock('Viber')
+						li.info-block-item
+							.info-block-link Eurotrans_bot
+	.footer__footer
+		.soc-wrapp
+			a(href="#").soc-wrapp-item.tw
+				svg(class="icon icon-drop")
+					use(xlink:href="#tw" xmlns:xlink="http://www.w3.org/1999/xlink")
+			a(href="#").soc-wrapp-item.in
+				svg(class="icon icon-drop")
+					use(xlink:href="#inst" xmlns:xlink="http://www.w3.org/1999/xlink")
+			a(href="#").soc-wrapp-item.gp
+				svg(class="icon icon-drop")
+					use(xlink:href="#g+" xmlns:xlink="http://www.w3.org/1999/xlink")
+			a(href="#").soc-wrapp-item.fb
+				svg(class="icon icon-drop")
+					use(xlink:href="#fb" xmlns:xlink="http://www.w3.org/1999/xlink")
+			a(href="#").soc-wrapp-item.ok
+				svg(class="icon icon-drop")
+					use(xlink:href="#ok" xmlns:xlink="http://www.w3.org/1999/xlink")
+			a(href="#").soc-wrapp-item.vk
+				svg(class="icon icon-drop")
+					use(xlink:href="#vk" xmlns:xlink="http://www.w3.org/1999/xlink")
+		.footer-row
+			.footer-row-text * Все цены в иностранной валюте несут исключительно информационный характер!
+			.footer-row-pay
+				.footer-row-pay-inner
+					+payimg('1')
+					+payimg('2')
+					+payimg('3')
+					+payimg('4')
+					+payimg('5')
+					+payimg('6')
+					+payimg('7')
+		.footer__footer-copy
+			.text-sm © 2016 Все права защищены.
+		.footer__footer-developer
+			a(href="#").footer-developer-link
+				.text-sm Дизайн сайта: 
+				.footer-developer-icon
+					svg(class="icon icon-drop")
+						use(xlink:href="#logof" xmlns:xlink="http://www.w3.org/1999/xlink")
+				.footer-developer-text FLEX.MEDIA

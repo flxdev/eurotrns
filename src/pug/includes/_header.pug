@@ -1,0 +1,69 @@
+include _mixins.pug
+	// для больштнства элементов активное состояние вызывается классом .active . где это не так буду писать
+.header-top
+	.header-top-inner
+		.header-lang
+			a(href="#").top-link.header-lang-item.active
+				span Ru
+			a(href="#").top-link.header-lang-item
+				span En
+		.header-top-nav
+			.header-top-nav-menu
+				a(href="#").top-link.top-nav-item
+					span Клиентам
+				a(href="#").top-link.top-nav-item
+					span Агентствам
+				a(href="#").top-link.top-nav-item
+					span Перевозчикам
+				a(href="#").top-link.top-nav-item
+					span Контакты
+			a(href="#").top-link.top-nav-botton
+				svg(class="icon icon-drop")
+					use(xlink:href="#bag" xmlns:xlink="http://www.w3.org/1999/xlink")
+				span Бюро находок
+			a(href="#").top-link.top-nav-botton.fixed
+				svg(class="icon icon-drop")
+					use(xlink:href="#login" xmlns:xlink="http://www.w3.org/1999/xlink")
+				span Личный кабинет
+.header-bottom
+	.box.header-bottom-inner
+		a(href="#", style='background-image:url(img/logo-header.png)').m-logo
+		.header-bottom-nav
+			ul.header-bottom-menu
+				li.header-bottom-menu-item
+					a(href="#")
+						span Рейсы
+				li.header-bottom-menu-item
+					a(href="#")
+						span Трансфер в аэропорт
+				li.header-bottom-menu-item
+					a(href="#")
+						span Аренда автобусов
+		.header-bottom-contact
+			//селект региона, такой же есть в заказе
+			.dropdown-select-wrapp.dropdown-trigger
+				.country-head
+					a(href="#").country-list-link
+						span.country-img
+							svg(class="icon icon-drop")
+								use(xlink:href="#by" xmlns:xlink="http://www.w3.org/1999/xlink")
+						span.country-text Беларусь
+					.arr-down
+						svg(class="icon icon-drop")
+							use(xlink:href="#arr-down" xmlns:xlink="http://www.w3.org/1999/xlink")
+				.dropdown-target.small-dropdown-target
+					.dropdown-inner
+						.dropdown-content
+							ul.country-list
+								//- li.country-list-item
+								//- 	a(href="#").country-list-link
+								//- 		span.country-img
+								//- 			// флаг выбирается через id <use>: для британии gb раша ru и беларусь by,больше свг не заливал, если будут еще флаги то пихать картинку 
+								//- 			svg(class="icon icon-drop")
+								//- 				use(xlink:href="#by" xmlns:xlink="http://www.w3.org/1999/xlink")
+								//- 		span.country-text Беларусь
+								li.country-list-item
+									a(href="#").country-list-link
+										span.country-img
+											img(src="img/ru.svg", alt="россия")
+										span.country-text Россия

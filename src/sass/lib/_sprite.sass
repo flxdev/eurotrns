@@ -1,0 +1,121 @@
+$icons: (0:0)
+$icons: map-merge($icons,(i-arr-b: (X: -207px, Y:-98px, W: 16px, H: 10px, TW: 237px, TH: 150px, IMG: '../img/icons.png')))
+$icons: map-merge($icons,(i-arr-bl: (X: -207px, Y:-84px, W: 16px, H: 10px, TW: 237px, TH: 150px, IMG: '../img/icons.png')))
+$icons: map-merge($icons,(i-arr-y: (X: -191px, Y:-48px, W: 17px, H: 32px, TW: 237px, TH: 150px, IMG: '../img/icons.png')))
+$icons: map-merge($icons,(i-arrow: (X: -191px, Y:-84px, W: 12px, H: 29px, TW: 237px, TH: 150px, IMG: '../img/icons.png')))
+$icons: map-merge($icons,(i-clock: (X: -66px, Y:0px, W: 59px, H: 82px, TW: 237px, TH: 150px, IMG: '../img/icons.png')))
+$icons: map-merge($icons,(i-close: (X: -212px, Y:-48px, W: 22px, H: 22px, TW: 237px, TH: 150px, IMG: '../img/icons.png')))
+$icons: map-merge($icons,(i-list: (X: -129px, Y:0px, W: 58px, H: 78px, TW: 237px, TH: 150px, IMG: '../img/icons.png')))
+$icons: map-merge($icons,(i-mail: (X: -68px, Y:-86px, W: 58px, H: 48px, TW: 237px, TH: 150px, IMG: '../img/icons.png')))
+$icons: map-merge($icons,(i-pin: (X: 0px, Y:0px, W: 62px, H: 82px, TW: 237px, TH: 150px, IMG: '../img/icons.png')))
+$icons: map-merge($icons,(i-play: (X: 0px, Y:-86px, W: 64px, H: 64px, TW: 237px, TH: 150px, IMG: '../img/icons.png')))
+$icons: map-merge($icons,(star-gray: (X: -191px, Y:0px, W: 46px, H: 44px, TW: 237px, TH: 150px, IMG: '../img/icons.png')))
+$icons: map-merge($icons,(star-yellow: (X: -130px, Y:-86px, W: 46px, H: 44px, TW: 237px, TH: 150px, IMG: '../img/icons.png')))
+
+
+// Gets an attribute from the sass map
+@function icon-attr($icon, $attr)
+	$icon: map-get($icons, $icon)
+	@return map-get($icon, $attr)
+
+@mixin sprite($iconName)
+	background-image: url(icon-attr($iconName, IMG))
+	width: icon-attr($iconName, W)
+	height: icon-attr($iconName, H)
+	background-position: icon-attr($iconName, X) icon-attr($iconName, Y)
+@mixin sprite-position($iconName)
+	background-position: icon-attr($iconName, X) icon-attr($iconName, Y)
+@mixin sprite-retina($iconName)
+	background-image: url(icon-attr($iconName, IMG))
+	$width: icon-attr($iconName, W)
+	$height: icon-attr($iconName, H)
+	width: $width/2
+	height: $height/2
+	$x: icon-attr($iconName, X)
+	$y: icon-attr($iconName, Y)
+	background-position: $x/2 $y/2
+	$tw: icon-attr($iconName, TW) 	
+	$th: icon-attr($iconName, TH)
+	background-size: $tw/2 $th/2  	
+
+
+@mixin s($i)
+	+sprite($i)
+@mixin sp($i)
+	+sprite-position($i)
+@mixin sr($i)
+	+sprite-retina($i)	
+
+//
+//.icon-i-arr-b
+//	width: 16px
+//	height: 10px
+//	background-image: url('../img/icons.png')
+//	background-position: -207px -98px
+//
+//.icon-i-arr-bl
+//	width: 16px
+//	height: 10px
+//	background-image: url('../img/icons.png')
+//	background-position: -207px -84px
+//
+//.icon-i-arr-y
+//	width: 17px
+//	height: 32px
+//	background-image: url('../img/icons.png')
+//	background-position: -191px -48px
+//
+//.icon-i-arrow
+//	width: 12px
+//	height: 29px
+//	background-image: url('../img/icons.png')
+//	background-position: -191px -84px
+//
+//.icon-i-clock
+//	width: 59px
+//	height: 82px
+//	background-image: url('../img/icons.png')
+//	background-position: -66px 0px
+//
+//.icon-i-close
+//	width: 22px
+//	height: 22px
+//	background-image: url('../img/icons.png')
+//	background-position: -212px -48px
+//
+//.icon-i-list
+//	width: 58px
+//	height: 78px
+//	background-image: url('../img/icons.png')
+//	background-position: -129px 0px
+//
+//.icon-i-mail
+//	width: 58px
+//	height: 48px
+//	background-image: url('../img/icons.png')
+//	background-position: -68px -86px
+//
+//.icon-i-pin
+//	width: 62px
+//	height: 82px
+//	background-image: url('../img/icons.png')
+//	background-position: 0px 0px
+//
+//.icon-i-play
+//	width: 64px
+//	height: 64px
+//	background-image: url('../img/icons.png')
+//	background-position: 0px -86px
+//
+//.icon-star-gray
+//	width: 46px
+//	height: 44px
+//	background-image: url('../img/icons.png')
+//	background-position: -191px 0px
+//
+//.icon-star-yellow
+//	width: 46px
+//	height: 44px
+//	background-image: url('../img/icons.png')
+//	background-position: -130px -86px
+//

@@ -1,0 +1,16 @@
+//-footer mixins
+mixin footerb(text)
+	li.footer-column-list-item
+		a(href="#") #{text}
+mixin payimg(img)
+	.footer-row-pay-item
+		img(src="img/pay/"+img+".png", alt="vissssss")
+//- header mixins
+
+//- main-mixins
+mixin Infoblock(head)
+	.info-block
+		.info-block-head #{head}
+		ul.info-block-list
+			if block
+				block

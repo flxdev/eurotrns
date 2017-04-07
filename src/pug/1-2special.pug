@@ -1,0 +1,207 @@
+extends _layout
+
+block title
+	title Index
+
+block content
+	.wrapper.content-wrapper(style='background-image:url(img/bgmain.jpg)')
+		//для врачей вешаем класс .personal
+		.box.content-head.personal
+			.content-bread
+				a(href="#").content-bread-item.text2 Главная
+				a(href="#").content-bread-item.text2 Специалисты
+				a(href="#").content-bread-item.text2 Отделение пластической и реконструктивно-восстановительной хирургии
+				a(href="#").content-bread-item.text2 Израилов Валерий Александрович
+			.content-main
+				.title.h1 Израилов Валерий Александрович
+				.text-bold Заведующий отделением, врач-пластический хирург, кандидат медицинских наук
+			.content-img
+				img(src="img/bg/v11.png", alt="")
+				//- .title-btn
+				//- 	a(href="#").btn Прайс Лист
+	.box
+		.aside-wrapp
+			aside.aside-menu(data-sticky_parent)
+				.aside-stick(data-sticky_column).js-dropdown-parent
+					.aside-title.title.h4.js-dropdown вРАЧ СПЕЦИАЛИЗИРУЕТСЯ:
+					ul.menu-nav.js-dropdown-target.js-slidelist(data-items='9')
+						li.menu-nav-item
+							a(href="#").link-black Пластика груди
+						li.menu-nav-item
+							a(href="#").link-black Пластика носа
+						li.menu-nav-item
+							a(href="#").link-black Пластика ушных раковин
+						li.menu-nav-item
+							a(href="#").link-black Пластика лица и шеи
+						li.menu-nav-item
+							a(href="#").link-black Нитевой лифтинг
+						li.menu-nav-item
+							a(href="#").link-black Интимный филлинг
+						li.menu-nav-item
+							a(href="#").link-black Интимная пластика - лабиопластика
+						li.menu-nav-item
+							a(href="#").link-black Удаление новообразований
+						li.menu-nav-item
+							a(href="#").link-black Пластика век
+						li.menu-nav-item
+							a(href="#").link-black Пластика век
+						li.menu-nav-item
+							a(href="#").link-black Пластика век
+						li.menu-nav-item
+							a(href="#").link-black Пластика век
+					.menu-nav-item.more.js-list-more(data-alt-text='Свернуть')
+						a(href="#").link-black Все направления
+			.aside-content
+				.content-column-wrap
+					.content-column-content
+						.content-column-content-inner
+							h1 Коротко 
+								br
+								|о специалисте
+							p  Окончил Дагестанский медицинский институт, клиническую ординатуру по хирургической стоматологии. После аспирантуры успешно защитил кандидатскую диссертацию.
+							p Валерий Александрович выполняет все эстетические операции в области лица и тела. Состоит в Российском обществе реконструктивных и эстетических хирургов (ОПРЭХ)
+							img(src="img/bgmain.jpg", alt="")
+							p  Несмотря на огромный рабочий стаж и профессиональный опыт Валерий Александрович постоянно повышает свой профессиональный уровень, участвует в конгрессах и конференциях.
+							p  Израилов читает курс лекций, проводит практические занятия по пластической хирургии, а также выступает в научной и научно – популярной литературе.
+							.content-slider-wrap
+								.content-slider-slider
+									.content-item
+										img(src="img/content/1.jpg", alt="fsdfsd")
+									.content-item
+										img(src="img/content/1.jpg", alt="fsdfsd")
+									.content-item
+										img(src="img/content/1.jpg", alt="fsdfsd")
+								.content-slider-nav
+									.nav-arrows
+							p.caption В практике хирурга огромное количество операций по исправлению 
+								a(href="#") рубцовых деформаций.
+								| Наиболее часто пациенты обращаются с рубцами лица и открытых участков тела – послеожоговыми, посттравматическими, рубцами, приобретёнными в результате бытовых или автотравм. 
+							p Проведённые Израиловым операции избавляют пациентов от ряда серьёзных функциональных расстройств, таких, как ограничение движений в суставах, выворота век и т.д., а также от тяжелых психических страданий из-за изуродованной рубцами внешности.
+							.video-wrap.caption
+								.video-wrap-cover(style='background-image:url(img/content/vbg.jpg);')
+								iframe(width='100%', height='100%', src='https://www.youtube.com/embed/qCBOCVblDYk', frameborder='0', allowfullscreen='')
+								mark.caption-content
+									i Интервью с Валерием Александровичем
+							a(href="#").biglink Блефалопластика
+								.link-arr
+									svg(class="icon icon-drop")
+										use(xlink:href="#link-arr" xmlns:xlink="http://www.w3.org/1999/xlink")
+							p Одна из самых популярных пластических операций – 
+								a(href="#") блефаропластика 
+								| или 
+								a(href="#") пластика век
+								|. По оценке косметологов признаки увядания кожи наблюдаются у людей начиная с 25 лет, поэтому возрастной диапазон пациентов, обращающихся с этой проблемой, очень широк. 
+
+							p.caption Конечно, эффект операции во многом зависит от состояния кожи век, но опыт и мастерство хирурга играют свою очень важную роль в достижении лучшего результата.
+								mark.caption-content
+									i Самая востребованная из омолаживающих операций в практике всех эстетических хирургов в мире.
+							h3 До / после
+							.content-slider-wrap.diffs
+								.content-slider-slider
+									.content-item
+										.compare-item_container.comparator
+											.compare-item_compator.comparator-frame
+												.compare-result.from
+													.compare-idea_preview
+														img(src="img/content/1.jpg")
+												.compare-runner.cocoen__drag
+													.compare-roller
+												.compare-idea.to
+													.compare-idea_preview
+														.compare-image(style="background-image:url(img/content/s1.jpg)")
+									.content-item
+										.compare-item_container.comparator
+											.compare-item_compator.comparator-frame
+												.compare-result.from
+													.compare-idea_preview
+														img(src="img/content/1.jpg")
+												.compare-runner.cocoen__drag
+													.compare-roller
+												.compare-idea.to
+													.compare-idea_preview
+														.compare-image(style="background-image:url(img/content/s1.jpg)")
+									.content-item
+										.compare-item_container.comparator
+											.compare-item_compator.comparator-frame
+												.compare-result.from
+													.compare-idea_preview
+														img(src="img/content/1.jpg")
+												.compare-runner.cocoen__drag
+													.compare-roller
+												.compare-idea.to
+													.compare-idea_preview
+														.compare-image(style="background-image:url(img/content/s1.jpg)")
+								.content-slider-nav
+									.nav-dots
+							p Наиболее частой косметической деформацией (в большинстве случаев двусторонней) являются торчащие уши. Отклонение ушной раковины может быть выражено в различной степени: от едва заметного оттопыревания и до почти перпендикулярного положения, тогда проводится коррекция ушных раковин - 
+								a(href="#") отопластика
+						.content-column-links
+							a(href="#").nav-btn
+								.nav-btn-inner
+									svg(class="icon icon-drop")
+										use(xlink:href="#arr-circle" xmlns:xlink="http://www.w3.org/1999/xlink")
+								span Предыдущий
+							a(href="#").nav-btn.right
+								span Следующий
+								.nav-btn-inner
+									svg(class="icon icon-drop")
+										use(xlink:href="#arr-circle" xmlns:xlink="http://www.w3.org/1999/xlink")
+								
+					.content-column-right
+						.content-column-right-btnwrap
+							a(href="#").btn.yell.btn-big Записаться на приём
+						.caption-content
+							span.date 
+								span 1982 
+								|год
+							i работает в Институте Красоты на Арбате c 1982 года
+						.caption-content
+							img(src="img/content/as1.jpg", alt="fsdfsd")
+							i Является ассистентом кафедры челюстно-лицевой и пластической хирургии при Российской академии медицинских наук (РАМН).
+						.diplom-slider-content.caption-content
+							b Дипломы и лицензии специалиста
+							.diplom-slider-inner
+								a(href="img/content/big.jpg",data-sub-html='<div class="text bold">Сертификат качества</div><p class="text2">Выдан специалисту высшего разряда</p>').diplom-slider-inner-img
+									img(src="img/content/d1.jpg", alt="fsdfsd")
+								a(href="img/content/big.jpg",data-sub-html='<div class="text bold">Сертификат качества</div><p class="text2">Выдан специалисту высшего разряда</p>').diplom-slider-inner-img
+									img(src="img/content/d1.jpg", alt="fsdfsd")
+								a(href="img/content/big.jpg",data-sub-html='<div class="text bold">Сертификат качества</div><p class="text2">Выдан специалисту высшего разряда</p>').diplom-slider-inner-img
+									img(src="img/content/d1.jpg", alt="fsdfsd")
+							i Является ассистентом кафедры челюстно-лицевой и пластической хирургии при Российской академии медицинских наук (РАМН).
+		.nav-wrapper
+			.nav-btn-wrap
+				//если кнопки нету, то удалять только кнопку. .nav-btn-wrap оставить
+				a(href="#").nav-btn
+					.nav-btn-inner
+						svg(class="icon icon-drop")
+							use(xlink:href="#arr-circle" xmlns:xlink="http://www.w3.org/1999/xlink")
+					span Назад
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	

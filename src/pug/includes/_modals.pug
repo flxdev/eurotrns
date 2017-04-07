@@ -1,0 +1,77 @@
+.modal-layout(data-modal='callback').js-popup-container
+	//контейнер модалки
+	// по саксесу вешаю на этот блок класс из-за которого следующий открывается
+	.modal-container
+		.modal-container-header
+			.title.h4 Обратная связь
+			i.small-link.pop-close.closePopup
+		.modal-container-content
+			form.form.js-validate(data-block='.modal-container')
+				.input-item.s-50
+					.input-wrapper.req
+						label Имя
+						input.input-main(type="text",placeholder='Имя',data-validation="length required",data-validation-length='min2',data-validation-error-msg="Не заполнено")
+				.input-item.s-50
+					.input-wrapper.req
+						label E-mail
+						input.input-main(type="email",placeholder='example@mail.com',data-validation="email",data-validation-error-msg="Не заполнено")
+				.input-item.s-50
+					.input-wrapper.req
+						label Телефон
+						input.input-main(type="tel",placeholder='Телефон',data-validation="custom",data-validation-regexp="^[-0-9()+ ]+$",data-validation-error-msg="Не заполнено")
+				.input-item.s-100
+					.input-wrapper
+						label Сообщение
+						textarea.input-main(rows='5',placeholder='Сообщение') 
+				.form-footer
+					.form-footer-notify
+						.text Поля обязательные для заполнения
+					button(type='submit').btn.yell Отправить	
+	//контейнер модалки  
+	.modal-container.response(style='display: none')
+		.modal-container-header
+			.title.h4 Спасибо
+			i.small-link.pop-close.closePopup
+		.modal-container-content
+			.text Благодарим вас за проявленый интерес к нашей компании. С вами свяжется наш специалист для решения вашего вопроса.  
+		.modal-container-footer
+			button(type='button').link-black.closePopup Закрыть
+.modal-layout(data-modal='fallback').js-popup-container
+	//контейнер модалки
+	.modal-container
+		.modal-container-header
+			.title.h4 Заказать обратный звонок
+			i.small-link.pop-close.closePopup
+		.modal-container-content
+			form.form.js-validate(data-block='.modal-container')
+				.input-item.s-50
+					.input-wrapper.req
+						label Имя
+						input.input-main(type="text",placeholder='Имя',data-validation="length required",data-validation-length='min2',data-validation-error-msg="Не заполнено")
+				.input-item.s-50
+					.input-wrapper.req
+						label Телефон
+						input.input-main(type="tel",placeholder='Телефон',data-validation="custom",data-validation-regexp="^[-0-9()+ ]+$",data-validation-error-msg="Не заполнено")
+				.input-item.s-100
+					.input-wrapper
+						label Комментарий  
+						textarea.input-main(rows='5',placeholder='Комментарий') 
+				.form-footer
+					.form-footer-notify
+						.text Поля обязательные для заполнения
+					button(type='submit').btn.yell Заказать звонок	
+	//контейнер модалки  
+	.modal-container.response(style='display: none')
+		.modal-container-header
+			.title.h4 Спасибо
+			i.small-link.pop-close.closePopup
+		.modal-container-content
+			.text Благодарим вас за проявленый интерес к нашей компании. С вами свяжется наш специалист для решения вашего вопроса.  
+		.modal-container-footer
+			button(type='button').link-black.closePopup Закрыть
+.modal-layout#modal-road(data-modal='road').js-popup-container
+	
+
+
+
+
