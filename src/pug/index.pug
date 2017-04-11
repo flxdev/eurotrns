@@ -4,6 +4,167 @@ block title
 	title Index
 
 block content
+	.wrapper.index-wrapper.page-margin(style='background-image: url(img/stars.jpg)')
+		.box
+			.promo-wrapper
+				.promo-form
+					.title.h2 Автобусные рейсы
+					form(action="").js-validate.input-form
+						.input-item.s100
+							.input-wrapper
+								.select-item
+									label.select-label
+										span.select-main
+											input.select-real(type="checkbox",value ='twoway',)
+											span.select-checked
+										span.select-text Туда и обратно
+						.input-item.s100
+							.input-wrapper
+								label Дата отправления
+								input.input-main.datepicker(type="text",placeholder='Выберите',data-validation="length required",data-validation-length='min2',data-validation-error-msg="Не выбрано")
+								svg(class="icon icon-drop")
+									use(xlink:href="#calendar" xmlns:xlink="http://www.w3.org/1999/xlink")
+						.input-item.s50
+							.input-wrapper
+								.label Откуда
+								//все селекты заменены на выпадашки из радиокнопок, функция initCustomSelectList(), можно реинитить каждый селект через $(.твой_select-check).trigger('reinit');, либо просто вызовом функции
+								//для отключенного селекта .disabled на .select-check
+								//так же можно связывать селекты. пока не выбран первый все последующие с таким же классом будут отключены. класс .depends-on, пример ниже
+								.select-check.js-select-custom.depends-on
+									button.selects(data-placeholder='Выберите')
+										span.btn-text Выберите
+										i.arr-down
+											svg(class="icon icon-drop")
+												use(xlink:href="#strelka" xmlns:xlink="http://www.w3.org/1999/xlink")
+									.dropdown-target
+										.dropdown-inner
+											.dropdown-content
+												.select-u-body.select-list
+													label.option
+														//хотя бы на одном инпуте должен висеть дата-атрибут для валидации
+														input(type='radio', name='group47', value='val1',data-validation="required")
+														span Минск
+													label.option
+														input(type='radio', name='group47', value='val2')
+														span Пинск
+													label.option
+														input(type='radio', name='group47', value='val3')
+														span Копенгаген
+													label.option
+														input(type='radio', name='group47', value='val4')
+														span Рига
+													label.option
+														input(type='radio', name='group47', value='val5')
+														span Немига
+													label.option
+														input(type='radio', name='group47', value='val6')
+														span Метро
+													label.option
+														input(type='radio', name='group47', value='val7')
+														span Копенгаген
+													label.option
+														input(type='radio', name='group47', value='val8')
+														span Копенгаген
+													label.option
+														input(type='radio', name='group47', value='val9')
+														span 1Копенгаген
+													label.option
+														input(type='radio', name='group47', value='val9')
+														span 12Копенгаген
+													label.option
+														input(type='radio', name='group47', value='val9')
+														span 142Копенгаген
+													label.option
+														input(type='radio', name='group47', value='val9')
+														span Копенгаген
+													label.option
+														input(type='radio', name='group47', value='val9')
+														span 1Копенгаген
+						.input-item.s50
+							.input-wrapper
+								.label Куда
+								.select-check.js-select-custom.depends-on
+									button.selects(data-placeholder='Выберите')
+										span.btn-text Выберите
+										i.arr-down
+											svg(class="icon icon-drop")
+												use(xlink:href="#strelka" xmlns:xlink="http://www.w3.org/1999/xlink")
+									.dropdown-target
+										.dropdown-inner
+											.dropdown-content
+												.select-u-body.select-list
+													label.option
+														input(type='radio', name='group49', value='val1',data-validation="required")
+														span Минск
+													label.option
+														input(type='radio', name='group49', value='val2')
+														span Пинск
+													label.option
+														input(type='radio', name='group49', value='val3')
+														span Копенгаген
+													label.option
+														input(type='radio', name='group49', value='val4')
+														span Рига
+													label.option
+														input(type='radio', name='group49', value='val5')
+														span Немига
+													label.option
+														input(type='radio', name='group49', value='val6')
+														span Метро
+													label.option
+														input(type='radio', name='group49', value='val7')
+														span Копенгаген
+													label.option
+														input(type='radio', name='group49', value='val8')
+														span Копенгаген
+													label.option
+														input(type='radio', name='group49', value='val9')
+														span 1Копенгаген
+													label.option
+														input(type='radio', name='group49', value='val9')
+														span 12Копенгаген
+													label.option
+														input(type='radio', name='group49', value='val9')
+														span 142Копенгаген
+													label.option
+														input(type='radio', name='group49', value='val9')
+														span Копенгаген
+													label.option
+														input(type='radio', name='group49', value='val9')
+														span 1Копенгаген
+						.form-footer
+							button(type='sumbit').btn.btn-colored
+								span Найти билеты
+							a(href="#").link-border
+								span Все рейсы
+				.promo-slider
+					.promo-slider-inner.js-promoslider
+						a.promo-slider-item(href='#', style='background-image: url(img/promo.jpg)')
+						a.promo-slider-item(href='#', style='background-image: url(img/promo.jpg)')
+						a.promo-slider-item(href='#', style='background-image: url(img/promo.jpg)')
+						a.promo-slider-item(href='#', style='background-image: url(img/promo.jpg)')
+					.nav-dots
+	.wrapper.gray
+		.box
+			.tour-wrapper
+				.card-item.twoway
+					//если поездка в тулда обратно, то ставим модификатор .twoway, чтобы поменять иконку между городами
+					a(href="#").card-item-inner
+						.card-item-img
+							.card-item-img-inner(style='background-image:url(img/tour1.png)')
+						.card-item-content
+							.text-sm Туда и обратно
+							.card-item-value
+								.card-item-name.text-bold
+									span Минск
+									span Берлин
+								.card-item-price.text-bold
+									|105 
+									span byn 
+							i.card-item-link
+								svg(class="icon icon-drop")
+									use(xlink:href="#arr-circle" xmlns:xlink="http://www.w3.org/1999/xlink")
+
 	.title.h1 Услуги
 	.title.h2 Автобусные рейсы
 	.title.h3 Популярные рейсы

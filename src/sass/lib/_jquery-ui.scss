@@ -139,21 +139,32 @@
 }
 
 .ui-datepicker {
-    width: 17em;
-    padding: .2em .2em 0;
-    display: none
+    @include rem(width, 302px)
+    @include rem(padding, 15px 20px 0)
+    display: none;
+    border: none;
+    box-shadow: 0px 10px 27px 0px rgba(7, 35, 53, 0.11);
+    div::-webkit-scrollbar{
+        border-radius: 0px;
+        width: 5px;
+        background-color: #e8edf1;       
+    }
+
+    div::-webkit-scrollbar-thumb{
+        background-color: #ff9829;
+    }
 }
 
 .ui-datepicker .ui-datepicker-header {
     position: relative;
-    padding: .2em 0
+    @include rem(padding-bottom, 25px)
 }
 
 .ui-datepicker .ui-datepicker-prev,.ui-datepicker .ui-datepicker-next {
     position: absolute;
     top: 2px;
     width: 1.8em;
-    height: 1.8em
+    @include rem(height,30px)
 }
 
 
@@ -167,9 +178,15 @@
 }
 
 .ui-datepicker .ui-datepicker-title {
-    margin: 0 2.3em;
     line-height: 1.8em;
-    text-align: center
+    text-align: center;
+    .ui-button{
+        display: inline-block;
+        width: auto;
+        .ui-icon{
+            display: none;
+        }
+    }
 }
 
 .ui-datepicker .ui-datepicker-title select {
@@ -183,21 +200,41 @@
 
 .ui-datepicker table {
     width: 100%;
-    font-size: .9em;
+    @include rem(font-size,13px)
     border-collapse: collapse;
-    margin: 0 0 .4em
+    @include rem(margin-bottom ,20px)
+    font-family: $os;
+    font-weight: 400;
 }
 
 .ui-datepicker th {
-    padding: .7em .3em;
+    @include rem(padding ,7px 0)
     text-align: center;
-    font-weight: bold;
-    border: 0
+    border: 0;
+    @include rem(font-size,12px)
+    color: $grayl;
+    @include rem(width,35px)
+    @include rem(height,35px)
 }
 
 .ui-datepicker td {
     border: 0;
-    padding: 1px
+    padding: 0;
+    text-align: center;
+    @include rem(width,32px)
+    @include rem(height,32px)
+    @include rem(padding,4px 6px 8px)
+    a{
+        width: 100%;
+        height: 100%;
+        @include rem(line-height,21px)
+        border-radius: 50%;
+    }
+    a.ui-state-active{
+        color: $org;
+        font-weight: 600;
+        background-color: #f2f2f2;
+    }
 }
 
 .ui-datepicker td span,.ui-datepicker td a {
@@ -254,12 +291,17 @@
 .ui-menu .ui-menu-item {
     margin: 0;
     cursor: pointer;
+    transition: color .3s;
     list-style-image: url("data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7")
+    &:hover{
+        color: $org;
+    }
 }
 
 .ui-menu .ui-menu-item-wrapper {
     position: relative;
-    padding: 3px 1em 3px .4em
+    @include rem(padding, 4px 8px)
+    text-align: left;
 }
 
 .ui-menu .ui-menu-divider {
@@ -296,7 +338,9 @@
     position: absolute;
     top: 0;
     left: 0;
-    display: none
+    display: none;
+    @include rem(max-height, 210px)
+    overflow-y: auto;
 }
 
 .ui-selectmenu-menu .ui-menu {
@@ -321,7 +365,6 @@
 
 .ui-selectmenu-text {
     display: block;
-    margin-right: 20px;
     overflow: hidden;
     text-overflow: ellipsis
 }
@@ -411,12 +454,8 @@ input.ui-button::-moz-focus-inner,button.ui-button::-moz-focus-inner {
     font-size: 1em
 }
 
-.ui-widget.ui-widget-content {
-    border: 1px solid #c5c5c5
-}
 
 .ui-widget-content {
-    border: 1px solid #ddd;
     background: #fff;
     color: #333
 }
@@ -426,9 +465,7 @@ input.ui-button::-moz-focus-inner,button.ui-button::-moz-focus-inner {
 }
 
 .ui-widget-header {
-    border: 1px solid #ddd;
-    background: #e9e9e9;
-    color: #333;
+    color: $bl;
     font-weight: bold
 }
 

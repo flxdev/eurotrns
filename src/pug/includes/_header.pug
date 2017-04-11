@@ -29,8 +29,8 @@ include _mixins.pug
 	.box.header-bottom-inner
 		a(href="#", style='background-image:url(img/logo-header.png)').m-logo
 		.header-bottom-nav
-			ul.header-bottom-menu
-				li.header-bottom-menu-item
+			ul.header-bottom-menu.js-slideline
+				li.header-bottom-menu-item.active
 					a(href="#")
 						span Рейсы
 				li.header-bottom-menu-item
@@ -44,6 +44,7 @@ include _mixins.pug
 			.dropdown-select-wrapp.dropdown-trigger
 				.country-head
 					a(href="#").country-list-link
+						// флаг выбирается через id <use>: для британии gb раша ru и беларусь by,больше свг не заливал, если будут еще флаги то пихать картинку 
 						span.country-img
 							svg(class="icon icon-drop")
 								use(xlink:href="#by" xmlns:xlink="http://www.w3.org/1999/xlink")
@@ -55,15 +56,95 @@ include _mixins.pug
 					.dropdown-inner
 						.dropdown-content
 							ul.country-list
-								//- li.country-list-item
-								//- 	a(href="#").country-list-link
-								//- 		span.country-img
-								//- 			// флаг выбирается через id <use>: для британии gb раша ru и беларусь by,больше свг не заливал, если будут еще флаги то пихать картинку 
-								//- 			svg(class="icon icon-drop")
-								//- 				use(xlink:href="#by" xmlns:xlink="http://www.w3.org/1999/xlink")
-								//- 		span.country-text Беларусь
 								li.country-list-item
 									a(href="#").country-list-link
 										span.country-img
 											img(src="img/ru.svg", alt="россия")
 										span.country-text Россия
+			.dropdown-tel-wrapp
+				.dropdown-tel-inner
+					.dropdown-tel-content
+						//максимум 3 номера
+						a(href="tel:+375445000252").dropdown-tel-item 
+							span +375 (44) 5 000 252
+						a(href="tel:+375295000252").dropdown-tel-item 
+							span +375 (29) 5 000 252
+		//отображается с 1024
+		.header-bottom-mobnav
+			a(href="#").header-bottom-mobnav-acc
+				.header-btn-inner
+					svg(class="icon icon-drop")
+						use(xlink:href="#login" xmlns:xlink="http://www.w3.org/1999/xlink")
+			.header-bottom-mobnav-btn.js-menu
+				.header-btn-inner
+					.navTrigger
+						i
+						i
+						i
+
+.header-mobile-menu
+	.header-mobile-menu-outer
+		.header-mobile-menu-inner
+			.mobile-list-wrapper
+				ul.mobile-list.bold
+					li.mobile-menu-item.active
+						a(href="#")
+							span Рейсы
+					li.mobile-menu-item
+						a(href="#")
+							span Трансфер в аэропорт
+					li.mobile-menu-item
+						a(href="#")
+							span Аренда автобусов
+				ul.mobile-list
+					li.mobile-menu-item.active
+						a(href="#")
+							span Клиентам
+					li.mobile-menu-menu-item
+						a(href="#")
+							span Агентствам
+					li.mobile-menu-menu-item
+						a(href="#")
+							span Перевозчикам
+					li.mobile-menu-menu-item
+						a(href="#")
+							span Контакты
+					li.mobile-menu-menu-item
+						a(href="#")
+							span Бюро находок
+			.mobile-contact
+				+Infoblock('Бронирование')
+					li.info-block-item
+						//в ссылках может присутствовать спан с текстом
+						a.info-block-link(href="tel:+375295000252") +375 (29) 5000-252
+					li.info-block-item
+						a.info-block-link(href="tel:+375295000252") +375 (29) 5000-252
+					li.info-block-item
+						a.info-block-link(href="tel:+79055591545") +375 (29) 5000-252
+				+Infoblock('')
+					li.info-block-item
+						a.info-block-link(href="tel:+74952818817") +7 (495) 281-88-17
+							span Москва
+					li.info-block-item
+						a.info-block-link(href="tel:+78122442019") +7 (812) 244-20-19
+							span Санкт-Петербург
+			.mobile-soc
+				.soc-wrapp
+					a(href="#").soc-wrapp-item.tw
+						svg(class="icon icon-drop")
+							use(xlink:href="#tw" xmlns:xlink="http://www.w3.org/1999/xlink")
+					a(href="#").soc-wrapp-item.in
+						svg(class="icon icon-drop")
+							use(xlink:href="#inst" xmlns:xlink="http://www.w3.org/1999/xlink")
+					a(href="#").soc-wrapp-item.gp
+						svg(class="icon icon-drop")
+							use(xlink:href="#g+" xmlns:xlink="http://www.w3.org/1999/xlink")
+					a(href="#").soc-wrapp-item.fb
+						svg(class="icon icon-drop")
+							use(xlink:href="#fb" xmlns:xlink="http://www.w3.org/1999/xlink")
+					a(href="#").soc-wrapp-item.ok
+						svg(class="icon icon-drop")
+							use(xlink:href="#ok" xmlns:xlink="http://www.w3.org/1999/xlink")
+					a(href="#").soc-wrapp-item.vk
+						svg(class="icon icon-drop")
+							use(xlink:href="#vk" xmlns:xlink="http://www.w3.org/1999/xlink")

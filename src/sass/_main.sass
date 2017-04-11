@@ -78,11 +78,11 @@ body
 	font-family: $os
 	min-width: 320px
 	& ::selection
-		background-color: #fcef8d
-		color:#000
+		background-color: $org
+		color: $white
 	& ::-moz-selection
-		background-color: #fcef8d
-		color:#000
+		background-color: $org
+		color: $white
 
 body, .out
 	width: 100%
@@ -93,6 +93,12 @@ body, .out
 	&.open
 		+r(991)
 			overflow: hidden
+	&.menu-open
+		+r(1024)
+			position: fixed
+			// overflow: hidden
+			// width: 100%
+			// height: 100%
 .out
 	position: relative
 	-webkit-overflow-scrolling: touch;
@@ -124,22 +130,23 @@ body, .out
 		display: block
 		height: 100%
 	&__header
-		background: $bl
+		// background: $bl
 		display: flex
 		flex-wrap: wrap
 		justify-content: space-between
 		align-items: center
 		position: relative
 		visibility: visible
+		+tr(transform .3s)
 	&__footer
 		position: relative
 		flex: 0 0 auto
 		background-color: #f0f4f7
 		flex-flow: row wrap
 	&__content
-		+rem(padding,125px 10px 100px 10px)
+		// +rem(padding,0 0 0100px)
 		flex: 1 0 auto
-		background: $bl
+		background: red
 		width: 100%
 		* 
 		+rm(768)
@@ -180,18 +187,128 @@ body, .out
 	width: 100%
 	display: block
 	margin: 0 auto
-	overflow: hidden
 	+padlr(15px)
-
+.wrapper
+	// overflow: hidden
+	&.gray 
+		background-color: #f0f4f7
 //=====================================//
 //             header styles
 //=====================================//
+#slide-line
+	display: inline-block
+	height: 3px
+	background-color: $org
+	position: absolute;
+	+rem(bottom,-6px)
+	+r(1024)
+		display: none
 .page
 	&__header
+		&:not(.is-hidden)
+			.dropdown-tel-wrapp
+				animation: fadein .5s
+		&.menu-open
+			.header-bottom-mobnav,.m-logo
+				z-index: 110
+			.header-bottom-nav
+				display: none
 		&.is-hidden
-			.header-bottom
+			+r(1024)
+				.header-bottom
+					+rem(height,55px)
+					.m-logo
+						+rem(width, 150px)
+					&-nav
+						transform: translateY(-20%)
+						opacity: 0
+						visibility: hidden
+			+r(1260)
 				.m-logo
-					padding-bottom: 4%
+					margin-left: 0
+				.header-bottom-menu
+					white-space: nowrap
+					+rem(margin-left, 15px)
+				.header-bottom-menu-item a
+					+padlr(16px)
+				.dropdown-tel-wrapp
+					+rem(max-width,200px)
+					.dropdown-tel-item 
+						+rem(font-size,17px)
+						+rem(padding, 20px )
+			+rm(1024)
+				transform: translateY(-3.75rem)
+				#slide-line
+					bottom: 0
+				.header-bottom
+					background-color: $bl
+					.m-logo
+						padding-bottom: 3%
+						+rem(max-width, 200px)
+						+rem(margin-top,-5px)
+
+				.top-nav-botton.fixed
+					transform: translateY(3.75rem)
+					border-left-color: #2e72d0
+				.header
+					&-bottom
+						+rem(height,60px)
+						&-inner
+							max-width: 100%
+							+rem(padding-right,195px)
+						&-menu-item
+							a 
+								+rem(padding-top,0px)
+						&-contact
+							+rem(padding-top,15px)
+							+rem(width,350px)
+						&-nav
+							margin-left: 0
+				.dropdown-select-wrapp,.dropdown-tel-wrapp
+					height: auto
+					.dropdown-target
+						+rem(margin-top,-15px)
+				.dropdown-tel-content
+					background-color: $bl
+				.dropdown-tel-inner
+					+rem(max-height,60px)
+					transition-delay: .3s
+					animation: fadein .5s forwards
+					&:hover
+						+rem(max-height,180px)
+				.dropdown-tel-item
+					+rem(padding,17px 30px)
+					span 
+						position: relative
+						&:before
+							height: 1.5px
+							display: inline-block
+							content: ''
+							position: absolute
+							left: 0
+							width: 100%
+							bottom: 0
+							background-image: linear-gradient(90deg,$org 0,hsla(0,0%,100%,0) 30%);
+							background-position: bottom;
+							background-size: 6px 2px;
+							background-repeat: repeat-x;
+					&:hover
+						span 
+							&:before
+								display: none
+								
+				.dropdown-tel-wrapp
+					+rem(width,238px)
+					+rem(margin-top,-15px)
+				// .dropdown-select-wrapp
+				// 	+rem(margin-right,-25px)
+@keyframes fadein
+	0% 
+		opacity: 0
+	50% 
+		opacity: 0
+	90%
+		opacity: 1
 .header
 	&-bottom
 		width: 100%
@@ -199,12 +316,86 @@ body, .out
 		// +rem(height,60px)
 		background-color: transparent 
 		+tr(background-color .3s)
+		+r(1024)
+			+rem(height,80px)
+			+tr(height .3s)
+			background-color: $bl
 		.m-logo
 			+rem(max-width,225px)
 			width: 20%
 			background-position: left center
 			+rem(margin-left,5px)
 			+tr(padding-bottom .3s)
+			+r(1024)
+				+tr(width .3s)
+		&-mobnav
+			font-size: 0
+			width: 50%
+			text-align: right
+			
+			+rm(1024)
+				display: none
+			&-btn 
+				cursor: pointer;
+				&.active
+					.navTrigger i 
+						&:first-child
+							animation: inT .8s forwards
+						&:nth-child(2)
+							animation: inM .8s forwards
+						&:nth-child(3)
+							animation: inBtm .8s forwards
+			&-acc,&-btn 
+				display: inline-block
+				+rem(width,82px)
+				vertical-align: top
+				height: 100%
+				position: relative
+				text-align: center
+				+r(600)
+					width: 50%
+					+rem(max-width,82px)
+				+r(440)	
+					width: 40%
+				.header-btn-inner
+					+coverdiv
+					+vertical
+					+rem(padding, 16px 0)
+					text-align: right
+					
+				svg 
+					display: inline-block
+					width: 100%
+					height: 100%
+					stroke: $white
+					vertical-align: middle
+					+rem(max-height, 25px)
+					
+				.navTrigger
+					+rem(width,33px)
+					+rem(height,23px)
+					margin: auto;
+					display: inline-block
+					vertical-align: middle
+					
+					i 
+						background-color: #fff;
+						border-radius: 2px;
+						content: "";
+						display: block;
+						width: 100%;
+						height: 2px;
+						&:first-child
+							animation: outT .8s backwards;
+							animation-direction: reverse;
+						&:nth-child(2)
+							margin: 8px 0;
+							animation: outM .8s backwards;
+							animation-direction: reverse;
+						&:nth-child(3)
+							animation: outBtm .8s backwards;
+							animation-direction: reverse;
+				
 		&-inner
 			height: 100%
 			width: 100%
@@ -212,16 +403,50 @@ body, .out
 			flex-flow: row nowrap
 			justify-content: space-between
 			overflow: visible
+
+			.m-logo
+				+r(1024)
+					+rem(width, 200px)
+					padding: 0
+					height: 100%
+					margin-left: 0
+				+r(600)
+					width: 45%
+					+rem(max-width, 175px)	
 		&-nav
 			+rem(margin-left,-42px)
+			+r(1024)
+				position: absolute
+				+rem(bottom, -50px)
+				right: 0
+				width: 100%
+				text-align: center
+				transition: transform .3s, opacity .3s, visibility .3s
+				transform: none
+
+				
 		&-menu
 			font-size: 0
 			height: 100%
+			+r(600)
+				display: flex
+				flex-flow: row nowrap
+				justify-content: space-between
 			&-item
 				height: 100%
 				display: inline-block
 				vertical-align: top
 				height: 100%
+				+r(600)
+					a
+						+padlr(10px)
+						+rem(padding-top,16px)
+						+rem(padding-bottom,16px)
+				+r(420)
+					a 
+						+padlr(5px)
+						span 
+							+rem(font-size,13px)
 				a 
 					line-height: 1;
 					color: $white
@@ -241,18 +466,32 @@ body, .out
 						
 		&-contact
 			width: 310px
-			height: 1px
+			// height: 1px
 			+rem(padding-top,34px)
+			display: flex
+			flex-flow: row nowrap
+			justify-content: space-between
+			+r(1024)
+				display: none
+			.dropdown-select-wrapp,.dropdown-tel-wrapp
+				// display: inline-block
+				// vertical-align: top
+				// min-height: 1px
+				
 	&-top
 		background-color: #283342
 		width: 100%
 		+rem(height,60px)
+		+r(1024)
+			display: none
+			
 		&-inner
 			height: 100%
 			width: 100%
 			display: flex
 			flex-flow: row nowrap
 			justify-content: space-between
+
 		&-nav
 			height: 100%
 			position: relative
@@ -281,13 +520,24 @@ body, .out
 			border-left: 1px solid #46535b
 			+padlr(30px)
 			+rem(min-width,186px)
+			+r(1280)
+				+padlr(15px)
+				+rem(min-width,176px)
 			svg
 					stroke: #d9dfec
 			&:hover,&.active
 				span 
 					color: $white
-
+			&:not(.fixed)
+				// +rem(margin-right, 195px)
 			&.fixed
+				+tr(transform .3s)
+
+				// position: fixed
+				// right: 0
+				// top: 0
+				// z-index: 5
+				// +rem(height,60px)
 				span
 					color: #d9dfec
 				svg
@@ -331,9 +581,563 @@ body, .out
 		&-item
 			+rem(width,60px)
 
+//=====================================//
+//             header mobile menu
+//=====================================//
+.header-mobile
+	&-menu
+		position: fixed
+		left: 0
+		top: 0
+		height: 100vh
+		width: 100vw
+		z-index: 100
+		background-color: transparentize($bl, .7)
+		text-align: right
+		opacity: 0
+		visibility: hidden
+		transition: opacity .25s,visibility .25s
+		transition-delay: .25s
+		&.active
+			transition-delay: 0s
+			opacity: 1
+			visibility: visible
+			.header-mobile-menu-outer
+				transform: none
+				transition-delay: .25s
+		+rm(1024)
+			display: none
+		&-outer
+			+rem(padding-bottom, 20px)
+			height: 100%
+			+rem(padding-top,80px)		
+			background-color: $bl
+			width: 100%
+			display: inline-block
+			+rem(max-width, 420px)
+			transform: translateX(100%)
+			transition-delay: 0s
+			+tr(transform .25s)
+		&-inner
+			overflow-y: auto
+			max-height: 90%
+			+padlr(16px)
+			+rem(padding-bottom, 30px)
+			li 
+				display: block
+				text-align: center
 
+//=====================================//
+//         checkbox
+//=====================================//			
 
+.select-item
+  display: inline-block;
+  width: 100%;
+  position: relative;
+  +nosel
+  &:hover,&.hover
+    .select-text
+      transition: color .3s;
+    .select-checked
+      border-color: $focus;
+      transition: border-color .3s ease;
+  .select-label
+    display: inline-block;
+    +rem(min-width, 15px)
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 0
+    .select-main
+      float: left;
+      position: relative;
+      display: inline-block;
+  .select-text
+    +rem(font-size, 15px)
+    color: $blk2;
+    display: block;
+    overflow: hidden;
+    cursor: pointer;
+    +rem(padding-left, 15px)
+    transition: color .3s;
+    font-weight: 600
+    line-height: 1.6;
+  .select-real
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    bottom: 0
+    right: 0
+    width: 100%
+    height: 100%
+    &:checked +.select-checked:before,&.active +.select-checked:before
+      opacity: 1;
+    &:checked +.select-checked,&.active +.select-checked
+      border: 1px solid #bebabb;
+  .select-checked
+    +rem(width, 22px)
+    +rem(height, 22px)
+    display: block;
+    +rem(margin-top,1px);
+    background: #fff;
+    border: 1px solid #bebabb
+    border-radius: 3px;
+    position: relative;
+    -o-transition: all .1s ease;
+    transition: all .1s ease;
+    &:before
+      content: '';
+      +rem(width, 18px)
+      +rem(height, 18px)
+      background: url(../img/icons/checkbox.svg) no-repeat;
+      display: block;
+      position: absolute;
+      +rem(left, 3px)
+      +rem(bottom, 2px)
+      opacity: 0;
+      transition: all .2s ease;
+.select-check.active
+	border-color: $focus
+	border-bottom-left-radius: 0
+	border-bottom-right-radius: 0
+	.arr-down
+		transform: scale(1,-1)
+		svg
+			fill: $org !important
+	.dropdown-target
+		transform: translateY(0)
+		opacity: 1
+		visibility: visible
+.select-check
+	display: inline-block
+	vertical-align: top
+	width: 100%
+	+rem(margin-top,-1px)
+	border-width: 1px;
+	border-color: #e3e3e3
+	border-style: solid;
+	+rem(border-radius,3px)
+	+rem(min-height,39px)
+	.arr-down
+		svg
+			fill: #B9C8D1;
+	.selects
+		width: 100%
+		+padlr(15px)
+		color: $blk2
+		font-weight: 600
+		cursor: pointer
+		text-align: left
+		+rem(line-height,35px)
+		font-family: $os
+		position: relative
+		.btn-text
+			+rem(margin-top,1px)
+			display: inline-block
+			+rem(font-size,15px)
+			white-space: nowrap
+			width: 100%
+			text-overflow: ellipsis
+			// overflow-x: hidden
+			&:not(.active)
+				&:before,&:after
+					content: '--'
+					display: inline-block
+					vertical-align: middle
+					+rem(margin-top,-5px)
+					+rem(font-size,15px)
+					font-weight: 600
+				&:before
+					+rem(padding-right, 3px)
+				&:after
+					+rem(padding-left, 3px)			
+	&.disabled
+		opacity: .5
+		pointer-events: none
+	&.error
+		border-color: red
+	div::-webkit-scrollbar
+		border-radius: 0px;
+		width: 5px
+		background-color: #e8edf1
+	div::-webkit-scrollbar-thumb
+		background-color: #ff9829
+	.dropdown-inner
+		+rem(padding-top,10px)
+		+rem(padding-bottom,10px)
+		+padlr(10px)
+		box-shadow: 0px 10px 27px 0px rgba(7, 35, 53, 0.11);
+	.dropdown-content
+		overflow-y: auto
+		+rem(max-height,242px)
+	.select-list
+		font-size: 0
+	.option
+		display: block
+		position: relative
+		cursor: pointer
+		margin: 0
+		&:hover
+			span 
+				color: $org
+		input
+			position: absolute
+			left: 0
+			right: 0
+			bottom: 0
+			top: 0
+			opacity: 0
+			&:checked ~span			
+				color: $org
+		span
+			display: inline-block
+			width: 100%
+			+rem(font-size,15px)
+			font-weight: 600
+			line-height: 1.6;
+			color: $blk2
+			+rem(padding,8px 0)
+			+tr(color .3s)
+
+//=====================================//
+//         datepicker
+//=====================================//
+.ui-datepicker
+	+nosel
+	.ui-datepicker-next
+		right: 0
+		transform: rotate(-90deg)
+	.ui-datepicker-prev
+		transform: rotate(90deg)
+	.ui-datepicker-prev,.ui-datepicker-next
+		cursor: pointer
+		background-repeat: no-repeat
+		+rem(background-size, 13px 20px)
+		background-position: center
+		background-image: url(../img/icons/strelka.svg)
+//=====================================//
+//         inputs
+//=====================================//	
+.input-item
+	display: inline-block
+	vertical-align: top
+	+rem(padding-right,6px)
+	&.s100
+		width: 100%
+	&.s50
+		width: 50%		
+.input-wrapper
+	position: relative;
+	+rem(margin-bottom,15px)
+	&.has-error
+		.input-main
+			border-color: red
+	// &.req
+	// 	&>label,.label
+	// 		&:after
+	// 			content: '*'
+	// 			color: $active
+	// 			+rem(font-size,23px)
+	// 			line-height: 0
+	// 			display: inline-block
+	// 			+rem(margin-left,3px)
+	// 			vertical-align: middle
+	// 			font-weight: 100
+				
+	label,.label
+		display: inline-block;
+		width: 100%;
+		+rem(margin-bottom,4px)
+		white-space: nowrap;
+		+rem(font-size,12px)
+		color: $grayy2
+		line-height: 1.714;
+		text-align: left
+		+nosel
+	.input-main
+		border-width: 1px;
+		border-color: #e3e3e3
+		border-style: solid;
+		+rem(border-radius,3px)
+		+rem(min-height,39px)
+		+rem(line-height,38px)
+		width: 100%
+		+padlr(15px)
+		color: $blk2
+		font-weight: 600
+		font-family: $os
+		+rem(font-size,15px)
+		&.datepicker
+			cursor: pointer
+			&~ svg
+				position: absolute
+				top: 53%
+				pointer-events: none
+				+rem(width,19px)
+				+rem(height,19px)
+				+rem(right, 12px)
+		&:focus
+			border-color: $focus
+		+placeholder
+			color: #c5c5c5
+			+rem(font-size,14px)
+	.help-block
+		position: absolute
+		+rem(bottom, -15px)
+		+rem(font-size,12px)
+		color: red
+		left: 0
+
+.mobile
+	&-list
+		+rem(padding,0 0 24px 0)
+		&-wrapper
+			border-bottom: $bby
+		li 
+			a 
+				+rem(font-size,14px)
+				color: rgb(146, 155, 174);
+				line-height: 2.077;
+				+rem(padding, 5px 10px)
+				&:hover,&.active
+					color: $org
+
+		&.bold
+			padding: 0
+			li
+				a 
+					+rem(font-size,17px)
+					color: $white
+					line-height: 1.687;
+					+rem(padding, 8px 10px)
+	&-soc
+
+		.soc-wrapp
+			max-width: 120%
+			text-align: center
+			+r(340)
+				+rem(margin, 0 -12px)
+			// +r(340)
+			// 	.soc-wrapp-item
+			// 		+rem(margin, 0 11px)
+	&-contact
+		+rem(padding-top,25px)
+		.info-block-head
+			text-align: center
+		.info-block-link
+			font-weight: 400
+			color: $white
+			position: relative
+			span 
+				position: absolute
+				left: 0
+				right: 0
+				+rem(top, -12px)
+				text-align: center
+.modal-layout
+	display: none
+.index-wrapper
+	background-color: $bl
+	+cover
+	background-position: top 55px right 
+	position: relative
+	backface-visibility: hidden
+	background-size: 100% auto 
+	background-attachment: fixed
+	&:after
+		content: ''
+		position: absolute
+		bottom: 0
+		z-index: 0
+		background-color: #f0f4f7
+		left: 0
+		right: 0
+		+rem(height,70px)
+	.promo
+		&-wrapper
+			position: relative
+			z-index: 1
+.page-margin
+	+rem(padding-top,155px)
+.promo
+	&-wrapper
+		display: flex
+		flex-flow: row nowrap
+		align-items: stretch
+		box-shadow: 0px 23px 90px 0px rgba(0, 68, 111, 0.2);
+		+r(850)
+			flex-flow: row wrap	
+			font-size: 0
+			.promo-form,.promo-slider
+				max-width: 100%
+				width: 100%
+			.promo-form
+				order: 2
+				margin-top: -1px
+				.input-item
+					&.s100
+						width: 50%
+						.select-item
+							+rem(margin-top,20px)
+			.promo-slider
+				height: 0
+				padding-bottom: 56.25%
+				position: relative
+				order: 1
+				&-inner
+					position: absolute
+					+coverdiv
+		+r(600)
+			.promo-form
+				.input-item
+					&.s100,&.s50
+						width: 100%
+						.select-item
+							+rem(margin-top,0)		
+				
+	&-form
+		background-color: #FFF	
+		width: 40%
+		+rem(max-width,477px)
+		flex-shrink: 0
+		+rem(padding, 38px 38px 55px 38px)
+		+r(1024)
+			+rem(padding, 30px 30px 45px 30px)
+		+r(600)
+			+rem(padding, 30px 18px 45px 18px)
+		.input-form
+			font-size: 0
+			+rem(margin-right,-6px)
+			+rem(margin-top,30px)
+			.form-footer
+				.link-border
+					+rem(margin, 10px 40px)
+	&-slider
+		+rem(flex-basis, 400px)
+		flex-grow: 1
+		width: 60%
+		+rem(max-width,707px)
+		position: relative
+		&-inner,&-item
+			height: 100%
+		.slick-list,.slick-track
+			height: 100%
+		&-item
+			+cover
+			background-position: right center
+		.nav-dots
+			position: absolute
+			+rem(bottom,23px)
+			+rem(right,15px)
 			
+			.slick-dots
+				text-align: right
+.nav-dots
+	display: inline-block
+	width: 100%
+	.slick-dots
+		width: 100%
+		li 
+			display: inline-block
+			vertical-align: top
+			+rem(margin,0 4px)
+			button
+				+rem(width,13px)
+				+rem(height,13px)
+				border: none
+				box-shadow: 0px 1px 4px 0px rgba(1, 42, 68, 0.35);
+			&.slick-active
+				button
+					background-color: $bl
+.input-form
+	.form-footer
+		+rem(margin-top,10px)		
+				
+
+.link-border
+	display: inline-block
+	+rem(font-size,15px)
+	font-weight: 600
+	color: $blk2
+	span 
+		display: inline-block
+		width: 100%
+		position: relative
+		line-height: 1.6;
+		&:before
+			content: ''
+			display: inline-block
+			height: 1px
+			background-color: $focus
+			width: 100%
+			left: 0
+			position: absolute
+			+rem(bottom, -1px)
+			+tr(width .3s)
+	&:hover
+		span:before
+			width: 0
+			
+
+
+
+@keyframes inM
+  50%
+    transform: rotate(0deg)
+    opacity: 1
+
+  100%
+    transform: rotate(45deg)
+
+@keyframes outM
+  50%
+    transform: rotate(0deg)
+
+  100%
+    transform: rotate(45deg)
+
+@keyframes inT
+  0%
+    transform: translateY(0px) rotate(0deg)
+    opacity: 1
+
+  50%
+    transform: translateY(10px) rotate(0deg)
+
+  100%
+    transform: translateY(10px) rotate(135deg)
+
+@keyframes outT
+  0%
+    transform: translateY(0px) rotate(0deg)
+
+  50%
+    transform: translateY(10px) rotate(0deg)
+
+  100%
+    transform: translateY(10px) rotate(135deg)
+
+@keyframes inBtm
+  0%
+    transform: translateY(0px) rotate(0deg)
+    opacity: 1
+
+  50%
+    transform: translateY(-10px) rotate(0deg)
+
+  100%
+    transform: translateY(-10px) rotate(135deg)
+
+@keyframes outBtm
+  0%
+    transform: translateY(0px) rotate(0deg)
+
+  50%
+    transform: translateY(-10px) rotate(0deg)
+
+  100%
+    transform: translateY(-10px) rotate(135deg)			
 
 
 
@@ -454,50 +1258,17 @@ body, .out
 	+rem(font-size,13px)
 	line-height: 2;
 	color: $grayf
+.text-bold
+	+rem(font-size,15px)
+	font-weight: 600
+	line-height: 1.6;
+	color: $blk2
+	+tr(color .3s)
 
 
 
-// //burger
-// .hamburger
-//   +rem(width, 24px)
-//   +rem(height, 18px)
-//   +rem(top, 35px)
-//   left: 0
-//   +r(991)
-//     +rem(top, 15px)
-//   &-inner 
-//     width: 100%
-//     height: 100%
-//     +rem(padding, 15px 10px)
-//     cursor: pointer
-//     position: relative
-//     text-align: center
-//     div 
-//       display: block
-//       position: relative
-//       +rem(width, 24px)
-//       +rem(height, 17px)
-//     span 
-//       height: 3px
-//       width: 100%
-//       display: block
-//       background-color: #000
-//       position: absolute
-//       opacity: 1
-//       left: 0
-//       will-change: transform
-//       transform: rotate(0deg)
-//       transition: 0.2s ease-in
-//       z-index: 1
-//       &:nth-child(1) 
-//         top: 0
-//       &:nth-child(2)
-//         +rem(top, 8.5px)
-//       &:nth-child(3)
-//         +rem(top, 18px)
-//         z-index: 4
 .dropdown-select-wrapp
-	+rem(max-width,124px)
+	+rem(width,122px)
 	cursor: pointer
 	&:hover
 		transition-delay: .3s
@@ -508,11 +1279,15 @@ body, .out
 		&-item
 			display: block
 			font-size: 0
+
 		&-link
 			+rem(padding,9px 22px 9px 10px)
 			font-size: 0
 			+tr(background-color .3s)
 			background-color: $bl
+			width: 100%
+			display: block
+			white-space: nowrap
 			&:hover
 				background-color: #275ca5
 	&-img,&-text
@@ -538,13 +1313,16 @@ body, .out
 		+rem(font-size,13px)
 		line-height: 1
 		+rem(padding-left,12px)
+	&-head
+		position: relative
+		
 .arr-down
 	display: inline-block
-	+rem(width,10px)
+	+rem(width,9px)
 	position: absolute
 	// top: 50%
 	top: 0
-	+rem(right,10px)
+	+rem(right,8px)
 	height: 100%
 	+vertical
 	svg
@@ -552,8 +1330,36 @@ body, .out
 		stroke: white
 		display: inline-block
 		vertical-align: middle
-		// +rem(margin-top,3px)
-		
+		+rem(margin-top,1px)
+.dropdown-tel
+	&-wrapp
+		+rem(width, 185px)
+		position: relative
+		// +rem(margin-right,-15px)
+		// +rem(margin-top,-5px)
+	&-inner
+		position: absolute
+		top: 0
+		right: 0
+		left: 0
+		overflow: hidden
+		+tr(max-height .3s)
+		+rem(max-height,33px)
+		transition-delay: .15s
+
+		&:hover
+			+rem(max-height,132px)
+
+	&-item
+		display: block
+		+rem(font-size,19px)
+		line-height: 1.263;
+		font-weight: 500
+		+rem(padding, 5px 0px)
+		+rem(letter-spacing,-0.4px)
+		text-align: right
+	&-content
+		+tr(background-color .3s)
 
 .dropdown-trigger
 	position: relative
@@ -561,7 +1367,6 @@ body, .out
 		.arr-down
 			svg
 				transform: scale(1,-1)
-
 		.dropdown-target
 			transition-delay: .15s
 			opacity: 1
@@ -586,7 +1391,6 @@ body, .out
 	&.small-dropdown-target
 		transform: translateY(-5%)
 		.dropdown-inner
-			
 			background: $bl
 			box-shadow: 0px 5px 9px 0px rgba(7, 35, 53, 0.25);
 	.dropdown-inner
@@ -1044,3 +1848,144 @@ body, .out
 			+rem(max-width, 800px)
 			margin: 0 auto
 
+.tour-wrapper
+	+rem(padding-top, 110px)
+	+rem(padding-bottom, 67px)
+	+rem(margin-right,-30px)
+	overflow: hidden
+	font-size: 0
+
+
+//=====================================//
+//              small-cards
+//=====================================//
+.card-item
+	display: inline-block
+	vertical-align: top
+	width: 33.33%
+	+rem(padding-right,30px)
+	&.twoway
+		.card-item-name
+			span 
+				&:first-of-type
+					&:after
+						content: '\21C6'
+	&-inner
+		display: flex
+		flex-flow: row nowrap
+		align-items: stretch
+		width: 100%
+		font-size: 0
+		position: relative
+		z-index: 0
+		&:hover
+			&:before
+				opacity: 1
+			.card-item-img
+				&:before,&:after
+					transform: skew(-13.7deg) translateX(0)
+				&:after
+					transition-delay: 0.175s
+				&:before
+					transition-delay: 0s
+			.card-item-link
+				opacity: 1
+			.card-item-name
+				color: $bl
+		&:before
+			content: ''
+			+coverdiv
+			box-shadow: 0px 10px 27px 0px rgba(7, 35, 53, 0.11);
+			+tr(opacity .3s)
+			opacity: 0
+			z-index: -1
+	&-img,&-content
+	&-img 
+		width: 45.5%
+		padding-bottom: 45.5%
+		position: relative
+		overflow: hidden
+		background-color: darken($grayf, 5)
+		flex-shrink: 0
+		&-inner
+			+coverdiv
+			+cover
+		&:before,&:after
+			content: ''
+			display: inline-block
+			position: absolute
+			height: 100%
+			width: 50%
+			transform: skew(-13.7deg) translateX(-100%)
+			top: 0
+			bottom: 0
+			transition: transform .3s cubic-bezier(0.75, 0, 0.125, 1)
+		&:before
+			right: 86%
+			z-index: 1
+			background-color: rgb(15, 74, 155);
+			opacity: 0.71;
+			transition-delay: 0.175s
+		&:after
+			background-color: $bl
+			z-index: 2
+			right: 96%
+	&-content 
+		background-color: $white
+		width: 64.5%
+		position: relative
+		+vertical
+		text-align: left
+		.card-item-link
+			position: absolute
+			+rem(width,28px)
+			+rem(height,28px)
+			opacity: 0
+			+tr(opacity .3s)
+			+rem(right,11px)
+			+rem(top,11px)
+		.text-sm
+			position: absolute
+			width: 100%
+			left: 0
+			right: 0
+			+rem(padding-right, 50px)
+			+rem(padding-left, 20px)
+			+rem(top, 12px)
+			text-align: left
+			color: $grayl	
+	&-value
+		display: inline-block
+		width: 100%
+		vertical-align: bottom
+		+rem(padding, 35px 20px 13px)
+	&-name
+		+tr(color .3s)
+		span 
+
+			display: inline-block
+			&:first-of-type
+				&:after
+					content: '\21C6'
+					display: inline-block
+					+rem(font-size,16px)
+					font-weight: 600
+					font-family: $os
+					line-height: 1;
+					color: $blk2
+					+tr(color .3s)
+					+padlr(5px)
+	&-price
+		display: block
+		color: $focus
+		text-transform: uppercase
+		font-weight: 700
+				
+
+
+
+
+		
+
+
+		
