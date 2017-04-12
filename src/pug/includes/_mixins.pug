@@ -14,3 +14,23 @@ mixin Infoblock(head)
 		ul.info-block-list
 			if block
 				block
+mixin smallCard(cls,img,way, val1,val2,price)
+	.card-item(class=cls)
+		a(href="#").card-item-inner
+			.card-item-img
+				.card-item-img-inner(style='background-image:url(img/tour/'+img+'.png)')
+			.card-item-content
+				if way = 1
+					.text-sm Туда и обратно
+				else
+					.text-sm В одну сторону
+				.card-item-value
+					.card-item-name.text-bold
+						span #{val1}
+						span #{val2}
+					.card-item-price.text-bold
+						|#{price}
+						span byn 
+				i.card-item-link
+					svg(class="icon icon-drop")
+						use(xlink:href="#arr-circle" xmlns:xlink="http://www.w3.org/1999/xlink")

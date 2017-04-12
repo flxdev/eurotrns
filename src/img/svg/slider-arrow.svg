@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 38.7 35.7" style="enable-background:new 0 0 38.7 35.7;" xml:space="preserve">
+<style type="text/css">
+	.slider-arr0{fill:none;stroke:#000000;stroke-width:3;stroke-miterlimit:10;}
+	.slider-arr1{fill:none;}
+</style>
+<g>
+	<polyline class="slider-arr0" points="19.8,1.1 36.6,17.9 19.8,34.7 	"/>
+	<line class="slider-arr1" x1="36.6" y1="17.9" x2="0" y2="17.9"/>
+	<line class="slider-arr0" x1="35.5" y1="17.9" x2="0" y2="17.9"/>
+</g>
+</svg>
