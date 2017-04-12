@@ -34,3 +34,25 @@ mixin smallCard(cls,img,way, val1,val2,price)
 				i.card-item-link
 					svg(class="icon icon-drop")
 						use(xlink:href="#arr-circle" xmlns:xlink="http://www.w3.org/1999/xlink")
+mixin news(type,vid,vidcls,date,name,text)
+	article.news-item(class=type)
+		a(href="#").news-item-inner
+			if type == 'big'
+				.news-item-img
+					.card-item-img-inner(style='background-image:url(img/news1.jpg)')
+				.news-item-content
+					//либо .promo либо .news
+					.small-block(class=vidcls)
+						span #{vid}
+					.news-item-content-inner
+						time.text-sm #{date}
+						.news-item-name #{name}
+						.text-2 #{text}
+			else
+				.news-item-content
+					.small-block(class=vidcls)
+						span #{vid}
+					.news-item-content-inner
+						time.text-sm #{date}
+						.news-item-name #{name}
+						.text-2 #{text}			

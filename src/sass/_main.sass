@@ -112,6 +112,8 @@ body, .out
 	top: 0
 	z-index: 20
 	visibility: hidden
+	transform: translateX(0)
+
 #logob
 	width: 100%
 	height: 100%
@@ -124,7 +126,7 @@ body, .out
 		flex-wrap: nowrap
 		flex-direction: column
 		min-height: 100%
-		overflow-x: hidden
+		overflow: hidden
 	&__outer
 		width: 100%
 		display: block
@@ -138,6 +140,7 @@ body, .out
 		position: relative
 		visibility: visible
 		+tr(transform .3s)
+		// backface-visibility: hidden
 	&__footer
 		position: relative
 		flex: 0 0 auto
@@ -251,6 +254,7 @@ body, .out
 				.top-nav-botton.fixed
 					transform: translateY(3.75rem)
 					border-left-color: #2e72d0
+					z-index: 2
 				.header
 					&-bottom
 						+rem(height,60px)
@@ -533,6 +537,8 @@ body, .out
 				// +rem(margin-right, 195px)
 			&.fixed
 				+tr(transform .3s)
+				position: relative
+				z-index: 2
 
 				// position: fixed
 				// right: 0
@@ -621,7 +627,7 @@ body, .out
 			+tr(transform .25s)
 		&-inner
 			overflow-y: auto
-			max-height: 90%
+			max-height: 96%
 			+padlr(16px)
 			+rem(padding-bottom, 30px)
 			li 
@@ -966,7 +972,13 @@ body, .out
 		display: flex
 		flex-flow: row nowrap
 		align-items: stretch
-		box-shadow: 0px 23px 90px 0px rgba(0, 68, 111, 0.2);
+		position: relative
+		z-index: 0
+		&:after
+			content: ''
+			+coverdiv
+			z-index: -1
+			box-shadow: 0px 23px 90px 0px rgba(0, 68, 111, 0.2);
 		+r(850)
 			flex-flow: row wrap	
 			font-size: 0
@@ -1013,7 +1025,7 @@ body, .out
 			+rem(margin-top,30px)
 			.form-footer
 				.link-border
-					+rem(margin, 10px 40px)
+					+rem(margin, 10px 0 0 40px)
 	&-slider
 		+rem(flex-basis, 400px)
 		flex-grow: 1
@@ -1253,7 +1265,6 @@ body, .out
 	line-height: 1.43;
 	color: $text
 .text-3
-	max-width: 240px
 	+rem(font-size,13px)
 	color: $text
 	line-height: 1.85;
@@ -2039,6 +2050,8 @@ body, .out
 		color: $blk2
 		line-height: 2;
 		+rem(padding-right,5px)
+		+r(600)
+			+rem(font-size,17px)
 
 .sort-select
 	position: relative
@@ -2055,6 +2068,8 @@ body, .out
 		line-height: 2;
 		cursor: pointer
 		+rem(padding-right,20px)
+		+r(600)
+			+rem(font-size,17px)
 		span 
 			position: relative
 			&:before
@@ -2082,6 +2097,8 @@ body, .out
 		+rem(min-width,193px)
 		+rem(left, -15px)
 		+rem(margin-top,-5px)
+		+r(700)
+			+rem(left, -35px)
 	
 
 
@@ -2158,6 +2175,7 @@ body, .out
 			+rem(left,-13px)
 			+rem(height,90px)
 			+rem(width,122px)
+			display: block
 			top: 0	
 			will-change: margin-left
 			+tr(left .3s)
@@ -2191,17 +2209,25 @@ body, .out
 				text-align: center
 		&-body
 			+rem(margin-top,17px)
+			display: block
+			&:hover
+				.link-border
+					span:before
+						width: 0
 			+r(700)
 				+rem(margin-top,37px)
 			.text-1
 				+rem(margin-top,4px)
 			.text-medium
 				+r(950)
-					line-height: 1.2	
-		&-footer
-			+rem(margin-top,40px)
-			+r(700)
-				+rem(margin-top,20px)
+					line-height: 1.2
+			.link-border
+				+rem(margin-top,40px)
+				+r(700)
+					+rem(margin-top,20px)
+					display: none
+					
+
 
 
 .nav-arrows
@@ -2220,8 +2246,8 @@ body, .out
 	.slick-arrow
 		display: inline-block
 		vertical-align: middle
-		+rem(width,40px)
-		+rem(height,40px)
+		+rem(width,35px)
+		+rem(height,35px)
 
 		&:hover
 			svg 
@@ -2232,8 +2258,145 @@ body, .out
 			float: left
 			transform: scale(-1,1)				
 
+.small-block
+	+rem(font-size,10px)
+	text-transform: uppercase;
+	line-height: 1;
+	color: #000
+	+rem(border-radius, 2px)
+	background-color: $hover
+	display: inline-block
+	font-weight: 400
+	+rem(padding,5px 8px)
+	font-family: $os
+	transition: box-shadow .3s, background-color .3s
+	&.promo
+		background-color: #fcb212
+	&.news
+		background-color: #f7941d
+.news
+	&-nav
+		display: flex
+		flex-flow: row nowrap
+		align-items: center
+		justify-content: space-between
+		+rem(padding-top,85px)
+		+rem(padding-bottom,37px)
+		+r(1024)
+			+rem(padding-top,65px)
+		+r(600)
+			+rem(padding-top,40px)
+		.btn
+			span
+				+padlr(20px)
+				+r(600)
+					+padlr(15px)
+	&-wrapper
+		+rem(padding-bottom,70px)
+		+r(600)
+			+rem(padding-bottom,40px)
+		&-inner
+			display: flex
+			flex-flow: row wrap
+			align-items: stretch
+			+rem(margin-right,-30px)
+	&-item
+		flex-basis: 25%
+		+rem(padding-right,30px)
+		+rem(margin-bottom,30px)
+		+r(950)
+			flex-basis: 50%
+		+r(544)
+			flex-basis: 100%
+			+rem(margin-bottom,17px)
+		&.big 
+			flex-basis: 50%
+			+r(950)
+				flex-basis: 100%
+		&-inner
+			display: flex
+			flex-flow: row nowrap
+			align-items: stretch
+			background-color: $white
+			height: 100%
+			position: relative
+			z-index: 0
+			&:hover
+				+rm(1024)
+					&:before
+						opacity: 1
+					.news-item-name
+						color: $org
+			&:active
+				.news-item-name
+					color: $org				
+			&:before
+				content: ''
+				+coverdiv
+				box-shadow: 0px 10px 27px 0px rgba(7, 35, 53, 0.11);
+				+tr(opacity .3s)
+				opacity: 0
+				z-index: -1
+			+r(544)
+				flex-flow: row wrap
+		&-img
+			width: 50%
+			padding-bottom: 47%
+			position: relative
+			+r(544)
+				width: 100%
+				padding-bottom: 90%
+			&-inner
+				+coverdiv
+		&-content
+			width: 50%
+			+cover
+			position: relative
+			padding-left: 4.5%
+			padding-right: 4.5%
+			+r(544)
+				width: 100%
+				.news-item-content-inner
+					+rem(padding-top,50px)
+					+rem(padding-bottom,35px)
+			+vertical
+			.small-block
+				position: absolute
+				+rem(right, 15px)
+				+rem(top, 15px)
+			&-inner
+				padding-top: 23%
+				+rem(padding-bottom,25px)
+				display: inline-block
+				vertical-align: top
+				width: 100%
+				text-align: left
+				.text-sm
+					color: #b4b4b4
+				.text-2
+					-webkit-line-clamp: 3;
+					-webkit-box-orient: vertical;
+					display: -webkit-box;
+					overflow: hidden;
+			&:only-child
+				width: 100%
+				+rm(950)
+					padding-left: 9%
+					padding-right: 9%				
+				.news-item-content-inner
+					padding-top: 24%
+					+r(950)
+						padding-top: 18%
+		&-name
+			+rem(font-size,16px)
+			line-height: 1.5;
+			color: $blk2
+			font-weight: 400
+			+rem(margin, 10px 0 25px)
+			+tr(color .3s)
 
-			
+
+
 
 
 
