@@ -21,7 +21,7 @@ block content
 						.input-item.s100
 							.input-wrapper
 								label Дата отправления
-								input.input-main.datepicker(type="text",placeholder='Выберите',data-validation="length required",data-validation-length='min2',data-validation-error-msg="Не выбрано")
+								input.input-main.datepicker(type="text",placeholder='-- Выберите --',data-validation="required",data-validation-error-msg="Не выбрано",readonly)
 								svg(class="icon icon-drop")
 									use(xlink:href="#calendar" xmlns:xlink="http://www.w3.org/1999/xlink")
 						.input-item.s50
@@ -321,6 +321,11 @@ block content
 							.text-1 Самые дальние путешествия без временных потерь и дискомфорта
 							.link-border
 								span Все автобусы
+			.i-arrows
+				.slider-counter
+					.slider-curr
+					.slider-divider /
+					.slider-total
 	.wrapper.gray
 		section.box
 			.news-wrapper
@@ -332,6 +337,23 @@ block content
 					+news('big','акции','promo','15 февраля 2017','Зарегистрируйся на сайте и получи специальную цену','Из путешествий всегда хочется привезти своим близким что-то особенное. Зачастую этим особенным становятся сувениры, ')
 					+news('','Новости','news','15 февраля 2017','Сувениры в Питере, где купить?','Из путешествий всегда хочется привезти своим близким что-то особенное. Зачастую этим особенным становятся')
 					+news('','Новости','news','15 февраля 2017','Пересечения российско-белорусского участка государственной границы','')
+	.wrapper
+		section.box
+			.question-outer
+				h2.title.h3 Часто задаваемые вопросы
+				.nav-arrows
+				.question-inner.js-questionslider
+					+question('vopros_calendar','Маршруты и расписание')
+					+question('vopros_action','Скидки')
+					+question('vopros_bronirovanie','Бронирование')
+					+question('vopros_price','Оплата')
+					+question('vopros_bagaz','Багаж')
+					+question('vopros_granica','Пересечение границы')
+				.i-arrows
+					.slider-counter
+						.slider-curr
+						.slider-divider /
+						.slider-total
 
 
 	//- .title.h1 Услуги

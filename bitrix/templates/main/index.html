@@ -47,7 +47,8 @@
                 <div class="box header-bottom-inner"><a class="m-logo" href="#" style="background-image:url(img/logo-header.png);"></a>
                   <div class="header-bottom-nav">
                     <ul class="header-bottom-menu js-slideline">
-                      <li class="header-bottom-menu-item active"><a href="#"><span>Рейсы</span></a></li>
+                      <!--.active для текущей страницы-->
+                      <li class="header-bottom-menu-item"><a href="#"><span>Рейсы</span></a></li>
                       <li class="header-bottom-menu-item"><a href="#"><span>Трансфер в аэропорт</span></a></li>
                       <li class="header-bottom-menu-item"><a href="#"><span>Аренда автобусов</span></a></li>
                     </ul>
@@ -179,7 +180,7 @@
                       <div class="input-item s100">
                         <div class="input-wrapper">
                           <label>Дата отправления</label>
-                          <input class="input-main datepicker" type="text" placeholder="Выберите" data-validation="length required" data-validation-length="min2" data-validation-error-msg="Не выбрано">
+                          <input class="input-main datepicker" type="text" placeholder="-- Выберите --" data-validation="required" data-validation-error-msg="Не выбрано" readonly>
                           <svg class="icon icon-drop">
                             <use xlink:href="#calendar" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
                           </svg>
@@ -601,6 +602,13 @@
                     </div>
                   </div>
                 </div>
+                <div class="i-arrows">
+                  <div class="slider-counter">
+                    <div class="slider-curr"></div>
+                    <div class="slider-divider">/</div>
+                    <div class="slider-total"></div>
+                  </div>
+                </div>
               </section>
             </div>
             <div class="wrapper gray">
@@ -622,28 +630,54 @@
                                           <div class="news-item-name">Зарегистрируйся на сайте и получи специальную цену</div>
                                           <div class="text-2">Из путешествий всегда хочется привезти своим близким что-то особенное. Зачастую этим особенным становятся сувениры, </div>
                                         </div>
-                                      </div>
-                                      <!-- для больштнства элементов активное состояние вызывается классом .active . где это не так буду писать--></a></article>
+                                      </div></a></article>
                                   <article class="news-item"><a class="news-item-inner" href="#">
                                       <div class="news-item-content">
                                         <div class="small-block news"><span>Новости</span></div>
                                         <div class="news-item-content-inner">
                                           <time class="text-sm">15 февраля 2017</time>
                                           <div class="news-item-name">Сувениры в Питере, где купить?</div>
-                                          <div class="text-2">Из путешествий всегда хочется привезти своим близким что-то особенное. Зачастую этим особенным становятся			</div>
+                                          <div class="text-2">Из путешествий всегда хочется привезти своим близким что-то особенное. Зачастую этим особенным становятся	</div>
                                         </div>
-                                      </div>
-                                      <!-- для больштнства элементов активное состояние вызывается классом .active . где это не так буду писать--></a></article>
+                                      </div></a></article>
                                   <article class="news-item"><a class="news-item-inner" href="#">
                                       <div class="news-item-content">
                                         <div class="small-block news"><span>Новости</span></div>
                                         <div class="news-item-content-inner">
                                           <time class="text-sm">15 февраля 2017</time>
                                           <div class="news-item-name">Пересечения российско-белорусского участка государственной границы</div>
-                                          <div class="text-2">			</div>
+                                          <div class="text-2">	</div>
                                         </div>
-                                      </div>
-                                      <!-- для больштнства элементов активное состояние вызывается классом .active . где это не так буду писать--></a></article>
+                                      </div></a></article>
+                  </div>
+                </div>
+              </section>
+            </div>
+            <div class="wrapper">
+              <section class="box">
+                <div class="question-outer">
+                  <h2 class="title h3">Часто задаваемые вопросы</h2>
+                  <div class="nav-arrows"></div>
+                  <div class="question-inner js-questionslider"><a class="question-item" href="#">
+                                    <div class="question-item-img"><img src="img/question/vopros_calendar.svg" alt=""></div>
+                                    <div class="question-item-name">Маршруты и расписание</div></a><a class="question-item" href="#">
+                                    <div class="question-item-img"><img src="img/question/vopros_action.svg" alt=""></div>
+                                    <div class="question-item-name">Скидки</div></a><a class="question-item" href="#">
+                                    <div class="question-item-img"><img src="img/question/vopros_bronirovanie.svg" alt=""></div>
+                                    <div class="question-item-name">Бронирование</div></a><a class="question-item" href="#">
+                                    <div class="question-item-img"><img src="img/question/vopros_price.svg" alt=""></div>
+                                    <div class="question-item-name">Оплата</div></a><a class="question-item" href="#">
+                                    <div class="question-item-img"><img src="img/question/vopros_bagaz.svg" alt=""></div>
+                                    <div class="question-item-name">Багаж</div></a><a class="question-item" href="#">
+                                    <div class="question-item-img"><img src="img/question/vopros_granica.svg" alt=""></div>
+                                    <div class="question-item-name">Пересечение границы</div></a>
+                  </div>
+                  <div class="i-arrows">
+                    <div class="slider-counter">
+                      <div class="slider-curr"></div>
+                      <div class="slider-divider">/</div>
+                      <div class="slider-total"></div>
+                    </div>
                   </div>
                 </div>
               </section>

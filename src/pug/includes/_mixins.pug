@@ -55,4 +55,196 @@ mixin news(type,vid,vidcls,date,name,text)
 					.news-item-content-inner
 						time.text-sm #{date}
 						.news-item-name #{name}
-						.text-2 #{text}			
+						.text-2 #{text}	
+mixin question(img,name)
+	a(href="#").question-item
+		.question-item-img
+			img(src="img/question/"+img+".svg", alt="")
+		.question-item-name #{name}
+mixin cardmedium(img,clas)
+	.border-card(class=clas)
+		.border-card-inner(style='background-image:url(img/cards/'+img+')')
+			if block
+				block 
+mixin headone(head)
+	.wrapper.page-head.page-margin(style='background-image: url(img/pageheade.jpg)')
+		.box.page-head-inner
+			.page-head-title
+				h1.title.h1 #{head}
+			form(action="").page-head-form
+				.form-group 
+					.input-wrapper
+						label Дата отправления
+						input.input-main.datepicker(type="text",placeholder='-- Выберите --',data-validation="required",data-validation-error-msg="Не выбрано",readonly)
+						svg(class="icon icon-drop")
+							use(xlink:href="#calendar" xmlns:xlink="http://www.w3.org/1999/xlink")
+					.input-wrapper
+						label Дата возвращения
+						input.input-main.datepicker(type="text",placeholder='-- Выберите --',data-validation="required",data-validation-error-msg="Не выбрано",readonly)
+						svg(class="icon icon-drop")
+							use(xlink:href="#calendar" xmlns:xlink="http://www.w3.org/1999/xlink")
+				.form-group
+					.input-wrapper
+						.label Откуда
+						.select-check.js-select-custom
+							button.selects(data-placeholder='Выберите')
+								span.btn-text Выберите
+								i.arr-down
+									svg(class="icon icon-drop")
+										use(xlink:href="#strelka" xmlns:xlink="http://www.w3.org/1999/xlink")
+							.dropdown-target
+								.dropdown-inner
+									.dropdown-content
+										.select-u-body.select-list
+											label.option
+												//хотя бы на одном инпуте должен висеть дата-атрибут для валидации
+												input(type='radio', name='group4', value='val1',data-validation="required")
+												span Минск
+											label.option
+												input(type='radio', name='group4', value='val2')
+												span Пинск
+											label.option
+												input(type='radio', name='group4', value='val3')
+												span Копенгаген
+											label.option
+												input(type='radio', name='group4', value='val4')
+												span Рига
+											label.option
+												input(type='radio', name='group4', value='val5')
+												span Немига
+											label.option
+												input(type='radio', name='group4', value='val6')
+												span Метро
+											label.option
+												input(type='radio', name='group4', value='val7')
+												span Копенгаген
+											label.option
+												input(type='radio', name='group4', value='val8')
+												span Копенгаген
+											label.option
+												input(type='radio', name='group4', value='val9')
+												span 1Копенгаген
+											label.option
+												input(type='radio', name='group4', value='val9')
+												span 12Копенгаген
+											label.option
+												input(type='radio', name='group4', value='val9')
+												span 142Копенгаген
+											label.option
+												input(type='radio', name='group4', value='val9')
+												span Копенгаген
+											label.option
+												input(type='radio', name='group4', value='val9')
+												span 1Копенгаген
+					.input-wrapper
+						.label Куда
+						.select-check.js-select-custom
+							button.selects(data-placeholder='Выберите')
+								span.btn-text Выберите
+								i.arr-down
+									svg(class="icon icon-drop")
+										use(xlink:href="#strelka" xmlns:xlink="http://www.w3.org/1999/xlink")
+							.dropdown-target
+								.dropdown-inner
+									.dropdown-content
+										.select-u-body.select-list
+											label.option
+												//хотя бы на одном инпуте должен висеть дата-атрибут для валидации
+												input(type='radio', name='group47', value='val1',data-validation="required")
+												span Минск
+											label.option
+												input(type='radio', name='group49', value='val2')
+												span Пинск
+											label.option
+												input(type='radio', name='group49', value='val3')
+												span Копенгаген
+											label.option
+												input(type='radio', name='group49', value='val4')
+												span Рига
+											label.option
+												input(type='radio', name='group49', value='val5')
+												span Немига
+											label.option
+												input(type='radio', name='group49', value='val6')
+												span Метро
+											label.option
+												input(type='radio', name='group49', value='val7')
+												span Копенгаген
+											label.option
+												input(type='radio', name='group49', value='val8')
+												span Копенгаген
+											label.option
+												input(type='radio', name='group49', value='val9')
+												span 1Копенгаген
+											label.option
+												input(type='radio', name='group49', value='val9')
+												span 12Копенгаген
+											label.option
+												input(type='radio', name='group49', value='val9')
+												span 142Копенгаген
+											label.option
+												input(type='radio', name='group49', value='val9')
+												span Копенгаген
+											label.option
+												input(type='radio', name='group49', value='val9')
+												span 1Копенгаген
+			
+				.form-group
+					.input-wrapper
+						.label Цена
+						// модификатор для селекта цены .price-total
+						// .disabled если нужен выключеным
+						.select-check.js-select-custom.price-total
+							button.selects(data-placeholder='')
+								span.btn-text
+								i.arr-down
+									svg(class="icon icon-drop")
+										use(xlink:href="#strelka" xmlns:xlink="http://www.w3.org/1999/xlink")
+							.dropdown-target
+								.dropdown-inner
+									.dropdown-content
+										.select-u-body.select-list
+											label.option
+												//хотя бы на одном инпуте должен висеть дата-атрибут для валидации
+												input(type='radio', name='group7', value='val1',data-validation="required")
+												.elem-price
+													span.elem-price-value 50
+														span byn
+													| Стандарт
+											label.option
+												input(type='radio', name='group7', value='val2')
+												.elem-price
+													span.elem-price-value 50
+														span byn
+													| Стандарт
+											label.option
+												input(type='radio', name='group7', value='val3')
+												.elem-price
+													span.elem-price-value 4250
+														span byn
+													| Льготный
+											label.option
+												input(type='radio', name='group7', value='val4')
+												.elem-price
+													span.elem-price-value 1450
+														span byn
+													| Про
+											label.option
+												input(type='radio', name='group7', value='val5')
+												.elem-price
+													span.elem-price-value 4502
+														span byn
+													| Одинадцат
+											label.option
+												input(type='radio', name='group7', value='val6')
+												.elem-price
+													span.elem-price-value 4502
+														span byn
+													| Метро
+					.input-wrapper
+						button(type='sumbit').btn.btn-colored.small
+							span Забронировать
+			.page-head-breadcrums
+				.content-bread
+					a(href="#").content-bread-item.text-sm Главная
+					a(href="#").content-bread-item.text-sm Рейсы

@@ -47,7 +47,8 @@
                 <div class="box header-bottom-inner"><a class="m-logo" href="#" style="background-image:url(img/logo-header.png);"></a>
                   <div class="header-bottom-nav">
                     <ul class="header-bottom-menu js-slideline">
-                      <li class="header-bottom-menu-item active"><a href="#"><span>Рейсы</span></a></li>
+                      <!--.active для текущей страницы-->
+                      <li class="header-bottom-menu-item"><a href="#"><span>Рейсы</span></a></li>
                       <li class="header-bottom-menu-item"><a href="#"><span>Трансфер в аэропорт</span></a></li>
                       <li class="header-bottom-menu-item"><a href="#"><span>Аренда автобусов</span></a></li>
                     </ul>
@@ -162,23 +163,251 @@
             </div>
           </header>
           <main class="page__content">
-            <div class="wrapper content-wrapper" style="background-image:url(img/bgmain.jpg);">
-              <!--для врачей вешаем класс .personal-->
-              <div class="box content-head">
-                <div class="content-bread"><a class="content-bread-item text2" href="#">Главная</a><a class="content-bread-item text2" href="#">Специалисты</a><a class="content-bread-item text2" href="#">Отделение аппаратной косметологии</a></div>
-                <div class="content-main">
-                  <div class="title h1">Отделение Аппаратной косметологии</div>
+                          <div class="wrapper page-head page-margin" style="background-image: url(img/pageheade.jpg);">
+                            <div class="box page-head-inner">
+                              <div class="page-head-title">
+                                <h1 class="title h1">Рейс Минск-Москва</h1>
+                              </div>
+                              <form class="page-head-form" action="">
+                                <div class="form-group"> 
+                                  <div class="input-wrapper">
+                                    <label>Дата отправления</label>
+                                    <input class="input-main datepicker" type="text" placeholder="-- Выберите --" data-validation="required" data-validation-error-msg="Не выбрано" readonly>
+                                    <svg class="icon icon-drop">
+                                      <use xlink:href="#calendar" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
+                                    </svg>
+                                  </div>
+                                  <div class="input-wrapper">
+                                    <label>Дата возвращения</label>
+                                    <input class="input-main datepicker" type="text" placeholder="-- Выберите --" data-validation="required" data-validation-error-msg="Не выбрано" readonly>
+                                    <svg class="icon icon-drop">
+                                      <use xlink:href="#calendar" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
+                                    </svg>
+                                  </div>
+                                </div>
+                                <div class="form-group">
+                                  <div class="input-wrapper">
+                                    <div class="label">Откуда</div>
+                                    <div class="select-check js-select-custom">
+                                      <button class="selects" data-placeholder="Выберите"><span class="btn-text">Выберите</span><i class="arr-down">
+                                          <svg class="icon icon-drop">
+                                            <use xlink:href="#strelka" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
+                                          </svg></i></button>
+                                      <div class="dropdown-target">
+                                        <div class="dropdown-inner">
+                                          <div class="dropdown-content">
+                                            <div class="select-u-body select-list">
+                                              <label class="option">
+                                                <!--хотя бы на одном инпуте должен висеть дата-атрибут для валидации-->
+                                                <input type="radio" name="group4" value="val1" data-validation="required"><span>Минск</span>
+                                              </label>
+                                              <label class="option">
+                                                <input type="radio" name="group4" value="val2"><span>Пинск</span>
+                                              </label>
+                                              <label class="option">
+                                                <input type="radio" name="group4" value="val3"><span>Копенгаген</span>
+                                              </label>
+                                              <label class="option">
+                                                <input type="radio" name="group4" value="val4"><span>Рига</span>
+                                              </label>
+                                              <label class="option">
+                                                <input type="radio" name="group4" value="val5"><span>Немига</span>
+                                              </label>
+                                              <label class="option">
+                                                <input type="radio" name="group4" value="val6"><span>Метро</span>
+                                              </label>
+                                              <label class="option">
+                                                <input type="radio" name="group4" value="val7"><span>Копенгаген</span>
+                                              </label>
+                                              <label class="option">
+                                                <input type="radio" name="group4" value="val8"><span>Копенгаген</span>
+                                              </label>
+                                              <label class="option">
+                                                <input type="radio" name="group4" value="val9"><span>1Копенгаген</span>
+                                              </label>
+                                              <label class="option">
+                                                <input type="radio" name="group4" value="val9"><span>12Копенгаген</span>
+                                              </label>
+                                              <label class="option">
+                                                <input type="radio" name="group4" value="val9"><span>142Копенгаген</span>
+                                              </label>
+                                              <label class="option">
+                                                <input type="radio" name="group4" value="val9"><span>Копенгаген</span>
+                                              </label>
+                                              <label class="option">
+                                                <input type="radio" name="group4" value="val9"><span>1Копенгаген</span>
+                                              </label>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="input-wrapper">
+                                    <div class="label">Куда</div>
+                                    <div class="select-check js-select-custom">
+                                      <button class="selects" data-placeholder="Выберите"><span class="btn-text">Выберите</span><i class="arr-down">
+                                          <svg class="icon icon-drop">
+                                            <use xlink:href="#strelka" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
+                                          </svg></i></button>
+                                      <div class="dropdown-target">
+                                        <div class="dropdown-inner">
+                                          <div class="dropdown-content">
+                                            <div class="select-u-body select-list">
+                                              <label class="option">
+                                                <!--хотя бы на одном инпуте должен висеть дата-атрибут для валидации-->
+                                                <input type="radio" name="group47" value="val1" data-validation="required"><span>Минск</span>
+                                              </label>
+                                              <label class="option">
+                                                <input type="radio" name="group49" value="val2"><span>Пинск</span>
+                                              </label>
+                                              <label class="option">
+                                                <input type="radio" name="group49" value="val3"><span>Копенгаген</span>
+                                              </label>
+                                              <label class="option">
+                                                <input type="radio" name="group49" value="val4"><span>Рига</span>
+                                              </label>
+                                              <label class="option">
+                                                <input type="radio" name="group49" value="val5"><span>Немига</span>
+                                              </label>
+                                              <label class="option">
+                                                <input type="radio" name="group49" value="val6"><span>Метро</span>
+                                              </label>
+                                              <label class="option">
+                                                <input type="radio" name="group49" value="val7"><span>Копенгаген</span>
+                                              </label>
+                                              <label class="option">
+                                                <input type="radio" name="group49" value="val8"><span>Копенгаген</span>
+                                              </label>
+                                              <label class="option">
+                                                <input type="radio" name="group49" value="val9"><span>1Копенгаген</span>
+                                              </label>
+                                              <label class="option">
+                                                <input type="radio" name="group49" value="val9"><span>12Копенгаген</span>
+                                              </label>
+                                              <label class="option">
+                                                <input type="radio" name="group49" value="val9"><span>142Копенгаген</span>
+                                              </label>
+                                              <label class="option">
+                                                <input type="radio" name="group49" value="val9"><span>Копенгаген</span>
+                                              </label>
+                                              <label class="option">
+                                                <input type="radio" name="group49" value="val9"><span>1Копенгаген</span>
+                                              </label>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="form-group">
+                                  <div class="input-wrapper">
+                                    <div class="label">Цена</div>
+                                    <!-- модификатор для селекта цены .price-total-->
+                                    <!-- .disabled если нужен выключеным-->
+                                    <div class="select-check js-select-custom price-total">
+                                      <button class="selects" data-placeholder=""><span class="btn-text"></span><i class="arr-down">
+                                          <svg class="icon icon-drop">
+                                            <use xlink:href="#strelka" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
+                                          </svg></i></button>
+                                      <div class="dropdown-target">
+                                        <div class="dropdown-inner">
+                                          <div class="dropdown-content">
+                                            <div class="select-u-body select-list">
+                                              <label class="option">
+                                                <!--хотя бы на одном инпуте должен висеть дата-атрибут для валидации-->
+                                                <input type="radio" name="group7" value="val1" data-validation="required">
+                                                <div class="elem-price"><span class="elem-price-value">50<span>byn</span></span>Стандарт</div>
+                                              </label>
+                                              <label class="option">
+                                                <input type="radio" name="group7" value="val2">
+                                                <div class="elem-price"><span class="elem-price-value">50<span>byn</span></span>Стандарт</div>
+                                              </label>
+                                              <label class="option">
+                                                <input type="radio" name="group7" value="val3">
+                                                <div class="elem-price"><span class="elem-price-value">4250<span>byn</span></span>Льготный</div>
+                                              </label>
+                                              <label class="option">
+                                                <input type="radio" name="group7" value="val4">
+                                                <div class="elem-price"><span class="elem-price-value">1450<span>byn</span></span>Про</div>
+                                              </label>
+                                              <label class="option">
+                                                <input type="radio" name="group7" value="val5">
+                                                <div class="elem-price"><span class="elem-price-value">4502<span>byn</span></span>Одинадцат</div>
+                                              </label>
+                                              <label class="option">
+                                                <input type="radio" name="group7" value="val6">
+                                                <div class="elem-price"><span class="elem-price-value">4502<span>byn</span></span>Метро</div>
+                                              </label>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="input-wrapper">
+                                    <button class="btn btn-colored small" type="sumbit"><span>Забронировать</span></button>
+                                  </div>
+                                </div>
+                              </form>
+                              <div class="page-head-breadcrums">
+                                <div class="content-bread"><a class="content-bread-item text-sm" href="#">Главная</a><a class="content-bread-item text-sm" href="#">Рейсы
+                                    <!-- для больштнства элементов активное состояние вызывается классом .active . где это не так буду писать--></a></div>
+                              </div>
+                            </div>
+                          </div>
+            <div class="wrapper">
+              <div class="box">
+                <div class="aside-wrapp">
+                  <aside class="aside-menu" data-sticky_parent>
+                    <div class="aside-stick" data-sticky_column></div>
+                  </aside>
+                  <div class="aside-content"></div>
                 </div>
               </div>
             </div>
-            <div class="box">
-              <div class="depart-wrap"></div>
-              <div class="nav-wrapper"><a class="nav-btn" href="#">
-                  <div class="nav-btn-inner">
-                    <svg class="icon icon-drop">
-                      <use xlink:href="#arr-circle" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
-                    </svg>
-                  </div><span>Назад</span></a></div>
+            <div class="wrapper gray">
+              <section class="box">
+                <div class="news-wrapper">
+                  <div class="news-nav">
+                    <h2 class="title h3">Акции и новости</h2><a class="btn btn-gray" href="#"> <span>Смотреть все</span></a>
+                  </div>
+                  <div class="news-wrapper-inner">
+                                  <article class="news-item big"><a class="news-item-inner" href="#">
+                                      <div class="news-item-img">
+                                        <div class="card-item-img-inner" style="background-image:url(img/news1.jpg);"></div>
+                                      </div>
+                                      <div class="news-item-content">
+                                        <!--либо .promo либо .news-->
+                                        <div class="small-block promo"><span>акции</span></div>
+                                        <div class="news-item-content-inner">
+                                          <time class="text-sm">15 февраля 2017</time>
+                                          <div class="news-item-name">Зарегистрируйся на сайте и получи специальную цену</div>
+                                          <div class="text-2">Из путешествий всегда хочется привезти своим близким что-то особенное. Зачастую этим особенным становятся сувениры, </div>
+                                        </div>
+                                      </div></a></article>
+                                  <article class="news-item"><a class="news-item-inner" href="#">
+                                      <div class="news-item-content">
+                                        <div class="small-block news"><span>Новости</span></div>
+                                        <div class="news-item-content-inner">
+                                          <time class="text-sm">15 февраля 2017</time>
+                                          <div class="news-item-name">Сувениры в Питере, где купить?</div>
+                                          <div class="text-2">Из путешествий всегда хочется привезти своим близким что-то особенное. Зачастую этим особенным становятся	</div>
+                                        </div>
+                                      </div></a></article>
+                                  <article class="news-item"><a class="news-item-inner" href="#">
+                                      <div class="news-item-content">
+                                        <div class="small-block news"><span>Новости</span></div>
+                                        <div class="news-item-content-inner">
+                                          <time class="text-sm">15 февраля 2017</time>
+                                          <div class="news-item-name">Пересечения российско-белорусского участка государственной границы</div>
+                                          <div class="text-2">	</div>
+                                        </div>
+                                      </div></a></article>
+                  </div>
+                </div>
+              </section>
             </div>
           </main>
           <footer class="page__footer">

@@ -1,101 +1,57 @@
 extends _layout
 
 block title
-	title СПЕЦИАЛИСТЫ
+	title Рейсы
 
 block content
-	.wrapper.content-wrapper(style='background-image:url(img/bgmain.jpg)')
-		//для врачей вешаем класс .personal
-		.box.content-head
-			.content-bread
-				a(href="#").content-bread-item.text2 Главная
-				a(href="#").content-bread-item.text2 Специалисты
-			.content-main
-				.title.h1 Специалисты
-				//- .title-btn
-				//- 	a(href="#").btn Прайс Лист
-	.box
-		//в длинных словах .title можно использовать &shy;
-		.depart-wrap
-			.depart-item.w-50
-				//js-anim для блоков в которых больше ожной ькартинки врача
-				.depart-item-head.head-img.js-anim(data-images="img/bg/v1.png, img/bg/v2.png, img/bg/v3.png")
-					.depart-doctor-img
-					.title.h2 Хирургия
-				.depart-item-body
-					a(href="#").depart-item-link
-						.link-black Отделение пластической и реконструктивно-восстановительной хирургии
-					a(href="#").depart-item-link
-						.link-black Отделение малоинвазивной хирургии и лазерных технологий
-					a(href="#").depart-item-link
-						.link-black Отделение малоинвазивной хирургии и лазерных технологий
-			.depart-item.w-50
-				.depart-item-head.head-img.js-anim( data-images='img/bg/v2.png, img/bg/v1.png,img/bg/v3.png')
-					.depart-doctor-img
-					.title.h2 Косметология
-				.depart-item-body
-					a(href="#").depart-item-link
-						.link-black Отделение 
-							br
-							|Аппаратной косметологии
-					a(href="#").depart-item-link
-						.link-black Отделение 
-							br
-							|детской косметологии
-					a(href="#").depart-item-link
-						.link-black Отделение
-							br
-							|диагностики кожи
-			.depart-item.w-100
-				.depart-item-head.head-img
-					.depart-doctor-img(style="background-image:url(img/bg/v3.png)")
-					.title.h2 Консультативно-диагностический центр персонализи&shy;рованной медицины
-				.depart-item-body
-					a(href="#").depart-item-link
-						.link-black Кабинет превентивной 
-							br
-							|и восстановительной медицины
-					a(href="#").depart-item-link
-						.link-black Кабинет 
-							br
-							|врача-терапевта
-					a(href="#").depart-item-link
-						.link-black Кабинет флебологической 
-							br
-							|реабилитации и УЗИ-диагностики
-					a(href="#").depart-item-link
-						.link-black Кабинет 
-							br
-							|физиотерапии
-					a(href="#").depart-item-link
-						.link-black Приемное отделение
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	
+	+headone('Рейсы')
+	.wrapper.gray
+		.box
+			.tour-wrapper
+				//если поездка туда-обратно, то ставим модификатор .twoway, чтобы поменять иконку между городами
+				+smallCard('twoway','1',1,'Минск','Берлин','50')
+				+smallCard('','2','','Минск','Аэропорт Вильнюс','23')
+				+smallCard('','3',1,'Минск','Москва','12')
+				+smallCard('','7',1,'Минск','Таллин','105')
+				+smallCard('','1','','Минск','Рига','18')
+				+smallCard('','2',1,'Минск','Рига','18')
+				+smallCard('twoway','3',1,'Минск','Рига','45')
+				+smallCard('','3',1,'Минск','Берлин','50')
+				+smallCard('twoway','3',1,'Минск','Берлин','50')
+				a(href="#").btn.btn-gray 
+					span показать Ещё рейсы
+	.wrapper
+		.box
+			.rules-outer
+				h2.title.h3 Правила бронирования
+				.text-1 Соблюдайте 3 простых правила и ваша поездка будет максимально комфортной и безопасной.
+				.rules-inner
+					+cardmedium('1.jpg','medium')
+						.border-card-name
+							.text-medium Бронируйте билеты на сайте, по 
+								a(href="tel:+375445000252") +375 (44) 5 000 252 
+								| или через
+						.border-card-content
+							.soc-wrapp
+								a(href="#").soc-wrapp-item.vk
+									svg(class="icon icon-drop")
+										use(xlink:href="#vk" xmlns:xlink="http://www.w3.org/1999/xlink")
+								a(href="#").soc-wrapp-item.fb
+									svg(class="icon icon-drop")
+										use(xlink:href="#fb" xmlns:xlink="http://www.w3.org/1999/xlink")
+					+cardmedium('2.jpg','medium')
+						.border-card-name
+							.text-medium Подтвердите бронь за день до отправления 
+								span до 15:00
+						.border-card-content
+							.text-3 Наши операторы свяжутся с Вами!
+					+cardmedium('3.jpg','medium')
+						.border-card-name
+							.text-medium Прибудьте к месту посадки 
+								span за 10 минут 
+								|до отправления
+						.border-card-content
+							.text-3 Счастливого пути!
+				.rules-btn
+					a(href="#").btn.btn-gray 
+						span Подробнее

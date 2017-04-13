@@ -144,7 +144,7 @@ body, .out
 	&__footer
 		position: relative
 		flex: 0 0 auto
-		background-color: #f0f4f7
+		background-color: #e3ecf2
 		flex-flow: row wrap
 	&__content
 		// +rem(padding,0 0 0100px)
@@ -704,7 +704,7 @@ body, .out
       +rem(bottom, 2px)
       opacity: 0;
       transition: all .2s ease;
-.select-check.active
+.select-check.active:not(.disabled)
 	border-color: $focus
 	border-bottom-left-radius: 0
 	border-bottom-right-radius: 0
@@ -736,9 +736,10 @@ body, .out
 		font-weight: 600
 		cursor: pointer
 		text-align: left
-		+rem(line-height,35px)
+		+rem(line-height,37px)
 		font-family: $os
 		position: relative
+		background-color: $white
 		.btn-text
 			+rem(margin-top,1px)
 			display: inline-block
@@ -747,6 +748,20 @@ body, .out
 			width: 100%
 			text-overflow: ellipsis
 			// overflow-x: hidden
+			.elem-price-value
+				width: auto
+				height: auto
+				padding: 0
+				color: $org
+				text-transform: uppercase
+				line-height: 1
+				font-weight: 600
+				span 
+					padding: 0
+					+rem(padding-right,5px)
+					+rem(padding-left, 5px)
+					color: $org
+					line-height: 1
 			&:not(.active)
 				&:before,&:after
 					content: '--'
@@ -760,7 +775,7 @@ body, .out
 				&:after
 					+rem(padding-left, 3px)			
 	&.disabled
-		opacity: .5
+		opacity: .95
 		pointer-events: none
 	&.error
 		border-color: red
@@ -778,6 +793,8 @@ body, .out
 	.dropdown-content
 		overflow-y: auto
 		+rem(max-height,242px)
+	.dropdown-target
+		+rem(min-width,200px)
 	.select-list
 		font-size: 0
 	.option,.sort-select-item 
@@ -785,6 +802,9 @@ body, .out
 		position: relative
 		cursor: pointer
 		margin: 0
+		white-space: nowrap
+		overflow: hidden
+		text-oveflow: ellipsis
 		&:hover
 			span 
 				color: $org
@@ -797,7 +817,7 @@ body, .out
 			opacity: 0
 			&:checked ~span			
 				color: $org
-		span, a
+		span, a,.elem-price
 			display: inline-block
 			width: 100%
 			+rem(font-size,15px)
@@ -806,7 +826,37 @@ body, .out
 			color: $blk2
 			+rem(padding,8px 0)
 			+tr(color .3s)
-
+		.elem-price
+			overflow: hidden
+			white-space: nowrap
+			text-overflow: ellipsis
+			+rem(font-size,12px)
+			font-weight: 400
+			line-height: 1
+			+rem(padding, 7px 0)
+			color: $grayl
+		.elem-price-value
+			width: auto
+			height: auto
+			padding: 0
+			color: $org
+			text-transform: uppercase
+			line-height: 1
+			
+			span 
+				padding: 0
+				+rem(padding-right,5px)
+				+rem(padding-left, 5px)
+				color: $org
+				line-height: 1
+.price-total
+	.selects
+		.btn-text
+			.elem-price-value
+				+rem(font-size,15px)
+			+rem(font-size,12px)
+			font-weight: 400
+			color: $grayl
 //=====================================//
 //         datepicker
 //=====================================//
@@ -877,6 +927,10 @@ body, .out
 		+rem(font-size,15px)
 		&.datepicker
 			cursor: pointer
+			position: relative
+			z-index: 2
+			+placeholder
+				color: $blk2
 			&~ svg
 				position: absolute
 				top: 53%
@@ -1873,6 +1927,9 @@ body, .out
 	overflow: hidden
 	font-size: 0
 	position: relative
+	.btn 
+		+rem(padding-top,4px)
+		+rem(padding-bottom,4px)
 	&~.tour-sort-wrapper
 		position: absolute
 		+rem(left,13px)
@@ -1904,7 +1961,9 @@ body, .out
 	vertical-align: top
 	width: 33.33%
 	+rem(padding-right,30px)
-	+rem(margin-bottom,30px)
+	+rem(margin-bottom,25px)
+	&:last-of-type
+		+rem(margin-bottom,30px)
 	+r(1024)
 		+rem(padding-right,20px)
 		+rem(margin-bottom,20px)
@@ -2111,10 +2170,11 @@ body, .out
 		+r(950)
 			+padlr(60px)
 		+r(700)
-			+padlr(30px)
+			+padlr(20px)
+			margin-left: 0
 	&-outer
 		+rem(padding-top,80px)
-		+rem(padding-bottom,100px)
+		+rem(padding-bottom,90px)
 		+r(1024)
 			+rem(padding-top,50px)
 			+rem(padding-bottom,70px)
@@ -2184,7 +2244,6 @@ body, .out
 				width: 	auto
 				+rem(max-width, 90px)
 				display: inline-block
-				+rem(margin-left,20px)
 			&-inner
 				width: 100%	
 				height: 100%	
@@ -2205,7 +2264,8 @@ body, .out
 			padding-left: 12%
 			padding-right: 	8%
 			+r(700)
-				+padlr(5%)
+				padding-left: 5%
+				padding-right: 	5%
 				text-align: center
 		&-body
 			+rem(margin-top,17px)
@@ -2292,7 +2352,7 @@ body, .out
 				+r(600)
 					+padlr(15px)
 	&-wrapper
-		+rem(padding-bottom,70px)
+		+rem(padding-bottom,75px)
 		+r(600)
 			+rem(padding-bottom,40px)
 		&-inner
@@ -2395,11 +2455,317 @@ body, .out
 			+rem(margin, 10px 0 25px)
 			+tr(color .3s)
 
+.question
+	&-outer
+		+rem(padding-top,85px)
+		+rem(padding-bottom,108px)
+		+r(1024)
+			+rem(padding-top,65px)
+			+rem(padding-bottom,80px)
+		+r(700)
+			+rem(padding-top,45px)
+			+rem(padding-bottom,60px)		
+		.nav-arrows
+			top: 50%
+		.title
+			text-align: center
+			+rem(padding-bottom,40px)
+			+r(700)
+				+rem(padding-bottom,20px)
+		+r(950)
+			+padlr(40px)
+		+r(480)
+			+padlr(0px)
+			+rem(margin-left,-15px)
+			+rem(margin-right,-15px)
+			.question-item
+				+rem(margin, 0 15px)
+	&-inner
+		&:not(.slick-initialized)
+			display: flex
+			flex-flow: row nowrap
+			align-items: stretch
+			justify-content: center
+		border-right: $bbl
+		border-top: $bbl
+		border-bottom: $bbl
+		border-left: $bbl
+		&.slick-initialized
+			+r(480)
+				border: none
+				.question-item
+					border: $bbl
+	&-item
+		flex-grow: 1
+		flex-shrink: 0
+		flex-basis: 16.66%
+		+rem(margin-bottom,-1px)
+		border-bottom: 2px solid transparent
+		padding-top: 3.5%
+		padding-bottom: 3%
+		height: 100%
+		+r(480)
+			padding-top: 2.5%
+			padding-bottom: 2.5%	
+			border-bottom: $bbl
+		&.active
+			border-bottom-color: $bl
+		border-right: $bbl
+		text-align: center
+		&:hover
+			.question-item-name
+				color: $bl
+		&-img
+			display: inline-block
+			+rem(width, 65px)
+			+rem(height, 80px)
+			+vertical
+			+rem(margin-bottom,40px)
+			img
+				display: inline-block
+				vertical-align:	middle
+			+r(950)
+				+rem(margin-bottom,20px)
+		&-name
+			+padlr(10px)
+			+rem(font-size,16px)
+			color: $blk2
+			line-height: 1.625;
+			+tr(color .3s)
+
+.i-arrows
+	display: block
+	text-align: center
+	+rem(margin-top,15px)
+	+rm(950)
+		display: none
+	.slider-counter
+		display: inline-block
+		font-size: 0
+		.slider
+			&-curr,&-divider,&-total
+				display: inline-block
+				vertical-align: middle
+				+rem(font-size,15px)
+				color: $blk2
+			&-curr
+				font-weight: 600
+				color: $bl
+			&-divider
+				+rem(font-size,14px)
+				+padlr(5px)
+				
+
+.page-head
+	position: relative
+	z-index: 1
+	// background-attachment: fixed
+	+cover
+	&:before
+		content: ''
+		+coverdiv
+		background: radial-gradient(ellipse at center, rgba(15,74,155,0.5) 0%, rgba(15,74,155,1) 60%, rgba(15,74,155,1) 61%);
+		background-position: top 20% center
+		background-attachment: fixed
+	&-breadcrums
+		position: absolute
+		+rem(left, 15px)
+		+rem(bottom, -59px)
+	&-inner
+		+rem(padding-top,80px)
+		position: relative
+		z-index: 3
+		+r(1024)
+			+rem(padding-top,60px)
+		+r(700)
+			+rem(padding-top,40px)
+		+r(480)
+			+rem(padding-top,20px)
+	&-title
+		display: flex
+		flex-flow: row nowrap
+		.title
+			flex-basis: 70%
+			flex-grow: 1
+			color: $white
+	&-form
+		font-size: 0
+		+rem(margin-right,-11px)
+		+rem(margin-top, 40px)
+		+rem(padding-bottom,25px)
+		.form-group
+			display: inline-block
+			vertical-align: top
+			+rem(padding-right,11px)
+			width: 33.33%
+			font-size: 0
+			+r(950)
+				width: 50%
+			+r(650)
+				width: 100%
+			.input-wrapper
+				display: inline-block
+				vertical-align: top
+				width: 50%
+				&:first-child
+					.input-main,.select-check
+						border-bottom-right-radius: 0
+						border-top-right-radius: 0
+				&:last-child
+					.input-main,.select-check
+						border-bottom-left-radius: 0
+						border-top-left-radius: 0
+				.btn 
+					+rem(margin-top,23px)
+					+rem(margin-left,11px)
+					+r(650)
+						width: 100%
+						margin-left: 0
+						border-bottom-left-radius: 0
+						border-top-left-radius: 0
+						+rem(height,39px)
+						min-width: 0
+						+rem(margin-top,24px)
+
+			
 
 
+.content
+	&-bread
+		&-item
+			color: $blk2
+			display: inline
+			// +rem(padding-right,11px)
+			&:not(:first-child)
+				position: relative
+				// +rem(padding-left,17px)
+				&:before
+					content: '/'
+					color: #dfdfdf
+					display: inline-block
+					+padlr(5px)
+			&:last-child
+				pointer-events: none
+				color: #929bae
+			&:hover
+				+rm(991)
+					color: $org
+			&:active
+				color: $org
+
+.border-card
+	display: inline-block
+	vertical-align: top
+	&.medium
+		
+		.border-card-inner
+			padding: 13% 5% 4% 13%
+		.text-medium
+			line-height: 1.55
+		.border-card-name
+			+rem(min-height,97px)
+		.border-card-content
+			+rem(min-height,75px)
+	&-inner
+		border: $bb
+		+cover
+	&-name
+		.text-medium
+			color: $bl 
+			a,span
+				color: $org
+	&-content
+		.soc-wrapp
+			+rem(margin-left,-10px)
+			+rem(margin-top,20px)
+			&-item
+				+rem(width,30px)
+				+rem(height,30px)
+.rules
+	&-outer
+		.title,.text-1
+			text-align: center
+		+rem(padding-top,80px)
+		+rem(padding-bottom,80px)
+		+r(1024)
+			+rem(padding-top,60px)
+			+rem(padding-bottom,60px)	
+		.title
+			+rem(padding-bottom,22px)
+	&-inner
+		display: flex
+		flex-flow: row nowrap
+		align-items: stretch
+		+rem(margin-right,-30px)
+		+rem(padding-top,65px)
+		+r(1024)
+			+rem(padding-top,45px)
+			+rem(margin-right,-20px)
+		+r(860)
+			flex-flow: row wrap
+			.border-card
+				width: 50%
+		+r(600)
+			.border-card
+				width: 100%	
+
+		.border-card
+			display: inherit
+			width: 33.33%
+			+rem(padding-right,30px)
+			+rem(margin-bottom,25px)
+			+r(1024)
+				+rem(padding-right,20px)
+
+	&-btn 
+		+rem(margin-top,29px)
+		.btn 
+			display: block
+			margin: 0 auto
+			+rem(max-width,144px)
+			+rem(padding-top,3px)
+			+rem(padding-bottom,3px)
 
 
-
+.aside
+	&-wrapp
+		font-size: 0
+		position: relative
+		display: flex
+		flex-flow: row nowrap
+		align-items: stretch
+		+rem(padding-top, 75px)
+		+r(991)
+			+rem(padding-top, 35px)
+		+r(735)
+			display: block
+	&-menu,&-content
+		min-height: 1px
+		display: inline-block
+		vertical-align: top
+	&-menu
+		+rem(flex-basis,272px)
+		flex-shrink: 0
+		+rem(padding-right,35px)
+		+r(735)
+			padding-right: 0
+			+rem(margin-bottom,15px)
+		.aside-stick
+			display: inline-block
+			+r(735)
+				position: static !important
+		+r(991)
+			+rem(flex-basis,212px)
+			+rem(padding-right,15px)
+		+r(735)
+			display: block
+	&-content
+		flex-grow: 1
+		font-size: 14px
+		+rem(flex-basis,280px)
+		+rem(max-width, 909px)
+		+r(735)
+			display: block
 
 
 		

@@ -4,26 +4,24 @@ block title
 	title Отделение
 
 block content
-	.wrapper.content-wrapper(style='background-image:url(img/bgmain.jpg)')
-		//для врачей вешаем класс .personal
-		.box.content-head
-			.content-bread
-				a(href="#").content-bread-item.text2 Главная
-				a(href="#").content-bread-item.text2 Специалисты
-				a(href="#").content-bread-item.text2 Отделение аппаратной косметологии
-			.content-main
-				.title.h1 Отделение Аппаратной косметологии
-				//- .title-btn
-				//- 	a(href="#").btn Прайс Лист
-	.box
-		.depart-wrap
-		.nav-wrapper
-			a(href="#").nav-btn
-				.nav-btn-inner
-					svg(class="icon icon-drop")
-						use(xlink:href="#arr-circle" xmlns:xlink="http://www.w3.org/1999/xlink")
-				span Назад
-
+	+headone('Рейс Минск-Москва')
+	.wrapper
+		.box
+			.aside-wrapp
+				aside.aside-menu(data-sticky_parent)
+					.aside-stick(data-sticky_column)
+				.aside-content
+	.wrapper.gray
+		section.box
+			.news-wrapper
+				.news-nav
+					h2.title.h3 Акции и новости
+					a(href="#").btn.btn-gray 
+						span Смотреть все
+				.news-wrapper-inner
+					+news('big','акции','promo','15 февраля 2017','Зарегистрируйся на сайте и получи специальную цену','Из путешествий всегда хочется привезти своим близким что-то особенное. Зачастую этим особенным становятся сувениры, ')
+					+news('','Новости','news','15 февраля 2017','Сувениры в Питере, где купить?','Из путешествий всегда хочется привезти своим близким что-то особенное. Зачастую этим особенным становятся')
+					+news('','Новости','news','15 февраля 2017','Пересечения российско-белорусского участка государственной границы','')
 
 
 
