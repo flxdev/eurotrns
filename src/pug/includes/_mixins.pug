@@ -248,3 +248,46 @@ mixin headone(head)
 				.content-bread
 					a(href="#").content-bread-item.text-sm Главная
 					a(href="#").content-bread-item.text-sm Рейсы
+mixin routeFeachure(img,text,doptext)
+	.feature-item.dropdown-trigger
+		.feature-item-img
+			img(src="img/route/"+img+".svg", alt="")
+		.feature-item-name.text-1 #{text}
+		.dropdown-target.arrow-bottom
+			.dropdown-inner
+				.dropdown-content
+					.text-sm #{doptext}
+mixin roadTable(date1,date2,d1,d2,d3,d4,d5,d6,d7)
+	.table-row
+		.table-item.table-item-from
+			.text-1 #{date1}
+		.table-item.table-item-from
+			.text-1 #{date2}
+		.table-item(class=d1)
+			.bus-item
+		.table-item(class=d2)
+			.bus-item
+		.table-item(class=d3)
+			.bus-item
+		.table-item(class=d4)
+			.bus-item
+		.table-item(class=d5)
+			.bus-item
+		.table-item(class=d6)
+			.bus-item
+		.table-item(class=d7)
+			.bus-item
+mixin priceTable(date1,val1,val2,vval1,vval2)
+	.table-row
+		.table-item.table-item-from
+			.text-1 #{date1}
+		.table-item
+			.text-bold #{val1}
+				span BYN
+			.text-sm #{val2}
+				span RUB
+		.table-item
+			.text-bold #{vval1}
+				span BYN
+			.text-sm #{vval2}
+				span RUB

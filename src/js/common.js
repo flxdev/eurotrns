@@ -202,6 +202,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	questionSlider();
 	servicesSlider();
 	promoSlider();
+	routefeaturesSlider();
 	
 //end of document.ready
 });
@@ -527,7 +528,51 @@ function questionSlider(){
 		});
 	});
 }
-
+function routefeaturesSlider(){
+	$(".js-routefeatures-slider").each(function() {
+		var _this = $(this);
+		slidesCount(_this);
+		_this.slick({
+			accessibility: true,
+			arrows: true,
+			draggable: false,
+			dots: false,
+			touchMove: true,
+			autoplay: false,
+			infinite: false,
+			appendArrows: _this.parent().find('.nav-arrows'),
+			slidesToShow: 6,
+			slidesToScroll: 1,
+			nextArrow: slideArrr,
+			prevArrow: slideArrl,
+			responsive: [
+				{
+					breakpoint: 1024,
+					settings: {
+						slidesToShow: 5,
+						autoplay: true,
+						autoplaySpeed: 5000,
+						slidesToScroll: 2,
+					}
+				},
+				{
+					breakpoint: 870,
+					settings: {
+						slidesToShow: 3,
+						slidesToScroll: 3,
+					}
+				},
+				{
+					breakpoint: 600,
+					settings: {
+						slidesToShow: 2,
+						slidesToScroll: 2,
+					}
+				},
+			]
+		});
+	});
+}
 
 function servicesSlider(){
 	$(".js-serviceslider").each(function() {

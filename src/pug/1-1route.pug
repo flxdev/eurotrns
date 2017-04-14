@@ -10,7 +10,96 @@ block content
 			.aside-wrapp
 				aside.aside-menu(data-sticky_parent)
 					.aside-stick(data-sticky_column)
+						//этих менюшек 2 типа, будет еще с модификатором. Эта скролит к якорям, а на второй будут уже просто ссылки на страницы
+						.aside-list
+							a(href="#",data-id='1').aside-list-item.text-1.js-scroll-to
+								span Сервис
+							a(href="#",data-id='2').aside-list-item.text-1.js-scroll-to
+								span Расписание
+							a(href="#",data-id='3').aside-list-item.text-1.js-scroll-to
+								span Стоимость
+							a(href="#",data-id='4').aside-list-item.text-1.js-scroll-to
+								span Остановки
 				.aside-content
+					section.aside-section
+						.title.h3 Сервис в дороге
+						.feature-wrap
+							.nav-arrows
+							.feature-inner.js-routefeatures-slider
+								+routeFeachure('reys_wifi','Wi-Fi','Бесплатный Wi-Fi на протяжении всего маршрута')
+								+routeFeachure('reys_tv wifi','Wi-Fi-Кино','Бесплатный Wi-Fi-Кино на протяжении всего маршрута')
+								+routeFeachure('reys_220','220v','Бесплатный 220v на протяжении всего маршрута')
+								+routeFeachure('reys_sidenia','Комфортные сидения','Комфортные сидения на протяжении всего маршрута')
+								+routeFeachure('reys_pled','Пледы','Шерстяные пледы — красивые, теплые и полезные для здоровья.')
+								+routeFeachure('reys_candicianer','Кондиционер','Шерстяные пледы — красивые, теплые и полезные для здоровья.')
+							.i-arrows
+								.slider-counter
+									.slider-curr
+									.slider-divider /
+									.slider-total
+					section.aside-section
+						.route-table-outer
+							.route-table-head
+								.route-table-head-text
+									.text-medium Расписание автобусов Минск – Москва
+									.text-sm Действительно с 21.01.17 – 30.05.17
+								.route-table-head-link
+									a(href="#").link-border.dotted
+										span Расписание на месяц
+								.table-wrapper
+									.table.table-sheldue
+										.table-head
+											.table-item.table-item-from 
+												span Отправление
+											.table-item.table-item-from 
+												span Прибытие
+											.table-item 
+												span Пн
+											.table-item 
+												span Вт
+											.table-item 
+												span Ср
+											.table-item 
+												span Чт
+											.table-item 
+												span Пт
+											.table-item
+												span Сб
+											.table-item
+												span Вс
+										//если выезд в этот день есть, вешай класс .yes на .table-item
+										+roadTable('19:45','06:00','yes','yes','','yes','yes','yes','')
+										+roadTable('22:30','09:00','yes','yes','yes','yes','','yes','yes')
+					section.aside-section
+						.price-table-wrap
+							.price-table-table
+								.title.h3 Стоимость проезда
+								.table-wrapper
+									.table.table-price
+										.table-head
+											.table-item.table-item-from 
+												span Тип билета
+											.table-item 
+												span В одну сторону
+											.table-item 
+												span Туда и обратно	
+										+priceTable('Стандартный','45','1500','82','3000')
+										+priceTable('Детский','22.5','700','45','1500')
+										+priceTable('Социальный','22.5','700','45','1500')
+										+priceTable('Организованные группы','22.5','700','45','1500')
+							.price-table-banner
+								a(href="#").border-card-link
+									+cardmedium('b1.jpg','big')
+										.border-card-name Путешевствуй комфортно получай гарантированную выгоду
+										.border-card-content 
+											.text-medium Путешевствуй комфортно получай гарантированную выгоду
+											.text-3 Оформи карту у водителя и получай скидки от 10% до 50%
+											.link-border.dotted
+												span Подробнее
+											img(src="img/cards/eurocard.png", alt="")
+
+
+
 	.wrapper.gray
 		section.box
 			.news-wrapper
@@ -22,6 +111,7 @@ block content
 					+news('big','акции','promo','15 февраля 2017','Зарегистрируйся на сайте и получи специальную цену','Из путешествий всегда хочется привезти своим близким что-то особенное. Зачастую этим особенным становятся сувениры, ')
 					+news('','Новости','news','15 февраля 2017','Сувениры в Питере, где купить?','Из путешествий всегда хочется привезти своим близким что-то особенное. Зачастую этим особенным становятся')
 					+news('','Новости','news','15 февраля 2017','Пересечения российско-белорусского участка государственной границы','')
+
 
 
 

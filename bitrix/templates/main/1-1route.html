@@ -352,8 +352,7 @@
                                 </div>
                               </form>
                               <div class="page-head-breadcrums">
-                                <div class="content-bread"><a class="content-bread-item text-sm" href="#">Главная</a><a class="content-bread-item text-sm" href="#">Рейсы
-                                    <!-- для больштнства элементов активное состояние вызывается классом .active . где это не так буду писать--></a></div>
+                                <div class="content-bread"><a class="content-bread-item text-sm" href="#">Главная</a><a class="content-bread-item text-sm" href="#">Рейсы</a></div>
                               </div>
                             </div>
                           </div>
@@ -361,9 +360,262 @@
               <div class="box">
                 <div class="aside-wrapp">
                   <aside class="aside-menu" data-sticky_parent>
-                    <div class="aside-stick" data-sticky_column></div>
+                    <div class="aside-stick" data-sticky_column>
+                      <!--этих менюшек 2 типа, будет еще с модификатором. Эта скролит к якорям, а на второй будут уже просто ссылки на страницы-->
+                      <div class="aside-list"><a class="aside-list-item text-1 js-scroll-to" href="#" data-id="1"><span>Сервис</span></a><a class="aside-list-item text-1 js-scroll-to" href="#" data-id="2"><span>Расписание</span></a><a class="aside-list-item text-1 js-scroll-to" href="#" data-id="3"><span>Стоимость</span></a><a class="aside-list-item text-1 js-scroll-to" href="#" data-id="4"><span>Остановки</span></a></div>
+                    </div>
                   </aside>
-                  <div class="aside-content"></div>
+                  <div class="aside-content">
+                    <section class="aside-section">
+                      <div class="title h3">Сервис в дороге</div>
+                      <div class="feature-wrap">
+                        <div class="nav-arrows"></div>
+                        <div class="feature-inner js-routefeatures-slider">
+                                        <div class="feature-item dropdown-trigger">
+                                          <div class="feature-item-img"><img src="img/route/reys_wifi.svg" alt=""></div>
+                                          <div class="feature-item-name text-1">Wi-Fi</div>
+                                          <div class="dropdown-target arrow-bottom">
+                                            <div class="dropdown-inner">
+                                              <div class="dropdown-content">
+                                                <div class="text-sm">Бесплатный Wi-Fi на протяжении всего маршрута</div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div class="feature-item dropdown-trigger">
+                                          <div class="feature-item-img"><img src="img/route/reys_tv wifi.svg" alt=""></div>
+                                          <div class="feature-item-name text-1">Wi-Fi-Кино</div>
+                                          <div class="dropdown-target arrow-bottom">
+                                            <div class="dropdown-inner">
+                                              <div class="dropdown-content">
+                                                <div class="text-sm">Бесплатный Wi-Fi-Кино на протяжении всего маршрута</div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div class="feature-item dropdown-trigger">
+                                          <div class="feature-item-img"><img src="img/route/reys_220.svg" alt=""></div>
+                                          <div class="feature-item-name text-1">220v</div>
+                                          <div class="dropdown-target arrow-bottom">
+                                            <div class="dropdown-inner">
+                                              <div class="dropdown-content">
+                                                <div class="text-sm">Бесплатный 220v на протяжении всего маршрута</div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div class="feature-item dropdown-trigger">
+                                          <div class="feature-item-img"><img src="img/route/reys_sidenia.svg" alt=""></div>
+                                          <div class="feature-item-name text-1">Комфортные сидения</div>
+                                          <div class="dropdown-target arrow-bottom">
+                                            <div class="dropdown-inner">
+                                              <div class="dropdown-content">
+                                                <div class="text-sm">Комфортные сидения на протяжении всего маршрута</div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div class="feature-item dropdown-trigger">
+                                          <div class="feature-item-img"><img src="img/route/reys_pled.svg" alt=""></div>
+                                          <div class="feature-item-name text-1">Пледы</div>
+                                          <div class="dropdown-target arrow-bottom">
+                                            <div class="dropdown-inner">
+                                              <div class="dropdown-content">
+                                                <div class="text-sm">Шерстяные пледы — красивые, теплые и полезные для здоровья.</div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div class="feature-item dropdown-trigger">
+                                          <div class="feature-item-img"><img src="img/route/reys_candicianer.svg" alt=""></div>
+                                          <div class="feature-item-name text-1">Кондиционер</div>
+                                          <div class="dropdown-target arrow-bottom">
+                                            <div class="dropdown-inner">
+                                              <div class="dropdown-content">
+                                                <div class="text-sm">Шерстяные пледы — красивые, теплые и полезные для здоровья.</div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                        </div>
+                        <div class="i-arrows">
+                          <div class="slider-counter">
+                            <div class="slider-curr"></div>
+                            <div class="slider-divider">/</div>
+                            <div class="slider-total"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </section>
+                    <section class="aside-section">
+                      <div class="route-table-outer">
+                        <div class="route-table-head">
+                          <div class="route-table-head-text">
+                            <div class="text-medium">Расписание автобусов Минск – Москва</div>
+                            <div class="text-sm">Действительно с 21.01.17 – 30.05.17</div>
+                          </div>
+                          <div class="route-table-head-link"><a class="link-border dotted" href="#"><span>Расписание на месяц</span></a></div>
+                          <div class="table-wrapper">
+                            <div class="table table-sheldue">
+                              <div class="table-head">
+                                <div class="table-item table-item-from"> <span>Отправление</span></div>
+                                <div class="table-item table-item-from"> <span>Прибытие</span></div>
+                                <div class="table-item"> <span>Пн</span></div>
+                                <div class="table-item"> <span>Вт</span></div>
+                                <div class="table-item"> <span>Ср</span></div>
+                                <div class="table-item"> <span>Чт</span></div>
+                                <div class="table-item"> <span>Пт</span></div>
+                                <div class="table-item"><span>Сб</span></div>
+                                <div class="table-item"><span>Вс</span></div>
+                              </div>
+                              <!--если выезд в этот день есть, вешай класс .yes на .table-item-->
+                                            <div class="table-row">
+                                              <div class="table-item table-item-from">
+                                                <div class="text-1">19:45</div>
+                                              </div>
+                                              <div class="table-item table-item-from">
+                                                <div class="text-1">06:00</div>
+                                              </div>
+                                              <div class="table-item yes">
+                                                <div class="bus-item"></div>
+                                              </div>
+                                              <div class="table-item yes">
+                                                <div class="bus-item"></div>
+                                              </div>
+                                              <div class="table-item">
+                                                <div class="bus-item"></div>
+                                              </div>
+                                              <div class="table-item yes">
+                                                <div class="bus-item"></div>
+                                              </div>
+                                              <div class="table-item yes">
+                                                <div class="bus-item"></div>
+                                              </div>
+                                              <div class="table-item yes">
+                                                <div class="bus-item"></div>
+                                              </div>
+                                              <div class="table-item">
+                                                <div class="bus-item"></div>
+                                              </div>
+                                            </div>
+                                            <div class="table-row">
+                                              <div class="table-item table-item-from">
+                                                <div class="text-1">22:30</div>
+                                              </div>
+                                              <div class="table-item table-item-from">
+                                                <div class="text-1">09:00</div>
+                                              </div>
+                                              <div class="table-item yes">
+                                                <div class="bus-item"></div>
+                                              </div>
+                                              <div class="table-item yes">
+                                                <div class="bus-item"></div>
+                                              </div>
+                                              <div class="table-item yes">
+                                                <div class="bus-item"></div>
+                                              </div>
+                                              <div class="table-item yes">
+                                                <div class="bus-item"></div>
+                                              </div>
+                                              <div class="table-item">
+                                                <div class="bus-item"></div>
+                                              </div>
+                                              <div class="table-item yes">
+                                                <div class="bus-item"></div>
+                                              </div>
+                                              <div class="table-item yes">
+                                                <div class="bus-item"></div>
+                                              </div>
+                                            </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </section>
+                    <section class="aside-section">
+                      <div class="price-table-wrap">
+                        <div class="price-table-table">
+                          <div class="title h3">Стоимость проезда</div>
+                          <div class="table-wrapper">
+                            <div class="table table-price">
+                              <div class="table-head">
+                                <div class="table-item table-item-from"> <span>Тип билета</span></div>
+                                <div class="table-item"> <span>В одну сторону</span></div>
+                                <div class="table-item"> <span>Туда и обратно	</span></div>
+                              </div>
+                                            <div class="table-row">
+                                              <div class="table-item table-item-from">
+                                                <div class="text-1">Стандартный</div>
+                                              </div>
+                                              <div class="table-item">
+                                                <div class="text-bold">45<span>BYN</span></div>
+                                                <div class="text-sm">1500<span>RUB</span></div>
+                                              </div>
+                                              <div class="table-item">
+                                                <div class="text-bold">82<span>BYN</span></div>
+                                                <div class="text-sm">3000<span>RUB
+                                                    <!-- для больштнства элементов активное состояние вызывается классом .active . где это не так буду писать--></span></div>
+                                              </div>
+                                            </div>
+                                            <div class="table-row">
+                                              <div class="table-item table-item-from">
+                                                <div class="text-1">Детский</div>
+                                              </div>
+                                              <div class="table-item">
+                                                <div class="text-bold">22.5<span>BYN</span></div>
+                                                <div class="text-sm">700<span>RUB</span></div>
+                                              </div>
+                                              <div class="table-item">
+                                                <div class="text-bold">45<span>BYN</span></div>
+                                                <div class="text-sm">1500<span>RUB
+                                                    <!-- для больштнства элементов активное состояние вызывается классом .active . где это не так буду писать--></span></div>
+                                              </div>
+                                            </div>
+                                            <div class="table-row">
+                                              <div class="table-item table-item-from">
+                                                <div class="text-1">Социальный</div>
+                                              </div>
+                                              <div class="table-item">
+                                                <div class="text-bold">22.5<span>BYN</span></div>
+                                                <div class="text-sm">700<span>RUB</span></div>
+                                              </div>
+                                              <div class="table-item">
+                                                <div class="text-bold">45<span>BYN</span></div>
+                                                <div class="text-sm">1500<span>RUB
+                                                    <!-- для больштнства элементов активное состояние вызывается классом .active . где это не так буду писать--></span></div>
+                                              </div>
+                                            </div>
+                                            <div class="table-row">
+                                              <div class="table-item table-item-from">
+                                                <div class="text-1">Организованные группы</div>
+                                              </div>
+                                              <div class="table-item">
+                                                <div class="text-bold">22.5<span>BYN</span></div>
+                                                <div class="text-sm">700<span>RUB</span></div>
+                                              </div>
+                                              <div class="table-item">
+                                                <div class="text-bold">45<span>BYN</span></div>
+                                                <div class="text-sm">1500<span>RUB
+                                                    <!-- для больштнства элементов активное состояние вызывается классом .active . где это не так буду писать--></span></div>
+                                              </div>
+                                            </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="price-table-banner"><a class="border-card-link" href="#">
+                                          <div class="border-card big">
+                                            <div class="border-card-inner" style="background-image:url(img/cards/b1.jpg);">
+                                              <div class="border-card-name">Путешевствуй комфортно получай гарантированную выгоду</div>
+                                              <div class="border-card-content"> 
+                                                <div class="text-medium">Путешевствуй комфортно получай гарантированную выгоду</div>
+                                                <div class="text-3">Оформи карту у водителя и получай скидки от 10% до 50%</div>
+                                                <div class="link-border dotted"><span>Подробнее</span></div><img src="img/cards/eurocard.png" alt="">
+                                              </div>
+                                            </div>
+                                          </div></a></div>
+                      </div>
+                    </section>
+                  </div>
                 </div>
               </div>
             </div>
