@@ -867,6 +867,7 @@ body, .out
 //=====================================//
 .ui-datepicker
 	+nosel
+	z-index: 20 !important
 	.ui-datepicker-next
 		right: 0
 		transform: rotate(-90deg)
@@ -2037,7 +2038,7 @@ body, .out
 	&-img,&-content
 	&-img 
 		width: 45.5%
-		padding-bottom: 45.5%
+		// padding-bottom: 45.5%
 		position: relative
 		overflow: hidden
 		background-color: darken($grayf, 5)
@@ -2687,8 +2688,20 @@ body, .out
 				color: $org
 
 .border-card
-	
 	vertical-align: top
+	&.small
+		+rem(min-height,126px)
+		.border-card-name
+			+rem(font-size,18px)
+			color: rgb(64, 71, 76);
+			line-height: 1.556;
+			+rem(margin-bottom,20px)
+		.border-card-inner
+			padding: 6% 1% 11% 5%
+		.border-card-content 
+
+		.link-border
+			color: $bl
 	&:not(.medium)
 		display: inline-block
 	&.medium
@@ -2730,10 +2743,14 @@ body, .out
 		display: inline-block
 		&:hover
 			.border-card
-				.link-border
+				.link-border.dotted
 					span 
 						&:before
 							opacity: 0
+				.link-border:not(.dotted)
+					span 
+						&:before
+							width: 0					
 	&-inner
 		border: $bb
 		+cover
@@ -3181,16 +3198,225 @@ body, .out
 				margin: 0 auto
 			
 
-
-		
 							
+.roadmap
+	&-wrapper
+		+rem(padding-top,50px)
+	&-inner
+		position: relative
+		font-size: 0
+		+r(1210)
+			width: calc(100% - 1.25rem)
+		+r(768)
+			width: 100%
+			+rem(margin, 35px 0)
+			// display: flex
+			// flex-flow: row wrap
+	&-item
+		display: inline-block
+		position: relative
+		vertical-align: top
+		+rem(height,100px)
+		+r(768)
+			display: inherit
+			min-width: 100%
+			height: auto
+			.item-circle
+				position: absolute !important
+				+rem(left, -54px)
+				z-index: 1
+		&-text
+			+rem(font-size,12px)
+			color: rgb(101, 101, 101);
+			line-height: 2;
+			+rem(margin-top,15px)
+		&-type
+			+rem(margin-bottom,20px)
+		&.roadmap-2w
+			.small
+				&:nth-child(2)
+					left: calc(33.33% - 3.25rem)
+				&:nth-child(3)
+					right: calc(33.33% - 3.25rem)
+		&.roadmap-1w
+			.small
+				&:nth-child(2)
+					left: calc(50% - 3.25rem)
+		&.roadmap-3w
+			.small
+				&:nth-child(2)
+					left: calc(25% - 3.25rem)	
+				&:nth-child(3)
+					left: calc(50% - 3.25rem)	
+				&:nth-child(4)
+					left: calc(75% - 3.25rem)	
+		&.roadmap-main
+			+r(768)
+				order: 2
+			&:after
+				background-color: $bl
+			.item-circle
+				border-color: $bl
+				&:after
+					background-color: $bl
+		&.roadmap-pre
+			+r(768)
+				order: 1
+				&:after
+					height: 100%
+					bottom: -7.5rem
+			&:after
+				background-color: #929bae
+				right: -3.25rem
+			.small
+				&:nth-child(2)
+					left: 50%
+			width: 33.33%
+			&+.roadmap-main
+				width: 66.66%
+			.item-circle
+				border-color: #929bae
+				&:after
+					background-color: #929bae
+		&:only-child
+			width: 100%
+		&:after
+			display: inline-block
+			content: ''
+			+rem(left,50px)
+			+rem(right,50px)
+			+rem(top,14px)
+			height: 1px
+			position: absolute
+			z-index: 0
+			+r(768)
+				right: auto
+				height: calc(100% - 4rem) 
+				width: 1px
+		&-point
+			text-align: center
+			position: absolute
+			z-index: 1
+			+r(768)
+				position: static
+				display: block
+				min-width: 100%
+				text-align: left
+				+rem(padding-left,100px)
+				+rem(height,80px)
+			&:hover
+				.item-circle:after
+					background-color: $org
+			.dropdown-target
+				top: auto
+				bottom: calc(100% + .8125rem)
+				+rem(min-width,240px)
+				left: -25%
+				+r(1024)
+					display: none
+			.dropdown-content
+				+rem(padding,25px 15px 35px 15px)
+				.text-sm
+					color: $grayf
+				.services-item-link
+					+rem(font-size,13px)
+					line-height: 1.2
+			&-inner
+				position: relative
+			.text-1
+				color: $bl
+				line-height: 1.2
+			&.small
+				+rem(top,9px)
+				+rem(width, 120px)
+				.dropdown-target
+					bottom: calc(100% + 1.1rem)
+					left: -37%
+				.item-circle
+					+rem(width,10px)
+					+rem(height,10px)
+					+rem(margin-bottom,15px)
+					+r(768)
+						+rem(top,4px)
+			&.big
+				top: 0
+				+rem(width, 140px)
+				+r(768)
+					.item-circle
+						+rem(left, -64px)
+				&:first-of-type
+					+rem(left,-5px)
+				&:last-of-type
+					+rem(right,-5px)
+				.item-circle
+					+rem(width,30px)
+					+rem(height,30px)
+					position: relative
+					text-align: center
+					+vertical
+					&:after
+						display: inline-block
+						content: ''
+						border-radius: 50%
+						+rem(width,10px)
+						+rem(height,10px)
+						vertical-align: middle
+						+tr(background-color .3s)
+						
+
+		&-description
+			text-align: left
 
 
+.item-circle
+	display: inline-block
+	border-radius: 50%
+	background-color: $white
+	text-align: center
+	border: 1px solid 
+	transition: border-color .3s, background-color .3s 	
+	+rem(margin-bottom,5px)
 						
 					
 
-			
-
+.content-column
+	&-wrap
+		display: flex
+		flex-flow: row nowrap
+		+r(991)
+			flex-direction: column
+	&-content
+		flex-grow: 1
+		+rem(font-size,16px)
+		display: flex
+		flex-flow: column nowrap
+		+rem(flex-basis,280px)
+		+r(991)
+			order: 2
+			display: block
+		+r(735)
+			padding: 0
+		&-inner
+			width: 100%
+	&-right
+			+rem(flex-basis, 302px)
+			flex-shrink: 0
+			justify-content: flex-end
+			padding-left: 3.5%
+			.border-card-link
+				width: 100%
+				display: inline-block
+				.border-card
+					width: 100%
+			.caption-content
+				position: static
+				margin-left: auto
+				text-align: left
+				+rem(margin, 120px 0 160px auto)
+			+r(991)
+				order: 1
+				flex-shrink: 1
+				flex-basis: 0
 
 
 
