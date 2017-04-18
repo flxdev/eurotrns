@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Отделение</title>
+    <title>Рейс Минск-Москва</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="format-detection" content="telephone=no">
     <meta content="True" name="HandheldFriendly">
@@ -362,93 +362,96 @@
                   <aside class="aside-menu" data-sticky_parent>
                     <div class="aside-stick" data-sticky_column>
                       <!--этих менюшек 2 типа, будет еще с модификатором. Эта скролит к якорям, а на второй будут уже просто ссылки на страницы-->
-                      <div class="aside-list"><a class="aside-list-item text-1 js-scroll-to" href="#" data-id="1"><span>Сервис</span></a><a class="aside-list-item text-1 js-scroll-to" href="#" data-id="2"><span>Расписание</span></a><a class="aside-list-item text-1 js-scroll-to" href="#" data-id="3"><span>Стоимость</span></a><a class="aside-list-item text-1 js-scroll-to" href="#" data-id="4"><span>Остановки</span></a></div>
+                      <div class="aside-list"><a class="aside-list-item text-1 js-scroll-to" href="#" data-href="#service"><span>Сервис</span></a><a class="aside-list-item text-1 js-scroll-to" href="#" data-href="#sheldue"><span>Расписание</span></a><a class="aside-list-item text-1 js-scroll-to" href="#" data-href="#price"><span>Стоимость</span></a><a class="aside-list-item text-1 js-scroll-to" href="#" data-href="#stops"><span>Остановки</span></a></div>
                     </div>
                   </aside>
                   <div class="aside-content">
                     <section class="aside-section">
-                      <div class="title h3">Сервис в дороге</div>
-                      <div class="feature-wrap">
-                        <div class="nav-arrows"></div>
-                        <div class="feature-inner js-routefeatures-slider">
-                                        <div class="feature-item dropdown-trigger">
-                                          <div class="feature-item-img"><img src="img/route/reys_wifi.svg" alt=""></div>
-                                          <div class="feature-item-name text-1">Wi-Fi</div>
-                                          <div class="dropdown-target arrow-bottom">
-                                            <div class="dropdown-inner">
-                                              <div class="dropdown-content">
-                                                <div class="text-sm">Бесплатный Wi-Fi на протяжении всего маршрута</div>
+                      <div class="feature-outer" data-id="#service">
+                        <div class="title h3">Сервис в дороге</div>
+                        <div class="feature-wrap">
+                          <div class="nav-arrows"></div>
+                          <!--на карточке автобуса та же канитель, только без класса инициализации слайдера-->
+                          <div class="feature-inner js-routefeatures-slider">
+                                          <div class="feature-item dropdown-trigger">
+                                            <div class="feature-item-img"><img src="img/route/reys_wifi.svg" alt=""></div>
+                                            <div class="feature-item-name text-1">Wi-Fi</div>
+                                            <div class="dropdown-target arrow-bottom">
+                                              <div class="dropdown-inner">
+                                                <div class="dropdown-content">
+                                                  <div class="text-sm">Бесплатный Wi-Fi на протяжении всего маршрута</div>
+                                                </div>
                                               </div>
                                             </div>
                                           </div>
-                                        </div>
-                                        <div class="feature-item dropdown-trigger">
-                                          <div class="feature-item-img"><img src="img/route/reys_tv wifi.svg" alt=""></div>
-                                          <div class="feature-item-name text-1">Wi-Fi-Кино</div>
-                                          <div class="dropdown-target arrow-bottom">
-                                            <div class="dropdown-inner">
-                                              <div class="dropdown-content">
-                                                <div class="text-sm">Бесплатный Wi-Fi-Кино на протяжении всего маршрута</div>
+                                          <div class="feature-item dropdown-trigger">
+                                            <div class="feature-item-img"><img src="img/route/reys_tv wifi.svg" alt=""></div>
+                                            <div class="feature-item-name text-1">Wi-Fi-Кино</div>
+                                            <div class="dropdown-target arrow-bottom">
+                                              <div class="dropdown-inner">
+                                                <div class="dropdown-content">
+                                                  <div class="text-sm">Бесплатный Wi-Fi-Кино на протяжении всего маршрута</div>
+                                                </div>
                                               </div>
                                             </div>
                                           </div>
-                                        </div>
-                                        <div class="feature-item dropdown-trigger">
-                                          <div class="feature-item-img"><img src="img/route/reys_220.svg" alt=""></div>
-                                          <div class="feature-item-name text-1">220v</div>
-                                          <div class="dropdown-target arrow-bottom">
-                                            <div class="dropdown-inner">
-                                              <div class="dropdown-content">
-                                                <div class="text-sm">Бесплатный 220v на протяжении всего маршрута</div>
+                                          <div class="feature-item dropdown-trigger">
+                                            <div class="feature-item-img"><img src="img/route/reys_220.svg" alt=""></div>
+                                            <div class="feature-item-name text-1">220v</div>
+                                            <div class="dropdown-target arrow-bottom">
+                                              <div class="dropdown-inner">
+                                                <div class="dropdown-content">
+                                                  <div class="text-sm">Бесплатный 220v на протяжении всего маршрута</div>
+                                                </div>
                                               </div>
                                             </div>
                                           </div>
-                                        </div>
-                                        <div class="feature-item dropdown-trigger">
-                                          <div class="feature-item-img"><img src="img/route/reys_sidenia.svg" alt=""></div>
-                                          <div class="feature-item-name text-1">Комфортные сидения</div>
-                                          <div class="dropdown-target arrow-bottom">
-                                            <div class="dropdown-inner">
-                                              <div class="dropdown-content">
-                                                <div class="text-sm">Комфортные сидения на протяжении всего маршрута</div>
+                                          <div class="feature-item dropdown-trigger">
+                                            <div class="feature-item-img"><img src="img/route/reys_sidenia.svg" alt=""></div>
+                                            <div class="feature-item-name text-1">Комфортные сидения</div>
+                                            <div class="dropdown-target arrow-bottom">
+                                              <div class="dropdown-inner">
+                                                <div class="dropdown-content">
+                                                  <div class="text-sm">Комфортные сидения на протяжении всего маршрута</div>
+                                                </div>
                                               </div>
                                             </div>
                                           </div>
-                                        </div>
-                                        <div class="feature-item dropdown-trigger">
-                                          <div class="feature-item-img"><img src="img/route/reys_pled.svg" alt=""></div>
-                                          <div class="feature-item-name text-1">Пледы</div>
-                                          <div class="dropdown-target arrow-bottom">
-                                            <div class="dropdown-inner">
-                                              <div class="dropdown-content">
-                                                <div class="text-sm">Шерстяные пледы — красивые, теплые и полезные для здоровья.</div>
+                                          <div class="feature-item dropdown-trigger">
+                                            <div class="feature-item-img"><img src="img/route/reys_pled.svg" alt=""></div>
+                                            <div class="feature-item-name text-1">Пледы</div>
+                                            <div class="dropdown-target arrow-bottom">
+                                              <div class="dropdown-inner">
+                                                <div class="dropdown-content">
+                                                  <div class="text-sm">Шерстяные пледы — красивые, теплые и полезные для здоровья.</div>
+                                                </div>
                                               </div>
                                             </div>
                                           </div>
-                                        </div>
-                                        <div class="feature-item dropdown-trigger">
-                                          <div class="feature-item-img"><img src="img/route/reys_candicianer.svg" alt=""></div>
-                                          <div class="feature-item-name text-1">Кондиционер</div>
-                                          <div class="dropdown-target arrow-bottom">
-                                            <div class="dropdown-inner">
-                                              <div class="dropdown-content">
-                                                <div class="text-sm">Шерстяные пледы — красивые, теплые и полезные для здоровья.</div>
+                                          <div class="feature-item dropdown-trigger">
+                                            <div class="feature-item-img"><img src="img/route/reys_candicianer.svg" alt=""></div>
+                                            <div class="feature-item-name text-1">Кондиционер</div>
+                                            <div class="dropdown-target arrow-bottom">
+                                              <div class="dropdown-inner">
+                                                <div class="dropdown-content">
+                                                  <div class="text-sm">Шерстяные пледы — красивые, теплые и полезные для здоровья.</div>
+                                                </div>
                                               </div>
                                             </div>
                                           </div>
-                                        </div>
-                        </div>
-                        <div class="i-arrows">
-                          <div class="slider-counter">
-                            <div class="slider-curr"></div>
-                            <div class="slider-divider">/</div>
-                            <div class="slider-total"></div>
+                          </div>
+                          <div class="i-arrows">
+                            <div class="slider-counter">
+                              <div class="slider-curr"></div>
+                              <div class="slider-divider">/</div>
+                              <div class="slider-total"></div>
+                            </div>
                           </div>
                         </div>
                       </div>
                     </section>
                     <section class="aside-section">
-                      <div class="route-table-outer">
+                      <div class="route-table-outer" data-id="#sheldue">
                         <div class="route-table-head">
                           <div class="route-table-head-text">
                             <div class="text-medium">Расписание автобусов Минск – Москва</div>
@@ -533,7 +536,7 @@
                       </div>
                     </section>
                     <section class="aside-section">
-                      <div class="price-table-wrap">
+                      <div class="price-table-wrap" data-id="#price">
                         <div class="price-table-table">
                           <div class="title h3">Стоимость проезда</div>
                           <div class="table-wrapper">
@@ -616,7 +619,7 @@
                       </div>
                     </section>
                     <section class="aside-section">
-                      <div class="roadmap-wrapper">
+                      <div class="roadmap-wrapper" data-id="#stops">
                         <div class="roadmap-inner">
                           <div class="roadmap-item roadmap-main roadmap-2w">
                             <div class="roadmap-item-point big">
@@ -902,10 +905,92 @@
                       </div>
                     </section>
                     <section class="aside-section">
+                      <div class="tabs-wrapper">
+                        <div class="tabs js-tabs-wrap">
+                          <div class="tabs-head">
+                            <div class="tabs-item js-tab-trigger active"><span>Отправление</span></div>
+                            <div class="tabs-item js-tab-trigger"><span>Весь маршрут</span></div>
+                            <div class="tabs-item js-tab-trigger"><span>Прибытие</span></div>
+                          </div>
+                          <div class="tabs-body">
+                            <div class="tabs-cont">
+                              <div class="tabs-cont-head">
+                                <div class="title h3">Отправление из Минска</div>
+                                <div class="tabs-cont-link">
+                                  <!--data-items - количество li после которого последующие скрываются--><a class="link-border dotted js-slidelist js-marker-add" href="#" data-items="3" data-alt-text="Свернуть"><span>Все пункты посадки</span></a>
+                                </div>
+                              </div>
+                              <div class="content-column-content-inner">
+                                <ul class="js-slidelist-target">
+                                  <!--главная точка, ее маркер отображается на карте всегда, остальные - по клику на js-marker-add-->
+                                  <li data-cords="[53.890398, 27.554515]">Автовокзал "Центральный" (11 платформа) ст.м. Площадь Ленина, ул. Бобруйская, 6</li>
+                                  <li data-cords="[53.899833, 27.509853]">Проспект Космонавтов (ост. напротив Автовокзала)</li>
+                                  <li data-cords="[53.868596, 27.507793]">Проспект Космонавтов (ост. напротив Автовокзала)</li>
+                                  <li data-cords="[53.859261, 27.527362]">Проспект Космонавтов (ост. напротив Автовокзала)</li>
+                                  <li data-cords="[53.856217, 27.589847]">Проспект Космонавтов (ост. напротив Автовокзала)</li>
+                                  <li data-cords="[53.896183, 27.517063]">Проспект Космонавтов (ост. напротив Автовокзала)</li>
+                                  <li data-cords="[53.897197, 27.635852]">Проспект Космонавтов (ост. напротив Автовокзала)</li>
+                                  <li data-cords="[53.949884, 27.565815]">Проспект Космонавтов (ост. напротив Автовокзала)</li>
+                                </ul>
+                              </div>
+                              <div class="map-body">
+                                <!--отправлении и прибытии карта инитится по апи, в маршруте просто вставляется iframe из конструктора, у каждой карты долэжен быть уникальный айдишник-->
+                                <!--скрипт пихую сюда для наглядности-->
+                                <div class="map-elem" id="map-markers-1" data-imagesrc="/img/pin.svg"></div>
+                              </div>
+                            </div>
+                            <script>
+                              document.addEventListener("DOMContentLoaded", function () {
+                              	mapMarkerinit('map-markers-1');
+                              });
+                            </script>
+                            <div class="tabs-cont">
+                              <div class="tabs-cont-head">
+                                <div class="title h3">Маршрут</div>
+                              </div>
+                              <div class="content-column-content-inner">
+                                <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem nisi veritatis commodi vel, nobis culpa error est pariatur ipsum obcaecati! Debitis nobis praesentium facilis repellat, dolore dignissimos? Assumenda doloribus, architecto.</p>
+                              </div>
+                              <div class="map-body">
+                                <iframe src="https://api-maps.yandex.ua/frame/v1/-/C6abuA4x" width="100%" height="100%" frameborder="0"></iframe>
+                              </div>
+                            </div>
+                            <div class="tabs-cont">
+                              <div class="tabs-cont-head">
+                                <div class="title h3">Прибытие из Минска</div>
+                                <div class="tabs-cont-link"><a class="link-border dotted js-slidelist js-marker-add" href="#" data-items="3" data-alt-text="Свернуть"><span>Все пункты прибытия	</span></a></div>
+                              </div>
+                              <div class="content-column-content-inner">
+                                <ul class="js-slidelist-target">
+                                  <!--главная точка, ее маркер отображается на карте всегда, остальные - по клику на js-marker-add-->
+                                  <li data-cords="[53.880545, 27.526306]">Автовокзал "Центральный" (11 платформа) ст.м. Площадь Ленина, ул. Бобруйская, 6</li>
+                                  <li data-cords="[53.899833, 27.509853]">Проспект Космонавтов (ост. напротив Автовокзала)</li>
+                                  <li data-cords="[53.868596, 27.507793]">Проспект Космонавтов (ост. напротив Автовокзала)</li>
+                                  <li data-cords="[53.859261, 27.527362]">Проспект Космонавтов (ост. напротив Автовокзала)</li>
+                                  <li data-cords="[53.856217, 27.589847]">Проспект Космонавтов (ост. напротив Автовокзала)</li>
+                                  <li data-cords="[53.896183, 27.517063]">Проспект Космонавтов (ост. напротив Автовокзала)</li>
+                                  <li data-cords="[53.897197, 27.635852]">Проспект Космонавтов (ост. напротив Автовокзала)</li>
+                                  <li data-cords="[53.949884, 27.565815]">Проспект Космонавтов (ост. напротив Автовокзала)</li>
+                                </ul>
+                              </div>
+                              <div class="map-body">
+                                <div class="map-elem" id="map-markers-2" data-imagesrc="/img/pin.svg"></div>
+                              </div>
+                              <script>
+                                document.addEventListener("DOMContentLoaded", function () {
+                                	mapMarkerinit('map-markers-2');
+                                });
+                              </script>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </section>
+                    <section class="aside-section">
                       <div class="content-column-wrap">
                         <div class="content-column-content">
                           <div class="content-column-content-inner">
-                            <h3>Забронированные Вами билеты</h3>
+                            <h1>Забронированные Вами билеты</h1>
                             <p> Мы внимательно относимся к каждому клиенту, поэтому гарантируем индивидуальный подход в организации любой поездки. Наши сотрудники помогут вам рассчитать оптимальный маршрут, который бы полностью вас удовлетворял. В нашем автопарке представлены только лучшие модели автобусов и микроавтобусов. Мы предлагаем комфортабельные условия для поездок на любые расстояния. А опыт наших водителей позволит вам полностью расслабиться на протяжении всей поездки.</p>
                             <blockquote class="caption"> Время прибытия местное. Компания не несет ответственности за изменение времени приезда в связи с пробками на дорогах, плохими погодными условиями, действиями представителей власти и другими, не зависящими от нас причинами.
                               <mark class="caption-content">
@@ -1219,6 +1304,5 @@
     <!--END out-->
     <script src="js/lib.min.js"></script>
     <script src="js/common.min.js"></script>
-    <script src="https://yastatic.net/share2/share.js"></script>
   </body>
 </html>

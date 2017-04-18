@@ -77,6 +77,7 @@ body
 	text-rendering: optimizeLegibility
 	font-family: $os
 	min-width: 320px
+	-webkit-overflow-scrolling: touch;
 	& ::selection
 		background-color: $org
 		color: $white
@@ -101,7 +102,7 @@ body, .out
 			// height: 100%
 .out
 	position: relative
-	-webkit-overflow-scrolling: touch;
+	
 	// +r(768)
 	// 	overflow-x: hidden
 .page__header--wrap
@@ -382,7 +383,7 @@ body, .out
 					margin: auto;
 					display: inline-block
 					vertical-align: middle
-					
+					will-change: transform;
 					i 
 						background-color: #fff;
 						border-radius: 2px;
@@ -420,6 +421,8 @@ body, .out
 					+rem(max-width, 175px)	
 		&-nav
 			+rem(margin-left,-42px)
+			height: 100%
+			position: relative
 			+r(1024)
 				position: absolute
 				+rem(bottom, -50px)
@@ -583,6 +586,7 @@ body, .out
 	&-lang
 		font-size: 0
 		.header-lang-item
+			+rem(height,60px)
 			span
 				color: $white
 		&-item
@@ -868,11 +872,16 @@ body, .out
 .ui-datepicker
 	+nosel
 	z-index: 20 !important
+	.ui-datepicker-calendar
+		td 
+			a 
+				+rem(height,25px)
 	.ui-datepicker-next
 		right: 0
 		transform: rotate(-90deg)
 	.ui-datepicker-prev
 		transform: rotate(90deg)
+
 	.ui-datepicker-prev,.ui-datepicker-next
 		cursor: pointer
 		background-repeat: no-repeat
@@ -936,8 +945,12 @@ body, .out
 			position: relative
 			z-index: 2
 			+placeholder
-				color: $blk2 !important
-				opacity: 1 !important
+				color: $blk2
+				opacity: 1 
+			&:valid
+				+placeholder
+					color: $white
+					opacity: 0 
 			&~ svg
 				position: absolute
 				top: 53%
@@ -1096,6 +1109,9 @@ body, .out
 		position: relative
 		&-inner,&-item
 			height: 100%
+			
+		&-inner
+			+coverdiv
 		.slick-list,.slick-track
 			height: 100%
 		&-item
@@ -1917,37 +1933,7 @@ body, .out
 			transform: scaleY(0.9)
 			transform-origin: 50%
 			// +rem(margin-top,2px)
-.half
-	&-block
-		font-size: 0
-		+r(991)
-			display: flex
-			flex-flow: column nowrap
-	&-aside,&-main
-		+rm(991)
-			display: inline-block
-			vertical-align: top
-		min-height: 1px
-	&-aside
-		width: 100%
-		max-width: 43%
-		+r(1230)
-			max-width: 35%
-		+r(991)
-			order: 2
-			+rem(max-width,800px)
-			margin: 0 auto
-	&-main
-		width: 100%
-		max-width: 57%
-		+r(1230)
-			max-width: 65%
-		+r(991)
-			order: 1
-			align-items: flex-end
-			justify-content: flex-end
-			+rem(max-width, 800px)
-			margin: 0 auto
+
 
 .tour-wrapper
 	+rem(padding-top, 110px)
@@ -1991,6 +1977,101 @@ body, .out
 	width: 33.33%
 	+rem(padding-right,30px)
 	+rem(margin-bottom,25px)
+	+nosel
+	&-bus 
+		width: 50%
+		+rem(margin-bottom,35px)
+		.card-item-inner
+			height: 100%
+			&:hover
+				.card-item-content
+					border-color: transparent
+		+r(1100)
+			+rem(padding-right,20px)
+
+		+r(945)
+			width: 100%
+			.card-item-img
+				&-inner
+					height: 0
+					padding-bottom: 100%
+		+r(480)
+			// +rem(margin,0 -15px 30px)
+			// display: block
+			// width: 100%
+			// padding: 0
+			// .card-item-inner
+			// 	flex-flow: row wrap
+			// .card-item-img
+			// 	width: 100%
+			// 	&-inner
+			// 		padding-bottom: 80%
+			// .card-item-content
+			// 	display: block
+			// 	width: 100%
+			// 	+rem(padding-top,15px)
+			// 	+rem(padding-bottom,15px)
+		+r(380)
+			.card-item-img
+				&-inner
+					padding: 0
+					height: 100%
+		+r(919)
+			width: 100%
+			.card-item-content
+				justify-content: center
+		.card-item-img
+			width: 39%
+			&-inner
+				padding: 0
+				height: 100%
+		.text-sm
+			position: static !important
+			padding: 0 !important
+		.card-item-content
+			justify-content: flex-start
+			// +rem(padding, 25px 22px 16px)
+			+rem(padding-top,15px)
+			+rem(padding-bottom,15px)
+			padding-left: 5%
+			padding-right: 2%
+			border: $bb
+			+tr(border-color .3s)
+			+r(1050)
+				padding: 2% 2% 3% 5%
+			.card-item-link
+				+rem(top, 20px)
+				+rem(right, 20px)
+				+r(1050)
+					+rem(top, 10px)
+		.card-bus-content
+			font-size: 0
+			+rem(margin-right,-40px)
+			&-name
+				+rem(font-size,13px)
+				color: rgb(15, 67, 138);
+				line-height: 1.231;
+				+rem(padding-right,70px)
+				// +rem(margin-bottom,5px)
+			&-block
+				display: inline-block
+				vertical-align: top
+				width: 50%
+				+rem(padding-right,40px)
+				padding-top: 8%
+				.text-sm
+					+rem(font-size,12px)
+					line-height: 1.5
+				&:nth-of-type(2)
+					width: 100%
+				&:nth-of-type(n+3)
+					.text-sm
+						+rem(height,36px)
+						overflow: hidden
+				.card-bus-val
+					+rem(font-size,13px)
+					color: $blk2
+
 	&:last-of-type
 		+rem(margin-bottom,30px)
 	+r(1024)
@@ -2014,6 +2095,7 @@ body, .out
 		font-size: 0
 		position: relative
 		z-index: 0
+		height: 100%
 		&:hover
 			&:before
 				opacity: 1
@@ -2072,8 +2154,11 @@ body, .out
 		background-color: $white
 		width: 64.5%
 		position: relative
-		+vertical
+		// +vertical
 		text-align: left
+		display: flex
+		flex-flow: column nowrap
+		justify-content: flex-end
 		.card-item-link
 			position: absolute
 			+rem(width,28px)
@@ -2090,12 +2175,13 @@ body, .out
 			+rem(padding-right, 50px)
 			+rem(padding-left, 20px)
 			+rem(top, 12px)
+			line-height: 1
 			text-align: left
 			color: $grayl
 			+r(1024)
 				+rem(padding-left, 15px)
 	&-value
-		display: inline-block
+		// display: inline-block
 		width: 100%
 		vertical-align: bottom
 		+rem(padding, 35px 20px 13px)
@@ -2396,6 +2482,9 @@ body, .out
 		flex-basis: 25%
 		+rem(padding-right,30px)
 		+rem(margin-bottom,30px)
+		position: relative
+		display: flex
+		// padding-bottom: 25%
 		+r(950)
 			flex-basis: 50%
 		+r(544)
@@ -2406,13 +2495,18 @@ body, .out
 			+r(950)
 				flex-basis: 100%
 		&-inner
-			display: flex
-			flex-flow: row nowrap
-			align-items: stretch
+			// display: flex
+			// flex-flow: row nowrap
+			// align-items: stretch
 			background-color: $white
-			height: 100%
+			// height: 100%
 			position: relative
 			z-index: 0
+			font-size: 0
+			// display: flex
+
+			// +coverdiv
+			+nosel
 			&:hover
 				+rm(1024)
 					&:before
@@ -2435,19 +2529,27 @@ body, .out
 			width: 50%
 			// padding-bottom: 47%
 			position: relative
+			display: inline-block
+			vertical-align: top
+			
 			+r(544)
 				width: 100%
 				
 			&-inner
 				+coverdiv
+				display: inline-block
 				+r(544)
 					padding-bottom: 85%	
 		&-content
 			width: 50%
-			+cover
+			// +coverdiv
 			position: relative
 			padding-left: 4.5%
 			padding-right: 4.5%
+			display: inline-block
+			vertical-align: top
+			background-color: #FFF
+			height: 100%
 			+r(544)
 				width: 100%
 				.news-item-content-inner
@@ -2594,13 +2696,19 @@ body, .out
 	position: relative
 	z-index: 1
 	// background-attachment: fixed
+	backface-visibility: hidden
 	+cover
 	&:before
 		content: ''
 		+coverdiv
-		background: radial-gradient(ellipse at center, rgba(15,74,155,0.5) 0%, rgba(15,74,155,1) 60%, rgba(15,74,155,1) 61%);
-		background-position: top 20% center
+		background-image: radial-gradient(ellipse at center, rgba(15,74,155,0.55) 0%, rgba(15,74,155,1) 60%, rgba(15,74,155,1) 61%);
+		background-position: top -15% center
 		background-attachment: fixed
+		// +tr(background-color .3s)
+		// +gpu
+		will-change: transform
+		z-index: -1
+		// +tr(background .3s)
 	&-breadcrums
 		position: absolute
 		+rem(left, 15px)
@@ -2618,6 +2726,7 @@ body, .out
 	&-title
 		display: flex
 		flex-flow: row nowrap
+		+rem(padding-bottom, 40px)
 		.title
 			flex-basis: 70%
 			flex-grow: 1
@@ -2625,7 +2734,6 @@ body, .out
 	&-form
 		font-size: 0
 		+rem(margin-right,-11px)
-		+rem(margin-top, 40px)
 		+rem(padding-bottom,25px)
 		.form-group
 			display: inline-block
@@ -2691,11 +2799,13 @@ body, .out
 	vertical-align: top
 	&.small
 		+rem(min-height,126px)
+		
 		.border-card-name
 			+rem(font-size,18px)
 			color: rgb(64, 71, 76);
 			line-height: 1.556;
-			+rem(margin-bottom,20px)
+			+rem(margin-bottom,7px)
+			+rem(min-height,60px)
 		.border-card-inner
 			padding: 6% 1% 11% 5%
 		.border-card-content 
@@ -2800,10 +2910,13 @@ body, .out
 			width: 33.33%
 			+rem(padding-right,30px)
 			+rem(margin-bottom,25px)
-			align-self: stretch
+			// align-self: stretch
+
 			&-inner
-				height: 100%
+				// height: 100%
+				display: flex
 				// padding: 0 !important
+				flex-direction: column
 			+r(1024)
 				+rem(padding-right,20px)
 
@@ -2828,6 +2941,35 @@ body, .out
 		&:not(.bold)
 			+r(768)
 				display: none
+		&.bold
+			+rem(margin-top,-10px)
+			.aside-list-item
+				color: $blk2
+				line-height: 1.2;
+				+rem(padding, 17px 0 18px)
+				&.active
+					color: $bl
+					pointer-events: none
+					span
+						display: inline-block
+						width: auto
+						&:after
+							width: 100%
+				span
+					display: inline-block
+					width: auto
+					&:after
+						+rem(bottom,-9px)
+						height: 3px
+						opacity: 1
+						+tr(width .3s)
+						width: 0
+						background-color: $org
+				// &:hover
+				// 	span
+				// 		&:after
+				// 			width: 0			
+
 		&-item
 			display: block
 			width: 100%
@@ -2882,6 +3024,8 @@ body, .out
 			+rem(margin-bottom,15px)
 		.aside-stick
 			display: inline-block
+			backface-visibility: hidden
+			will-change: position
 			+r(735)
 				position: static !important
 		+r(1024)
@@ -2905,6 +3049,10 @@ body, .out
 		width: 100%
 		&:not(:first-child)
 			+rem(margin-top,50px)
+		&:last-child
+			+rem(padding-bottom,60px)
+			+r(1024)
+				+rem(padding-bottom,30px)
 
 
 .feature
@@ -2950,11 +3098,11 @@ body, .out
 		.dropdown-target
 			transform: translateY(-5%)
 			top: auto
-			bottom: 105%
+			bottom: 115%
 			text-align: left
 			width: 150%
 			right: auto
-			left: -20%
+			left: -17%
 			+r(1024)
 				display: none
 		.dropdown-inner
@@ -3383,6 +3531,7 @@ body, .out
 	&-wrap
 		display: flex
 		flex-flow: row nowrap
+		
 		+r(991)
 			flex-direction: column
 	&-content
@@ -3394,10 +3543,56 @@ body, .out
 		+r(991)
 			order: 2
 			display: block
+			flex-basis: 0
 		+r(735)
 			padding: 0
 		&-inner
 			width: 100%
+			h1
+				color: $textTitle
+				line-height: 2;
+				+rem(font-size, 20px)
+				font-weight: 400
+				&:not(:first-child)
+					+rem(margin,25px 0)
+				&:first-child
+					+rem(margin,-5px 0 25px)
+			p 
+				+rem(font-size,15px)
+				color: rgb(101, 101, 101);
+				line-height: 1.733;
+				+rem(margin,25px 0 25px)
+				&:first-child
+					+rem(margin,5px 0 25px)
+			blockquote
+				background-color: #f0f4f7 
+				+rem(margin,55px 0 55px)
+				width: 100%
+				display: block
+				+rem(font-size,13px)
+				color: rgb(101, 101, 101);
+				line-height: 1.846;
+				+rem(padding,20px 25px)
+			ul 
+				+rem(margin,40px 0 40px)
+				li 
+					+rem(font-size,15px)
+					color: rgb(101, 101, 101);
+					line-height: 1.25
+					position: relative
+					+rem(padding-left,17px)
+					display: block
+					+rem(margin,10px 0)
+					&:before
+						content: ''
+						display: inline-block
+						border-radius: 50%
+						background-color: $bl 
+						+rem(width,6px)
+						+rem(height,6px)
+						+rem(left,2px)
+						+rem(top,7px)
+						position: absolute
 	&-right
 			+rem(flex-basis, 302px)
 			flex-shrink: 0
@@ -3405,7 +3600,9 @@ body, .out
 			padding-left: 3.5%
 			.border-card-link
 				width: 100%
-				display: inline-block
+				display: block
+				&:not(:first-of-type)
+					+rem(margin-top,25px)
 				.border-card
 					width: 100%
 			.caption-content
@@ -3417,8 +3614,265 @@ body, .out
 				order: 1
 				flex-shrink: 1
 				flex-basis: 0
+				padding-left: 0
 
-
-
-
+.caption
+	position: relative
+	text-align: left
+	&-content
+		position: absolute
+		left: 115%
+		+rem(width,200px)
+		+rem(top,-15px)
+		background-color: transparent
+		p 
+			+rem(font-size,13px)
+			color: rgb(64, 64, 64);
+			font-style: italic;
+			line-height: 1.538;
+			&:first-child
+				+rem(margin,0px 0 15px)
+			&:not(:first-child)
+				+rem(margin,15px 0)
+		i 
+			+rem(font-size,13px)
+			color: rgb(64, 64, 64);
+			font-style: italic;
+			line-height: 1.538;	
+			color: $grayl
+			display: block
+		+r(991)
+			display: none
 		
+.tabs
+	display: flex
+	flex-flow: row nowrap
+	align-items: stretch
+	border: 1px solid #dddddd
+	+r(735)
+		display: block
+	&-wrapper
+		+rm(736)
+			+rem(padding-bottom,50px)
+	&-head
+		+rem(min-width,167px)
+		background-color: #f7f7f7
+		border-right: 1px solid #dddddd
+		+r(735)
+			width: 100%
+			min-width: 100%
+			display: block
+			border-right: 0
+	&-item
+		+rem(padding,25px 5px 25px 29px)
+		+rem(font-size,15px)
+		color: rgb(38, 46, 51);
+		line-height: 1.2;
+		cursor: pointer
+		background-color: #f7f7f7
+		+nosel
+		+r(735)
+			+rem(padding,15px 5px 15px 20px)
+		&:not(:first-of-type)
+			border-top: 1px solid #dddddd
+		&:last-of-type
+			border-bottom: 1px solid #dddddd
+		&:not(.active)
+			
+		&.active
+			background-color: #FFF
+			+rm(736)
+				margin-right: -1px
+	&-body
+		width: 100%
+	&-cont 
+		padding-left: 5%
+		padding-right: 3%
+		width: 100%
+		+rem(padding-top,25px)
+		+r(735)
+			+padlr(15px)
+			position: relative
+			
+		.map-body
+			+rem(min-height,250px)
+			position: relative
+			margin-left: calc(-5.3% - 10.4375rem)
+			margin-right: -3%
+			+r(735)
+				+rem(margin,0 -15px)
+			iframe,.map-elem
+				+coverdiv
+				// ymaps
+				// 	height: 100%
+				// 	width: 100%
+		&-head
+			display: flex
+			flex-flow: row nowrap
+			justify-content: space-between
+			align-items: center
+			width: 100%
+			+rem(margin-bottom,25px)
+		&-link
+			+r(735)
+				position: absolute
+				+rem(bottom,270px)
+				+rem(left,15px)
+		.content-column-content-inner
+			padding-bottom: 0
+			+rem(padding-bottom,15px)
+			+r(735)
+				+rem(padding-bottom,45px)
+			ul 
+				+rem(margin, 15px 0 25px)
+
+.bus-wrapper
+	display: flex
+	flex-flow: row wrap
+	align-items: stretch
+	+rem(margin-right,-30px)
+	+r(1100)
+		+rem(margin-right,-20px)
+	+r(480)
+		+rem(margin-left,-15px)
+		+rem(margin-right,-35px)
+.slider-bus
+	display: flex
+	flex-flow: row nowrap
+	align-items: stretch
+	justify-content: flex-end
+	+rem(padding-top,15px)
+	+r(900)
+		flex-flow: row wrap
+		padding-top: 0
+		.slider-bus-slider,.slider-bus-about
+			width: 100%
+			padding: 0
+			flex-basis: 100%
+			max-width: 100%
+		.slider-bus-slider
+			height: 0
+			padding-bottom: 56.25%
+			position: relative
+			&-inner
+				+coverdiv
+		.slider-bus-about
+			&-inner
+				+rem(padding-top,30px)
+				+rem(padding-bottom,30px)
+				padding-left: 5%
+				padding-right: 5%
+		.card-bus-content-block
+			padding: 1% 0
+			width: 50%
+			display: inline-block
+			vertical-align: top
+			+rem(margin-bottom,10px)
+			.text-sm
+				line-height: 1.25
+				+rem(margin-bottom,5px)
+		.slider-bus-char
+			+rem(margin, 15px 0 15px)
+			font-size: 0
+		.slider-bus-btn
+			.btn 
+				+rem(max-width,202px)
+	+r(600)
+		.slider-bus-btn
+			+rem(margin, 0)
+	+r(335)
+		.text-sm
+			+rem(height,28px)
+	&-slider
+		max-width: 71%
+		padding-right: 3%
+		position: relative
+		width: 100%
+		+r(1024)
+			padding-right: 1.5%
+		.nav-dots
+			position: absolute
+			+rem(bottom, 30px)
+			left: 0
+
+			.slick-dots
+				text-align: left
+				+rem(padding-left,20px)
+		&-inner
+			display: flex
+			+rem(height,397px)
+			width: 100%
+			.slick-track,.slick-list
+				height: 100%
+				width: 100%
+		&-elem
+			height: 100%
+			+cover
+
+	&-char
+		+rem(margin, 30px 0 30px)
+	&-btn 
+		+rem(margin-top,20px)
+		.btn 
+			span
+				+padlr(0)
+			width: 100%
+			+r(950)
+				+rem(font-size,12px)
+	&-about
+		width: 29%
+		
+		+r(950)
+			+rem(flex-basis,230px)
+			flex-shrink: 0
+		&-inner
+			width: 100%
+			border: $bb
+			display: flex
+			flex-flow: column nowrap
+			justify-content: center
+			padding: 5% 14% 7%
+			height: 100%
+			+r(1110)
+				padding: 5% 9% 7%
+			.text-1
+				// +rem(margin-bottom,50px)
+				line-height: 1.2;
+			// 	+rem(letter-spacing, 1px)
+			.text-sm
+				color: $grayl
+				+rem(font-size,12px)
+			.card-bus-val
+				+rem(font-size,12px)
+			.card-bus-content-block
+				padding: 3.5% 0
+
+.aside-section
+	.feature
+		&-outer
+			+rem(margin-top,50px)
+			+r(1024)
+				+rem(margin-top,30px)
+		&-wrap
+			
+			width: 72%
+			padding-right: 3%
+			
+			+r(1024)
+				width: 95%
+				padding-right: 0
+				flex-flow: row wrap
+			+r(600)
+				+rem(margin, 0 -15px)
+				width: auto
+		&-inner
+			justify-content: center
+			+rem(padding-top,45px)
+		&-item
+			width: 16.66%
+			+r(1024)
+				+rem(min-width,120px)
+				+rem(margin-bottom,20px)
+			.dropdown-target
+				+rem(min-width,240px)
+				+rem(left,-50px)

@@ -1,0 +1,159 @@
+extends _layout
+
+block title
+	title Автопарк
+
+block content
+	+headtwo('Автопарк')
+	.wrapper
+		.box
+			.aside-wrapp
+				aside.aside-menu(data-sticky_parent)
+					.aside-stick(data-sticky_column)
+						//.bold
+						// .active для ссылки текущей страницы
+						.aside-list.bold
+							a(href="#").aside-list-item.text-1.active
+								span Автопарк
+							a(href="#").aside-list-item.text-1
+								span Вопрос/ответ
+							a(href="#").aside-list-item.text-1
+								span Перевозчикам
+							a(href="#").aside-list-item.text-1
+								span Агентам
+							a(href="#").aside-list-item.text-1
+								span Способы оплаты
+							a(href="#").aside-list-item.text-1
+								span Политика конфиденциальности
+				.aside-content
+					section.aside-section
+						.content-column-wrap
+							.content-column-content
+								.content-column-content-inner
+									h1 Наш автопарк
+									p  В нашем автопарке исключительно новые автобусы и микроавтобусы, которые проходят технический осмотр перед каждым рейсом. 
+							.content-column-right
+								a(href="#").border-card-link
+									+cardmedium('sm1.jpg','small')
+										.border-card-name Арендовать автобус
+										.border-card-content 
+											.link-border
+												span Оформить заявку
+					section.aside-section
+						.bus-wrapper
+							//.vip для вип машины
+							+smallCard2('','b1','Mercedes-Benz Travego','2010','АЕ6984-4','50')
+							+smallCard2('','b2','NEOPLAN','2010','АЕ6984-4','8')
+							+smallCard2('','b3','Автобус Volvo 9700H','2010','АЕ6984-4','12')
+							+smallCard2('vip','b4','Mercedes Sprinter 316 CDI','2010','АЕ6984-4','105')
+	.wrapper
+		.box
+			.aside-wrapp
+				aside.aside-menu(data-sticky_parent)
+					.aside-stick(data-sticky_column)
+						//.bold
+						// .active для ссылки текущей страницы
+						.aside-list.bold
+							a(href="#").aside-list-item.text-1.active
+								span Автопарк
+							a(href="#").aside-list-item.text-1
+								span Вопрос/ответ
+							a(href="#").aside-list-item.text-1
+								span Перевозчикам
+							a(href="#").aside-list-item.text-1
+								span Агентам
+							a(href="#").aside-list-item.text-1
+								span Способы оплаты
+							a(href="#").aside-list-item.text-1
+								span Политика конфиденциальности
+				.aside-content
+					section.aside-section
+						.content-column-wrap
+							.content-column-content
+								.content-column-content-inner
+									h1 Mercedes-Benz Travego
+									p  В нашем автопарке исключительно новые автобусы и микроавтобусы, которые проходят технический осмотр перед каждым рейсом. 
+							.content-column-right
+								a(href="#").border-card-link
+									+cardmedium('sm1.jpg','small')
+										.border-card-name Арендовать автобус
+										.border-card-content 
+											.link-border
+												span Оформить заявку
+					section.aside-section
+						.slider-bus
+							.slider-bus-slider
+								.slider-bus-slider-inner.js-promoslider
+									.slider-bus-slider-elem(style='background-image: url(img/bus.jpg)')
+									.slider-bus-slider-elem(style='background-image: url(img/bus.jpg)')
+									.slider-bus-slider-elem(style='background-image: url(img/bus.jpg)')
+									.slider-bus-slider-elem(style='background-image: url(img/bus.jpg)')
+								.nav-dots
+							.slider-bus-about
+								.slider-bus-about-inner
+									.text-1 Автобус повышенной комфортности
+									.slider-bus-char
+										.card-bus-content-block
+											.text-sm Год выпуска
+											.card-bus-val 2010
+										.card-bus-content-block
+											.text-sm Регистрационный номер
+											.card-bus-val АЕ6984-4
+										.card-bus-content-block
+											.text-sm Посадочных мест
+											.card-bus-val 49
+									.slider-bus-btn
+										a(href="#").btn.btn-colored
+											span Арендовать автобус
+						.feature-outer
+							.title.h3 Сервис в дороге
+							.feature-wrap
+								.feature-inner
+									+routeFeachure('reys_wifi','Wi-Fi','Бесплатный Wi-Fi на протяжении всего маршрута')
+									+routeFeachure('reys_tv wifi','Wi-Fi-Кино','Бесплатный Wi-Fi-Кино на протяжении всего маршрута')
+									+routeFeachure('reys_220','220v','Бесплатный 220v на протяжении всего маршрута')
+									+routeFeachure('reys_sidenia','Комфортные сидения','Комфортные сидения на протяжении всего маршрута')
+									+routeFeachure('reys_pled','Пледы','Шерстяные пледы — красивые, теплые и полезные для здоровья.')
+									+routeFeachure('reys_candicianer','Кондиционер','Шерстяные пледы — красивые, теплые и полезные для здоровья.')
+						.content-column-wrap
+							.content-column-content
+								.content-column-content-inner
+									p.caption  Мы внимательно относимся к каждому клиенту, поэтому гарантируем индивидуальный подход в организации любой поездки. Наши сотрудники помогут вам рассчитать оптимальный маршрут, который бы полностью вас удовлетворял. В нашем автопарке представлены только лучшие модели автобусов и микроавтобусов. Мы предлагаем комфортабельные условия для поездок на любые расстояния. А опыт наших водителей позволит вам полностью расслабиться на протяжении всей поездки.
+										p.caption-content
+											p Жить необязательно. Путешествовать — необходимо.
+											i Уильям Берроуза
+							.content-column-right
+					section.aside-section
+						.content-column-wrap
+							.content-column-content
+								.content-column-content-inner
+									h1 Заявка на расчет аренды транспорта
+									p  Заполните данную форму для расчет стоимости аренды транспорта для вашего маршрута. Мы рассчитаем стоимость и в течении 24 часов отправим вам предложение по электронно почте или по телефону.
+							.content-column-right
+								a(href="#").border-card-link
+									+cardmedium('sm1.jpg','small')
+										.border-card-name Правила перевозки багажа
+										.border-card-content 
+											.link-border
+												span Смотреть
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	

@@ -89,7 +89,7 @@ document.addEventListener("DOMContentLoaded", function() {
 			trigger = $mainNav.find('li a'),
 			active = $mainNav.find('.active');
 
-		$mainNav.append("<div id='slide-line'></div>");
+		$mainNav.parent().append("<div id='slide-line'></div>");
 		var $Line = $("#slide-line");
 
 
@@ -133,10 +133,11 @@ document.addEventListener("DOMContentLoaded", function() {
 	$(".js-scroll-to").on('click', function (e) {
 		e.preventDefault();
 		e.stopPropagation();
-		var elementClick = $(this).attr("href");
+		var elementClick = $(this).data("href");
+		var target = $('body').find('[data-id="' + elementClick + '"]');
 		$(".aside-stick").trigger("sticky_kit:recalc");
-		if($(elementClick)){
-			var destination = $(elementClick).offset().top,
+		if(target.length){
+			var destination = $(target).offset().top,
 				pad = window.matchMedia('(max-width: 991px)').matches ? 70 : 90;
 			$("html, body:not(:animated), .out:not(:animated)").animate({scrollTop: destination - pad}, 500);
 			setTimeout(function(){
@@ -146,48 +147,6 @@ document.addEventListener("DOMContentLoaded", function() {
 			e.preventDefault();
 		}
 	});
-	jQuery.fn.toggleText = function() {
-		var altText = this.data("alt-text");
-
-		if (altText) {
-			this.data("alt-text", this.text());
-			this.find('.link-black').text(altText);
-
-		}
-	};
-	// function Accordeon(){
-	// 	if($('.offerlist-section').length){
-	// 		// $(".aside-stick").trigger("sticky_kit:detach");
-	// 		$(".aside-stick").stick_in_parent({
-	// 			offset_top : 73,
-	// 			recalc_every: 1
-	// 		});
-	// 		var maintrigger = $('.js-accordion-trigger'),
-	// 			body = $('.js-accordion-body'),
-	// 			truetrigger = maintrigger.children('.table-item').not('.table-status').not('.table-btn');
-	// 		maintrigger.not('.active').find(body).hide();
-	// 		truetrigger.on('click',function(event){
-	// 			var parent = $(this).parent(),
-	// 				target = parent.find(body);
-
-	// 			if(parent.hasClass('active')){
-	// 				parent.siblings().removeClass('active').find(body).slideUp(200);
-	// 				parent.removeClass('active').find(body).slideUp(300);
-
-	// 			}else{
-	// 				parent.siblings().removeClass('active').find(body).slideUp(200);
-	// 				parent.addClass('active').find(body).slideDown(300, function(){
-	// 					var pos = parent.offset().top;
-	// 					jQuery("body:not(:animated)").animate({scrollTop: pos -80}, 500);
-	// 				});
-	// 			}
-	// 			setTimeout(function(){
-	// 				$('body').trigger('scroll')
-	// 			},801)
-	// 		});
-	// 	}
-	// }Accordeon();
-
 
 	aside();
 	popUpsInit();
@@ -197,13 +156,22 @@ document.addEventListener("DOMContentLoaded", function() {
 	comenthide();
 	
 	datepick();
-	
+	Tabs();
 	sortItem();
+	listhide();
+
 	questionSlider();
 	servicesSlider();
 	promoSlider();
 	routefeaturesSlider();
-	
+	jQuery.fn.toggleText = function() {
+		var altText = this.data("alt-text");
+		if (altText) {
+			this.data("alt-text", this.text());
+			this.find('span').text(altText);
+
+		}
+	};
 //end of document.ready
 });
 //end of document.ready
@@ -250,7 +218,6 @@ function comenthide(){
 		}Checkh();
 		function initclick(){
 			trigger.off('click').on('click', function(e){
-				console.log(item);
 				if(_.attr('style')){
 					// len.removeAtttr('style');
 					_.css('max-height', '');
@@ -259,8 +226,6 @@ function comenthide(){
 					_.css('max-height', item);
 					$(this).toggleText();
 				}
-
-				// $(".aside-stick").trigger("sticky_kit:recalc");
 			});
 		}
 	})
@@ -270,23 +235,19 @@ function listhide(){
 	target.each(function(){
 		var _ = $(this),
 			len = _.data('items'),
-			items = _.find('li'),
+			items = _.closest('.tabs-cont').find('.js-slidelist-target').find('li'),
 			itemsl = items.length,
-			text = 'Свернуть'
-		trigger = _.parent().find('.js-list-more');
+			text = 'Свернуть',
+			trigger = _;
 
-		if(len >= itemsl){
-			trigger.css('display', 'none');
-		}else{
 			items.slice(len).slideUp();
 			initclick();
-		}
+
 		function initclick(){
 			trigger.off('click').on('click', function(e){
 				e.preventDefault();
 				items.slice(len).fadeToggle(300);
 				$(this).toggleText();
-				$(".aside-stick").trigger("sticky_kit:recalc");
 			});
 		}
 	})
@@ -296,9 +257,10 @@ function masktel(){
 	var im = new Inputmask("+7 (999) 999 99 99",{ showMaskOnHover: false});
 	im.mask(nodes);
 }
+
+
 var sortItem = function(){
 	var trigger = $('.js-select-item');
-	console.log(1)
 	trigger.on('click', function(){
 		var _ = $(this);
 		var textCont = _.find('span');
@@ -333,6 +295,7 @@ var sortItem = function(){
 
 	});
 }
+
 function initCustomSelectList() {
 	var _conf = {
 			initClass: 'cs-active',
@@ -398,7 +361,7 @@ function aside(){
 			$(".aside-stick").stick_in_parent({
 				parent: ".aside-menu",
 				offset_top : 73,
-				recalc_every: 1
+				// recalc_every: 1
 			});
 		},1)
 	}stickinit();
@@ -437,6 +400,7 @@ function datepick(){
 			firstDay: 1,
 			yearRange: '-0:+1',
 			minDate: dateToday,
+			showOn: "focus",
 			beforeShow: function() {
 				setTimeout(function() {
 					updateToSelectMenu()
@@ -446,6 +410,14 @@ function datepick(){
 				setTimeout(function() {
 					updateToSelectMenu()
 				},0);
+		   },
+			onClose: function() {
+		      _.trigger('input');
+		      _.datepicker('refresh');
+				// setTimeout(function() {
+				// 	 item.datepicker('hide');
+				// },1)
+		     
 		   }
 		});
 		_.datepicker('refresh');
@@ -458,7 +430,7 @@ function datepick(){
 function promoSlider(){
 	$(".js-promoslider").each(function() {
 		var _this = $(this);
-		var parent = _this.closest('.promo-slider');
+		var parent = _this.parent();
 		_this.slick({
 			accessibility: true,
 			arrows: false,
@@ -610,7 +582,92 @@ function servicesSlider(){
 		});
 	});
 }
+function mapMarkerinit(elem){
+	var cords = $("#"+elem).closest('.tabs-cont').find('li').first().data('cords');
+	var imgsrc = $("#"+elem).data('imagesrc');
+	var myMap;
+	ymaps.ready(init);
 
+
+
+	function init () {
+
+		myMap = new ymaps.Map(elem, {
+			center: cords,
+			zoom: 14,
+			controls: ['zoomControl', 'fullscreenControl']
+		}, {
+
+		}),
+			gCollection = new ymaps.GeoObjectCollection(null, {
+			}),
+			myPlacemark = new ymaps.Placemark(myMap.getCenter(), {
+			}, {
+				iconLayout: 'default#image',
+				iconImageHref: imgsrc,
+			// Размеры метки.
+				iconImageSize:[40, 50],
+				iconImageOffset: [-20, -50]
+			});
+		myMap.geoObjects.add(myPlacemark);
+		myMap.behaviors.disable(['rightMouseButtonMagnifier','ruler','scrollZoom']);
+		myMap.controls.remove('typeSelector');
+		myMap.controls.remove('searchControl');
+		myMap.controls.remove('GeolocationControl');
+		myMap.container.fitToViewport();
+		$("#"+elem).on('resize',function(){
+			setTimeout(function(){
+				myMap.container.fitToViewport();
+			},300)
+		})
+
+		//создаем геообьект из полученных координат
+		
+		var pos = getCoords(elem);
+		var arrl = pos.length;
+		for(var i = 0; i < arrl; i++){
+			 gCollection.add(new ymaps.Placemark(pos[i]));
+		}
+		gCollection.options.set({
+			iconLayout: 'default#image',
+			iconImageHref: imgsrc,
+			// Размеры метки.
+			iconImageSize:[24, 35],
+			iconImageOffset: [-12, -35]
+		});
+		Inintclick(elem);
+
+	}
+
+	function Inintclick(elem){
+		var trigger = $("#"+elem).closest('.tabs-cont').find('.js-marker-add');
+		trigger.on('click', function(){
+			if(!$(this).hasClass('active')){
+				$(this).addClass('active');
+				 myMap.geoObjects.add(gCollection);
+				 // myMap.setZoom(12)
+				 myMap.setBounds(myMap.geoObjects.getBounds());
+			}else{
+				$(this).removeClass('active');
+				myMap.geoObjects.remove(gCollection);
+				myMap.setBounds(myMap.geoObjects.getBounds());
+				myMap.setZoom(14)
+			}
+		});	
+	}
+	//собираем координаты и помещаем и в массив, первый элемент вырезаем, т.к. он уже будет на карте
+	function getCoords(elem){
+		
+		var pos =[];
+		var items = $("#"+elem).closest('.tabs-cont').find('li');
+		var cords = items.each(function(){
+			var elpos= $(this).data('cords');
+			pos.push(elpos)
+		});
+		pos.splice(0,1);
+		return pos
+	}
+}
 
 
 function mapinit(elem){
@@ -770,39 +827,7 @@ function popUpsInit() {
 	});
 }
 
-function AjaxLoading(el){
-	var _this = this;
 
-	_this.ajaxLink = el;
-	_this.appendMain = $("#modal-road");
-
-
-	_this.initEvents = function(){
-
-		$(".ajax-trigger").off("click.trigger").on("click.trigger", function(e){
-			var link = $(this).attr("href");
-			_this.action(link)
-			e.preventDefault();
-			return false;
-		});
-	};
-
-	_this.action = function(link) {
-		$.ajax({
-			url: link,
-			dataType: "html",
-			success: function(content) {
-				var mainContent = $(content).html();
-				_this.appendMain.html(mainContent).promise().done(function(){
-					_this.initEvents();
-					roadSlider();
-					popUpsInit();
-				});
-			}
-		})
-	};
-	_this.initEvents();
-}
 
 function formResponse(form){
 	if(form.closest('.modal-container').length){
@@ -813,5 +838,36 @@ function formResponse(form){
 				resp.fadeIn("slow");
 			});
 		}
+	}
+}
+function Tabs(){
+	if($('.js-tabs-wrap').length){
+		
+		var parent = $('.js-tabs-wrap');
+			parent.each(function(){
+				var _ = $(this),
+					trigger = _.find('.js-tab-trigger'),
+					tabbody = _.find('.tabs-body'),
+					tabcont = tabbody.find('.tabs-cont'),
+					triggerCur = _.find(trigger).filter('.active'),
+					triggerIndex = triggerCur.index();
+
+			if(!triggerCur.length){
+				tabcont.not(':first').hide();
+				trigger.first().addClass('active');
+			}else{
+				tabcont.hide().eq(triggerIndex).show();
+			}
+
+			trigger.on('click',function(e){
+				var _ = $(this);
+				e.preventDefault();
+				if(!_.hasClass('active')){
+					_.addClass('active').siblings().removeClass('active');
+					var triggerA = parent.find(trigger).filter('.active');
+					tabcont.hide().eq($(triggerA).index()).fadeIn().find('.map-elem').trigger('resize');				
+				}
+			});
+		});
 	}
 }

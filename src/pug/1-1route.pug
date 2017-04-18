@@ -1,7 +1,7 @@
 extends _layout
 
 block title
-	title Отделение
+	title Рейс Минск-Москва
 
 block content
 	+headone('Рейс Минск-Москва')
@@ -12,33 +12,36 @@ block content
 					.aside-stick(data-sticky_column)
 						//этих менюшек 2 типа, будет еще с модификатором. Эта скролит к якорям, а на второй будут уже просто ссылки на страницы
 						.aside-list
-							a(href="#",data-id='1').aside-list-item.text-1.js-scroll-to
+							a(href="#",data-href='#service').aside-list-item.text-1.js-scroll-to
 								span Сервис
-							a(href="#",data-id='2').aside-list-item.text-1.js-scroll-to
+							a(href="#",data-href='#sheldue').aside-list-item.text-1.js-scroll-to
 								span Расписание
-							a(href="#",data-id='3').aside-list-item.text-1.js-scroll-to
+							a(href="#",data-href='#price').aside-list-item.text-1.js-scroll-to
 								span Стоимость
-							a(href="#",data-id='4').aside-list-item.text-1.js-scroll-to
+							a(href="#",data-href='#stops').aside-list-item.text-1.js-scroll-to
 								span Остановки
 				.aside-content
 					section.aside-section
-						.title.h3 Сервис в дороге
-						.feature-wrap
-							.nav-arrows
-							.feature-inner.js-routefeatures-slider
-								+routeFeachure('reys_wifi','Wi-Fi','Бесплатный Wi-Fi на протяжении всего маршрута')
-								+routeFeachure('reys_tv wifi','Wi-Fi-Кино','Бесплатный Wi-Fi-Кино на протяжении всего маршрута')
-								+routeFeachure('reys_220','220v','Бесплатный 220v на протяжении всего маршрута')
-								+routeFeachure('reys_sidenia','Комфортные сидения','Комфортные сидения на протяжении всего маршрута')
-								+routeFeachure('reys_pled','Пледы','Шерстяные пледы — красивые, теплые и полезные для здоровья.')
-								+routeFeachure('reys_candicianer','Кондиционер','Шерстяные пледы — красивые, теплые и полезные для здоровья.')
-							.i-arrows
-								.slider-counter
-									.slider-curr
-									.slider-divider /
-									.slider-total
+
+						.feature-outer(data-id='#service')
+							.title.h3 Сервис в дороге
+							.feature-wrap
+								.nav-arrows
+								//на карточке автобуса та же канитель, только без класса инициализации слайдера
+								.feature-inner.js-routefeatures-slider
+									+routeFeachure('reys_wifi','Wi-Fi','Бесплатный Wi-Fi на протяжении всего маршрута')
+									+routeFeachure('reys_tv wifi','Wi-Fi-Кино','Бесплатный Wi-Fi-Кино на протяжении всего маршрута')
+									+routeFeachure('reys_220','220v','Бесплатный 220v на протяжении всего маршрута')
+									+routeFeachure('reys_sidenia','Комфортные сидения','Комфортные сидения на протяжении всего маршрута')
+									+routeFeachure('reys_pled','Пледы','Шерстяные пледы — красивые, теплые и полезные для здоровья.')
+									+routeFeachure('reys_candicianer','Кондиционер','Шерстяные пледы — красивые, теплые и полезные для здоровья.')
+								.i-arrows
+									.slider-counter
+										.slider-curr
+										.slider-divider /
+										.slider-total
 					section.aside-section
-						.route-table-outer
+						.route-table-outer(data-id='#sheldue')
 							.route-table-head
 								.route-table-head-text
 									.text-medium Расписание автобусов Минск – Москва
@@ -71,7 +74,7 @@ block content
 										+roadTable('19:45','06:00','yes','yes','','yes','yes','yes','')
 										+roadTable('22:30','09:00','yes','yes','yes','yes','','yes','yes')
 					section.aside-section
-						.price-table-wrap
+						.price-table-wrap(data-id='#price')
 							.price-table-table
 								.title.h3 Стоимость проезда
 								.table-wrapper
@@ -98,7 +101,7 @@ block content
 												span Подробнее
 											img(src="img/cards/eurocard.png", alt="")
 					section.aside-section
-						.roadmap-wrapper
+						.roadmap-wrapper(data-id='#stops')
 							.roadmap-inner
 								.roadmap-item.roadmap-main.roadmap-2w
 									.roadmap-item-point.big
@@ -305,10 +308,77 @@ block content
 															a(href="#").services-item-link Гродно → Санкт-Петербург
 															.roadmap-item-text Ежедневно из Гродно осуществляется трансфер к регулярным автобусным маршрутам Минск → Санкт-Петербург
 					section.aside-section
+						.tabs-wrapper
+							.tabs.js-tabs-wrap
+								.tabs-head
+									.tabs-item.js-tab-trigger.active
+										span Отправление
+									.tabs-item.js-tab-trigger
+										span Весь маршрут
+									.tabs-item.js-tab-trigger
+										span Прибытие
+								.tabs-body
+									.tabs-cont
+										.tabs-cont-head
+											.title.h3 Отправление из Минска
+											.tabs-cont-link
+												//data-items - количество li после которого последующие скрываются
+												a(href="#").link-border.dotted.js-slidelist(data-items='3',data-alt-text='Свернуть').js-marker-add
+													span Все пункты посадки
+										.content-column-content-inner
+											ul.js-slidelist-target
+												//главная точка, ее маркер отображается на карте всегда, остальные - по клику на js-marker-add
+												li(data-cords='[53.890398, 27.554515]') Автовокзал "Центральный" (11 платформа) ст.м. Площадь Ленина, ул. Бобруйская, 6
+												li(data-cords='[53.899833, 27.509853]') Проспект Космонавтов (ост. напротив Автовокзала)
+												li(data-cords='[53.868596, 27.507793]') Проспект Космонавтов (ост. напротив Автовокзала)
+												li(data-cords='[53.859261, 27.527362]') Проспект Космонавтов (ост. напротив Автовокзала)
+												li(data-cords='[53.856217, 27.589847]') Проспект Космонавтов (ост. напротив Автовокзала)
+												li(data-cords='[53.896183, 27.517063]') Проспект Космонавтов (ост. напротив Автовокзала)
+												li(data-cords='[53.897197, 27.635852]') Проспект Космонавтов (ост. напротив Автовокзала)
+												li(data-cords='[53.949884, 27.565815]') Проспект Космонавтов (ост. напротив Автовокзала)
+										.map-body
+											//отправлении и прибытии карта инитится по апи, в маршруте просто вставляется iframe из конструктора, у каждой карты долэжен быть уникальный айдишник
+											//скрипт пихую сюда для наглядности
+											.map-elem#map-markers-1(data-imagesrc='/img/pin.svg')
+									script.
+										document.addEventListener("DOMContentLoaded", function () {
+											mapMarkerinit('map-markers-1');
+										});
+									.tabs-cont
+										.tabs-cont-head
+											.title.h3 Маршрут
+										.content-column-content-inner
+											p  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem nisi veritatis commodi vel, nobis culpa error est pariatur ipsum obcaecati! Debitis nobis praesentium facilis repellat, dolore dignissimos? Assumenda doloribus, architecto.
+										.map-body
+											iframe(src='https://api-maps.yandex.ua/frame/v1/-/C6abuA4x', width='100%', height='100%', frameborder='0')
+									.tabs-cont
+										.tabs-cont-head
+											.title.h3 Прибытие из Минска
+											.tabs-cont-link
+												a(href="#").link-border.dotted.js-slidelist(data-items='3',data-alt-text='Свернуть').js-marker-add
+													span Все пункты прибытия	
+										.content-column-content-inner
+											ul.js-slidelist-target
+												//главная точка, ее маркер отображается на карте всегда, остальные - по клику на js-marker-add
+												li(data-cords='[53.880545, 27.526306]') Автовокзал "Центральный" (11 платформа) ст.м. Площадь Ленина, ул. Бобруйская, 6
+												li(data-cords='[53.899833, 27.509853]') Проспект Космонавтов (ост. напротив Автовокзала)
+												li(data-cords='[53.868596, 27.507793]') Проспект Космонавтов (ост. напротив Автовокзала)
+												li(data-cords='[53.859261, 27.527362]') Проспект Космонавтов (ост. напротив Автовокзала)
+												li(data-cords='[53.856217, 27.589847]') Проспект Космонавтов (ост. напротив Автовокзала)
+												li(data-cords='[53.896183, 27.517063]') Проспект Космонавтов (ост. напротив Автовокзала)
+												li(data-cords='[53.897197, 27.635852]') Проспект Космонавтов (ост. напротив Автовокзала)
+												li(data-cords='[53.949884, 27.565815]') Проспект Космонавтов (ост. напротив Автовокзала)
+										.map-body
+											.map-elem#map-markers-2(data-imagesrc='/img/pin.svg')
+										script.
+											document.addEventListener("DOMContentLoaded", function () {
+												mapMarkerinit('map-markers-2');
+											});
+					section.aside-section
 						.content-column-wrap
 							.content-column-content
 								.content-column-content-inner
-									h3 Забронированные Вами билеты
+									h1 Забронированные Вами билеты
 									p  Мы внимательно относимся к каждому клиенту, поэтому гарантируем индивидуальный подход в организации любой поездки. Наши сотрудники помогут вам рассчитать оптимальный маршрут, который бы полностью вас удовлетворял. В нашем автопарке представлены только лучшие модели автобусов и микроавтобусов. Мы предлагаем комфортабельные условия для поездок на любые расстояния. А опыт наших водителей позволит вам полностью расслабиться на протяжении всей поездки.
 									blockquote.caption  Время прибытия местное. Компания не несет ответственности за изменение времени приезда в связи с пробками на дорогах, плохими погодными условиями, действиями представителей власти и другими, не зависящими от нас причинами.
 										mark.caption-content

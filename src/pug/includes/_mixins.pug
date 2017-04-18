@@ -34,6 +34,28 @@ mixin smallCard(cls,img,way, val1,val2,price)
 				i.card-item-link
 					svg(class="icon icon-drop")
 						use(xlink:href="#arr-circle" xmlns:xlink="http://www.w3.org/1999/xlink")
+mixin smallCard2(cls,img, name,date,num,size)
+	.card-item.card-item-bus(class=cls)
+		a(href="#").card-item-inner
+			.card-item-img
+				.card-item-img-inner(style='background-image:url(img/tour/'+img+'.jpg)')
+			.card-item-content
+				.card-bus-content
+					.card-bus-content-name #{name}
+					.card-bus-content-block
+						.text-sm Год выпуска
+						.card-bus-val #{date}
+					.card-bus-content-block
+						.text-sm Регистрационный номер
+						.card-bus-val #{num}
+					.card-bus-content-block
+						.text-sm Посадочных 
+							br
+							|мест
+						.card-bus-val #{size}
+				i.card-item-link
+					svg(class="icon icon-drop")
+						use(xlink:href="#arr-circle" xmlns:xlink="http://www.w3.org/1999/xlink")
 mixin news(type,vid,vidcls,date,name,text)
 	article.news-item(class=type)
 		a(href="#").news-item-inner
@@ -248,6 +270,16 @@ mixin headone(head)
 				.content-bread
 					a(href="#").content-bread-item.text-sm Главная
 					a(href="#").content-bread-item.text-sm Рейсы
+mixin headtwo(head)
+	.wrapper.page-head.page-margin(style='background-image: url(img/pageheade.jpg)')
+		.box.page-head-inner
+			.page-head-title
+				h1.title.h1 #{head}		
+			.page-head-breadcrums
+				.content-bread
+					a(href="#").content-bread-item.text-sm Главная
+					a(href="#").content-bread-item.text-sm Кабинет пользователя 
+					a(href="#").content-bread-item.text-sm Мои брони
 mixin routeFeachure(img,text,doptext)
 	.feature-item.dropdown-trigger
 		.feature-item-img
