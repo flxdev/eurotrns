@@ -1942,6 +1942,10 @@ body, .out
 	overflow: hidden
 	font-size: 0
 	position: relative
+	.card-item-inner
+		&:hover
+			.card-item-img-inner
+				transform: scale(1.2)
 	.btn 
 		+rem(padding-top,4px)
 		+rem(padding-bottom,4px)
@@ -1954,6 +1958,9 @@ body, .out
 	.btn.btn-gray
 		width: calc(100% - 1.875rem)
 		+rem(margin-right,30px)
+	.card-item-inner
+		.card-item-img-inner
+			+tr(transform .3s)
 	+r(1024)
 		+rem(margin-right,-20px)
 		// +rem(padding-top, 70px)
@@ -3623,9 +3630,9 @@ body, .out
 		position: absolute
 		left: 115%
 		+rem(width,200px)
-		+rem(top,-15px)
+		+rem(top,-10px)
 		background-color: transparent
-		p 
+		span
 			+rem(font-size,13px)
 			color: rgb(64, 64, 64);
 			font-style: italic;
@@ -3848,31 +3855,31 @@ body, .out
 				padding: 3.5% 0
 
 .aside-section
-	.feature
-		&-outer
+	.slider-bus
+		&+ .feature-outer
 			+rem(margin-top,50px)
+			+rem(padding-bottom,20px)
 			+r(1024)
 				+rem(margin-top,30px)
-		&-wrap
-			
-			width: 72%
-			padding-right: 3%
-			
-			+r(1024)
-				width: 95%
-				padding-right: 0
-				flex-flow: row wrap
-			+r(600)
-				+rem(margin, 0 -15px)
-				width: auto
-		&-inner
-			justify-content: center
-			+rem(padding-top,45px)
-		&-item
-			width: 16.66%
-			+r(1024)
-				+rem(min-width,120px)
-				+rem(margin-bottom,20px)
-			.dropdown-target
-				+rem(min-width,240px)
-				+rem(left,-50px)
+			.feature-wrap
+				width: 72%
+				padding-right: 3%
+				+r(1024)
+					width: 95%
+					padding-right: 0
+					flex-flow: row wrap
+				+r(600)
+					+rem(margin, 0 -15px)
+					width: auto
+			.feature-inner
+				justify-content: center
+				+rem(padding-top,45px)
+				// &:not(.slick-initialized)
+				.feature-item
+					width: 16.66%
+					+r(1024)
+						+rem(min-width,120px)
+						+rem(margin-bottom,20px)
+					.dropdown-target
+						+rem(min-width,240px)
+						+rem(left,-50px)
