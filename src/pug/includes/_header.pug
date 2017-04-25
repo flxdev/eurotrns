@@ -3,13 +3,13 @@ include _mixins.pug
 .header-top
 	.header-top-inner
 		.header-lang
-			a(href="#").top-link.header-lang-item.active
+			span.top-link.header-lang-item.active
 				span Ru
 			a(href="#").top-link.header-lang-item
 				span En
 		.header-top-nav
 			.header-top-nav-menu
-				a(href="#").top-link.top-nav-item
+				span.top-link.top-nav-item
 					span Клиентам
 				a(href="#").top-link.top-nav-item
 					span Агентствам
@@ -21,7 +21,7 @@ include _mixins.pug
 				svg(class="icon icon-drop")
 					use(xlink:href="#bag" xmlns:xlink="http://www.w3.org/1999/xlink")
 				span Бюро находок
-			a(href="#").top-link.top-nav-botton.fixed
+			span.top-link.top-nav-botton.fixed
 				svg(class="icon icon-drop")
 					use(xlink:href="#login" xmlns:xlink="http://www.w3.org/1999/xlink")
 				span Личный кабинет
@@ -114,14 +114,16 @@ include _mixins.pug
 						a(href="#")
 							span Бюро находок
 			.mobile-contact
-				+Infoblock('Бронирование')
-					li.info-block-item
-						//в ссылках может присутствовать спан с текстом
-						a.info-block-link(href="tel:+375295000252") +375 (29) 5000-252
-					li.info-block-item
-						a.info-block-link(href="tel:+375295000252") +375 (29) 5000-252
-					li.info-block-item
-						a.info-block-link(href="tel:+79055591545") +375 (29) 5000-252
+				.info-block
+					a(href="#").info-block-head Бронирование
+						ul.info-block-list
+							li.info-block-item
+								//в ссылках может присутствовать спан с текстом
+								a.info-block-link(href="tel:+375295000252") +375 (29) 5000-252
+							li.info-block-item
+								a.info-block-link(href="tel:+375295000252") +375 (29) 5000-252
+							li.info-block-item
+								a.info-block-link(href="tel:+79055591545") +375 (29) 5000-252
 				+Infoblock('')
 					li.info-block-item
 						a.info-block-link(href="tel:+74952818817") +7 (495) 281-88-17

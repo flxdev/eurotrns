@@ -423,8 +423,8 @@ body, .out
 			+r(1024)
 				position: absolute
 				+rem(bottom, -50px)
-				right: 0
-				width: 100%
+				+rem(right,10px)
+				width: calc(100% - (.625rem * 2))
 				text-align: center
 				transition: transform .3s, opacity .3s, visibility .3s
 				transform: none
@@ -442,6 +442,10 @@ body, .out
 				display: inline-block
 				vertical-align: top
 				height: 100%
+				white-space: nowrap
+				&:nth-of-type(n+4)
+					display: none
+					
 				+r(600)
 					a
 						+padlr(10px)
@@ -625,15 +629,23 @@ body, .out
 			transform: translateX(100%)
 			transition-delay: 0s
 			+tr(transform .25s)
+			+vertical
 		&-inner
 			overflow-y: auto
 			max-height: 96%
 			+padlr(16px)
 			+rem(padding-bottom, 30px)
+			display: inline-block
+			width: 100%
+			vertical-align: middle
+			
 			li 
 				display: block
 				text-align: center
 
+			a.info-block-head
+				&:active
+					color: $org
 //=====================================//
 //         checkbox
 //=====================================//			
@@ -980,6 +992,8 @@ body, .out
 					color: $white
 					line-height: 1.687;
 					+rem(padding, 8px 10px)
+					&:active
+						color: $org
 	&-soc
 
 		.soc-wrapp
@@ -1429,9 +1443,9 @@ body, .out
 		+tr(max-height .3s)
 		+rem(max-height,33px)
 		transition-delay: .15s
-
+		background-color: $bl
 		&:hover
-			+rem(max-height,132px)
+			+rem(max-height,165px)
 
 	&-item
 		display: block
