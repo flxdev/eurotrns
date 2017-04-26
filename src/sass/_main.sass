@@ -30,26 +30,19 @@ a
 	text-decoration: none
 	transition: color .3s
 	color: $org
-	// &.text2
-	// 	&:hover
-	// 		color: $hover
 *
 	+box
-	// -webkit-tap-highlight-color: rgba(252, 239, 141, 0.41)
 	-webkit-tap-highlight-color: transparent
 	+placeholder 
 		font-family: $os
 		+rem(font-size,16px)
 
-// textarea
-// 	line-height: 1.4
-// 	resize: none
-// 	font-family: $os
-// 	+rem(font-size,16px)
-// 	+rem(padding-top,5px)
-// 	+placeholder 
-// 		font-family: $os
-// 		+rem(font-size,14px)
+textarea
+	resize: none
+
+	+placeholder 
+		font-family: $os
+		+rem(font-size,14px)
 ul
 	li>a 
 		display: inline-block
@@ -409,7 +402,6 @@ body, .out
 			flex-flow: row nowrap
 			justify-content: space-between
 			overflow: visible
-
 			.m-logo
 				+r(1024)
 					+rem(width, 200px)
@@ -431,8 +423,6 @@ body, .out
 				text-align: center
 				transition: transform .3s, opacity .3s, visibility .3s
 				transform: none
-
-				
 		&-menu
 			font-size: 0
 			height: 100%
@@ -445,6 +435,8 @@ body, .out
 				display: inline-block
 				vertical-align: top
 				height: 100%
+				&:nth-of-type(n+4)
+					display: none
 				+r(600)
 					a
 						+padlr(10px)
@@ -492,14 +484,12 @@ body, .out
 		+rem(height,60px)
 		+r(1024)
 			display: none
-			
 		&-inner
 			height: 100%
 			width: 100%
 			display: flex
 			flex-flow: row nowrap
 			justify-content: space-between
-
 		&-nav
 			height: 100%
 			position: relative
@@ -629,11 +619,15 @@ body, .out
 			transform: translateX(100%)
 			transition-delay: 0s
 			+tr(transform .25s)
+			+vertical
 		&-inner
 			overflow-y: auto
 			max-height: 96%
 			+padlr(16px)
 			+rem(padding-bottom, 30px)
+			display: inline-block
+			width: 100%
+			vertical-align: middle
 			li 
 				display: block
 				text-align: center
@@ -750,13 +744,14 @@ body, .out
 		overflow: hidden
 		height: 100%
 		.btn-text
-			
+			+rem(padding-right,4px)
 			display: inline-block
 			+rem(font-size,15px)
 			white-space: nowrap
 			width: 100%
 			text-overflow: ellipsis
 			// overflow-x: hidden
+			overflow: hidden
 			.elem-price-value
 				width: auto
 				height: auto
@@ -764,6 +759,7 @@ body, .out
 				color: $org
 				text-transform: uppercase
 				line-height: 1
+
 				font-weight: 600
 				span 
 					padding: 0
@@ -806,14 +802,15 @@ body, .out
 		+rem(min-width,200px)
 	.select-list
 		font-size: 0
+		.help-block
+			display: none
 	.option,.sort-select-item 
 		display: block
 		position: relative
 		cursor: pointer
 		margin: 0
-		white-space: nowrap
-		overflow: hidden
-		text-oveflow: ellipsis
+		+rem(padding-right,5px)
+		
 		&:hover
 			span 
 				color: $org
@@ -835,6 +832,9 @@ body, .out
 			color: $blk2
 			+rem(padding,8px 0)
 			+tr(color .3s)
+			white-space: nowrap
+			overflow: hidden
+			text-overflow: ellipsis
 		.elem-price
 			overflow: hidden
 			white-space: nowrap
@@ -866,9 +866,11 @@ body, .out
 			+rem(font-size,12px)
 			font-weight: 400
 			color: $grayl
+
 //=====================================//
 //         datepicker
 //=====================================//
+
 .ui-datepicker
 	+nosel
 	z-index: 20 !important
@@ -888,9 +890,11 @@ body, .out
 		+rem(background-size, 13px 20px)
 		background-position: center
 		background-image: url(../img/icons/strelka.svg)
+
 //=====================================//
 //         inputs
 //=====================================//	
+
 .input-item
 	display: inline-block
 	vertical-align: top
@@ -899,23 +903,57 @@ body, .out
 		width: 100%
 	&.s50
 		width: 50%		
+	&.s33
+		width: 33.33%	
+	&.s25
+		width: 25%	
+		.dropdown-target
+			min-width: 100%
+		.selects
+			+rem(padding-left,7px)
+		.btn-text
+			+rem(font-size,13px)
+			&:before,&:after
+				display: none !important
+				
 .input-wrapper
 	position: relative;
 	+rem(margin-bottom,15px)
+	&.double
+		font-size: 0
+		.select-check
+			width: 50%
+			display: inline-block
+			vertical-align: top
+			&:nth-child(2)
+				border-bottom-right-radius: 0
+				border-top-right-radius: 0
+			&:nth-child(3)
+				border-bottom-left-radius: 0
+				border-top-left-radius: 0
+			&:nth-child(n + 4)
+				display: none
+			.btn-text
+				+rem(font-size,13px)
+				&:before,&:after
+					+rem(font-size,13px)
+
+	
 	&.has-error
 		.input-main
 			border-color: red
-	// &.req
-	// 	&>label,.label
-	// 		&:after
-	// 			content: '*'
-	// 			color: $active
-	// 			+rem(font-size,23px)
-	// 			line-height: 0
-	// 			display: inline-block
-	// 			+rem(margin-left,3px)
-	// 			vertical-align: middle
-	// 			font-weight: 100
+
+	&.req
+		&>label,.label
+			&:after
+				content: '*'
+				color: $org
+				+rem(font-size,16px)
+				line-height: 0
+				display: inline-block
+				+rem(margin-left,3px)
+				vertical-align: middle
+				font-weight: 100
 				
 	label,.label
 		display: inline-block;
@@ -964,6 +1002,10 @@ body, .out
 		+placeholder
 			color: #c5c5c5
 			+rem(font-size,14px)
+	textarea.input-main
+		line-height: 1.3
+		+rem(padding-top,10px)
+		+rem(padding-bottom,10px)
 	.help-block
 		position: absolute
 		+rem(bottom, -15px)
@@ -1442,12 +1484,12 @@ body, .out
 		right: 0
 		left: 0
 		overflow: hidden
-		+tr(max-height .3s)
+		transition: max-height .3s, background-color .3s
 		+rem(max-height,33px)
 		transition-delay: .15s
-
 		&:hover
-			+rem(max-height,132px)
+			+rem(max-height,165px)
+			background-color: $bl
 
 	&-item
 		display: block
@@ -1985,9 +2027,23 @@ body, .out
 	+rem(padding-right,30px)
 	+rem(margin-bottom,25px)
 	+nosel
+	.small-block
+		position: absolute
+		+rem(top,15px)
+		+rem(left,15px)
+		z-index: 3
+		span 
+			+rem(font-size,10px)
+			font-weight: 600
+			text-transform: uppercase
+			+rem(letter-spacing,0.5px)
+			+padlr(2px)
 	&-bus 
 		width: 50%
 		+rem(margin-bottom,35px)
+		+rem(min-height,180px)
+		display: flex
+		align-self: flex-start
 		.card-item-inner
 			height: 100%
 			&:hover
@@ -2003,6 +2059,7 @@ body, .out
 					height: 0
 					padding-bottom: 100%
 		+r(480)
+			min-height: 0px
 			// +rem(margin,0 -15px 30px)
 			// display: block
 			// width: 100%
@@ -2038,16 +2095,17 @@ body, .out
 		.card-item-content
 			justify-content: flex-start
 			// +rem(padding, 25px 22px 16px)
-			+rem(padding-top,15px)
+			+rem(padding-top,20px)
 			+rem(padding-bottom,15px)
 			padding-left: 5%
 			padding-right: 2%
 			border: $bb
+			width: 61%
 			+tr(border-color .3s)
 			+r(1050)
 				padding: 2% 2% 3% 5%
 			.card-item-link
-				+rem(top, 20px)
+				+rem(top, 15px)
 				+rem(right, 20px)
 				+r(1050)
 					+rem(top, 10px)
@@ -2066,6 +2124,7 @@ body, .out
 				width: 50%
 				+rem(padding-right,40px)
 				padding-top: 8%
+				overflow: hidden
 				.text-sm
 					+rem(font-size,12px)
 					line-height: 1.5
@@ -2078,6 +2137,11 @@ body, .out
 				.card-bus-val
 					+rem(font-size,13px)
 					color: $blk2
+					width: 100%
+					display: inline-block
+					overflow: hidden
+					text-overflow: ellipsis
+					white-space: nowrap
 
 	&:last-of-type
 		+rem(margin-bottom,30px)
@@ -2453,6 +2517,9 @@ body, .out
 	display: inline-block
 	font-weight: 400
 	+rem(padding,5px 8px)
+	white-space: nowrap
+	overflow: hidden
+	+rem(max-width,100px)
 	font-family: $os
 	transition: box-shadow .3s, background-color .3s
 	&.promo
@@ -2802,21 +2869,73 @@ body, .out
 			&:active
 				color: $org
 
+ul.special
+	+rem(margin,42px 0)
+	display: block
+	+r(768)
+		+rem(margin,24px 0)	
+		li 
+			+rem(margin-bottom,20px)	
+	li 
+		+rem(font-size,15px)
+		color: $blk2
+		line-height: 1.8;
+		+rem(padding-left,27px)
+		position: relative
+		+rem(margin-bottom,35px)
+		&:before
+			content: ''
+			position: absolute
+			left: 0
+			+rem(top,8px)
+			+rem(width,15px)
+			display: inline-block
+			+rem(height,10px)
+			+contain
+			background-image: url(../img/icons/i-check.png)
+.promo-card
+	+rem(margin,50px 0)
 .border-card
 	vertical-align: top
+	&.extra
+		+r(600)
+			+rem(margin,0 -15px)
+		.border-card-inner
+			+rem(padding,50px 32px)
+			+r(768)
+				+rem(padding,35px 24px)
+		.special
+			width: 75%
+			+r(600)
+				width: 95%	
+		.border-card-name
+			color: $bl
+			+rem(font-size,20px)
+			line-height: 1.6
+		.btn 
+			+rem(margin-top,52px)
+			+rem(margin-left,27px)
+			display: block
+			+rem(max-width,180px)
 	&.small
 		+rem(min-height,126px)
-		
 		.border-card-name
 			+rem(font-size,18px)
 			color: rgb(64, 71, 76);
 			line-height: 1.556;
 			+rem(margin-bottom,7px)
 			+rem(min-height,60px)
+			&:only-child
+				+rem(margin-bottom,-15px)
+			span 
+				+rem(font-size,26px)
+				color: $org
+				// line-height: 1.2
 		.border-card-inner
 			padding: 6% 1% 11% 5%
+			+r(991)
+				padding: 6% 1% 6% 5%
 		.border-card-content 
-
 		.link-border
 			color: $bl
 	&:not(.medium)
@@ -2938,10 +3057,41 @@ body, .out
 
 
 //=====================================//
-//           	  aside
+//          aside template
 //=====================================//
 
 .aside
+	&-title
+		position: relative
+		color: $blk
+		+rem(padding,9px 13px)
+		cursor: pointer
+		+rm(769)
+			display: none
+	&-stick
+		+r(768)
+			border: 1px solid $border
+			+rem(border-radius, 3px)
+			width: 100%
+			+rem(max-width,400px)
+			text-align: left
+			+rem(margin-bottom,30px)
+			.aside-list.bold
+				margin-top: 0
+				+tr(max-height .3s ease-in-out)
+				max-height: 0
+				overflow: hidden
+				&.active
+					+rem(max-height,650px)
+				.aside-list-item
+					display: block
+					+rem(padding, 12px 13px)
+					&:last-child
+						+rem(margin-bottom,10px)
+					span:after
+						display: none
+
+
 	&-list
 		width: 100%
 		+rem(margin-top,-8px)
@@ -2954,6 +3104,8 @@ body, .out
 				color: $blk2
 				line-height: 1.2;
 				+rem(padding, 17px 0 18px)
+				&:hover
+					color: $org
 				&.active
 					color: $bl
 					pointer-events: none
@@ -3011,8 +3163,13 @@ body, .out
 		flex-flow: row nowrap
 		align-items: stretch
 		+rem(padding-top, 105px)
+		+rem(padding-bottom, 40px)
 		width: 100%
 		justify-content: space-between
+		&+.question-outer
+			+rem(padding-top,20px)
+			position: relative
+			
 		+r(1024)
 			+rem(padding-top, 85px)
 		+r(768)
@@ -3029,6 +3186,8 @@ body, .out
 			display: block
 			padding-right: 0
 			+rem(margin-bottom,15px)
+			text-align: center
+			
 		.aside-stick
 			display: inline-block
 			backface-visibility: hidden
@@ -3352,7 +3511,9 @@ body, .out
 				+rem(max-width,480px)
 				margin: 0 auto
 			
-
+//=====================================//
+//          roadmap section
+//=====================================//	
 							
 .roadmap
 	&-wrapper
@@ -3532,7 +3693,11 @@ body, .out
 	transition: border-color .3s, background-color .3s 	
 	+rem(margin-bottom,5px)
 						
-					
+//=====================================//
+//          стиили колоночного
+//               шаблона 
+//             и контента
+//=====================================//			
 
 .content-column
 	&-wrap
@@ -3548,7 +3713,7 @@ body, .out
 		flex-flow: column nowrap
 		+rem(flex-basis,280px)
 		+r(991)
-			order: 2
+			// order: 2
 			display: block
 			flex-basis: 0
 		+r(735)
@@ -3622,6 +3787,14 @@ body, .out
 				flex-shrink: 1
 				flex-basis: 0
 				padding-left: 0
+				// +rem(margin-top,25px)
+				margin-top: 0
+				.border-card-link
+					+rem(margin-bottom,25px)
+
+//=====================================//
+//          стиили бокового текста
+//=====================================//	
 
 .caption
 	position: relative
@@ -3632,6 +3805,7 @@ body, .out
 		+rem(width,200px)
 		+rem(top,-10px)
 		background-color: transparent
+		color: rgb(64, 64, 64);
 		span
 			+rem(font-size,13px)
 			color: rgb(64, 64, 64);
@@ -3650,7 +3824,13 @@ body, .out
 			display: block
 		+r(991)
 			display: none
-		
+
+
+//=====================================//
+//        стили табов карты
+//=====================================//
+
+
 .tabs
 	display: flex
 	flex-flow: row nowrap
@@ -3854,32 +4034,180 @@ body, .out
 			.card-bus-content-block
 				padding: 3.5% 0
 
-.aside-section
-	.slider-bus
-		&+ .feature-outer
-			+rem(margin-top,50px)
-			+rem(padding-bottom,20px)
+.feature-outer.feature-bus
+	+rem(margin-top,50px)
+	+rem(padding-bottom,20px)
+	+r(1024)
+		+rem(margin-top,30px)
+	.feature-wrap
+		width: 72%
+		padding-right: 3%
+		+r(1024)
+			width: 95%
+			padding-right: 0
+			flex-flow: row wrap
+		+r(600)
+			+rem(margin, 0 -15px)
+			width: auto
+	.feature-inner
+		justify-content: center
+		+rem(padding-top,45px)
+		// &:not(.slick-initialized)
+		.feature-item
+			width: 16.66%
 			+r(1024)
-				+rem(margin-top,30px)
-			.feature-wrap
-				width: 72%
-				padding-right: 3%
-				+r(1024)
-					width: 95%
-					padding-right: 0
-					flex-flow: row wrap
+				+rem(min-width,120px)
+				+rem(margin-bottom,20px)
+			.dropdown-target
+				+rem(min-width,240px)
+				+rem(left,-50px)
+
+
+//=====================================//
+//         Стили основных форм
+//=====================================//
+
+
+.form-block
+	&-wrapper
+		border: $bb
+		+rem(margin,45px 0 20px)
+		+r(600)
+			+rem(margin,30px -15px 20px)	
+	&-section
+		+rem(padding, 56px 32px 15px 32px)
+		+r(768)
+			+rem(padding, 36px 25px 15px 25px)
+		&:not(:first-of-type)
+			// border-top: 1px dotted #cecece
+			position: relative
+			&:before
+				content: ''
+				position: absolute
+				height: 1.7px
+				display: inline-block
+				left: 0
+				width: 100%
+				top: 0
+				background: linear-gradient(90deg,#cecece,hsla(0,0%,100%,0) 30%);
+				background-position: bottom;
+				background-size: 6px 2px;
+				background-repeat: repeat-x;
+		.title
+			line-height: 1
+			+rem(margin-bottom,43px)
+			+r(600)
+				+rem(margin-bottom,30px)	
+		.input-form
+			// width: 100%
+			font-size: 0
+			+rem(margin-right,-41px)
+			+r(1180)
+				+rem(margin-right,-25px)
+				.input-item
+					+rem(padding-right,25px)
+			+r(991)
+				+rem(margin-right,-31px)
+				.input-item
+					+rem(padding-right,31px)
+			+r(500)
+				+rem(margin-right,-20px)
+				.input-item
+					+rem(padding-right,20px)		
+			.input-item
+				+rem(padding-right,41px)
 				+r(600)
-					+rem(margin, 0 -15px)
-					width: auto
-			.feature-inner
-				justify-content: center
-				+rem(padding-top,45px)
-				// &:not(.slick-initialized)
-				.feature-item
-					width: 16.66%
-					+r(1024)
-						+rem(min-width,120px)
-						+rem(margin-bottom,20px)
-					.dropdown-target
-						+rem(min-width,240px)
-						+rem(left,-50px)
+					+rem(margin-bottom,30px)
+				&.s25
+					+r(600)
+						width: 50%
+				&.s33
+					+r(500)
+						width: 50%
+					+r(340)
+						width: 100%
+				&.s50
+					+r(500)
+						width: 100%
+			.selects,.input-main
+				background-color: #fafafa
+				+tr(background-color .3s)
+
+				&:hover
+					background-color: #FFF
+		.input-item
+			+rem(margin-bottom,45px)
+			.arr-down
+				+rem(width,10px)
+			.input-wrapper
+				margin-bottom: 0
+				.select-item
+					+rm(500)
+						+rem(margin-top,30px)
+			.select-text
+				font-weight: 400
+				+rem(font-size,13px)
+				letter-spacing: 0
+				+rem(padding-left,10px)
+				+rem(padding-top,2px)
+	&-footer
+		+rem(padding,0px 32px 90px 32px)
+		+rem(margin-top,-15px)
+		+r(768)
+			+rem(padding,0px 25px 50px 25px)
+.form-footer-notify
+	+rem(padding-bottom,35px)
+	+r(768)
+		+rem(padding-bottom,20px)
+	.text-sm
+		color: $grayl
+		&:before
+			content: '*'
+			color: $org
+			display: inline-block
+			+rem(padding-right,5px)
+
+//=====================================//
+//         feedback / questions
+//=====================================//
+
+.feedback
+	&-wrapper
+		+rem(margin-top,5px)
+	&-item
+		+rem(padding,30px 0 35px)
+		&:not(:last-child)
+			border-bottom: $bb
+			
+		.text-sm
+			color: $grayl
+		&-head
+			display: table
+			width: 100%
+			+rem(margin-bottom,8px)
+		&-who
+
+		&-content
+			color: #6d6d6d
+			+rem(font-size,16px)
+			line-height: 1.5;
+			+rem(margin-top,10px)
+			overflow: hidden
+		&-reply
+			position: relative
+			+rem(padding-left,18px)
+			color: #6d6d6d
+			+rem(font-size,15.5px)
+			+rem(margin-top,28px)
+			// .reply-content
+			// 	line-height: 1.5
+			.text-bold
+				+rem(margin-bottom,10px)
+			&:before
+				content: ''
+				position: absolute
+				left: 0
+				+rem(top,5px)
+				+rem(bottom,5px)
+				width: 1px
+				background-color: $org

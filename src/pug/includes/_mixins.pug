@@ -39,6 +39,9 @@ mixin smallCard2(cls,img, name,date,num,size)
 		a(href="#").card-item-inner
 			.card-item-img
 				.card-item-img-inner(style='background-image:url(img/tour/'+img+'.jpg)')
+				if cls != '' 
+					.small-block
+						span VIP
 			.card-item-content
 				.card-bus-content
 					.card-bus-content-name #{name}

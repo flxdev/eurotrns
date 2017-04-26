@@ -5,11 +5,11 @@ include _mixins.pug
 		.header-lang
 			a(href="#").top-link.header-lang-item.active
 				span Ru
-			a(href="#").top-link.header-lang-item
+			span.top-link.header-lang-item
 				span En
 		.header-top-nav
 			.header-top-nav-menu
-				a(href="#").top-link.top-nav-item
+				span.top-link.top-nav-item.active
 					span Клиентам
 				a(href="#").top-link.top-nav-item
 					span Агентствам
@@ -17,7 +17,7 @@ include _mixins.pug
 					span Перевозчикам
 				a(href="#").top-link.top-nav-item
 					span Контакты
-			a(href="#").top-link.top-nav-botton
+			span.top-link.top-nav-botton
 				svg(class="icon icon-drop")
 					use(xlink:href="#bag" xmlns:xlink="http://www.w3.org/1999/xlink")
 				span Бюро находок

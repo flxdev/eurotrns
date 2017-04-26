@@ -9,11 +9,17 @@ block content
 		.box
 			.aside-wrapp
 				aside.aside-menu(data-sticky_parent)
-					.aside-stick(data-sticky_column)
+					.aside-stick.js-dropdown-parent(data-sticky_column)
 						//.bold
 						// .active для ссылки текущей страницы
-						.aside-list.bold
-							a(href="#").aside-list-item.text-1.active
+						//тайтл ниже поялвляется на мобилках
+						.aside-title.text-1.js-dropdown 
+							span О нас
+							i.arr-down
+								svg(class="icon icon-drop")
+									use(xlink:href="#strelka" xmlns:xlink="http://www.w3.org/1999/xlink")
+						.aside-list.bold.js-dropdown-target
+							span.aside-list-item.text-1.active
 								span Автопарк
 							a(href="#").aside-list-item.text-1
 								span Вопрос/ответ
@@ -50,13 +56,16 @@ block content
 		.box
 			.aside-wrapp
 				aside.aside-menu(data-sticky_parent)
-					.aside-stick(data-sticky_column)
-						//.bold
-						// .active для ссылки текущей страницы
-						.aside-list.bold
-							a(href="#").aside-list-item.text-1.active
+					.aside-stick.js-dropdown-parent(data-sticky_column)
+						.aside-title.text-1.js-dropdown 
+							span О нас
+							i.arr-down
+								svg(class="icon icon-drop")
+									use(xlink:href="#strelka" xmlns:xlink="http://www.w3.org/1999/xlink")
+						.aside-list.bold.js-dropdown-target
+							span.aside-list-item.text-1
 								span Автопарк
-							a(href="#").aside-list-item.text-1
+							a(href="#").aside-list-item.text-1.active
 								span Вопрос/ответ
 							a(href="#").aside-list-item.text-1
 								span Перевозчикам
@@ -105,7 +114,8 @@ block content
 									.slider-bus-btn
 										a(href="#").btn.btn-colored
 											span Арендовать автобус
-						.feature-outer
+						// модификатор .feachure-bus
+						.feature-outer.feature-bus
 							.title.h3 Сервис в дороге
 							.feature-wrap
 								.feature-inner
@@ -128,7 +138,317 @@ block content
 							.content-column-content
 								.content-column-content-inner
 									h1 Заявка на расчет аренды транспорта
-									p  Заполните данную форму для расчет стоимости аренды транспорта для вашего маршрута. Мы рассчитаем стоимость и в течении 24 часов отправим вам предложение по электронно почте или по телефону.
+									p  Заполните данную форму для расчет стоимости аренды транспорта для вашего маршрута. Мы рассчитаем стоимость и в течении 24 часов отправим вам предложение по электронно почте или по телефону.
+								form(action="/").form-block-wrapper.js-validate
+									.form-block-section
+										.title.h3 Маршрут
+										.input-form
+											.input-item.s50
+												.input-wrapper
+													.label Откуда
+													.select-check.js-select-custom.depends-on
+														button.selects(data-placeholder='Выберите')
+															span.btn-text Выберите
+															i.arr-down
+																svg(class="icon icon-drop")
+																	use(xlink:href="#strelka" xmlns:xlink="http://www.w3.org/1999/xlink")
+														.dropdown-target
+															.dropdown-inner
+																.dropdown-content
+																	.select-u-body.select-list
+																		label.option
+																			input(type='radio', name='group47', value='val1',data-validation="required")
+																			span Минск
+																		label.option
+																			input(type='radio', name='group47', value='val2')
+																			span Пинск
+																		label.option
+																			input(type='radio', name='group47', value='val3')
+																			span Копенгаген
+																		label.option
+																			input(type='radio', name='group47', value='val4')
+																			span Рига
+																		label.option
+																			input(type='radio', name='group47', value='val5')
+																			span Немига
+																		label.option
+																			input(type='radio', name='group47', value='val6')
+																			span Метро
+																		label.option
+																			input(type='radio', name='group47', value='val7')
+																			span Копенгаген
+																		label.option
+																			input(type='radio', name='group47', value='val8')
+																			span Копенгаген
+																		label.option
+																			input(type='radio', name='group47', value='val9')
+																			span 1Копенгаген
+																		label.option
+																			input(type='radio', name='group47', value='val9')
+																			span 12Копенгаген
+																		label.option
+																			input(type='radio', name='group47', value='val9')
+																			span 142Копенгаген
+																		label.option
+																			input(type='radio', name='group47', value='val9')
+																			span Копенгаген
+																		label.option
+																			input(type='radio', name='group47', value='val9')
+																			span 1Копенгаген
+											.input-item.s50
+												.input-wrapper
+													.label Куда
+													.select-check.js-select-custom.depends-on
+														button.selects(data-placeholder='Выберите')
+															span.btn-text Выберите
+															i.arr-down
+																svg(class="icon icon-drop")
+																	use(xlink:href="#strelka" xmlns:xlink="http://www.w3.org/1999/xlink")
+														.dropdown-target
+															.dropdown-inner
+																.dropdown-content
+																	.select-u-body.select-list
+																		label.option
+																			input(type='radio', name='group49', value='val1',data-validation="required")
+																			span Минск
+																		label.option
+																			input(type='radio', name='group49', value='val2')
+																			span Пинск
+																		label.option
+																			input(type='radio', name='group49', value='val3')
+																			span Копенгаген
+																		label.option
+																			input(type='radio', name='group49', value='val4')
+																			span Рига
+																		label.option
+																			input(type='radio', name='group49', value='val5')
+																			span Немига
+																		label.option
+																			input(type='radio', name='group49', value='val6')
+																			span Метро
+																		label.option
+																			input(type='radio', name='group49', value='val7')
+																			span Копенгаген
+																		label.option
+																			input(type='radio', name='group49', value='val8')
+																			span Копенгаген
+																		label.option
+																			input(type='radio', name='group49', value='val9')
+																			span 1Копенгаген
+																		label.option
+																			input(type='radio', name='group49', value='val9')
+																			span 12Копенгаген
+																		label.option
+																			input(type='radio', name='group49', value='val9')
+																			span 142Копенгаген
+																		label.option
+																			input(type='radio', name='group49', value='val9')
+																			span Копенгаген
+																		label.option
+																			input(type='radio', name='group49', value='val9')
+																			span 1Копенгаген
+											.input-item.s50
+												.input-wrapper
+													label Дата выезда
+													input.input-main.datepicker(type="text",placeholder='-- Выберите --',data-validation="required",data-validation-error-msg="Не выбрано",readonly)
+													svg(class="icon icon-drop")
+														use(xlink:href="#calendar" xmlns:xlink="http://www.w3.org/1999/xlink")
+											.input-item.s50
+												.input-wrapper.double
+													.label Время выезда
+													.select-check.js-select-custom
+														button.selects(data-placeholder='Выберите')
+															span.btn-text Выберите
+															i.arr-down
+																svg(class="icon icon-drop")
+																	use(xlink:href="#strelka" xmlns:xlink="http://www.w3.org/1999/xlink")
+														.dropdown-target
+															.dropdown-inner
+																.dropdown-content
+																	.select-u-body.select-list
+																		label.option
+																			input(type='radio', name='group50', value='10',data-validation="required")
+																			span 03 ч
+																		label.option
+																			input(type='radio', name='group50', value='11')
+																			span 04 ч
+																		label.option
+																			input(type='radio', name='group50', value='12')
+																			span 05 ч
+																		label.option
+																			input(type='radio', name='group50', value='13')
+																			span 09 ч
+																		label.option
+																			input(type='radio', name='group50', value='14')
+																			span 10 ч
+																		label.option
+																			input(type='radio', name='group50', value='15')
+																			span 12 ч
+																		label.option
+																			input(type='radio', name='group50', value='16')
+																			span 13 ч
+																		label.option
+																			input(type='radio', name='group50', value='17')
+																			span 14 ч
+													.select-check.js-select-custom
+														button.selects(data-placeholder='Выберите')
+															span.btn-text Выберите
+															i.arr-down
+																svg(class="icon icon-drop")
+																	use(xlink:href="#strelka" xmlns:xlink="http://www.w3.org/1999/xlink")
+														.dropdown-target
+															.dropdown-inner
+																.dropdown-content
+																	.select-u-body.select-list
+																		label.option
+																			input(type='radio', name='group51', value='10',data-validation="required")
+																			span 15 мин
+																		label.option
+																			input(type='radio', name='group51', value='11')
+																			span 00 мин
+																		label.option
+																			input(type='radio', name='group51', value='12')
+																			span 45 мин
+																		label.option
+																			input(type='radio', name='group51', value='13')
+																			span 30 мин
+											.input-item.s50
+												.input-wrapper
+													.label Общее кол-во пассажиров
+													.select-check.js-select-custom
+														button.selects(data-placeholder='Выберите')
+															span.btn-text Выберите
+															i.arr-down
+																svg(class="icon icon-drop")
+																	use(xlink:href="#strelka" xmlns:xlink="http://www.w3.org/1999/xlink")
+														.dropdown-target
+															.dropdown-inner
+																.dropdown-content
+																	.select-u-body.select-list
+																		label.option
+																			input(type='radio', name='group40', value='val1',data-validation="required")
+																			span 40
+																		label.option
+																			input(type='radio', name='group40', value='val2')
+																			span 46
+																		label.option
+																			input(type='radio', name='group40', value='val3')
+																			span 32
+																		label.option
+																			input(type='radio', name='group40', value='val4')
+																			span 22
+																		label.option
+																			input(type='radio', name='group40', value='val5')
+																			span 34
+																		label.option
+																			input(type='radio', name='group40', value='val6')
+																			span 343
+																		label.option
+																			input(type='radio', name='group40', value='val7')
+																			span 343
+																		label.option
+																			input(type='radio', name='group40', value='val8')
+																			span К34343
+											.input-item.s50
+												.input-wrapper
+													.label Кол-во детей до 16 лет
+													.select-check.js-select-custom
+														button.selects(data-placeholder='Выберите')
+															span.btn-text Выберите
+															i.arr-down
+																svg(class="icon icon-drop")
+																	use(xlink:href="#strelka" xmlns:xlink="http://www.w3.org/1999/xlink")
+														.dropdown-target
+															.dropdown-inner
+																.dropdown-content
+																	.select-u-body.select-list
+																		label.option
+																			input(type='radio', name='group41', value='val1',data-validation="required")
+																			span 40
+																		label.option
+																			input(type='radio', name='group41', value='val2')
+																			span 46
+																		label.option
+																			input(type='radio', name='group41', value='val3')
+																			span 32
+																		label.option
+																			input(type='radio', name='group41', value='val4')
+																			span 22
+																		label.option
+																			input(type='radio', name='group41', value='val5')
+																			span 34
+																		label.option
+																			input(type='radio', name='group41', value='val6')
+																			span 343
+																		label.option
+																			input(type='radio', name='group41', value='val7')
+																			span 343
+																		label.option
+																			input(type='radio', name='group41', value='val8')
+																			span К34343
+											.input-item.s50
+												.input-wrapper
+													.label Предоставление проживания для водителей
+													.select-check.js-select-custom
+														button.selects(data-placeholder='Выберите')
+															span.btn-text Выберите
+															i.arr-down
+																svg(class="icon icon-drop")
+																	use(xlink:href="#strelka" xmlns:xlink="http://www.w3.org/1999/xlink")
+														.dropdown-target
+															.dropdown-inner
+																.dropdown-content
+																	.select-u-body.select-list
+																		label.option
+																			input(type='radio', name='group42', value='val1',data-validation="required")
+																			span Да
+																		label.option
+																			input(type='radio', name='group42', value='val2')
+																			span Нет
+											.input-item.s50
+												.input-wrapper
+													.select-item
+														label.select-label
+															span.select-main
+																input.select-real(type="checkbox",value ='twoway')
+																span.select-checked
+															span.select-text Маршрут туда и обратно
+											.input-item.s100
+												.input-wrapper
+													label(for='text1') Комментарий
+													textarea.input-main(rows='5',id='text1') 
+									.form-block-section
+										.title.h3 Заявку оформил
+										.input-form
+											.input-item.s33
+												.input-wrapper.req
+													label(for='inp1') Имя
+													input.input-main(type="text",placeholder='Имя',data-validation="length required",data-validation-length='min2',data-validation-error-msg="Не заполнено",id='inp1')
+											.input-item.s33
+												.input-wrapper.req
+													label(for='inp2') Имя
+													input.input-main(type="text",placeholder='Имя',data-validation="length required",data-validation-length='min2',data-validation-error-msg="Не заполнено",id='inp2')
+											.input-item.s33
+												.input-wrapper.req
+													label(for='inp3') Имя
+													input.input-main(type="text",placeholder='Имя',data-validation="length required",data-validation-length='min2',data-validation-error-msg="Не заполнено",id='inp3')
+											.input-item.s50
+												.input-wrapper.req
+													label(for='inp4') Имя
+													input.input-main(type="text",placeholder='Имя',data-validation="length required",data-validation-length='min2',data-validation-error-msg="Не заполнено",id='inp4')
+											.input-item.s50
+												.input-wrapper.req
+													label(for='inp5') Телефон
+													input.input-main(type="tel",placeholder='Телефон',data-validation="custom",data-validation-regexp="^[-0-9()+ ]+$",data-validation-error-msg="Не заполнено",id='inp5')
+											.input-item.s50
+												.input-wrapper.req
+													label(for='inp6') E-mail
+													input.input-main(type="email",placeholder='example@mail.com',data-validation="email",data-validation-error-msg="Не заполнено",id='inp6')
+									.form-block-footer
+										.form-footer-notify
+											.text-sm Поля для обязательного заполнения
+										button(type='sumbit').btn.btn-colored
+											span Отправить заявку
 							.content-column-right
 								a(href="#").border-card-link
 									+cardmedium('sm1.jpg','small')
@@ -137,23 +457,324 @@ block content
 											.link-border
 												span Смотреть
 
+	.wrapper
+		.box
+			.aside-wrapp
+				aside.aside-menu(data-sticky_parent)
+					.aside-stick.js-dropdown-parent(data-sticky_column)
+						.aside-title.text-1.js-dropdown 
+							span О нас
+							i.arr-down
+								svg(class="icon icon-drop")
+									use(xlink:href="#strelka" xmlns:xlink="http://www.w3.org/1999/xlink")
+						.aside-list.bold.js-dropdown-target
+							span.aside-list-item.text-1
+								span Автопарк
+							a(href="#").aside-list-item.text-1
+								span Вопрос/ответ
+							a(href="#").aside-list-item.text-1.active
+								span Перевозчикам
+							a(href="#").aside-list-item.text-1
+								span Агентам
+							a(href="#").aside-list-item.text-1
+								span Способы оплаты
+							a(href="#").aside-list-item.text-1
+								span Политика конфиденциальности
+				.aside-content
+					section.aside-section
+						.content-column-wrap
+							.content-column-content
+								.content-column-content-inner
+									h1 Задать вопрос
+									p  Если у вас есть вопросы, напишите нам. Мы всегда рады ответить на все ваши вопросы.
+								form(action="/").form-block-wrapper.js-validate
+									.form-block-section
+										.title.h3 Ваш вопрос
+										.input-form
+											.input-item.s50
+												.input-wrapper.req
+													label(for='imb1') Имя
+													input.input-main(type="text",placeholder='Имя',data-validation="length",data-validation-length='min2',data-validation-error-msg="Не заполнено",id='imb1')
+											.input-item.s50
+												.input-wrapper.req
+													label(for='imb2') Фамилия
+													input.input-main(type="text",placeholder='Имя',data-validation="length",data-validation-length='min2',data-validation-error-msg="Не заполнено",id='imb2')
+											.input-item.s50
+												.input-wrapper.req
+													label(for='imb3') Телефон
+													input.input-main(type="tel",placeholder='Телефон',data-validation="custom",data-validation-regexp="^[-0-9()+ ]+$",data-validation-error-msg="Не заполнено",id='imb3')
+											.input-item.s50
+												.input-wrapper.req
+													label(for='imb4') E-mail
+													input.input-main(type="email",placeholder='example@mail.com',data-validation="email",data-validation-error-msg="Не заполнено",id='imb4')
+									.form-block-footer
+										.form-footer-notify
+											.text-sm Поля для обязательного заполнения
+										button(type='sumbit').btn.btn-colored
+											span Задать вопрос
+								.feedback-wrapper
+									.feedback-item
+										.feedback-item-head
+											.text-sm 7 февраля 2017
+										.feedback-item-who
+											.who-line
+												span.text-bold Липский Кирилл
+										.feedback-item-content
+											.text-1
+												|Каким образом можно оплатить билет?
+										.feedback-item-reply
+											.text-bold Ответ
+											.text-1
+												|  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis deserunt debitis asperiores eaque ea ullam culpa beatae, aliquid rem sint, at sed quisquam hic necessitatibus nulla aperiam? Eligendi, doloribus, quisquam.
+									.feedback-item
+										.feedback-item-head
+											.text-sm 7 февраля 2017
+										.feedback-item-who
+											.who-line
+												span.text-bold Ольга
+										.feedback-item-content
+											.text-1
+												|Каким образом можно оплатить билет?
+										.feedback-item-reply
+											.text-bold Ответ
+											.text-1
+												|  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis deserunt debitis asperiores eaque ea ullam culpa beatae, aliquid rem sint, at sed quisquam hic necessitatibus nulla aperiam? Eligendi, doloribus, quisquam.
+							.content-column-right
+								a(href="#").border-card-link
+									+cardmedium('sm1.jpg','small')
+										.border-card-name Зарегистрируйся на сайте и получи скидку
+										.border-card-content 
+											.link-border
+												span Регистрация
+									.caption-content
+										span Скидка не распространяется на акционные и дополнительные рейсы компании.
+			.question-outer
+				h2.title.h3 Часто задаваемые вопросы
+				.nav-arrows
+				.question-inner.js-questionslider
+					+question('vopros_calendar','Маршруты и расписание')
+					+question('vopros_action','Скидки')
+					+question('vopros_bronirovanie','Бронирование')
+					+question('vopros_price','Оплата')
+					+question('vopros_bagaz','Багаж')
+					+question('vopros_granica','Пересечение границы')
+				.i-arrows
+					.slider-counter
+						.slider-curr
+						.slider-divider /
+						.slider-total
+	.wrapper
+		.box
+			.aside-wrapp
+				aside.aside-menu(data-sticky_parent)
+					.aside-stick.js-dropdown-parent(data-sticky_column)
+						.aside-title.text-1.js-dropdown 
+							span О нас
+							i.arr-down
+								svg(class="icon icon-drop")
+									use(xlink:href="#strelka" xmlns:xlink="http://www.w3.org/1999/xlink")
+						.aside-list.bold.js-dropdown-target
+							span.aside-list-item.text-1
+								span Автопарк
+							a(href="#").aside-list-item.text-1
+								span Вопрос/ответ
+							a(href="#").aside-list-item.text-1.active
+								span Перевозчикам
+							a(href="#").aside-list-item.text-1
+								span Агентам
+							a(href="#").aside-list-item.text-1
+								span Способы оплаты
+							a(href="#").aside-list-item.text-1
+								span Политика конфиденциальности
+				.aside-content
+					section.aside-section
+						.content-column-wrap
+							.content-column-content
+								.content-column-content-inner
+									h1 Приглашаем к сотрудничеству
+									p  Мы предлагаем выгодные условия сотрудничества! Нас интересует фрахт автобусов и микроавтобусов на постоянной основе.
+								form(action="/").form-block-wrapper.js-validate
+									.form-block-section
+										.title.h3 Заявка на сотрудничество
+										.input-form
+											.input-item.s50
+												.input-wrapper.req
+													label(for='imp1') Имя
+													input.input-main(type="text",placeholder='Имя',data-validation="length",data-validation-length='min2',data-validation-error-msg="Не заполнено",id='imp1')
+											.input-item.s50
+												.input-wrapper.req
+													label(for='imp2') Организация или ИП
+													input.input-main(type="text",placeholder='Имя',data-validation="length",data-validation-length='min2',data-validation-error-msg="Не заполнено",id='imp2')
+											.input-item.s50
+												.input-wrapper.req
+													label(for='imp3') Телефон
+													input.input-main(type="tel",placeholder='Телефон',data-validation="custom",data-validation-regexp="^[-0-9()+ ]+$",data-validation-error-msg="Не заполнено",id='imp3')
+											.input-item.s50
+												.input-wrapper.req
+													label(for='imp4') E-mail
+													input.input-main(type="email",placeholder='example@mail.com',data-validation="email",data-validation-error-msg="Не заполнено",id='imp4')
+											.input-item.s50
+												.input-wrapper
+													label(for='imp5') Лицензия от
+													input.input-main.datepicker(type="text",placeholder='-- Выберите --',data-validation="required",data-validation-error-msg="Не выбрано",readonly,id='imp5')
+													svg(class="icon icon-drop")
+														use(xlink:href="#calendar" xmlns:xlink="http://www.w3.org/1999/xlink")
+											.input-item.s50
+												.input-wrapper.req
+													label(for='imp6') № Лицензии
+													input.input-main(type="text",placeholder='Имя',data-validation="length",data-validation-length='min2',data-validation-error-msg="Не заполнено",id='imp6')
+									.form-block-section
+										.title.h3 Информация о вашем транспорте
+										.input-form
+											.input-item.s50
+												.input-wrapper.req
+													label(for='imp7') Модель
+													input.input-main(type="text",placeholder='Имя',data-validation="length",data-validation-length='min2',data-validation-error-msg="Не заполнено",id='imp7')
+											.input-item.s25
+												.input-wrapper
+													.label Год выпуска
+													.select-check.js-select-custom
+														button.selects(data-placeholder='Выберите')
+															span.btn-text Выберите
+															i.arr-down
+																svg(class="icon icon-drop")
+																	use(xlink:href="#strelka" xmlns:xlink="http://www.w3.org/1999/xlink")
+														.dropdown-target
+															.dropdown-inner
+																.dropdown-content
+																	.select-u-body.select-list
+																		label.option
+																			input(type='radio', name='group42', value='val1',data-validation="required")
+																			span 40
+																		label.option
+																			input(type='radio', name='group42', value='val2')
+																			span 46
+																		label.option
+																			input(type='radio', name='group42', value='val3')
+																			span 32
+																		label.option
+																			input(type='radio', name='group42', value='val4')
+																			span 22
+																		label.option
+																			input(type='radio', name='group42', value='val5')
+																			span 34
+																		label.option
+																			input(type='radio', name='group42', value='val6')
+																			span 343
+																		label.option
+																			input(type='radio', name='group42', value='val7')
+																			span 343
+																		label.option
+																			input(type='radio', name='group42', value='val8')
+																			span К34343
+											.input-item.s25
+												.input-wrapper
+													.label Посадочных мест
+													.select-check.js-select-custom
+														button.selects(data-placeholder='Выберите')
+															span.btn-text Выберите
+															i.arr-down
+																svg(class="icon icon-drop")
+																	use(xlink:href="#strelka" xmlns:xlink="http://www.w3.org/1999/xlink")
+														.dropdown-target
+															.dropdown-inner
+																.dropdown-content
+																	.select-u-body.select-list
+																		label.option
+																			input(type='radio', name='group42', value='val1',data-validation="required")
+																			span 40
+																		label.option
+																			input(type='radio', name='group42', value='val2')
+																			span 46
+																		label.option
+																			input(type='radio', name='group42', value='val3')
+																			span 32f
+																		label.option
+																			input(type='radio', name='group42', value='val4')
+																			span 22
+																		label.option
+																			input(type='radio', name='group42', value='val5')
+																			span 34
+																		label.option
+																			input(type='radio', name='group42', value='val6')
+																			span 343
+																		label.option
+																			input(type='radio', name='group42', value='val7')
+																			span 343
+																		label.option
+																			input(type='radio', name='group42', value='val8')
+																			span К34343
+											.input-item.s50
+												.input-wrapper
+													label(for='imp8') Регистрационный номер
+													input.input-main.datepicker(type="text",placeholder='-- Выберите --',data-validation="required",data-validation-error-msg="Не выбрано",readonly,id='imp8')
+													svg(class="icon icon-drop")
+														use(xlink:href="#calendar" xmlns:xlink="http://www.w3.org/1999/xlink")
+									.form-block-footer
+										.form-footer-notify
+											.text-sm Поля для обязательного заполнения
+										button(type='sumbit').btn.btn-colored
+											span Задать вопрос
+							.content-column-right
+								a(href="#").border-card-link
+									+cardmedium('sm1.jpg','small')
+										.border-card-name Зарегистрируйся на сайте и получи скидку
+										.border-card-content 
+											.link-border
+												span Регистрация
+									.caption-content
+										span Скидка не распространяется на акционные и дополнительные рейсы компании.
+	.wrapper
+		.box
+			.aside-wrapp
+				aside.aside-menu(data-sticky_parent)
+					.aside-stick.js-dropdown-parent(data-sticky_column)
+						.aside-title.text-1.js-dropdown 
+							span О нас
+							i.arr-down
+								svg(class="icon icon-drop")
+									use(xlink:href="#strelka" xmlns:xlink="http://www.w3.org/1999/xlink")
+						.aside-list.bold.js-dropdown-target
+							span.aside-list-item.text-1
+								span Автопарк
+							a(href="#").aside-list-item.text-1
+								span Вопрос/ответ
+							a(href="#").aside-list-item.text-1
+								span Перевозчикам
+							span.aside-list-item.text-1.active
+								span Агентам
+							a(href="#").aside-list-item.text-1
+								span Способы оплаты
+							a(href="#").aside-list-item.text-1
+								span Политика конфиденциальности
+				.aside-content
+					section.aside-section
+						.content-column-wrap
+							.content-column-content
+								.content-column-content-inner
+									h1 Партнёрская программа
+									p  Приглашаем вас стать агентом eurotrans.by в Республике Беларусь и Российской Федерации. Предлагаем вам продавать автобусные билеты на наши маршруты.
+								.promo-card
+									+cardmedium('b2.jpg','extra')
+										.border-card-name Преимущества для агентов eurotrans.by
+										.border-card-content 
+											ul.special
+												li Программа для продажи билетов не требует установки на ваш компьютер
+												li Необходимы только персональный компьютер, принтер и подключение к интернету
+												li Простота выписки билета в режиме on-line
+												li Отсутствие бланков билетов (билет электронный, печатается на любом принтере)
+											a(href="#").btn.btn-colored
+												span Стать партнёром
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	
+							.content-column-right
+								a(href="#").border-card-link
+									+cardmedium('sm1.jpg','small')
+										.border-card-name Комиссионный процент от стоимости билета
+											br
+											span 10%
+									.caption-content
+										span Проводим бесплатное обучение ваших сотрудников
+										br
+										br 
+										span Обеспечиваем информационную и техническую поддержку
