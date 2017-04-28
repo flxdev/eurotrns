@@ -9,6 +9,8 @@ include _mixins.pug
 				span En
 		.header-top-nav
 			.header-top-nav-menu
+				span.top-link.top-nav-item
+					span О нас
 				span.top-link.top-nav-item.active
 					span Клиентам
 				a(href="#").top-link.top-nav-item
@@ -27,7 +29,8 @@ include _mixins.pug
 				span Личный кабинет
 .header-bottom
 	.box.header-bottom-inner
-		a(href="#", style='background-image:url(img/logo-header.png)').m-logo
+		a(href="#").m-logo
+			img(src="img/logo-header.png", alt="Евротранс")
 		.header-bottom-nav
 			ul.header-bottom-menu.js-slideline
 				//.active для текущей страницы

@@ -33,7 +33,7 @@
                 <div class="header-top-inner">
                   <div class="header-lang"><a class="top-link header-lang-item active" href="#"><span>Ru</span></a><span class="top-link header-lang-item"><span>En</span></span></div>
                   <div class="header-top-nav">
-                    <div class="header-top-nav-menu"><span class="top-link top-nav-item active"><span>Клиентам</span></span><a class="top-link top-nav-item" href="#"><span>Агентствам</span></a><a class="top-link top-nav-item" href="#"><span>Перевозчикам</span></a><a class="top-link top-nav-item" href="#"><span>Контакты</span></a></div><span class="top-link top-nav-botton">
+                    <div class="header-top-nav-menu"><span class="top-link top-nav-item"><span>О нас</span></span><span class="top-link top-nav-item active"><span>Клиентам</span></span><a class="top-link top-nav-item" href="#"><span>Агентствам</span></a><a class="top-link top-nav-item" href="#"><span>Перевозчикам</span></a><a class="top-link top-nav-item" href="#"><span>Контакты</span></a></div><span class="top-link top-nav-botton">
                       <svg class="icon icon-drop">
                         <use xlink:href="#bag" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
                       </svg><span>Бюро находок</span></span><a class="top-link top-nav-botton fixed" href="#">
@@ -44,7 +44,7 @@
                 </div>
               </div>
               <div class="header-bottom">
-                <div class="box header-bottom-inner"><a class="m-logo" href="#" style="background-image:url(img/logo-header.png);"></a>
+                <div class="box header-bottom-inner"><a class="m-logo" href="#"><img src="img/logo-header.png" alt="Евротранс"></a>
                   <div class="header-bottom-nav">
                     <ul class="header-bottom-menu js-slideline">
                       <!--.active для текущей страницы-->
@@ -167,20 +167,29 @@
               <div class="box">
                 <div class="promo-wrapper">
                   <div class="promo-form">
-                    <div class="title h2">Автобусные рейсы</div>
+                    <h1 class="title h2">Автобусные рейсы</h1>
                     <form class="js-validate input-form" action="">
                       <div class="input-item s100">
                         <div class="input-wrapper">
                           <div class="select-item">
-                            <label class="select-label"><span class="select-main">
-                                <input class="select-real" type="checkbox" value="twoway"><span class="select-checked"></span></span><span class="select-text">Туда и обратно</span></label>
+                            <label class="select-label js-condition"><span class="select-main">
+                                <input class="select-real" type="checkbox" value="1" name="two-way-variant"><span class="select-checked"></span></span><span class="select-text">Туда и обратно</span></label>
                           </div>
                         </div>
                       </div>
-                      <div class="input-item s100">
+                      <div class="input-item s50">
                         <div class="input-wrapper">
                           <label>Дата отправления</label>
                           <input class="input-main datepicker" type="text" placeholder="-- Выберите --" data-validation="required" data-validation-error-msg="Не выбрано" readonly>
+                          <svg class="icon icon-drop">
+                            <use xlink:href="#calendar" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
+                          </svg>
+                        </div>
+                      </div>
+                      <div class="input-item s50">
+                        <div class="input-wrapper disabled js-condition-target">
+                          <label>Дата отправления обратно</label>
+                          <input class="input-main datepicker" type="text" placeholder="-- Выберите --" data-validation-error-msg="Не выбрано" readonly data-validation="required" data-validation-depends-on="two-way-variant" data-validation-depends-on-value="1">
                           <svg class="icon icon-drop">
                             <use xlink:href="#calendar" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
                           </svg>
@@ -321,7 +330,8 @@
             <div class="wrapper gray index-tours">
               <div class="box">
                 <div class="tour-wrapper">
-                  <!--если поездка туда-обратно, то ставим модификатор .twoway, чтобы поменять иконку между городами-->
+                  <!--.twoway в обе стороны-->
+                  <!--.oneway стрелка вправо , .backway стрелка влево-->
                                 <div class="card-item twoway"><a class="card-item-inner" href="#">
                                     <div class="card-item-img">
                                       <div class="card-item-img-inner" style="background-image:url(img/tour/1.png);"></div>
@@ -336,21 +346,21 @@
                                           <use xlink:href="#arr-circle" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
                                         </svg></i>
                                     </div></a></div>
-                                <div class="card-item"><a class="card-item-inner" href="#">
+                                <div class="card-item oneway"><a class="card-item-inner" href="#">
                                     <div class="card-item-img">
                                       <div class="card-item-img-inner" style="background-image:url(img/tour/2.png);"></div>
                                     </div>
                                     <div class="card-item-content">
                                       <div class="text-sm">Туда и обратно</div>
                                       <div class="card-item-value">
-                                        <div class="card-item-name text-bold"><span>Минск</span><span>Аэропорт Вильнюс</span></div>
+                                        <div class="card-item-name text-bold"><span>Санкт-Петербург</span><span>Аэропорт Вильнюс</span></div>
                                         <div class="card-item-price text-bold">23<span>byn </span></div>
                                       </div><i class="card-item-link">
                                         <svg class="icon icon-drop">
                                           <use xlink:href="#arr-circle" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
                                         </svg></i>
                                     </div></a></div>
-                                <div class="card-item"><a class="card-item-inner" href="#">
+                                <div class="card-item oneway"><a class="card-item-inner" href="#">
                                     <div class="card-item-img">
                                       <div class="card-item-img-inner" style="background-image:url(img/tour/3.png);"></div>
                                     </div>
@@ -364,7 +374,7 @@
                                           <use xlink:href="#arr-circle" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
                                         </svg></i>
                                     </div></a></div>
-                                <div class="card-item"><a class="card-item-inner" href="#">
+                                <div class="card-item oneway"><a class="card-item-inner" href="#">
                                     <div class="card-item-img">
                                       <div class="card-item-img-inner" style="background-image:url(img/tour/7.png);"></div>
                                     </div>
@@ -378,21 +388,21 @@
                                           <use xlink:href="#arr-circle" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
                                         </svg></i>
                                     </div></a></div>
-                                <div class="card-item"><a class="card-item-inner" href="#">
+                                <div class="card-item oneway"><a class="card-item-inner" href="#">
                                     <div class="card-item-img">
                                       <div class="card-item-img-inner" style="background-image:url(img/tour/1.png);"></div>
                                     </div>
                                     <div class="card-item-content">
                                       <div class="text-sm">Туда и обратно</div>
                                       <div class="card-item-value">
-                                        <div class="card-item-name text-bold"><span>Минск</span><span>Рига</span></div>
+                                        <div class="card-item-name text-bold"><span>Минск</span><span>Аэропорт Санкт-Петербург</span></div>
                                         <div class="card-item-price text-bold">18<span>byn </span></div>
                                       </div><i class="card-item-link">
                                         <svg class="icon icon-drop">
                                           <use xlink:href="#arr-circle" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
                                         </svg></i>
                                     </div></a></div>
-                                <div class="card-item"><a class="card-item-inner" href="#">
+                                <div class="card-item backway"><a class="card-item-inner" href="#">
                                     <div class="card-item-img">
                                       <div class="card-item-img-inner" style="background-image:url(img/tour/2.png);"></div>
                                     </div>
@@ -420,7 +430,7 @@
                                           <use xlink:href="#arr-circle" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
                                         </svg></i>
                                     </div></a></div>
-                                <div class="card-item"><a class="card-item-inner" href="#">
+                                <div class="card-item backway"><a class="card-item-inner" href="#">
                                     <div class="card-item-img">
                                       <div class="card-item-img-inner" style="background-image:url(img/tour/3.png);"></div>
                                     </div>
@@ -928,6 +938,8 @@
     </div>
     <!--END out-->
     <script src="js/lib.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.60/jquery.form-validator.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.60/logic.js"></script>
     <script src="js/common.min.js"></script>
   </body>
 </html>

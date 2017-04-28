@@ -33,7 +33,7 @@
                 <div class="header-top-inner">
                   <div class="header-lang"><a class="top-link header-lang-item active" href="#"><span>Ru</span></a><span class="top-link header-lang-item"><span>En</span></span></div>
                   <div class="header-top-nav">
-                    <div class="header-top-nav-menu"><span class="top-link top-nav-item active"><span>Клиентам</span></span><a class="top-link top-nav-item" href="#"><span>Агентствам</span></a><a class="top-link top-nav-item" href="#"><span>Перевозчикам</span></a><a class="top-link top-nav-item" href="#"><span>Контакты</span></a></div><span class="top-link top-nav-botton">
+                    <div class="header-top-nav-menu"><span class="top-link top-nav-item"><span>О нас</span></span><span class="top-link top-nav-item active"><span>Клиентам</span></span><a class="top-link top-nav-item" href="#"><span>Агентствам</span></a><a class="top-link top-nav-item" href="#"><span>Перевозчикам</span></a><a class="top-link top-nav-item" href="#"><span>Контакты</span></a></div><span class="top-link top-nav-botton">
                       <svg class="icon icon-drop">
                         <use xlink:href="#bag" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
                       </svg><span>Бюро находок</span></span><a class="top-link top-nav-botton fixed" href="#">
@@ -44,7 +44,7 @@
                 </div>
               </div>
               <div class="header-bottom">
-                <div class="box header-bottom-inner"><a class="m-logo" href="#" style="background-image:url(img/logo-header.png);"></a>
+                <div class="box header-bottom-inner"><a class="m-logo" href="#"><img src="img/logo-header.png" alt="Евротранс"></a>
                   <div class="header-bottom-nav">
                     <ul class="header-bottom-menu js-slideline">
                       <!--.active для текущей страницы-->
@@ -347,12 +347,12 @@
                                     </div>
                                   </div>
                                   <div class="input-wrapper">
-                                    <button class="btn btn-colored small" type="sumbit"><span>Забронировать</span></button>
+                                    <button class="btn btn-colored small" type="sumbit"><span>Найти билеты</span></button>
                                   </div>
                                 </div>
                               </form>
                               <div class="page-head-breadcrums">
-                                <div class="content-bread"><a class="content-bread-item text-sm" href="#">Главная</a><a class="content-bread-item text-sm" href="#">Рейсы</a></div>
+                                <div class="content-bread"><a class="content-bread-item text-sm" href="#">Главная</a><span class="content-bread-item text-sm">Рейсы</span></div>
                               </div>
                             </div>
                           </div>
@@ -374,7 +374,7 @@
                                           <use xlink:href="#arr-circle" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
                                         </svg></i>
                                     </div></a></div>
-                                <div class="card-item"><a class="card-item-inner" href="#">
+                                <div class="card-item twoway"><a class="card-item-inner" href="#">
                                     <div class="card-item-img">
                                       <div class="card-item-img-inner" style="background-image:url(img/tour/2.png);"></div>
                                     </div>
@@ -388,7 +388,7 @@
                                           <use xlink:href="#arr-circle" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
                                         </svg></i>
                                     </div></a></div>
-                                <div class="card-item"><a class="card-item-inner" href="#">
+                                <div class="card-item backway"><a class="card-item-inner" href="#">
                                     <div class="card-item-img">
                                       <div class="card-item-img-inner" style="background-image:url(img/tour/3.png);"></div>
                                     </div>
@@ -402,7 +402,7 @@
                                           <use xlink:href="#arr-circle" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
                                         </svg></i>
                                     </div></a></div>
-                                <div class="card-item"><a class="card-item-inner" href="#">
+                                <div class="card-item oneway"><a class="card-item-inner" href="#">
                                     <div class="card-item-img">
                                       <div class="card-item-img-inner" style="background-image:url(img/tour/7.png);"></div>
                                     </div>
@@ -416,7 +416,7 @@
                                           <use xlink:href="#arr-circle" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
                                         </svg></i>
                                     </div></a></div>
-                                <div class="card-item"><a class="card-item-inner" href="#">
+                                <div class="card-item backway"><a class="card-item-inner" href="#">
                                     <div class="card-item-img">
                                       <div class="card-item-img-inner" style="background-image:url(img/tour/1.png);"></div>
                                     </div>
@@ -430,7 +430,7 @@
                                           <use xlink:href="#arr-circle" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
                                         </svg></i>
                                     </div></a></div>
-                                <div class="card-item"><a class="card-item-inner" href="#">
+                                <div class="card-item backway"><a class="card-item-inner" href="#">
                                     <div class="card-item-img">
                                       <div class="card-item-img-inner" style="background-image:url(img/tour/2.png);"></div>
                                     </div>
@@ -458,7 +458,7 @@
                                           <use xlink:href="#arr-circle" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
                                         </svg></i>
                                     </div></a></div>
-                                <div class="card-item"><a class="card-item-inner" href="#">
+                                <div class="card-item backway"><a class="card-item-inner" href="#">
                                     <div class="card-item-img">
                                       <div class="card-item-img-inner" style="background-image:url(img/tour/3.png);"></div>
                                     </div>
@@ -782,6 +782,8 @@
     </div>
     <!--END out-->
     <script src="js/lib.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.60/jquery.form-validator.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.60/logic.js"></script>
     <script src="js/common.min.js"></script>
   </body>
 </html>

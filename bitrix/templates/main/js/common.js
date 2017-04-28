@@ -1,36 +1,20 @@
 document.addEventListener("DOMContentLoaded", function() {
 
 	(function(){
-		var mainHeader = document.querySelector('.cd-auto-hide-header'),
-			headerHeight = mainHeader.offsetHeight;
-
-		var scrolling = false,
-			previousTop = 0,
-			currentTop = 0,
-			scrollDelta = 5,
-			scrollOffset = 100;
+		var mainHeader = document.querySelector('.cd-auto-hide-header');
 
 		$(window).on('scroll', function(){
-			if( !scrolling ) {
-				scrolling = true;
-				(!window.requestAnimationFrame)
-					? setTimeout(autoHideHeader, 250)
-					: requestAnimationFrame(autoHideHeader);
-			}
+			requestAnimationFrame(autoHideHeader);
 		});
-
 
 		function autoHideHeader() {
 			var currentTop = $(document).scrollTop();
 			checkSimpleNavigation(currentTop);
-			previousTop = currentTop;
-			scrolling = false;
 		}
 
 		function checkSimpleNavigation(currentTop) {
 			if (currentTop <= 20) {
 				mainHeader.classList.remove('is-hidden');
-
 			} else {
 				mainHeader.classList.add('is-hidden');
 			}
@@ -96,7 +80,6 @@ document.addEventListener("DOMContentLoaded", function() {
 		}else{
 			var _h = parseInt(body.css('top')),
 				_res = Math.abs(_h);
-			console.log(_res)
 			body.css('top','')
 			setTimeout(function(){
 				$(window).add(body).scrollTop(_res);
@@ -165,22 +148,47 @@ document.addEventListener("DOMContentLoaded", function() {
 		}
 	});
 
+	// отключаем инпуты, если поездка в одну сторону
+	//используется на главной
+
+	function ToggleDisabled(){
+		var trigger = $('.js-condition');
+		trigger.each(function(){
+			var _ = $(this),
+				form = _.closest('form'),
+				target = form.find('.js-condition-target'),
+				targetVal = target.find('input').val(),
+				inp = _.find('input');
+
+			_.off('click').on('click',function(){
+
+				inp.prop('checked') == true ?
+					target.removeClass('disabled')
+					: target.addClass('disabled');
+				targetVal = '';
+				//очищаем датапикер если он есть
+				$.datepicker._clearDate(target.find('.datepicker'));
+			});
+		});
+	}
+	ToggleDisabled();
+
 	aside();
 	popUpsInit();
 	validateForms();
 	masktel();
 	initCustomSelectList();
-	comenthide();
 
 	datepick();
 	Tabs();
 	sortItem();
 	listhide();
-
+	CompareHeight();
 	questionSlider();
 	servicesSlider();
 	promoSlider();
 	routefeaturesSlider();
+
 	jQuery.fn.toggleText = function() {
 		var altText = this.data("alt-text");
 		if (altText) {
@@ -212,41 +220,7 @@ function slidesCount(elem){
 		curSlideCont.text(curPage + 1)
 	});
 }
-function comenthide(){
-	var target = $('.js-coment');
-	target.each(function(){
-		var _ = $(this),
-			len = _.height(),
-			item = _.find('.feedback-item-content-inner').height(),
-			trigger = _.parent().find('.js-list-more');
-		$(window).on('resize', function(){
-			setTimeout(function(){
-				item = _.find('.feedback-item-content-inner').height();
-				Checkh();
-			},600)
-		});
-		function Checkh(){
-			if(len >= item){
-				trigger.css('display', 'none');
-			}else{
-				trigger.removeAttr('style');
-				initclick();
-			}
-		}Checkh();
-		function initclick(){
-			trigger.off('click').on('click', function(e){
-				if(_.attr('style')){
-					// len.removeAtttr('style');
-					_.css('max-height', '');
-					$(this).toggleText();
-				}else{
-					_.css('max-height', item);
-					$(this).toggleText();
-				}
-			});
-		}
-	})
-}
+
 function listhide(){
 	var target = $('.js-slidelist');
 	target.each(function(){
@@ -273,6 +247,11 @@ function masktel(){
 	var nodes = document.querySelectorAll("input[type=tel]");
 	var im = new Inputmask("+375 (99) 999 99 99",{ showMaskOnHover: false});
 	im.mask(nodes);
+}
+function CompareHeight(){
+	$('.question-item').matchHeight({
+		property: 'min-height'
+	});
 }
 
 
@@ -726,7 +705,7 @@ function validateForms(){
 			var parent = form_this.parent();
 			$.validate({
 				form : form_this,
-				modules : 'security',
+				modules : 'logic',
 				borderColorOnError : true,
 				scrollToTopOnError : false,
 				onSuccess : function($form) {
@@ -734,9 +713,7 @@ function validateForms(){
 				},
 				onValidate : function($form) {
 					CheckForSelect(form_this);
-					checkStars(form_this);
-
-				},
+				}
 			});
 		});
 	}

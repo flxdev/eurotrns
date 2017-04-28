@@ -91,7 +91,7 @@ mixin cardmedium(img,clas)
 		.border-card-inner(style='background-image:url(img/cards/'+img+')')
 			if block
 				block 
-mixin headone(head)
+mixin headone(head,text)
 	.wrapper.page-head.page-margin(style='background-image: url(img/pageheade.jpg)')
 		.box.page-head-inner
 			.page-head-title
@@ -268,11 +268,11 @@ mixin headone(head)
 													| Метро
 					.input-wrapper
 						button(type='sumbit').btn.btn-colored.small
-							span Забронировать
+							span #{text}
 			.page-head-breadcrums
 				.content-bread
 					a(href="#").content-bread-item.text-sm Главная
-					a(href="#").content-bread-item.text-sm Рейсы
+					span.content-bread-item.text-sm Рейсы
 mixin headtwo(head)
 	.wrapper.page-head.page-margin(style='background-image: url(img/pageheade.jpg)')
 		.box.page-head-inner

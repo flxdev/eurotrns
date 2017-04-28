@@ -4,7 +4,7 @@ block title
 	title Рейс Минск-Москва
 
 block content
-	+headone('Рейс Минск-Москва')
+	+headone('Рейс Минск-Москва','Забронировать')
 	.wrapper
 		.box
 			.aside-wrapp
@@ -71,6 +71,11 @@ block content
 												span Вс
 										//если выезд в этот день есть, вешай класс .yes на .table-item
 										+roadTable('19:45','06:00','yes','yes','','yes','yes','yes','')
+										+roadTable('22:30','09:00','yes','yes','yes','yes','','yes','yes')
+										+roadTable('22:30','09:00','yes','yes','yes','yes','','yes','yes')
+										+roadTable('22:30','09:00','yes','yes','yes','yes','','yes','yes')
+										+roadTable('22:30','09:00','yes','yes','yes','yes','','yes','yes')
+										+roadTable('22:30','09:00','yes','yes','yes','yes','','yes','yes')
 										+roadTable('22:30','09:00','yes','yes','yes','yes','','yes','yes')
 					section.aside-section
 						.price-table-wrap(data-id='#price')
@@ -310,11 +315,11 @@ block content
 						.tabs-wrapper
 							.tabs.js-tabs-wrap
 								.tabs-head
-									.tabs-item.js-tab-trigger.active
+									.tabs-item.js-tab-trigger.active#road-start
 										span Отправление
-									.tabs-item.js-tab-trigger
+									.tabs-item.js-tab-trigger#road-road
 										span Весь маршрут
-									.tabs-item.js-tab-trigger
+									.tabs-item.js-tab-trigger#road-end
 										span Прибытие
 								.tabs-body
 									.tabs-cont
@@ -377,11 +382,11 @@ block content
 						.content-column-wrap
 							.content-column-content
 								.content-column-content-inner
-									h1 Забронированные Вами билеты
+									h2 Забронированные Вами билеты
 									p  Мы внимательно относимся к каждому клиенту, поэтому гарантируем индивидуальный подход в организации любой поездки. Наши сотрудники помогут вам рассчитать оптимальный маршрут, который бы полностью вас удовлетворял. В нашем автопарке представлены только лучшие модели автобусов и микроавтобусов. Мы предлагаем комфортабельные условия для поездок на любые расстояния. А опыт наших водителей позволит вам полностью расслабиться на протяжении всей поездки.
 									blockquote.caption  Время прибытия местное. Компания не несет ответственности за изменение времени приезда в связи с пробками на дорогах, плохими погодными условиями, действиями представителей власти и другими, не зависящими от нас причинами.
 										mark.caption-content
-											p Жить необязательно. Путешествовать — необходимо.
+											span Жить необязательно. Путешествовать — необходимо.
 											i Уильям Берроуза		
 									p Стоимость проезда может изменяться. Для сохранения ценовой категории проезда, билет необходимо выкупить при помощи банковской карточки онлайн, либо другим удобным для Вас способом из списка возможных.
 							.content-column-right
@@ -395,7 +400,7 @@ block content
 		section.box
 			.news-wrapper
 				.news-nav
-					h2.title.h3 Акции и новости
+					h3.title.h3 Акции и новости
 					a(href="#").btn.btn-gray 
 						span Смотреть все
 				.news-wrapper-inner
