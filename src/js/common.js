@@ -1,3 +1,7 @@
+
+$(window).on('load',function(){
+	openOnLoad();
+});
 document.addEventListener("DOMContentLoaded", function() {
 
 	(function(){
@@ -22,7 +26,38 @@ document.addEventListener("DOMContentLoaded", function() {
 		}
 	})();
 
+	function AsideScroll(){
+		if($('.js-activescroll-list').length){
+		var	scrolling = false;
+		var verticalNavigation = $('.js-activescroll-list'),
+			navigationItems = verticalNavigation.find('.js-scroll-to'),
+			contentSections = $('.js-activescroll-block');
+			
+			$(window).on('scroll', checkScroll);
 
+			function checkScroll() {
+				if( !scrolling ) {
+					scrolling = true;
+					(!window.requestAnimationFrame) ? setTimeout(updateSections, 300) : window.requestAnimationFrame(updateSections);
+				}
+			}
+
+			function updateSections() {
+				var halfWindowHeight = $(window).height()/3,
+					scrollTop = $(window).scrollTop();
+				contentSections.each(function(){
+					var section = $(this),
+						sectionId = section.data('id');
+						navigationItem = navigationItems.filter("[data-href='" + sectionId + "']");
+					( (section.offset().top - halfWindowHeight < scrollTop ) && ( section.offset().top + section.outerHeight() - halfWindowHeight > scrollTop) )
+						? navigationItem.addClass('active')
+						: navigationItem.removeClass('active');
+				});
+				scrolling = false;
+			}
+		}
+	}AsideScroll();
+	
 	function Menu() {
 		var trigger = $('.js-menu'),
 			target = $('.header-mobile-menu'),
@@ -124,6 +159,7 @@ document.addEventListener("DOMContentLoaded", function() {
 			},300);
 		});
 	}SlideLine();
+
 	function ActivePos(Line,active){
 		if(Line.is(':visible') && $(active).length != 0){
 			Line.width($(active).find('span').width())
@@ -176,7 +212,6 @@ document.addEventListener("DOMContentLoaded", function() {
 	aside();
 	popUpsInit();
 	validateForms();
-	masktel();
 	initCustomSelectList();
 	
 	datepick();
@@ -197,6 +232,41 @@ document.addEventListener("DOMContentLoaded", function() {
 
 		}
 	};
+	( function( factory ) {
+		if ( typeof define === "function" && define.amd ) {
+
+			// AMD. Register as an anonymous module.
+			define( [ "../widgets/datepicker" ], factory );
+		} else {
+
+			// Browser globals
+			factory( jQuery.datepicker );
+		}
+	}( function( datepicker ) {
+
+	datepicker.regional.ru = {
+		closeText: "Закрыть",
+		prevText: "&#x3C;Пред",
+		nextText: "След&#x3E;",
+		currentText: "Сегодня",
+		monthNames: [ "Январь","Февраль","Март","Апрель","Май","Июнь",
+		"Июль","Август","Сентябрь","Октябрь","Ноябрь","Декабрь" ],
+		monthNamesShort: [ "Янв","Фев","Мар","Апр","Май","Июн",
+		"Июл","Авг","Сен","Окт","Ноя","Дек" ],
+		dayNames: [ "воскресенье","понедельник","вторник","среда","четверг","пятница","суббота" ],
+		dayNamesShort: [ "вск","пнд","втр","срд","чтв","птн","сбт" ],
+		dayNamesMin: [ "Вс","Пн","Вт","Ср","Чт","Пт","Сб" ],
+		weekHeader: "Нед",
+		dateFormat: "dd.mm.yy",
+		firstDay: 1,
+		isRTL: false,
+		showMonthAfterYear: false,
+		yearSuffix: "" };
+	datepicker.setDefaults( datepicker.regional.ru );
+
+	return datepicker.regional.ru;
+
+	} ) );
 //end of document.ready
 });
 //end of document.ready
@@ -242,11 +312,6 @@ function listhide(){
 			});
 		}
 	})
-}
-function masktel(){
-	var nodes = document.querySelectorAll("input[type=tel]");
-	var im = new Inputmask("+375 (99) 999 99 99",{ showMaskOnHover: false});
-	im.mask(nodes);
 }
 function CompareHeight(){
 	$('.question-item').matchHeight({
@@ -384,11 +449,11 @@ function datepick(){
 
 	var item = $( ".datepicker" );
 	item.each(function(){
-
 		var _ = $(this),
 			dateToday = new Date(); 
+		$.datepicker.setDefaults( $.datepicker.regional[ "ru" ] );
 		_.datepicker({
-			changeMonth: true,
+			changeMonth: false,
 			changeYear: false,
 			dayNamesMin: ["Вс" , "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"],
 			monthNamesShort: [ "Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь" ],
@@ -397,31 +462,8 @@ function datepick(){
 			yearRange: '-0:+1',
 			minDate: dateToday,
 			showOn: "focus",
-			beforeShow: function() {
-				setTimeout(function() {
-					updateToSelectMenu()
-				},0);
-			},
-			onChangeMonthYear: function() {
-				setTimeout(function() {
-					updateToSelectMenu()
-				},0);
-		   }
-		 //   ,
-			// onClose: function() {
-		 //      _.trigger('input');
-		 //      _.datepicker('refresh');
-			// 	// setTimeout(function() {
-			// 	// 	 item.datepicker('hide');
-			// 	// },1)
-		     
-		 //   }
 		});
 		_.datepicker('refresh');
-	})
-	$(window).resize(function() {
-	  item.datepicker('hide');
-	  // $('.datepicker').blur();
 	});
 }
 function promoSlider(){
@@ -812,7 +854,18 @@ function popUpsInit() {
 	});
 }
 
-
+function openOnLoad(){
+	var scrollItem = window.location.hash,
+		target = $("[data-id='" + scrollItem + "']");
+	window.scrollTo(0, 0);
+	if(target.length){
+		setTimeout(function() {
+			var destination = target.offset().top;
+			console.log(destination)
+			$("html,body:not(:animated)").animate({scrollTop: destination - 60}, 500);
+		}, 100);
+	}
+}
 
 function formResponse(form){
 	if(form.closest('.modal-container').length){

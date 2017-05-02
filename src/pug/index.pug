@@ -2,8 +2,10 @@ extends _layout
 
 block title
 	title Index
-
+block config
+	- var main = true
 block content
+	lolgo
 	.wrapper.index-wrapper.page-margin(style='background-image: url(img/stars.jpg)')
 		.box
 			.promo-wrapper
@@ -152,50 +154,51 @@ block content
 					.nav-dots
 	.wrapper.gray.index-tours
 		.box
-			.tour-wrapper
-				//.twoway в обе стороны
-				//.oneway стрелка вправо , .backway стрелка влево
-				+smallCard('twoway','1',1,'Минск','Берлин','50')
-				+smallCard('oneway','2','','Санкт-Петербург','Аэропорт Вильнюс','23')
-				+smallCard('oneway','3',1,'Минск','Москва','12')
-				+smallCard('oneway','7',1,'Минск','Таллин','105')
-				+smallCard('oneway','1','','Минск','Аэропорт Санкт-Петербург','18')
-				+smallCard('backway','2',1,'Минск','Рига','18')
-				+smallCard('twoway','3',1,'Минск','Рига','45')
-				+smallCard('backway','3',1,'Минск','Берлин','50')
-				+smallCard('twoway','3',1,'Минск','Берлин','50')
-				//на главной ведет на страницу туров, на внутренней подружает аяксом 
+			.tour-outer
+				.tour-wrapper
+					//.twoway в обе стороны
+					//.oneway стрелка вправо , .backway стрелка влево
+					+smallCard('twoway','1',1,'Минск','Берлин','50')
+					+smallCard('oneway','2','','Санкт-Петербург','Аэропорт Вильнюс','23')
+					+smallCard('oneway','3',1,'Минск','Москва','12')
+					+smallCard('oneway','7',1,'Минск','Таллин','105')
+					+smallCard('oneway','1','','Минск','Аэропорт Санкт-Петербург','18')
+					+smallCard('backway','2',1,'Минск','Рига','18')
+					+smallCard('twoway','3',1,'Минск','Рига','45')
+					+smallCard('backway','3',1,'Минск','Берлин','50')
+					+smallCard('twoway','3',1,'Минск','Берлин','50')
+					//на главной ведет на страницу туров, на внутренней подружает аяксом 
 				a(href="#").btn.btn-gray 
 					span показать Ещё рейсы
-			.tour-sort-wrapper
-				.tour-sort-text Популярные рейсы из
-				.tour-sort-dropdown
-					.sort_wrapper
-						.sort-select.js-select-item.select-check
-							.sort-select-title
-								span Минск
-								i.arr-down
-									svg(class="icon icon-drop")
-										use(xlink:href="#small-arr-down" xmlns:xlink="http://www.w3.org/1999/xlink")
-							.dropdown-target
-								.dropdown-inner
-									.dropdown-content
-										.sort-select-item
-											a(href="#",data-text="Минск") Минск
-										.sort-select-item
-											a(href="#",data-text="Пинск") Пинск
-										.sort-select-item
-											a(href="#",data-text="Копенгаген") Копенгаген
-										.sort-select-item.active
-											a(href="#",data-text="Копенгаген") Копенгаген
-										.sort-select-item
-											a(href="#",data-text="Копенгаген") Копенгаген
-										.sort-select-item
-											a(href="#",data-text="Копенгаген") Копенгаген
-										.sort-select-item
-											a(href="#",data-text="Копенгаген") Копенгаген
-										.sort-select-item
-											a(href="#",data-text="Немига") Немига
+				.tour-sort-wrapper
+					.tour-sort-text Популярные рейсы из
+					.tour-sort-dropdown
+						.sort_wrapper
+							.sort-select.js-select-item.select-check
+								.sort-select-title
+									span Минск
+									i.arr-down
+										svg(class="icon icon-drop")
+											use(xlink:href="#small-arr-down" xmlns:xlink="http://www.w3.org/1999/xlink")
+								.dropdown-target
+									.dropdown-inner
+										.dropdown-content
+											.sort-select-item
+												a(href="#",data-text="Минск") Минск
+											.sort-select-item
+												a(href="#",data-text="Пинск") Пинск
+											.sort-select-item
+												a(href="#",data-text="Копенгаген") Копенгаген
+											.sort-select-item.active
+												a(href="#",data-text="Копенгаген") Копенгаген
+											.sort-select-item
+												a(href="#",data-text="Копенгаген") Копенгаген
+											.sort-select-item
+												a(href="#",data-text="Копенгаген") Копенгаген
+											.sort-select-item
+												a(href="#",data-text="Копенгаген") Копенгаген
+											.sort-select-item
+												a(href="#",data-text="Немига") Немига
 	.wrapper.services-outer
 		section.box
 			h1.title.h3 Наши услуги

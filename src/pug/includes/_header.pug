@@ -3,6 +3,7 @@ include _mixins.pug
 .header-top
 	.header-top-inner
 		.header-lang
+
 			a(href="#").top-link.header-lang-item.active
 				span Ru
 			span.top-link.header-lang-item
@@ -29,12 +30,16 @@ include _mixins.pug
 				span Личный кабинет
 .header-bottom
 	.box.header-bottom-inner
-		a(href="#").m-logo
-			img(src="img/logo-header.png", alt="Евротранс")
+		if main == true
+			span.m-logo
+				img(src="img/logo-header.png", alt="Евротранс")
+		else 
+			a(href="#").m-logo
+				img(src="img/logo-header.png", alt="Евротранс")
 		.header-bottom-nav
 			ul.header-bottom-menu.js-slideline
 				//.active для текущей страницы
-				li.header-bottom-menu-item
+				li.header-bottom-menu-item(class = mainclass)
 					a(href="#")
 						span Рейсы
 				li.header-bottom-menu-item

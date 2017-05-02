@@ -94,14 +94,18 @@ body, .out
 			// width: 100%
 			// height: 100%
 .loading
-	position: relative
-	&:before
-		content: ''
-		display: inline-block
-		+coverdiv
-		background-color: #FFF
-		opacity: .7
-		z-index: 8
+	// position: relative
+	// &:before
+	// 	content: ''
+	// 	display: inline-block
+	// 	+coverdiv
+	// 	background-color: #FFF
+	// 	opacity: .7
+	// 	z-index: 8
+	*
+		opacity: .8
+		+tr(opacity .2s)
+		pointer-events: none
 .out
 	position: relative
 	// +r(768)
@@ -951,6 +955,8 @@ body, .out
 	+rem(padding-right,6px)
 	&.s100
 		width: 100%
+		.select-label
+			white-space: normal
 	&.s50
 		width: 50%		
 	&.s33
@@ -1261,6 +1267,17 @@ body, .out
 	+rem(font-size,15px)
 	font-weight: 600
 	color: $blk2
+	&.gray
+		+rem(font-size,13px)
+		color: $grayy
+		&:hover
+			span
+				color: $org
+		span 
+
+			font-weight: 400
+			&:before
+				background-color: $grayy
 	&.dotted
 		font-weight: 400
 		color: $blk
@@ -1271,9 +1288,10 @@ body, .out
 			background-repeat: repeat-x;	
 			height: 2px
 		&:hover
-			span:before
-				opacity: 0
-				width: 100%
+			+rm(1025)
+				span:before
+					opacity: 0
+					width: 100%
 	span 
 		display: inline-block
 		width: 100%
@@ -1290,8 +1308,9 @@ body, .out
 			+rem(bottom, -1px)
 			+tr(width .3s)
 	&:hover
-		span:before
-			width: 0
+		+rm(1025)
+			span:before
+				width: 0
 			
 
 
@@ -2049,10 +2068,21 @@ body, .out
 			transform-origin: 50%
 			// +rem(margin-top,2px)
 
-
-.tour-wrapper
+.tour-outer
 	+rem(padding-top, 110px)
 	+rem(padding-bottom, 67px)
+	.btn 
+		+rem(padding-top,4px)
+		+rem(padding-bottom,4px)
+	.btn.btn-gray
+		width: 100%
+		// +rem(margin-right,30px)
+	// +r(1024)
+	// 	.btn.btn-gray
+	// 		width: calc(100% - 1.25rem)
+.tour-wrapper
+	
+	
 	+rem(margin-right,-30px)
 	overflow: hidden
 	font-size: 0
@@ -2061,9 +2091,7 @@ body, .out
 		&:hover
 			.card-item-img-inner
 				transform: scale(1.2)
-	.btn 
-		+rem(padding-top,4px)
-		+rem(padding-bottom,4px)
+
 	&~.tour-sort-wrapper
 		position: absolute
 		+rem(left,13px)
@@ -2071,17 +2099,14 @@ body, .out
 		z-index: 0
 		// +r(1024)
 		// 	+rem(top, 23px)
-	.btn.btn-gray
-		width: calc(100% - 1.875rem)
-		+rem(margin-right,30px)
+
 	.card-item-inner
 		.card-item-img-inner
 			+tr(transform .3s)
 	+r(1024)
 		+rem(margin-right,-20px)
 		// +rem(padding-top, 70px)
-		.btn.btn-gray
-			width: calc(100% - 1.25rem)
+
 .index-tours
 	+r(920)
 		.card-item
@@ -2920,6 +2945,8 @@ body, .out
 		will-change: transform
 		z-index: -1
 		// +tr(background .3s)
+		+r(600)
+			background-position: top 60px center
 	&-breadcrums
 		position: absolute
 		+rem(left, 15px)
@@ -2970,20 +2997,53 @@ body, .out
 						border-bottom-left-radius: 0
 						border-top-left-radius: 0
 				.btn 
-					+rem(margin-top,23px)
+					+rem(margin-top,24px)
 					+rem(margin-left,11px)
 					+r(650)
 						width: 100%
 						margin-left: 0
 						border-bottom-left-radius: 0
 						border-top-left-radius: 0
-						+rem(height,39px)
+						+rem(height,41px)
 						min-width: 0
 						+rem(margin-top,24px)
 
 			
 
 
+	
+
+		
+.has-animation
+	position: relative
+	&:before
+		content: ''
+		+rem(width,28px)
+		+rem(height,28px)
+		background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48c3ZnIHdpZHRoPSc0MHB4JyBoZWlnaHQ9JzQwcHgnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmlld0JveD0iMCAwIDEwMCAxMDAiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaWRZTWlkIiBjbGFzcz0idWlsLXJpbmciPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiBmaWxsPSJub25lIiBjbGFzcz0iYmsiPjwvcmVjdD48Y2lyY2xlIGN4PSI1MCIgY3k9IjUwIiByPSI0Mi41IiBzdHJva2UtZGFzaGFycmF5PSIyMDYuOTUyNDE2MDU1MjI3NjQgNjAuMDgyOTU5NDk5OTA0Nzc0IiBzdHJva2U9InJnYigyNTUsIDE1MiwgNDEpIiBmaWxsPSJub25lIiBzdHJva2Utd2lkdGg9IjE1Ij48YW5pbWF0ZVRyYW5zZm9ybSBhdHRyaWJ1dGVOYW1lPSJ0cmFuc2Zvcm0iIHR5cGU9InJvdGF0ZSIgdmFsdWVzPSIwIDUwIDUwOzE4MCA1MCA1MDszNjAgNTAgNTA7IiBrZXlUaW1lcz0iMDswLjU7MSIgZHVyPSIxcyIgcmVwZWF0Q291bnQ9ImluZGVmaW5pdGUiIGJlZ2luPSIwcyI+PC9hbmltYXRlVHJhbnNmb3JtPjwvY2lyY2xlPjwvc3ZnPg==')
+		+contain
+		position: absolute
+		top: 50%
+		left: 50%
+		+rem(margin-top,-14px)
+		+rem(margin-left,-14px)
+		z-index: 1
+		display: none
+		
+	&.animated
+		background-color: #dae6ec;
+		color: transparent !important
+		pointer-events: none
+		border-color: #dae6ec
+		&:before
+			display: inline-block
+			animation: anim 1s linear infinite
+
+@keyframes anim
+	0%
+		transform: rotate(0)
+	100%
+		transform: rotate(360deg)
 .content
 	&-bread
 		&-item
@@ -3074,8 +3134,37 @@ ul.special
 			+r(991)
 				padding: 6% 1% 6% 5%
 		.border-card-content 
+		.bonus-content
+			p,.link-border
+				display: inline-block
+				vertical-align: middle
+			p 
+				color: $blk2
 		.link-border
 			color: $bl
+		&.percent
+			.border-card-inner
+				padding-left: 10%
+				+r(1024)
+					padding-left: 5%
+					.border-card-name
+						span 
+							+rem(margin,15px 0 25px)
+				+r(600)
+					.border-card-name
+						span 
+							+rem(margin,10px 0 20px)			
+			.border-card-name
+				+rem(max-width,260px)
+				.text-sm
+					color: $grayl
+					line-height: 1.4
+				span 
+					line-height: 1
+					+rem(font-size,40px)
+					+rem(margin,15px 0 45px)
+					display: inline-block
+
 	&:not(.medium)
 		display: inline-block
 	&.medium
@@ -3085,6 +3174,7 @@ ul.special
 			line-height: 1.55
 		.border-card-name
 			+rem(min-height,97px)
+			max-width: 95%
 		.border-card-content
 			+rem(min-height,75px)
 	&.big 
@@ -3118,10 +3208,6 @@ ul.special
 		display: inline-block
 		&:hover
 			.border-card
-				// .link-border.dotted
-				// 	span 
-				// 		&:before
-				// 			opacity: 0
 				.link-border:not(.dotted)
 					span 
 						&:before
@@ -3129,12 +3215,26 @@ ul.special
 	&-inner
 		border: $bb
 		+cover
+		position: relative
+		&:before
+			content: ''
+			+coverdiv
+			background-color: #FFF
+			opacity: .3
+			z-index: 0
 	&-name
+		position: relative
+		z-index: 1
 		.text-medium
 			color: $bl 
 			a,span
 				color: $org
+			a
+				+r(500)
+					+rem(font-size,18px)
 	&-content
+		position: relative
+		z-index: 1
 		.soc-wrapp
 			+rem(margin-left,-10px)
 			+rem(margin-top,20px)
@@ -3244,12 +3344,14 @@ ul.special
 						display: none
 
 
+
 	&-list
 		width: 100%
 		+rem(margin-top,-8px)
 		&:not(.bold)
 			+r(768)
 				display: none
+
 		&.bold
 			+rem(margin-top,-10px)
 			.aside-list-item
@@ -3276,17 +3378,53 @@ ul.special
 						+tr(width .3s)
 						width: 0
 						background-color: $org
-				// &:hover
-				// 	span
-				// 		&:after
-				// 			width: 0			
+				i 
+					display: inline-block
+					+rem(padding-left,10px)
+					+rem(max-width,45px)
+					vertical-align: top
+					overflow: hidden
+					text-overflow: ellipsis
+					white-space: nowrap
+			&.aside-list-tabs	
+				+r(768)
+					max-height: 100%
+					display: table
+					.aside-list-item
+						display: table-cell
+						vertical-align: middle
+						width: auto
+						min-width: 33.33%
+						text-align: center
+						color: $bl
+						+padlr(2px)
+						&.active
+							background-color: $bl
+							color: $white
+						&:not(:last-child)
+							border-right: $bbf
+						i 
+							display: none
+				+r(330)
+					+rem(margin-right,-10px)
+					+rem(margin-left,-10px)
+					width: calc(100% + 10px)
 
 		&-item
 			display: block
 			width: 100%
 			font-weight: 600
 			+rem(padding, 14px 0)
+
 			&:hover
+				&:not(.active)
+					color: $bl !important
+					span
+						&:after
+							opacity: 0
+			&.active
+				color: $org
+				pointer-events: none
 				span
 					&:after
 						opacity: 0
@@ -3461,9 +3599,11 @@ ul.special
 		font-size: 0
 		position: relative
 
+
+// расписание
+
 .table-sheldue
 	border: none
-
 	.table-item-from
 		+rem(width, 155px)
 		+rem(padding-left,28px)
@@ -3565,6 +3705,8 @@ ul.special
 						background-image: url(../img/route/bus_mini_da.svg)
 						+rem(bottom, -4px)
 						+rem(right, -5px)
+.table-wrapper
+	position: relative			
 .table-price
 	border: none
 	.table-item
@@ -3676,7 +3818,213 @@ ul.special
 				display: block
 				+rem(max-width,480px)
 				margin: 0 auto
+.table-tickets
+	+r(650)
+		&.sold
+			white-space: nowrap
+			overflow-x: scroll
+			display: block
+			+rem(margin, 0 -15px)
+			width: calc(100% + 30px)
+			.table-item
+				white-space: normal
+				&:not(:first-child)
+					+rem(min-width,100px)
+				&.table-tel,&.table-road
+					+rem(min-width,140px)
+		&:not(.sold)
+			white-space: nowrap
+			overflow-x: auto
+			display: block
+			border: $bbf
+			font-size: 0
+			+rem(margin-left, -15px)
+			+rem(margin-right, -15px)
+			width: auto
+			+rem(padding, 10px 0 10px 95px)
+			position: static
+			.table-head,.table-row
+				display: inline-block
+				vertical-align: top
+				border: none
+			.table-head
+				+rem(max-width,95px)
+				border: $bbf
+				height: 100%	
+				position: absolute
+				+rem(left, -15px)
+				top: 0
+				bottom: 0
+				z-index: 1
+				background-color: $white
+				.table-item
+					width: 100%
+					border: none
+					padding-left: 10px !important
+					padding-top: 18px !important
+			.table-row
+				padding: 0 !important
+				border: none
+			.table-item
+				display: block
+				width: 100%
+				max-width: 100%
+				min-width: 100%
+				border: none
+				padding: 5px 12px !important
+				white-space: normal		
+				+rem(min-height,45px)
+				&.table-actions
+					+rem(font-size,13px)
+				&.table-road
+					+rem(width,260px)
+			.table-actions
+				font-size: 0
+				.btn ,.link-border
+					width: 50%
+					+rem(max-width,110px)
+					display: inline-block !important
+					vertical-align: top
+					+rem(margin-right,5px)
+	border-bottom: $bbf
+	+rem(margin-bottom,30px)
+	+rm(651)
+		+rem(margin-top,20px)
+	.table-item
+		+padlr(5px)
+		.text-1,.text-bold,.text-sm
+			display: inline-block
+		.table-navigation-link
+			+rem(margin-top,10px)
+			display: inline-block
 			
+		.text-1
+			+rem(font-size,13px)
+		.text-bold
+			+rem(font-size,13px)
+			span 
+				display: inline-block
+				+rem(padding-left,4px)
+		.text-sm
+			+r(650)
+				+rem(padding-left,6px)
+	.table-head
+		.table-item
+			border-top: $bbf
+			+rem(padding-top,25px)
+			+rem(padding-bottom,25px)
+			&:nth-child(1)
+				+rem(width, 55px)
+				+rem(max-width, 55px)
+
+			&:nth-child(2)
+				+rem(width, 76px)
+			&:nth-child(3)
+				+rem(width, 120px)
+			&:nth-child(6)
+				+rem(width, 100px)	
+				+r(800)
+						+rem(width, 80px)		
+			&:nth-child(5)
+				+rem(width, 150px)	
+				+r(768)
+					+rem(width, 100px)
+					+rem(max-width,100px)
+	.table-row
+		&:last-of-type
+			.table-actions
+				+rem(padding-bottom,30px)
+		.table-item
+			&:not(.table-actions)
+				+rm(651)
+					+rem(padding-top,47px)
+			&.table-actions
+				+rm(651)
+					+rem(padding-top,20px)		
+
+		a:not([class])
+			color: $bl
+			+rem(font-size,13px)
+			line-height: 1.3
+			+rm(1025)
+				&:hover
+					color: $org
+	&.buyed
+		.table-head
+			.table-item
+				&:nth-child(3),&:nth-child(4),&:nth-child(5)
+					+rem(width,170px)
+					+r(1150)
+						+rem(width,140px)
+					+r(650)
+						+rem(min-height,80px)
+						width: 100%
+		.table-row
+			.table-item
+				.text-1,.text-sm
+					line-height: 1.4
+				&:nth-child(3),&:nth-child(4),&:nth-child(5)
+					+r(650)
+						+rem(min-height,80px)
+	&.sold
+		+r(650)
+			padding-left: 0
+			.table-head
+				position: static
+
+		.table-head
+			span
+				line-height: 1.7
+				+rem(max-width,65px)
+				display: inline-block
+
+			.table-item
+				&:nth-child(3)
+					+rem(width,80px)
+				&:nth-child(4)
+					+rem(width,85px)	
+				&:nth-child(6),&:nth-child(7)
+					+rem(width,95px)
+				&.table-road
+					+rem(width,280px)
+		.table-row
+			.table-item:not(.table-actions)
+				+rem(padding-bottom,20px)
+				+rem(padding-top,35px)
+.table-tel
+	+rem(width,150px)
+	a:not([class])
+		display: block
+		color: $blk2 !important
+		&:hover
+			color: $org !important
+.text-bold.org
+	color: $org
+.table-points
+	+rem(width,95px)
+	.text-bold
+		color: $bl
+.table-row .table-item.table-num,.table-head .table-item.table-num
+	+rem(padding-left,20px)
+	.text-1
+		word-break: break-word
+.table-row .table-item.table-actions,.table-head .table-item.table-actions
+	+rem(max-width,127px)
+	+rem(width,127px)
+	+rem(padding-left,10px)
+	+rem(padding-right,27px)
+	a 
+		display: block
+		text-align: center
+		+rem(margin-bottom,6px)
+		+r(650)
+			+rem(padding-top,6px)
+			+rem(padding-bottom,6px)
+	.link-border
+		span
+			width: auto
+		+r(650)
+			text-align: left
 //=====================================//
 //          roadmap section
 //=====================================//	
@@ -3870,7 +4218,17 @@ ul.special
 	&-wrap
 		display: flex
 		flex-flow: row nowrap
-		
+		+rem(min-height,160px)
+		&.content-small
+			.content-column-right
+				+rm(992)
+					+rem(flex-basis, 340px)
+					padding-left: 0
+					.border-card-link
+						margin-left: -1px
+			.content-column-content-inner
+				+rm(992)
+					+rem(padding-right,35px)
 		+r(991)
 			flex-direction: column
 	&-content
@@ -3932,6 +4290,13 @@ ul.special
 						+rem(left,2px)
 						+rem(top,7px)
 						position: absolute
+			a 
+				box-shadow:  0 -2px 0 0 #fff,  0 1px 0 0 $org
+				&:active
+					box-shadow: none
+				&:hover
+					+rm(1025)
+						box-shadow: none
 	&-right
 			+rem(flex-basis, 302px)
 			flex-shrink: 0
@@ -3949,6 +4314,7 @@ ul.special
 				margin-left: auto
 				text-align: left
 				+rem(margin, 120px 0 160px auto)
+				display: block
 			+r(991)
 				order: 1
 				flex-shrink: 1
@@ -3989,10 +4355,34 @@ ul.special
 			line-height: 1.538;	
 			color: $grayl
 			display: block
+			&:first-child
+				+rem(margin,0px 0 15px)
+			&:not(:first-child)
+				+rem(margin,15px 0)
+		a 
+			box-shadow:  0 -2px 0 0 #fff,  0 1px 0 0 $org
+			&:active
+				box-shadow: none
+			&:hover
+				+rm(1025)
+					box-shadow: none
 		+r(991)
 			display: none
-
-
+a.caption-content
+	span 
+		color: $org
+		box-shadow:  0 -2px 0 0 #fff,  0 1px 0 0 $org
+		font-style: normal
+	&:active
+		span 
+			box-shadow: none
+	&:hover
+		span 
+			+rm(1025)
+				box-shadow: none
+.stpdf2
+	font-family: Open Sans;
+	font-weight: 600
 //=====================================//
 //        стили табов карты
 //=====================================//
@@ -4263,6 +4653,18 @@ ul.special
 		.title
 			line-height: 1
 			+rem(margin-bottom,43px)
+			+clr
+			.link-border
+				float: right
+				+r(400)
+					display: block
+					+rem(margin,10px auto 0)
+					float: none
+					+rem(max-width,250px)
+					text-align: center
+					
+					span
+						width:  auto
 			+r(600)
 				+rem(margin-bottom,30px)	
 		.input-form
@@ -4318,7 +4720,7 @@ ul.special
 				+rem(padding-left,10px)
 				+rem(padding-top,2px)
 	&-footer
-		+rem(padding,0px 32px 90px 32px)
+		+rem(padding,0px 32px 80px 32px)
 		+rem(margin-top,-15px)
 		+r(768)
 			+rem(padding,0px 25px 50px 25px)
@@ -4378,3 +4780,350 @@ ul.special
 				+rem(bottom,5px)
 				width: 1px
 				background-color: $org
+.profile
+	&-wrapper
+		display: flex
+		flex-flow: row nowrap
+		align-items: stretch
+		border: $bbf
+		justify-content: space-between
+		+r(950)
+			flex-flow: row wrap
+			align-items: flex-start
+			.profile-coupons
+				order: 3
+				width: 100%
+			.profile-total
+				order: 2
+
+			.profile-total,.profile-img
+				width: 50%
+			.profile-img
+				&-inner
+					height: 0
+					padding-bottom: 100%
+		+r(500)
+			border: none
+		
+			.profile-coupons
+				+rem(margin, 0 -15px)
+				&-history-inner
+					+rem(margin, 0 -20px)
+			.profile-total
+				padding-right: 0
+				+rem(padding-left,10px)
+				border: none
+				+rem(min-width,0px)
+				+rem(padding-top,15px)
+				.link-border
+					white-space: nowrap
+		+r(330)
+			.profile-total
+				.link-border
+					+rem(font-size,12px)
+	&-img
+		width: 22.5%
+		background-color: $grayy
+		&-inner
+			width: 100%
+			// padding-bottom: 100%
+			height: 100%
+			+cover
+	&-total,&-coupons
+		.text-sm
+			color: $grayl
+			+rem(height, 50px)
+			+rem(max-width,110px)
+			line-height: 1.4
+		+rem(padding,22px 30px 30px)
+	&-total
+		width: 32%
+		border-left: $bbf
+		+r(1190)
+			width: 22%
+			+rem(min-width,223px)
+			+padlr(20px)
+		.text-1
+			color: $bl 
+			+rem(font-size,40px)
+			line-height: 1
+			+rem(margin,0 0 25px)
+		.link-border
+			+rem(max-width,200px)
+			span 
+				display: inline-block
+				width: auto
+				&:before
+					display: inline
+	&-coupons
+		width: 45.5%
+		font-size: 0
+		flex-grow: 1
+		+rem(padding-left,25px)
+		&-about
+			+clr
+			&-who,&-buyed
+				display: inline-block
+				vertical-align: top
+			&-buyed
+				float: right
+				+rem(width,130px)
+				.tik
+					+rem(margin-right,3px)
+					+rem(margin-top,3px)
+			&-who
+				max-width: calc(100% - 135px)
+				.text-sm
+					color: $bl
+		&-history
+			+rem(height,50px)
+			+rem(margin,30px  -30px 0)
+			position: relative
+			+padlr(30px)
+
+			&:before
+				position: absolute
+				content: ''
+				display: inline-block
+				left: 0
+				right: 0
+				+rem(top,5px)
+				height: 1px
+				background-image: linear-gradient(90deg,#bebebe 0,hsla(0,0%,100%,0) 30%);
+				background-position: bottom;
+				background-size: 6px 2px;
+				background-repeat: repeat-x;
+			&-inner
+				+rem(margin-right,-8px)
+				position: relative
+				height: 100%
+				+r(1024)
+					+rem(margin, 0 -15px)
+
+.history-year
+	position: absolute
+	text-align: center
+	+rem(top,5px)
+	&.start,&.end
+		+rem(margin-top,-2px)
+		&:before
+			content: ''
+			display: inline-block
+			background-color: $org 
+			border-radius: 50%
+			+rem(width,5px)
+			+rem(height,5px)
+	&.month
+		+rem(margin-top,-8px)
+		.tik
+			+rem(height,20px)
+		.text-2
+			+rem(font-size,11px)
+			font-weight: bold;
+			color: $bl
+			+rem(margin-top,2px)
+
+	&.start
+		left: 0
+	&.end
+		right: 0
+	&._1
+		left: 11%
+	&._2
+		left: 17.63%
+	&._3
+		left: 24.26%
+	&._4
+		left: 30.89%
+	&._5
+		left: 37.52%
+	&._6
+		left: 44.15%
+	&._7
+		left: 50.78%
+	&._8
+		left: 57.41%
+	&._9
+		left: 64.04%
+	&._10
+		left: 70.67%
+	&._11
+		left: 77.3%
+	&._12
+		left: 84%
+
+.tik
+	+rem(width,18px)
+	display: inline-block
+	vertical-align: top
+.btn-add
+	display: inline-block
+	+rem(font-size,13px)
+	line-height: 0
+	color: $text
+	cursor: pointer
+	+rem(padding-left,22px)
+	position: relative
+	left: 0
+	+rem(margin-top,5px)
+	+rem(bottom, -20px)
+	+tr(color .2s)
+	span
+		position: relative
+		&:before
+			content: ''
+			position: absolute
+			+rem(width,16px)
+			+rem(height,17px)
+			+contain
+			background-image: url(../img/icons/add.svg)
+			+rem(left,-22px)
+			+rem(top,1px)
+	&:hover
+		+rm(1025)
+			color: $bl
+	&:active
+		color: $bl
+.company-section
+	border: $bbf
+	+rem(padding, 20px 32px)
+	+rem(margin-bottom,25px)
+	+r(400)
+		+rem(padding, 15px 18px)
+	.text-sm
+		color: $grayl
+		+rem(max-width,110px)
+		line-height: 1.4
+		
+		+rem(margin-top,5px)
+	.text-medium
+		+rem(margin-bottom,25px)
+		+rem(margin-top,10px)
+	&-row
+		font-size: 0
+		+rem(margin-right,-25px)
+		&+.text-medium
+			+rem(margin-top,55px)
+			+r(768)
+				+rem(margin-top,20px)
+	&-block
+		display: inline-block
+		vertical-align: top
+		width: 50%
+		+rem(padding-right,25px)
+		+rem(margin-bottom,30px)
+		+r(340)
+			padding-left: 0 !important
+			width: 100%
+		&:nth-child(2n)
+			+rem(padding-left,25px)
+		.text-1
+			+rem(max-width,180px)
+			+rem(font-size,13px)
+			line-height: 1.4
+		.text-sm
+			+rem(margin-bottom,18px)
+			+r(768)
+				+rem(margin-bottom,10px)
+
+.table-navigation
+	display: flex
+	flex-flow: row nowrap
+	align-items: center
+	justify-content: space-between
+	+rem(margin-bottom,15px)
+	+rem(margin-top,55px)
+	+r(768)
+		+rem(margin-top,25px)
+	&-links
+		font-size: 0
+		.table-navigation-link
+			+r(1100)
+				width: 50%
+				+rem(margin-bottom,10px)
+				display: inline-block
+
+				
+	&-nav
+		.table-pagination,.table-collapse
+			display: inline-block
+			vertical-align: middle
+		.table-pagination
+			+rem(margin-right,15px)
+	&-link 
+		color: $grayy
+		+rem(padding-right,22px)
+		+rem(font-size,13px)
+		+tr(color .25s)
+		white-space: nowrap
+		&:hover
+			+rm(1025)
+				color: $org
+		&:active
+			color: $org
+		&.active
+			color: $org
+			svg
+				transform: scale(1,-1)
+		span, i
+			display: inline-block
+			vertical-align: top
+		i 
+			+contain
+			+rem(width,17px)
+			+rem(height,16px)
+			+rem(margin-top,-1px)
+			+rem(margin-right,8px)
+			svg
+				fill: $grayy
+			&.arr-down
+				+rem(width,8px)
+				position: static
+				+rem(margin-left,8px)
+.table-collapse
+	text-align: right
+	.table-navigation-link
+		margin-right: 0
+.table-pagination
+	white-space: nowrap
+	&-arr,&-inner
+		display: inline-block
+		vertical-align: middle
+		.arr-down
+			position: static
+			+rem(height,13px)
+			// height: 100%
+			svg
+				fill: $grayy
+				+rem(margin-top,-5px)
+				
+	&-arr
+		&.left
+			svg 
+				transform: rotate(90deg)
+		&.right
+			svg 
+				transform: rotate(-90deg)
+
+	&-item
+		+rem(font-size,13px)
+		color: $grayy
+		+rem(padding, 5px 8px)
+		display: inline-block
+		&.active
+			color: $bl
+			pointer-events: none
+			font-weight: 700
+	&-inner
+		// +rem(margin-top,10px)
+		text-align: center
+		vertical-align: middle
+		+padlr(7px)
+		
+
+a.text-1
+	&:hover
+		+rm(1025)
+			color: $org
+	&:active
+		color: $org

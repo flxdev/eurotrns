@@ -220,7 +220,7 @@ mixin headone(head,text)
 						// модификатор для селекта цены .price-total
 						// .disabled если нужен выключеным
 						.select-check.js-select-custom.price-total
-							button.selects(data-placeholder='')
+							button.selects(data-placeholder='Выберите')
 								span.btn-text
 								i.arr-down
 									svg(class="icon icon-drop")
@@ -326,3 +326,73 @@ mixin priceTable(date1,val1,val2,vval1,vval2)
 				span BYN
 			.text-sm #{vval2}
 				span RUB
+mixin tiketTable(num,date1,time1,road,fio,price)
+	.table-row
+		.table-item.table-num
+			.text-1 #{num}
+		.table-item
+			.text-1 #{date1}
+		.table-item
+			.text-1 #{time1}
+		.table-item.table-road
+			a(href="#") #{road}
+		.table-item
+			.text-1 #{fio}
+		.table-item
+			.text-bold #{price}
+				span BYN
+			.text-sm
+				| 1500 RUB
+		.table-item.table-actions
+			a(href="#").btn.btn-extrasmall.blue.disabled
+				span Подтвердить
+			a(href="#").btn.btn-extrasmall.orange
+				span Оплатить
+			a(href="#").link-border.gray
+				span Отказаться
+mixin tiketTable1(num,date1,time1,road,fio,price)
+	.table-row
+		.table-item.table-num
+			.text-1 #{num}
+		.table-item
+			.text-1 #{date1}
+		.table-item
+			.text-1 #{time1}
+		.table-item
+			a(href="#") #{road}
+		.table-item
+			.text-1 #{fio}
+		.table-item
+			a(href="#").link-border.gray
+				span вернуть
+		.table-item
+			.text-bold #{price}
+				span BYN
+			.text-sm
+				| 1500 RUB
+		.table-item.table-points
+			.text-bold +150
+mixin tablesold
+	.table-row
+		.table-item.table-num
+			.text-1 1
+		.table-item
+			.text-1 Липский Кирилл Игоревич
+			a(href="#").table-navigation-link
+				i(style='background-image:url(img/icons/note.png);')
+				span Комментарий
+		.table-item
+			.text-1 25.03.17
+		.table-item
+			.text-1 25.03.17
+		.table-item.table-road
+			a(href="#") Гродно → Минск → Санкт-Петербург
+		.table-item
+			.text-bold 4500
+				span BYN
+		.table-item
+			.text-bold.org 4500
+				span BYN
+		.table-item.table-tel
+			a(href="tel:+375332260994") +375 (33) 226-09-94
+			a(href="tel:+375 (33) 226-09-94") +375 (33) 226-09-94

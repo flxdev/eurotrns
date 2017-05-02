@@ -11,7 +11,7 @@ block content
 				aside.aside-menu(data-sticky_parent)
 					.aside-stick(data-sticky_column)
 						//этих менюшек 2 типа, будет еще с модификатором. Эта скролит к якорям, а на второй будут уже просто ссылки на страницы
-						.aside-list
+						.aside-list.js-activescroll-list
 							a(href="#",data-href='#service').aside-list-item.text-1.js-scroll-to
 								span Сервис
 							a(href="#",data-href='#sheldue').aside-list-item.text-1.js-scroll-to
@@ -22,7 +22,7 @@ block content
 								span Остановки
 				.aside-content
 					section.aside-section
-						.feature-outer(data-id='#service')
+						.feature-outer.js-activescroll-block(data-id='#service')
 							.title.h3 Сервис в дороге
 							.feature-wrap
 								.nav-arrows
@@ -40,7 +40,7 @@ block content
 										.slider-divider /
 										.slider-total
 					section.aside-section
-						.route-table-outer(data-id='#sheldue')
+						.route-table-outer.js-activescroll-block(data-id='#sheldue')
 							.route-table-head
 								.route-table-head-text
 									.text-medium Расписание автобусов Минск – Москва
@@ -78,7 +78,7 @@ block content
 										+roadTable('22:30','09:00','yes','yes','yes','yes','','yes','yes')
 										+roadTable('22:30','09:00','yes','yes','yes','yes','','yes','yes')
 					section.aside-section
-						.price-table-wrap(data-id='#price')
+						.price-table-wrap.js-activescroll-block(data-id='#price')
 							.price-table-table
 								.title.h3 Стоимость проезда
 								.table-wrapper
@@ -105,7 +105,7 @@ block content
 												span Подробнее
 											img(src="img/cards/eurocard.png", alt="")
 					section.aside-section
-						.roadmap-wrapper(data-id='#stops')
+						.roadmap-wrapper.js-activescroll-block(data-id='#stops')
 							.roadmap-inner
 								.roadmap-item.roadmap-main.roadmap-2w
 									.roadmap-item-point.big
