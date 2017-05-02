@@ -3,13 +3,15 @@ include _mixins.pug
 .header-top
 	.header-top-inner
 		.header-lang
-			span.top-link.header-lang-item.active
+			a(href="#").top-link.header-lang-item.active
 				span Ru
-			a(href="#").top-link.header-lang-item
+			span.top-link.header-lang-item
 				span En
 		.header-top-nav
 			.header-top-nav-menu
 				span.top-link.top-nav-item
+					span О нас
+				span.top-link.top-nav-item.active
 					span Клиентам
 				a(href="#").top-link.top-nav-item
 					span Агентствам
@@ -17,17 +19,18 @@ include _mixins.pug
 					span Перевозчикам
 				a(href="#").top-link.top-nav-item
 					span Контакты
-			a(href="#").top-link.top-nav-botton
+			span.top-link.top-nav-botton
 				svg(class="icon icon-drop")
 					use(xlink:href="#bag" xmlns:xlink="http://www.w3.org/1999/xlink")
 				span Бюро находок
-			span.top-link.top-nav-botton.fixed
+			a(href="#").top-link.top-nav-botton.fixed
 				svg(class="icon icon-drop")
 					use(xlink:href="#login" xmlns:xlink="http://www.w3.org/1999/xlink")
 				span Личный кабинет
 .header-bottom
 	.box.header-bottom-inner
-		a(href="#", style='background-image:url(img/logo-header.png)').m-logo
+		a(href="#").m-logo
+			img(src="img/logo-header.png", alt="Евротранс")
 		.header-bottom-nav
 			ul.header-bottom-menu.js-slideline
 				//.active для текущей страницы
@@ -114,16 +117,14 @@ include _mixins.pug
 						a(href="#")
 							span Бюро находок
 			.mobile-contact
-				.info-block
-					a(href="#").info-block-head Бронирование
-						ul.info-block-list
-							li.info-block-item
-								//в ссылках может присутствовать спан с текстом
-								a.info-block-link(href="tel:+375295000252") +375 (29) 5000-252
-							li.info-block-item
-								a.info-block-link(href="tel:+375295000252") +375 (29) 5000-252
-							li.info-block-item
-								a.info-block-link(href="tel:+79055591545") +375 (29) 5000-252
+				+Infoblock('Бронирование')
+					li.info-block-item
+						//в ссылках может присутствовать спан с текстом
+						a.info-block-link(href="tel:+375295000252") +375 (29) 5000-252
+					li.info-block-item
+						a.info-block-link(href="tel:+375295000252") +375 (29) 5000-252
+					li.info-block-item
+						a.info-block-link(href="tel:+79055591545") +375 (29) 5000-252
 				+Infoblock('')
 					li.info-block-item
 						a.info-block-link(href="tel:+74952818817") +7 (495) 281-88-17

@@ -34,6 +34,31 @@ mixin smallCard(cls,img,way, val1,val2,price)
 				i.card-item-link
 					svg(class="icon icon-drop")
 						use(xlink:href="#arr-circle" xmlns:xlink="http://www.w3.org/1999/xlink")
+mixin smallCard2(cls,img, name,date,num,size)
+	.card-item.card-item-bus(class=cls)
+		a(href="#").card-item-inner
+			.card-item-img
+				.card-item-img-inner(style='background-image:url(img/tour/'+img+'.jpg)')
+				if cls != '' 
+					.small-block
+						span VIP
+			.card-item-content
+				.card-bus-content
+					.card-bus-content-name #{name}
+					.card-bus-content-block
+						.text-sm Год выпуска
+						.card-bus-val #{date}
+					.card-bus-content-block
+						.text-sm Регистрационный номер
+						.card-bus-val #{num}
+					.card-bus-content-block
+						.text-sm Посадочных 
+							br
+							|мест
+						.card-bus-val #{size}
+				i.card-item-link
+					svg(class="icon icon-drop")
+						use(xlink:href="#arr-circle" xmlns:xlink="http://www.w3.org/1999/xlink")
 mixin news(type,vid,vidcls,date,name,text)
 	article.news-item(class=type)
 		a(href="#").news-item-inner
@@ -66,7 +91,7 @@ mixin cardmedium(img,clas)
 		.border-card-inner(style='background-image:url(img/cards/'+img+')')
 			if block
 				block 
-mixin headone(head)
+mixin headone(head,text)
 	.wrapper.page-head.page-margin(style='background-image: url(img/pageheade.jpg)')
 		.box.page-head-inner
 			.page-head-title
@@ -243,11 +268,21 @@ mixin headone(head)
 													| Метро
 					.input-wrapper
 						button(type='sumbit').btn.btn-colored.small
-							span Забронировать
+							span #{text}
 			.page-head-breadcrums
 				.content-bread
 					a(href="#").content-bread-item.text-sm Главная
-					a(href="#").content-bread-item.text-sm Рейсы
+					span.content-bread-item.text-sm Рейсы
+mixin headtwo(head)
+	.wrapper.page-head.page-margin(style='background-image: url(img/pageheade.jpg)')
+		.box.page-head-inner
+			.page-head-title
+				h1.title.h1 #{head}		
+			.page-head-breadcrums
+				.content-bread
+					a(href="#").content-bread-item.text-sm Главная
+					a(href="#").content-bread-item.text-sm Кабинет пользователя 
+					a(href="#").content-bread-item.text-sm Мои брони
 mixin routeFeachure(img,text,doptext)
 	.feature-item.dropdown-trigger
 		.feature-item-img
@@ -279,7 +314,7 @@ mixin roadTable(date1,date2,d1,d2,d3,d4,d5,d6,d7)
 			.bus-item
 mixin priceTable(date1,val1,val2,vval1,vval2)
 	.table-row
-		.table-item.table-item-from
+		.table-item
 			.text-1 #{date1}
 		.table-item
 			.text-bold #{val1}
@@ -291,3 +326,73 @@ mixin priceTable(date1,val1,val2,vval1,vval2)
 				span BYN
 			.text-sm #{vval2}
 				span RUB
+mixin tiketTable(num,date1,time1,road,fio,price)
+	.table-row
+		.table-item.table-num
+			.text-1 #{num}
+		.table-item
+			.text-1 #{date1}
+		.table-item
+			.text-1 #{time1}
+		.table-item.table-road
+			a(href="#") #{road}
+		.table-item
+			.text-1 #{fio}
+		.table-item
+			.text-bold #{price}
+				span BYN
+			.text-sm
+				| 1500 RUB
+		.table-item.table-actions
+			a(href="#").btn.btn-extrasmall.blue.disabled
+				span Подтвердить
+			a(href="#").btn.btn-extrasmall.orange
+				span Оплатить
+			a(href="#").link-border.gray
+				span Отказаться
+mixin tiketTable1(num,date1,time1,road,fio,price)
+	.table-row
+		.table-item.table-num
+			.text-1 #{num}
+		.table-item
+			.text-1 #{date1}
+		.table-item
+			.text-1 #{time1}
+		.table-item
+			a(href="#") #{road}
+		.table-item
+			.text-1 #{fio}
+		.table-item
+			a(href="#").link-border.gray
+				span вернуть
+		.table-item
+			.text-bold #{price}
+				span BYN
+			.text-sm
+				| 1500 RUB
+		.table-item.table-points
+			.text-bold +150
+mixin tablesold
+	.table-row
+		.table-item.table-num
+			.text-1 1
+		.table-item
+			.text-1 Липский Кирилл Игоревич
+			a(href="#").table-navigation-link
+				i(style='background-image:url(img/icons/note.png);')
+				span Комментарий
+		.table-item
+			.text-1 25.03.17
+		.table-item
+			.text-1 25.03.17
+		.table-item.table-road
+			a(href="#") Гродно → Минск → Санкт-Петербург
+		.table-item
+			.text-bold 4500
+				span BYN
+		.table-item
+			.text-bold.org 4500
+				span BYN
+		.table-item.table-tel
+			a(href="tel:+375332260994") +375 (33) 226-09-94
+			a(href="tel:+375 (33) 226-09-94") +375 (33) 226-09-94

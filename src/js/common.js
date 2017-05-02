@@ -1,42 +1,28 @@
 document.addEventListener("DOMContentLoaded", function() {
 
 	(function(){
-		var mainHeader = document.querySelector('.cd-auto-hide-header'),
-			headerHeight = mainHeader.offsetHeight;
-
-		var scrolling = false,
-			previousTop = 0,
-			currentTop = 0,
-			scrollDelta = 5,
-			scrollOffset = 100;
+		var mainHeader = document.querySelector('.cd-auto-hide-header');
 
 		$(window).on('scroll', function(){
-			if( !scrolling ) {
-				scrolling = true;
-				(!window.requestAnimationFrame)
-					? setTimeout(autoHideHeader, 250)
-					: requestAnimationFrame(autoHideHeader);
-			}
+			requestAnimationFrame(autoHideHeader);
 		});
-
 
 		function autoHideHeader() {
 			var currentTop = $(document).scrollTop();
 			checkSimpleNavigation(currentTop);
-			previousTop = currentTop;
-			scrolling = false;
 		}
 
 		function checkSimpleNavigation(currentTop) {
 			if (currentTop <= 20) {
 				mainHeader.classList.remove('is-hidden');
-				ActivePos($('#slide-line'),'.header-bottom-menu-item.active');
 			} else {
 				mainHeader.classList.add('is-hidden');
-				ActivePos($('#slide-line'),'.header-bottom-menu-item.active');
 			}
+			ActivePos($('#slide-line'),'.header-bottom-menu-item.active');
 		}
 	})();
+
+
 	function Menu() {
 		var trigger = $('.js-menu'),
 			target = $('.header-mobile-menu'),
@@ -60,7 +46,29 @@ document.addEventListener("DOMContentLoaded", function() {
 		$('.header-mobile-menu-outer').click(function(e){
 		  e.stopPropagation();
 		});
-	}Menu();
+	}
+	Menu();
+
+	function MobileDropdown(trigger,parent,target){
+		var trg = $(trigger),
+			prnt = trg.closest(parent),
+			trgt = prnt.find(target);
+		trg.each(function(){
+			$(this).on('click', function(){
+
+				var item = prnt.find(trgt);
+				if(item.hasClass('active')){
+
+					item.add($(this)).removeClass('active');
+				}else{
+					prnt.siblings().find(trgt).removeClass('active');
+					item.add($(this)).addClass('active');
+				}
+			});
+		});
+	}
+	MobileDropdown('.js-dropdown','.js-dropdown-parent','.js-dropdown-target')
+
 	function scrollbody(classcheck){
 		var body = $('body');
 		if(!body.hasClass(classcheck)){
@@ -72,15 +80,11 @@ document.addEventListener("DOMContentLoaded", function() {
 		}else{
 			var _h = parseInt(body.css('top')),
 				_res = Math.abs(_h);
-				console.log(_res)
 			body.css('top','')
 			setTimeout(function(){
 				$(window).add(body).scrollTop(_res);
 			},10)
-			
-			
 		}
-
 	}
 	function SlideLine() {
 
@@ -89,9 +93,8 @@ document.addEventListener("DOMContentLoaded", function() {
 			trigger = $mainNav.find('li a'),
 			active = $mainNav.find('.active');
 
-		$mainNav.append("<div id='slide-line'></div>");
+		$mainNav.parent().append("<div id='slide-line'></div>");
 		var $Line = $("#slide-line");
-
 
 		ActivePos($Line,'.header-bottom-menu-item.active');
 
@@ -132,78 +135,68 @@ document.addEventListener("DOMContentLoaded", function() {
 
 	$(".js-scroll-to").on('click', function (e) {
 		e.preventDefault();
-		e.stopPropagation();
-		var elementClick = $(this).attr("href");
+		var elementClick = $(this).data("href");
+		var target = $('body').find('[data-id="' + elementClick + '"]');
 		$(".aside-stick").trigger("sticky_kit:recalc");
-		if($(elementClick)){
-			var destination = $(elementClick).offset().top,
+		if(target.length){
+			var destination = $(target).offset().top,
 				pad = window.matchMedia('(max-width: 991px)').matches ? 70 : 90;
 			$("html, body:not(:animated), .out:not(:animated)").animate({scrollTop: destination - pad}, 500);
 			setTimeout(function(){
-				window.location.hash= elementClick;
+				window.location.hash = elementClick;
 			},400)
-		}else{
-			e.preventDefault();
 		}
 	});
-	jQuery.fn.toggleText = function() {
-		var altText = this.data("alt-text");
 
-		if (altText) {
-			this.data("alt-text", this.text());
-			this.find('.link-black').text(altText);
+	// отключаем инпуты, если поездка в одну сторону
+	//используется на главной
 
-		}
-	};
-	// function Accordeon(){
-	// 	if($('.offerlist-section').length){
-	// 		// $(".aside-stick").trigger("sticky_kit:detach");
-	// 		$(".aside-stick").stick_in_parent({
-	// 			offset_top : 73,
-	// 			recalc_every: 1
-	// 		});
-	// 		var maintrigger = $('.js-accordion-trigger'),
-	// 			body = $('.js-accordion-body'),
-	// 			truetrigger = maintrigger.children('.table-item').not('.table-status').not('.table-btn');
-	// 		maintrigger.not('.active').find(body).hide();
-	// 		truetrigger.on('click',function(event){
-	// 			var parent = $(this).parent(),
-	// 				target = parent.find(body);
+	function ToggleDisabled(){
+		var trigger = $('.js-condition');
+		trigger.each(function(){
+			var _ = $(this),
+				form = _.closest('form'),
+				target = form.find('.js-condition-target'),
+				targetVal = target.find('input').val(),
+				inp = _.find('input');
 
-	// 			if(parent.hasClass('active')){
-	// 				parent.siblings().removeClass('active').find(body).slideUp(200);
-	// 				parent.removeClass('active').find(body).slideUp(300);
+			_.off('click').on('click',function(){
 
-	// 			}else{
-	// 				parent.siblings().removeClass('active').find(body).slideUp(200);
-	// 				parent.addClass('active').find(body).slideDown(300, function(){
-	// 					var pos = parent.offset().top;
-	// 					jQuery("body:not(:animated)").animate({scrollTop: pos -80}, 500);
-	// 				});
-	// 			}
-	// 			setTimeout(function(){
-	// 				$('body').trigger('scroll')
-	// 			},801)
-	// 		});
-	// 	}
-	// }Accordeon();
-
+				inp.prop('checked') == true ? 
+					target.removeClass('disabled')
+					: target.addClass('disabled');
+				targetVal = '';
+				//очищаем датапикер если он есть
+				$.datepicker._clearDate(target.find('.datepicker'));
+			});
+		});
+	}
+	ToggleDisabled();
 
 	aside();
 	popUpsInit();
 	validateForms();
 	masktel();
 	initCustomSelectList();
-	comenthide();
 	
 	datepick();
-	
+	Tabs();
 	sortItem();
+	listhide();
+	CompareHeight();
 	questionSlider();
 	servicesSlider();
 	promoSlider();
 	routefeaturesSlider();
-	
+
+	jQuery.fn.toggleText = function() {
+		var altText = this.data("alt-text");
+		if (altText) {
+			this.data("alt-text", this.text());
+			this.find('span').text(altText);
+
+		}
+	};
 //end of document.ready
 });
 //end of document.ready
@@ -227,78 +220,43 @@ function slidesCount(elem){
 			curSlideCont.text(curPage + 1)
 	});
 }
-function comenthide(){
-	var target = $('.js-coment');
-	target.each(function(){
-		var _ = $(this),
-			len = _.height(),
-			item = _.find('.feedback-item-content-inner').height(),
-			trigger = _.parent().find('.js-list-more');
-		$(window).on('resize', function(){
-			setTimeout(function(){
-				item = _.find('.feedback-item-content-inner').height();
-				Checkh();
-			},600)
-		});
-		function Checkh(){
-			if(len >= item){
-				trigger.css('display', 'none');
-			}else{
-				trigger.removeAttr('style');
-				initclick();
-			}
-		}Checkh();
-		function initclick(){
-			trigger.off('click').on('click', function(e){
-				console.log(item);
-				if(_.attr('style')){
-					// len.removeAtttr('style');
-					_.css('max-height', '');
-					$(this).toggleText();
-				}else{
-					_.css('max-height', item);
-					$(this).toggleText();
-				}
 
-				// $(".aside-stick").trigger("sticky_kit:recalc");
-			});
-		}
-	})
-}
 function listhide(){
 	var target = $('.js-slidelist');
 	target.each(function(){
 		var _ = $(this),
 			len = _.data('items'),
-			items = _.find('li'),
+			items = _.closest('.tabs-cont').find('.js-slidelist-target').find('li'),
 			itemsl = items.length,
-			text = 'Свернуть'
-		trigger = _.parent().find('.js-list-more');
+			text = 'Свернуть',
+			trigger = _;
 
-		if(len >= itemsl){
-			trigger.css('display', 'none');
-		}else{
 			items.slice(len).slideUp();
 			initclick();
-		}
+
 		function initclick(){
 			trigger.off('click').on('click', function(e){
 				e.preventDefault();
 				items.slice(len).fadeToggle(300);
 				$(this).toggleText();
-				$(".aside-stick").trigger("sticky_kit:recalc");
 			});
 		}
 	})
 }
 function masktel(){
 	var nodes = document.querySelectorAll("input[type=tel]");
-	var im = new Inputmask("+7 (999) 999 99 99",{ showMaskOnHover: false});
+	var im = new Inputmask("+375 (99) 999 99 99",{ showMaskOnHover: false});
 	im.mask(nodes);
 }
+function CompareHeight(){
+	$('.question-item').matchHeight({
+		property: 'min-height'
+	});
+}
+
+
 var sortItem = function(){
 	var trigger = $('.js-select-item');
-	console.log(1)
 	trigger.on('click', function(){
 		var _ = $(this);
 		var textCont = _.find('span');
@@ -333,6 +291,7 @@ var sortItem = function(){
 
 	});
 }
+
 function initCustomSelectList() {
 	var _conf = {
 			initClass: 'cs-active',
@@ -398,7 +357,7 @@ function aside(){
 			$(".aside-stick").stick_in_parent({
 				parent: ".aside-menu",
 				offset_top : 73,
-				recalc_every: 1
+				// recalc_every: 1
 			});
 		},1)
 	}stickinit();
@@ -437,6 +396,7 @@ function datepick(){
 			firstDay: 1,
 			yearRange: '-0:+1',
 			minDate: dateToday,
+			showOn: "focus",
 			beforeShow: function() {
 				setTimeout(function() {
 					updateToSelectMenu()
@@ -447,18 +407,27 @@ function datepick(){
 					updateToSelectMenu()
 				},0);
 		   }
+		 //   ,
+			// onClose: function() {
+		 //      _.trigger('input');
+		 //      _.datepicker('refresh');
+			// 	// setTimeout(function() {
+			// 	// 	 item.datepicker('hide');
+			// 	// },1)
+		     
+		 //   }
 		});
 		_.datepicker('refresh');
 	})
 	$(window).resize(function() {
 	  item.datepicker('hide');
-	  $('.datepicker').blur();
+	  // $('.datepicker').blur();
 	});
 }
 function promoSlider(){
 	$(".js-promoslider").each(function() {
 		var _this = $(this);
-		var parent = _this.closest('.promo-slider');
+		var parent = _this.parent();
 		_this.slick({
 			accessibility: true,
 			arrows: false,
@@ -610,7 +579,92 @@ function servicesSlider(){
 		});
 	});
 }
+function mapMarkerinit(elem){
+	var cords = $("#"+elem).closest('.tabs-cont').find('li').first().data('cords');
+	var imgsrc = $("#"+elem).data('imagesrc');
+	var myMap;
+	ymaps.ready(init);
 
+
+
+	function init () {
+
+		myMap = new ymaps.Map(elem, {
+			center: cords,
+			zoom: 14,
+			controls: ['zoomControl', 'fullscreenControl']
+		}, {
+
+		}),
+			gCollection = new ymaps.GeoObjectCollection(null, {
+			}),
+			myPlacemark = new ymaps.Placemark(myMap.getCenter(), {
+			}, {
+				iconLayout: 'default#image',
+				iconImageHref: imgsrc,
+			// Размеры метки.
+				iconImageSize:[40, 50],
+				iconImageOffset: [-20, -50]
+			});
+		myMap.geoObjects.add(myPlacemark);
+		myMap.behaviors.disable(['rightMouseButtonMagnifier','ruler','scrollZoom']);
+		myMap.controls.remove('typeSelector');
+		myMap.controls.remove('searchControl');
+		myMap.controls.remove('GeolocationControl');
+		myMap.container.fitToViewport();
+		$("#"+elem).on('resize',function(){
+			setTimeout(function(){
+				myMap.container.fitToViewport();
+			},300)
+		})
+
+		//создаем геообьект из полученных координат
+		
+		var pos = getCoords(elem);
+		var arrl = pos.length;
+		for(var i = 0; i < arrl; i++){
+			 gCollection.add(new ymaps.Placemark(pos[i]));
+		}
+		gCollection.options.set({
+			iconLayout: 'default#image',
+			iconImageHref: imgsrc,
+			// Размеры метки.
+			iconImageSize:[24, 35],
+			iconImageOffset: [-12, -35]
+		});
+		Inintclick(elem);
+
+	}
+
+	function Inintclick(elem){
+		var trigger = $("#"+elem).closest('.tabs-cont').find('.js-marker-add');
+		trigger.on('click', function(){
+			if(!$(this).hasClass('active')){
+				$(this).addClass('active');
+				 myMap.geoObjects.add(gCollection);
+				 // myMap.setZoom(12)
+				 myMap.setBounds(myMap.geoObjects.getBounds());
+			}else{
+				$(this).removeClass('active');
+				myMap.geoObjects.remove(gCollection);
+				myMap.setBounds(myMap.geoObjects.getBounds());
+				myMap.setZoom(14)
+			}
+		});	
+	}
+	//собираем координаты и помещаем и в массив, первый элемент вырезаем, т.к. он уже будет на карте
+	function getCoords(elem){
+		
+		var pos =[];
+		var items = $("#"+elem).closest('.tabs-cont').find('li');
+		var cords = items.each(function(){
+			var elpos= $(this).data('cords');
+			pos.push(elpos)
+		});
+		pos.splice(0,1);
+		return pos
+	}
+}
 
 
 function mapinit(elem){
@@ -651,7 +705,7 @@ function validateForms(){
 			var parent = form_this.parent();
 			$.validate({
 				form : form_this,
-				modules : 'security',
+				modules : 'logic',
 				borderColorOnError : true,
 				scrollToTopOnError : false,
 				onSuccess : function($form) {
@@ -659,9 +713,7 @@ function validateForms(){
 				},
 				onValidate : function($form) {
 					CheckForSelect(form_this);
-					checkStars(form_this);
-
-				},
+				}
 			});
 		});
 	}
@@ -684,17 +736,7 @@ function CheckForSelect(form){
 		wrap.hasClass('error') ? false : true
 	}
 }
-function checkStars(form){
-	if(form.find('.star-item').length){
-		var stars = $('.js-stars');
-		if(stars.hasClass('has-success')){
-			return true
-		}else{
-			stars.addClass('has-error');
-			return false
-		}
-	}
-}
+
 
 function popUpsInit() {
 	var _this = this;
@@ -770,39 +812,7 @@ function popUpsInit() {
 	});
 }
 
-function AjaxLoading(el){
-	var _this = this;
 
-	_this.ajaxLink = el;
-	_this.appendMain = $("#modal-road");
-
-
-	_this.initEvents = function(){
-
-		$(".ajax-trigger").off("click.trigger").on("click.trigger", function(e){
-			var link = $(this).attr("href");
-			_this.action(link)
-			e.preventDefault();
-			return false;
-		});
-	};
-
-	_this.action = function(link) {
-		$.ajax({
-			url: link,
-			dataType: "html",
-			success: function(content) {
-				var mainContent = $(content).html();
-				_this.appendMain.html(mainContent).promise().done(function(){
-					_this.initEvents();
-					roadSlider();
-					popUpsInit();
-				});
-			}
-		})
-	};
-	_this.initEvents();
-}
 
 function formResponse(form){
 	if(form.closest('.modal-container').length){
@@ -813,5 +823,36 @@ function formResponse(form){
 				resp.fadeIn("slow");
 			});
 		}
+	}
+}
+function Tabs(){
+	if($('.js-tabs-wrap').length){
+		
+		var parent = $('.js-tabs-wrap');
+			parent.each(function(){
+				var _ = $(this),
+					trigger = _.find('.js-tab-trigger'),
+					tabbody = _.find('.tabs-body'),
+					tabcont = tabbody.find('.tabs-cont'),
+					triggerCur = _.find(trigger).filter('.active'),
+					triggerIndex = triggerCur.index();
+
+			if(!triggerCur.length){
+				tabcont.not(':first').hide();
+				trigger.first().addClass('active');
+			}else{
+				tabcont.hide().eq(triggerIndex).show();
+			}
+
+			trigger.on('click',function(e){
+				var _ = $(this);
+				e.preventDefault();
+				if(!_.hasClass('active')){
+					_.addClass('active').siblings().removeClass('active');
+					var triggerA = parent.find(trigger).filter('.active');
+					tabcont.hide().eq($(triggerA).index()).fadeIn().find('.map-elem').trigger('resize');				
+				}
+			});
+		});
 	}
 }

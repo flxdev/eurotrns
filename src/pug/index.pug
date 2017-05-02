@@ -8,20 +8,26 @@ block content
 		.box
 			.promo-wrapper
 				.promo-form
-					.title.h2 Автобусные рейсы
+					h1.title.h2 Автобусные рейсы
 					form(action="").js-validate.input-form
 						.input-item.s100
 							.input-wrapper
 								.select-item
-									label.select-label
+									label.select-label.js-condition
 										span.select-main
-											input.select-real(type="checkbox",value ='twoway',)
+											input.select-real(type="checkbox",value ='1',name="two-way-variant")
 											span.select-checked
 										span.select-text Туда и обратно
-						.input-item.s100
+						.input-item.s50
 							.input-wrapper
 								label Дата отправления
 								input.input-main.datepicker(type="text",placeholder='-- Выберите --',data-validation="required",data-validation-error-msg="Не выбрано",readonly)
+								svg(class="icon icon-drop")
+									use(xlink:href="#calendar" xmlns:xlink="http://www.w3.org/1999/xlink")
+						.input-item.s50
+							.input-wrapper.disabled.js-condition-target
+								label Дата отправления обратно
+								input.input-main.datepicker(type="text",placeholder='-- Выберите --',data-validation-error-msg="Не выбрано",readonly,data-validation="required",data-validation-depends-on="two-way-variant", data-validation-depends-on-value="1")
 								svg(class="icon icon-drop")
 									use(xlink:href="#calendar" xmlns:xlink="http://www.w3.org/1999/xlink")
 						.input-item.s50
@@ -147,15 +153,16 @@ block content
 	.wrapper.gray.index-tours
 		.box
 			.tour-wrapper
-				//если поездка туда-обратно, то ставим модификатор .twoway, чтобы поменять иконку между городами
+				//.twoway в обе стороны
+				//.oneway стрелка вправо , .backway стрелка влево
 				+smallCard('twoway','1',1,'Минск','Берлин','50')
-				+smallCard('','2','','Минск','Аэропорт Вильнюс','23')
-				+smallCard('','3',1,'Минск','Москва','12')
-				+smallCard('','7',1,'Минск','Таллин','105')
-				+smallCard('','1','','Минск','Рига','18')
-				+smallCard('','2',1,'Минск','Рига','18')
+				+smallCard('oneway','2','','Санкт-Петербург','Аэропорт Вильнюс','23')
+				+smallCard('oneway','3',1,'Минск','Москва','12')
+				+smallCard('oneway','7',1,'Минск','Таллин','105')
+				+smallCard('oneway','1','','Минск','Аэропорт Санкт-Петербург','18')
+				+smallCard('backway','2',1,'Минск','Рига','18')
 				+smallCard('twoway','3',1,'Минск','Рига','45')
-				+smallCard('','3',1,'Минск','Берлин','50')
+				+smallCard('backway','3',1,'Минск','Берлин','50')
 				+smallCard('twoway','3',1,'Минск','Берлин','50')
 				//на главной ведет на страницу туров, на внутренней подружает аяксом 
 				a(href="#").btn.btn-gray 

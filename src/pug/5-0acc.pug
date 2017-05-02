@@ -1,0 +1,352 @@
+extends _layout
+
+block title
+	title Мои брони
+
+block content
+	+headtwo('Мои брони')
+	.wrapper
+		.box
+			.aside-wrapp
+				aside.aside-menu(data-sticky_parent)
+					.aside-stick(data-sticky_column)
+						//.bold
+						// это получается уже 3 модификатор, на мобилке этом еню превращается как бы в табы
+						.aside-list.bold.aside-list-tabs
+							span.aside-list-item.text-1.active
+								span Мои брони 
+								i 2
+							a(href="#").aside-list-item.text-1
+								span Мои билеты 
+								i 1524
+							a(href="#").aside-list-item.text-1
+								span Мой профиль
+				.aside-content
+					section.aside-section
+						.content-column-wrap
+							.content-column-content
+								.content-column-content-inner
+									h2 Забронированные Вами билеты
+									p  При бронировании билета без выкупа, Вы должены подтвердить бронь за день до отправления до 15:00 (идет обзвон колл-центром), кнопка “Подтвердить” будет активна только за день до отправления.
+							.content-column-right
+								a(href="#").border-card-link
+									+cardmedium('sm1.jpg','small')
+										.border-card-name Путешевствуйте с нами и получайте бонусы
+										.border-card-content.bonus-content
+											p У вас
+											.link-border
+												span 75 баллов
+						.table-wrapper
+							.table.table-tickets
+								.table-head
+									.table-item.table-num
+										span №
+									.table-item
+										span Дата
+									.table-item 
+										span Время
+									.table-item.table-road
+										span Рейс
+									.table-item
+										span ФИО
+									.table-item 
+										span Цена
+									.table-item.table-actions
+										span Действия
+								+tiketTable('1','25.03.17','19:45 – 06:00','Гродно → Минск → Санкт-Петербург','Липский Кирилл Игоревич','45')
+								+tiketTable('2','26.03.17','19:45 – 06:00','Гродно → Минск Аэропорт-аэропорт → Санкт-Петербург','Липский Кирилл Игоревич','4500')
+								+tiketTable('2586','26.03.17','19:45 – 06:00','Гродно → Минск Аэропорт-аэропорт → Санкт-Петербург','Липский Кирилл Игоревич','4500')
+						.content-column-wrap
+							.content-column-content
+								.content-column-content-inner
+									p  Если Вы не оплатили билет с помощью электронных способов, бронь остается висеть в данной закладке до момента как Вы сядете в автобус. После этого запись о бронировании перемещается в разряд 
+										a(href="#") Мои билеты 
+										|и идет 
+										a(href="#") начисление баллов.
+							.content-column-right
+	.wrapper
+		.box
+			.aside-wrapp
+				aside.aside-menu(data-sticky_parent)
+					.aside-stick(data-sticky_column)
+						//.bold
+						// это получается уже 3 модификатор, на мобилке этом еню превращается как бы в табы
+						.aside-list.bold.aside-list-tabs
+							span.aside-list-item.text-1
+								span Мои брони 
+								i 2
+							a(href="#").aside-list-item.text-1.active
+								span Мои билеты 
+								i 1524
+							a(href="#").aside-list-item.text-1
+								span Мой профиль
+				.aside-content
+					section.aside-section
+						.content-column-wrap
+							.content-column-content
+								.content-column-content-inner
+									h2 Купленные Вами билеты
+									p  За день до отправления до 15:00 (идет обзвон колл-центром)
+							.content-column-right
+								a(href="#").border-card-link
+									+cardmedium('sm1.jpg','small')
+										.border-card-name Путешевствуйте с нами и получайте бонусы
+										.border-card-content.bonus-content
+											p У вас
+											.link-border
+												span 75 баллов
+						.table-wrapper
+							.table.table-tickets.buyed
+								.table-head
+									.table-item.table-num
+										span №
+									.table-item
+										span Дата
+									.table-item 
+										span Отправление
+									.table-item
+										span Прибытие
+									.table-item
+										span Время в пути
+									.table-item 
+										span Возврат билета
+									.table-item
+										span Цена
+									.table-item
+										span Бонусных баллов
+								.table-row
+									.table-item.table-num
+										.text-1 1
+									.table-item
+										.text-1 25.03.17
+									.table-item
+										.text-1 19:45
+											br
+											|Минск 
+											br
+											|ав. «Центральный»
+									.table-item
+										.text-1 06:00
+											br
+											|Москва
+											br
+											|Белорусский вокзал
+											br
+											|ав. Новоясеневская
+									.table-item
+										.text-1
+											|10 ч
+											br 
+											|"Автобусный парк №2" 
+											br
+											| ГП "Минсктранс"
+									.table-item
+										a(href="#").link-border.gray
+											span вернуть
+									.table-item
+										.text-bold 4500
+											span BYN
+										.text-sm
+											| 1500 RUB
+									.table-item.table-points
+										.text-bold +150
+								.table-row
+									.table-item.table-num
+										.text-1 1
+									.table-item
+										.text-1 25.03.17
+									.table-item
+										.text-1 19:45
+											br
+											|Минск 
+											br
+											|ав. «Центральный»
+									.table-item
+										.text-1 06:00
+											br
+											|Москва
+											br
+											|Белорусский вокзал
+											br
+											|ав. Новоясеневская
+									.table-item
+										.text-1
+											|10 ч
+											br 
+											|"Автобусный парк №2" 
+											br
+											| ГП "Минсктранс"
+									.table-item
+										a(href="#").link-border.gray
+											span вернуть
+									.table-item
+										.text-bold 4500
+											span BYN
+										.text-sm
+											| 1500 RUB
+									.table-item.table-points
+										.text-bold +150
+								.table-row
+									.table-item.table-num
+										.text-1 1
+									.table-item
+										.text-1 25.03.17
+									.table-item
+										.text-1 19:45
+											br
+											|Минск  ert erte rter etet e
+											br
+											|ав. «Центральный»
+									.table-item
+										.text-1 06:00
+											br
+											|Москва ert etet et et
+											br
+											|Белорусский вокзал rtert etert etert etre ter
+											br
+											|ав. Новоясеневская ert ert erter e
+									.table-item
+										.text-1
+											|10 ч
+											br 
+											|"Автобусный парк №2" 
+											br
+											| ГП "Минсктранс"
+									.table-item
+										a(href="#").link-border.gray
+											span вернуть
+									.table-item
+										.text-bold 4500
+											span BYN
+										.text-sm
+											| 15000 RUB
+									.table-item.table-points
+										.text-bold +150
+	.wrapper
+		.box
+			.aside-wrapp
+				aside.aside-menu(data-sticky_parent)
+					.aside-stick(data-sticky_column)
+						//.bold
+						// это получается уже 3 модификатор, на мобилке этом еню превращается как бы в табы
+						.aside-list.bold.aside-list-tabs
+							span.aside-list-item.text-1
+								span Мои брони 
+								i 2
+							a(href="#").aside-list-item.text-1
+								span Мои билеты 
+								i 1524
+							a(href="#").aside-list-item.text-1.active
+								span Мой профиль
+				.aside-content
+					section.aside-section
+						.profile-wrapper
+							.profile-img
+								.profile-img-inner(style='background-image:url(img/people.jpg)')
+							.profile-coupons
+								.profile-coupons-about
+									.profile-coupons-about-who
+										.text-sm Путешественник
+										.text-medium Липский Кирилл
+									.profile-coupons-about-buyed
+										.text-sm Купленных билетов
+										.text-medium
+											img(src="img/tik1.png", alt="").tik
+											span 4
+								.profile-coupons-history
+									.profile-coupons-history-inner
+										.history-year.start
+											.text-sm 2017
+										.history-year.month._1
+											img(src="img/tik1.png", alt="").tik
+											.text-2 75
+										.history-year.month._2
+											img(src="img/tik2.png", alt="").tik
+											.text-2 150
+										.history-year.month._3
+											img(src="img/tik1.png", alt="").tik
+											.text-2 450
+										.history-year.month._4
+											img(src="img/tik1.png", alt="").tik
+											.text-2 900
+										.history-year.month._5
+											img(src="img/tik2.png", alt="").tik
+											.text-2 110
+										.history-year.month._6
+											img(src="img/tik1.png", alt="").tik
+											.text-2 150
+										.history-year.month._7
+											img(src="img/tik2.png", alt="").tik
+											.text-2 200
+										.history-year.month._8
+											img(src="img/tik1.png", alt="").tik
+											.text-2 450
+										.history-year.month._9
+											img(src="img/tik2.png", alt="").tik
+											.text-2 456
+										.history-year.month._10
+											img(src="img/tik2.png", alt="").tik
+											.text-2 475
+										.history-year.month._11
+											img(src="img/tik1.png", alt="").tik
+											.text-2 450
+										.history-year.month._12
+											img(src="img/tik2.png", alt="").tik
+											.text-2 420
+										.history-year.end
+											.text-sm 2017
+							.profile-total
+								.text-sm
+									|Всего бонусных баллов
+								.text-1 525
+								a(href="#").link-border
+									span Как получать 
+									br
+									span и использовать баллы
+						.content-column-wrap
+							.content-column-content
+								form(action="/").form-block-wrapper.js-validate
+									.form-block-section
+										.title.h3 Личная информация
+											a(href="#").link-border
+												span Сменить пароль
+										.input-form
+											.input-item.s50
+												.input-wrapper.req
+													label(for='imp1') Фамилия
+													input.input-main(type="text",placeholder='Фамилия',data-validation="length",data-validation-length='min2',data-validation-error-msg="Не заполнено",id='imp1')
+											.input-item.s50
+												.input-wrapper.req
+													label(for='imp3') Телефон
+													input.input-main(type="tel",placeholder='Телефон',data-validation="custom",data-validation-regexp="^[-0-9()+ ]+$",data-validation-error-msg="Не заполнено",id='imp3')
+												.btn-add.js-btn-add
+													span Добавить телефон
+											.input-item.s50
+												.input-wrapper.req
+													label(for='imp1') Имя
+													input.input-main(type="text",placeholder='Имя',data-validation="length",data-validation-length='min2',data-validation-error-msg="Не заполнено",id='imp1')
+											.input-item.s50
+												.input-wrapper.req
+													label(for='imp4') E-mail
+													input.input-main(type="email",placeholder='example@mail.com',data-validation="email",data-validation-error-msg="Не заполнено",id='imp4')
+											.input-item.s50
+												.input-wrapper.req
+													label(for='imp1') Отчество
+													input.input-main(type="text",placeholder='Отчество',data-validation="length",data-validation-length='min2',data-validation-error-msg="Не заполнено",id='imp1')
+											.input-item.s100
+												.input-wrapper
+													.select-item
+														label.select-label.js-condition
+															span.select-main
+																input.select-real(type="checkbox",value ='1',name="two-way-variant")
+																span.select-checked
+															span.select-text Получать уведомление о бронированиях, акция, отказах и т.д.
+									.form-block-footer
+										.form-footer-notify
+											.text-sm Поля для обязательного заполнения
+										button(type='sumbit').btn.btn-colored
+											span Сохранить профиль
+							.content-column-right
+								.caption-content
+									span Жить необязательно. Путешествовать — необходимо.
+									i Уильям Берроуза
