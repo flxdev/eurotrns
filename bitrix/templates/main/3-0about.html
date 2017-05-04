@@ -1039,7 +1039,7 @@
                                 <div class="input-item s50">
                                   <div class="input-wrapper">
                                     <label for="imp5">Лицензия от</label>
-                                    <input class="input-main datepicker" type="text" placeholder="-- Выберите --" data-validation="required" data-validation-error-msg="Не выбрано" readonly id="imp5">
+                                    <input class="input-main datepicker datepicker-chengeyear datepicker-past" type="text" placeholder="-- Выберите --" data-validation="required" data-validation-error-msg="Не выбрано" readonly id="imp5">
                                     <svg class="icon icon-drop">
                                       <use xlink:href="#calendar" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
                                     </svg>
@@ -1064,97 +1064,20 @@
                                 </div>
                                 <div class="input-item s25">
                                   <div class="input-wrapper">
-                                    <div class="label">Год выпуска</div>
-                                    <div class="select-check js-select-custom">
-                                      <button class="selects" data-placeholder="Выберите"><span class="btn-text">Выберите</span><i class="arr-down">
-                                          <svg class="icon icon-drop">
-                                            <use xlink:href="#strelka" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
-                                          </svg></i></button>
-                                      <div class="dropdown-target">
-                                        <div class="dropdown-inner">
-                                          <div class="dropdown-content">
-                                            <div class="select-u-body select-list">
-                                              <label class="option">
-                                                <input type="radio" name="group42" value="val1" data-validation="required"><span>40</span>
-                                              </label>
-                                              <label class="option">
-                                                <input type="radio" name="group42" value="val2"><span>46</span>
-                                              </label>
-                                              <label class="option">
-                                                <input type="radio" name="group42" value="val3"><span>32</span>
-                                              </label>
-                                              <label class="option">
-                                                <input type="radio" name="group42" value="val4"><span>22</span>
-                                              </label>
-                                              <label class="option">
-                                                <input type="radio" name="group42" value="val5"><span>34</span>
-                                              </label>
-                                              <label class="option">
-                                                <input type="radio" name="group42" value="val6"><span>343</span>
-                                              </label>
-                                              <label class="option">
-                                                <input type="radio" name="group42" value="val7"><span>343</span>
-                                              </label>
-                                              <label class="option">
-                                                <input type="radio" name="group42" value="val8"><span>К34343</span>
-                                              </label>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
+                                    <label for="imp71">Год выпуска</label>
+                                    <input class="input-main" type="number" placeholder="Год" data-validation="number" data-validation-error-msg="Не заполнено" id="imp71" data-validation-allowing="range[1950;2020]">
                                   </div>
                                 </div>
                                 <div class="input-item s25">
                                   <div class="input-wrapper">
-                                    <div class="label">Посадочных мест</div>
-                                    <div class="select-check js-select-custom">
-                                      <button class="selects" data-placeholder="Выберите"><span class="btn-text">Выберите</span><i class="arr-down">
-                                          <svg class="icon icon-drop">
-                                            <use xlink:href="#strelka" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
-                                          </svg></i></button>
-                                      <div class="dropdown-target">
-                                        <div class="dropdown-inner">
-                                          <div class="dropdown-content">
-                                            <div class="select-u-body select-list">
-                                              <label class="option">
-                                                <input type="radio" name="group42" value="val1" data-validation="required"><span>40</span>
-                                              </label>
-                                              <label class="option">
-                                                <input type="radio" name="group42" value="val2"><span>46</span>
-                                              </label>
-                                              <label class="option">
-                                                <input type="radio" name="group42" value="val3"><span>32f</span>
-                                              </label>
-                                              <label class="option">
-                                                <input type="radio" name="group42" value="val4"><span>22</span>
-                                              </label>
-                                              <label class="option">
-                                                <input type="radio" name="group42" value="val5"><span>34</span>
-                                              </label>
-                                              <label class="option">
-                                                <input type="radio" name="group42" value="val6"><span>343</span>
-                                              </label>
-                                              <label class="option">
-                                                <input type="radio" name="group42" value="val7"><span>343</span>
-                                              </label>
-                                              <label class="option">
-                                                <input type="radio" name="group42" value="val8"><span>К34343</span>
-                                              </label>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
+                                    <label for="imp72">Посадочных мест</label>
+                                    <input class="input-main" type="number" placeholder="Количество" data-validation="number" data-validation-error-msg="Не заполнено" id="imp72" data-validation-allowing="range[3;250]">
                                   </div>
                                 </div>
                                 <div class="input-item s50">
                                   <div class="input-wrapper">
                                     <label for="imp8">Регистрационный номер</label>
-                                    <input class="input-main datepicker" type="text" placeholder="-- Выберите --" data-validation="required" data-validation-error-msg="Не выбрано" readonly id="imp8">
-                                    <svg class="icon icon-drop">
-                                      <use xlink:href="#calendar" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
-                                    </svg>
+                                    <input class="input-main" type="text" placeholder="Комер" data-validation="length" data-validation-length="min2" data-validation-error-msg="Не заполнено" id="imp8">
                                   </div>
                                 </div>
                               </div>

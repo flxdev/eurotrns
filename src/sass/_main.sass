@@ -944,7 +944,12 @@ body, .out
 		+rem(background-size, 13px 20px)
 		background-position: center
 		background-image: url(../img/icons/strelka.svg)
-
+	.ui-selectmenu-button
+		+padlr(0)
+select.ui-datepicker-year,select.ui-datepicker-month
+	+rem(max-width,60px)
+	opacity: 0
+	
 //=====================================//
 //         inputs
 //=====================================//	
@@ -1629,6 +1634,7 @@ body, .out
 				position: absolute
 				bottom: -13px
 				left: calc(50% - 13px)
+				filter: drop-shadow( 0px 6px 4px rgba(7, 35, 53, 0.25));
 	&.small-dropdown-target
 		transform: translateY(-5%)
 		.dropdown-inner
@@ -3351,7 +3357,42 @@ ul.special
 		&:not(.bold)
 			+r(768)
 				display: none
+		&-item
+			display: block
+			width: 100%
+			font-weight: 600
+			+rem(padding, 14px 0)
 
+			&:hover
+				&:not(.active)
+					color: $bl !important
+					span
+						&:after
+							opacity: 0
+			&.active
+				color: $org
+				pointer-events: none
+				span
+					&:after
+						opacity: 0
+			span 
+				display: inline
+				width: 100%
+				position: relative
+				+tr(color .3s)
+				&:after
+					height: 2px;
+					display: inline-block;
+					content: "";
+					position: absolute;
+					left: 0;
+					width: 100%;
+					+rem(bottom, -3px)
+					background-image: linear-gradient(90deg,#ff8400,hsla(0,0%,100%,0) 30%);
+					background-position: bottom;
+					background-size: 6px 2px;
+					background-repeat: repeat-x;
+					+tr(opacity .25s)
 		&.bold
 			+rem(margin-top,-10px)
 			.aside-list-item
@@ -3359,7 +3400,8 @@ ul.special
 				line-height: 1.2;
 				+rem(padding, 17px 0 18px)
 				&:hover
-					color: $org
+					span 
+						color: $org 
 				&.active
 					color: $bl
 					pointer-events: none
@@ -3409,43 +3451,6 @@ ul.special
 					+rem(margin-right,-10px)
 					+rem(margin-left,-10px)
 					width: calc(100% + 10px)
-
-		&-item
-			display: block
-			width: 100%
-			font-weight: 600
-			+rem(padding, 14px 0)
-
-			&:hover
-				&:not(.active)
-					color: $bl !important
-					span
-						&:after
-							opacity: 0
-			&.active
-				color: $org
-				pointer-events: none
-				span
-					&:after
-						opacity: 0
-			span 
-				display: inline
-				width: 100%
-				position: relative
-				&:after
-					height: 2px;
-					display: inline-block;
-					content: "";
-					position: absolute;
-					left: 0;
-					width: 100%;
-					+rem(bottom, -3px)
-					background-image: linear-gradient(90deg,#ff8400,hsla(0,0%,100%,0) 30%);
-					background-position: bottom;
-					background-size: 6px 2px;
-					background-repeat: repeat-x;
-					+tr(opacity .25s)
-
 	&-wrapp
 		font-size: 0
 		position: relative
@@ -4437,7 +4442,14 @@ a.caption-content
 		+r(735)
 			+padlr(15px)
 			position: relative
-			
+		ul.js-slidelist-target
+			li 
+				cursor: pointer
+				+tr(color .3s)
+				&:hover
+					color: $bl 
+				&.active
+					color: $org
 		.map-body
 			+rem(min-height,250px)
 			position: relative
@@ -5127,3 +5139,21 @@ a.text-1
 			color: $org
 	&:active
 		color: $org
+ymaps
+	ymaps[class$="balloon__content"]
+		+rem(padding, 20px 0 20px 20px)
+		+rem(min-width,180px)
+		margin-right: 36px !important
+		ymaps
+			+rem(min-width,180px)
+			// +rem(padding-right,5px)
+	b 
+		+rem(font-size,20px)
+		font-weight: 600
+	b,p 
+		font-family: $os
+	p 
+		font-size: .9375rem;
+		color: #656565;
+		line-height: 1.25;
+

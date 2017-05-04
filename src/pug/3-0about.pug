@@ -616,7 +616,7 @@ block content
 											.input-item.s50
 												.input-wrapper
 													label(for='imp5') Лицензия от
-													input.input-main.datepicker(type="text",placeholder='-- Выберите --',data-validation="required",data-validation-error-msg="Не выбрано",readonly,id='imp5')
+													input.input-main.datepicker.datepicker-chengeyear.datepicker-past(type="text",placeholder='-- Выберите --',data-validation="required",data-validation-error-msg="Не выбрано",readonly,id='imp5')
 													svg(class="icon icon-drop")
 														use(xlink:href="#calendar" xmlns:xlink="http://www.w3.org/1999/xlink")
 											.input-item.s50
@@ -632,84 +632,16 @@ block content
 													input.input-main(type="text",placeholder='Имя',data-validation="length",data-validation-length='min2',data-validation-error-msg="Не заполнено",id='imp7')
 											.input-item.s25
 												.input-wrapper
-													.label Год выпуска
-													.select-check.js-select-custom
-														button.selects(data-placeholder='Выберите')
-															span.btn-text Выберите
-															i.arr-down
-																svg(class="icon icon-drop")
-																	use(xlink:href="#strelka" xmlns:xlink="http://www.w3.org/1999/xlink")
-														.dropdown-target
-															.dropdown-inner
-																.dropdown-content
-																	.select-u-body.select-list
-																		label.option
-																			input(type='radio', name='group42', value='val1',data-validation="required")
-																			span 40
-																		label.option
-																			input(type='radio', name='group42', value='val2')
-																			span 46
-																		label.option
-																			input(type='radio', name='group42', value='val3')
-																			span 32
-																		label.option
-																			input(type='radio', name='group42', value='val4')
-																			span 22
-																		label.option
-																			input(type='radio', name='group42', value='val5')
-																			span 34
-																		label.option
-																			input(type='radio', name='group42', value='val6')
-																			span 343
-																		label.option
-																			input(type='radio', name='group42', value='val7')
-																			span 343
-																		label.option
-																			input(type='radio', name='group42', value='val8')
-																			span К34343
+													label(for='imp71') Год выпуска
+													input.input-main(type="number",placeholder='Год',data-validation="number",data-validation-error-msg="Не заполнено",id='imp71',data-validation-allowing="range[1950;2020]")
 											.input-item.s25
 												.input-wrapper
-													.label Посадочных мест
-													.select-check.js-select-custom
-														button.selects(data-placeholder='Выберите')
-															span.btn-text Выберите
-															i.arr-down
-																svg(class="icon icon-drop")
-																	use(xlink:href="#strelka" xmlns:xlink="http://www.w3.org/1999/xlink")
-														.dropdown-target
-															.dropdown-inner
-																.dropdown-content
-																	.select-u-body.select-list
-																		label.option
-																			input(type='radio', name='group42', value='val1',data-validation="required")
-																			span 40
-																		label.option
-																			input(type='radio', name='group42', value='val2')
-																			span 46
-																		label.option
-																			input(type='radio', name='group42', value='val3')
-																			span 32f
-																		label.option
-																			input(type='radio', name='group42', value='val4')
-																			span 22
-																		label.option
-																			input(type='radio', name='group42', value='val5')
-																			span 34
-																		label.option
-																			input(type='radio', name='group42', value='val6')
-																			span 343
-																		label.option
-																			input(type='radio', name='group42', value='val7')
-																			span 343
-																		label.option
-																			input(type='radio', name='group42', value='val8')
-																			span К34343
+													label(for='imp72') Посадочных мест
+													input.input-main(type="number",placeholder='Количество',data-validation="number",data-validation-error-msg="Не заполнено",id='imp72',data-validation-allowing="range[3;250]")
 											.input-item.s50
 												.input-wrapper
 													label(for='imp8') Регистрационный номер
-													input.input-main.datepicker(type="text",placeholder='-- Выберите --',data-validation="required",data-validation-error-msg="Не выбрано",readonly,id='imp8')
-													svg(class="icon icon-drop")
-														use(xlink:href="#calendar" xmlns:xlink="http://www.w3.org/1999/xlink")
+													input.input-main(type="text",placeholder='Комер',data-validation="length",data-validation-length='min2',data-validation-error-msg="Не заполнено",id='imp8')
 									.form-block-footer
 										.form-footer-notify
 											.text-sm Поля для обязательного заполнения
