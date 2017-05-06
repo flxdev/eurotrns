@@ -14,6 +14,12 @@ mixin Infoblock(head)
 		ul.info-block-list
 			if block
 				block
+mixin Infoblock2(head)
+	.info-block.small
+		.info-block-head #{head}
+		ul.info-block-list
+			if block
+				block
 mixin smallCard(cls,img,way, val1,val2,price)
 	.card-item(class=cls)
 		a(href="#").card-item-inner
@@ -175,7 +181,7 @@ mixin headone(head,text)
 										.select-u-body.select-list
 											label.option
 												//хотя бы на одном инпуте должен висеть дата-атрибут для валидации
-												input(type='radio', name='group47', value='val1',data-validation="required")
+												input(type='radio', name='group49', value='val1',data-validation="required")
 												span Минск
 											label.option
 												input(type='radio', name='group49', value='val2')
@@ -348,7 +354,7 @@ mixin tiketTable(num,date1,time1,road,fio,price)
 				span Подтвердить
 			a(href="#").btn.btn-extrasmall.orange
 				span Оплатить
-			a(href="#").link-border.gray
+			a(href="#",data-modal='payback').link-border.gray.js-popup-button
 				span Отказаться
 mixin tiketTable1(num,date1,time1,road,fio,price)
 	.table-row
@@ -363,7 +369,7 @@ mixin tiketTable1(num,date1,time1,road,fio,price)
 		.table-item
 			.text-1 #{fio}
 		.table-item
-			a(href="#").link-border.gray
+			a(href="#",data-modal='payback').link-border.gray.js-popup-butto
 				span вернуть
 		.table-item
 			.text-bold #{price}
@@ -379,7 +385,16 @@ mixin tablesold
 		.table-item
 			.text-1 Липский Кирилл Игоревич
 			a(href="#").table-navigation-link
-				i(style='background-image:url(img/icons/note.png);')
+				i
+					svg(version='1.1', xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink', x='0px', y='0px', viewbox='0 0 12 12', style='enable-background:new 0 0 12 12;', xml:space='preserve')
+						style(type='text/css').
+							.sttable0{fill:#A8AFBD;}
+						path.sttable0(d='M11.7,2.2C11.7,2.2,11.7,2.2,11.7,2.2C11.7,2.2,11.7,2.2,11.7,2.2l-5,5c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0\
+						c0,0,0,0,0,0L4.3,8c0,0-0.1,0-0.1,0C4.2,8,4.1,8,4.1,7.9C4,7.9,4,7.8,4,7.7l0.8-2.3c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0\
+						c0,0,0,0,0,0l5-5c0,0,0,0,0,0c0,0,0,0,0,0C10,0.1,10.4,0,10.7,0c0.3,0,0.7,0.2,0.9,0.4C12.2,1,12.1,1.7,11.7,2.2z M11.2,0.8\
+						c-0.2-0.2-0.4-0.3-0.6-0.3c-0.2,0-0.4,0.1-0.5,0.2l-5,5L4.6,7.4l1.7-0.6l5-5C11.5,1.6,11.6,1.2,11.2,0.8z M6.5,2h-6v9.5h9.4v-6\
+						c0-0.1,0.1-0.3,0.2-0.3c0.1,0,0.2,0.1,0.2,0.3v6.3c0,0.1,0,0.3-0.2,0.3h-10C0.1,12,0,11.9,0,11.7v-10c0-0.1,0.1-0.3,0.3-0.3h6.3\
+						c0.1,0,0.3,0.1,0.3,0.3S6.6,2,6.5,2z')
 				span Комментарий
 		.table-item
 			.text-1 25.03.17

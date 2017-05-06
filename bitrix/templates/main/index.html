@@ -16,7 +16,6 @@
     <link rel="apple-touch-icon" sizes="72x72" href="img/fav/72x72.png">
     <link rel="apple-touch-icon" sizes="114x114" href="img/fav/114x114.png">
     <link rel="stylesheet" media="all" href="css/screen.min.css">
-    <script src="http://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
   </head>
   <body>
     <!--скрипт при первой загрузке страницы грузит шрифты и кладет их в localStorage-->
@@ -31,36 +30,85 @@
             <div class="page__header cd-auto-hide-header">
               <div class="header-top">
                 <div class="header-top-inner">
-                  <div class="header-lang"><a class="top-link header-lang-item active" href="#"><span>Ru</span></a><span class="top-link header-lang-item"><span>En</span></span></div>
+                  <div class="header-lang">
+                    <a class="top-link header-lang-item active" href="#">
+                      <span>Ru</span>
+                    </a>
+                    <span class="top-link header-lang-item">
+                      <span>En</span>
+                    </span>
+                  </div>
                   <div class="header-top-nav">
-                    <div class="header-top-nav-menu"><span class="top-link top-nav-item"><span>О нас</span></span><span class="top-link top-nav-item active"><span>Клиентам</span></span><a class="top-link top-nav-item" href="#"><span>Агентствам</span></a><a class="top-link top-nav-item" href="#"><span>Перевозчикам</span></a><a class="top-link top-nav-item" href="#"><span>Контакты</span></a></div><span class="top-link top-nav-botton">
+                    <div class="header-top-nav-menu">
+                      <span class="top-link top-nav-item">
+                        <span>О нас</span>
+                      </span>
+                      <span class="top-link top-nav-item active">
+                        <span>Клиентам</span>
+                      </span>
+                      <a class="top-link top-nav-item" href="#">
+                        <span>Агентствам</span>
+                      </a>
+                      <a class="top-link top-nav-item" href="#">
+                        <span>Перевозчикам</span>
+                      </a>
+                      <a class="top-link top-nav-item" href="#">
+                        <span>Контакты</span>
+                      </a>
+                    </div>
+                    <span class="top-link top-nav-botton">
                       <svg class="icon icon-drop">
                         <use xlink:href="#bag" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
-                      </svg><span>Бюро находок</span></span><a class="top-link top-nav-botton fixed" href="#">
+                      </svg>
+                      <span>Бюро находок</span>
+                    </span>
+                    <a class="top-link top-nav-botton fixed" href="#">
                       <svg class="icon icon-drop">
                         <use xlink:href="#login" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
-                      </svg><span>Личный кабинет</span></a>
+                      </svg>
+                      <span>Личный кабинет</span>
+                    </a>
                   </div>
                 </div>
               </div>
               <div class="header-bottom">
-                <div class="box header-bottom-inner"><span class="m-logo"><img src="img/logo-header.png" alt="Евротранс"></span>
+                <div class="box header-bottom-inner">
+                  <span class="m-logo">
+                    <img src="img/logo-header.png" alt="Евротранс">
+                  </span>
                   <div class="header-bottom-nav">
                     <ul class="header-bottom-menu js-slideline">
                       <!--.active для текущей страницы-->
-                      <li class="header-bottom-menu-item"><a href="#"><span>Рейсы</span></a></li>
-                      <li class="header-bottom-menu-item"><a href="#"><span>Трансфер в аэропорт</span></a></li>
-                      <li class="header-bottom-menu-item"><a href="#"><span>Аренда автобусов</span></a></li>
+                      <li class="header-bottom-menu-item">
+                        <span class="header-bottom-menu-navlink">
+                          <span>Рейсы</span>
+                        </span>
+                      </li>
+                      <li class="header-bottom-menu-item">
+                        <a class="header-bottom-menu-navlink" href="#">
+                          <span>Трансфер в аэропорт</span>
+                        </a>
+                      </li>
+                      <li class="header-bottom-menu-item">
+                        <a class="header-bottom-menu-navlink" href="#">
+                          <span>Аренда автобусов</span>
+                        </a>
+                      </li>
                     </ul>
                   </div>
                   <div class="header-bottom-contact">
                     <!--селект региона, такой же есть в заказе-->
                     <div class="dropdown-select-wrapp dropdown-trigger">
-                      <div class="country-head"><a class="country-list-link" href="#">
-                          <!-- флаг выбирается через id <use>: для британии gb раша ru и беларусь by,больше свг не заливал, если будут еще флаги то пихать картинку --><span class="country-img">
+                      <div class="country-head js-country-swap js-content-switch">
+                        <a class="country-list-link js-country-swap-item active" href="#" data-block="bel">
+                          <!-- флаг выбирается через id <use>: для британии gb раша ru и беларусь by,больше свг не заливал, если будут еще флаги то пихать картинку -->
+                          <span class="country-img">
                             <svg class="icon icon-drop">
                               <use xlink:href="#by" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
-                            </svg></span><span class="country-text">Беларусь</span></a>
+                            </svg>
+                          </span>
+                          <span class="country-text">Беларусь</span>
+                        </a>
                         <div class="arr-down">
                           <svg class="icon icon-drop">
                             <use xlink:href="#arr-down" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
@@ -70,31 +118,87 @@
                       <div class="dropdown-target small-dropdown-target">
                         <div class="dropdown-inner">
                           <div class="dropdown-content">
-                            <ul class="country-list">
-                              <li class="country-list-item"><a class="country-list-link" href="#"><span class="country-img"><img src="img/ru.svg" alt="россия"></span><span class="country-text">Россия</span></a></li>
+                            <ul class="country-list js-country-swap-list">
+                              <li class="country-list-item">
+                                <a class="country-list-link js-country-swap-item" href="#" data-block="ru">
+                                  <span class="country-img">
+                                    <img src="img/ru.svg" alt="россия">
+                                  </span>
+                                  <span class="country-text">Россия</span>
+                                </a>
+                                <a class="js-country-swap-item country-list-link" href="#" data-block="bangbangbang">
+                                  <span class="country-img">
+                                    <img src="img/ru.svg" alt="россия">
+                                  </span>
+                                  <span class="country-text">Бангладеш</span>
+                                </a>
+                              </li>
                             </ul>
                           </div>
                         </div>
                       </div>
                     </div>
-                    <div class="dropdown-tel-wrapp">
-                      <div class="dropdown-tel-inner">
+                    <div class="dropdown-tel-wrapp js-content-switch-parent">
+                      <div class="dropdown-tel-inner js-content-switch-item" data-block="bel">
                         <div class="dropdown-tel-content">
-                          <!--максимум 3 номера--><a class="dropdown-tel-item" href="tel:+375445000252"> <span>+375 (44) 5 000 252</span></a><a class="dropdown-tel-item" href="tel:+375295000252"> <span>+375 (29) 5 000 252</span></a>
+                          <!--максимум 4 номера, дальше это уже партянка некрасивая-->
+                          <a class="dropdown-tel-item" href="tel:+375445000252"> 
+                            <span>+375 (44) 5 000 252</span>
+                          </a>
+                          <a class="dropdown-tel-item" href="tel:+375295000252"> 
+                            <span>+375 (29) 5 000 252</span>
+                          </a>
+                        </div>
+                      </div>
+                      <div class="dropdown-tel-inner js-content-switch-item" data-block="ru">
+                        <div class="dropdown-tel-content">
+                          <!--максимум 4 номера-->
+                          <a class="dropdown-tel-item" href="tel:+375445000252"> 
+                            <span>+375 (244) 5 000 252</span>
+                          </a>
+                          <a class="dropdown-tel-item" href="tel:+375295000252"> 
+                            <span>+375 (294) 5 000 252						</span>
+                          </a>
+                          <a class="dropdown-tel-item" href="tel:+375295000252"> 
+                            <span>+375 (294) 5 000 252						</span>
+                          </a>
+                          <a class="dropdown-tel-item" href="tel:+375295000252"> 
+                            <span>+375 (294) 5 000 252</span>
+                          </a>
+                        </div>
+                      </div>
+                      <div class="dropdown-tel-inner js-content-switch-item" data-block="bangbangbang">
+                        <div class="dropdown-tel-content">
+                          <!--максимум 4 номера-->
+                          <a class="dropdown-tel-item" href="tel:+375445000252"> 
+                            <span>+375 (344) 5 000 252</span>
+                          </a>
+                          <a class="dropdown-tel-item" href="tel:+375295000252"> 
+                            <span>+375 (394) 5 000 252						</span>
+                          </a>
+                          <a class="dropdown-tel-item" href="tel:+375295000252"> 
+                            <span>+375 (394) 5 000 252</span>
+                          </a>
                         </div>
                       </div>
                     </div>
                   </div>
                   <!--отображается с 1024-->
-                  <div class="header-bottom-mobnav"><a class="header-bottom-mobnav-acc" href="#">
+                  <div class="header-bottom-mobnav">
+                    <a class="header-bottom-mobnav-acc" href="#">
                       <div class="header-btn-inner">
                         <svg class="icon icon-drop">
                           <use xlink:href="#login" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
                         </svg>
-                      </div></a>
+                      </div>
+                    </a>
                     <div class="header-bottom-mobnav-btn js-menu">
                       <div class="header-btn-inner">
-                        <div class="navTrigger"><i></i><i></i><i></i></div>
+                        <div class="navTrigger">
+                          <i></i>
+                          <i></i>
+                          <i></i>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -103,59 +207,126 @@
               <div class="header-mobile-menu">
                 <div class="header-mobile-menu-outer">
                   <div class="header-mobile-menu-inner">
+                    <div class="mobile-header-lang">
+                      <a class="top-link header-lang-item active" href="#">
+                        <span>Ru</span>
+                      </a>
+                      <span class="top-link header-lang-item">
+                        <span>En</span>
+                      </span>
+                    </div>
                     <div class="mobile-list-wrapper">
                       <ul class="mobile-list bold">
-                        <li class="mobile-menu-item active"><a href="#"><span>Рейсы</span></a></li>
-                        <li class="mobile-menu-item"><a href="#"><span>Трансфер в аэропорт</span></a></li>
-                        <li class="mobile-menu-item"><a href="#"><span>Аренда автобусов</span></a></li>
+                        <li class="mobile-menu-item active">
+                          <a href="#">
+                            <span>Рейсы</span>
+                          </a>
+                        </li>
+                        <li class="mobile-menu-item">
+                          <a href="#">
+                            <span>Трансфер в аэропорт</span>
+                          </a>
+                        </li>
+                        <li class="mobile-menu-item">
+                          <a href="#">
+                            <span>Аренда автобусов</span>
+                          </a>
+                        </li>
                       </ul>
                       <ul class="mobile-list">
-                        <li class="mobile-menu-item active"><a href="#"><span>Клиентам</span></a></li>
-                        <li class="mobile-menu-menu-item"><a href="#"><span>Агентствам</span></a></li>
-                        <li class="mobile-menu-menu-item"><a href="#"><span>Перевозчикам</span></a></li>
-                        <li class="mobile-menu-menu-item"><a href="#"><span>Контакты</span></a></li>
-                        <li class="mobile-menu-menu-item"><a href="#"><span>Бюро находок</span></a></li>
+                        <li class="mobile-menu-item active">
+                          <a href="#">
+                            <span>Клиентам</span>
+                          </a>
+                        </li>
+                        <li class="mobile-menu-menu-item">
+                          <a href="#">
+                            <span>Агентствам</span>
+                          </a>
+                        </li>
+                        <li class="mobile-menu-menu-item">
+                          <a href="#">
+                            <span>Перевозчикам</span>
+                          </a>
+                        </li>
+                        <li class="mobile-menu-menu-item">
+                          <a href="#">
+                            <span>Контакты</span>
+                          </a>
+                        </li>
+                        <li class="mobile-menu-menu-item">
+                          <a href="#">
+                            <span>Бюро находок</span>
+                          </a>
+                        </li>
                       </ul>
                     </div>
                     <div class="mobile-contact">
-                                    <div class="info-block">
-                                      <div class="info-block-head">Бронирование</div>
-                                      <ul class="info-block-list">
-                                        <li class="info-block-item">
-                                          <!--в ссылках может присутствовать спан с текстом--><a class="info-block-link" href="tel:+375295000252">+375 (29) 5000-252</a>
-                                        </li>
-                                        <li class="info-block-item"><a class="info-block-link" href="tel:+375295000252">+375 (29) 5000-252</a></li>
-                                        <li class="info-block-item"><a class="info-block-link" href="tel:+79055591545">+375 (29) 5000-252</a></li>
-                                      </ul>
-                                    </div>
+                      <div class="info-block">
+                        <a class="info-block-head" href="#">Бронирование</a>
+                        <ul class="info-block-list">
+                          <li class="info-block-item">
+                            <a class="info-block-link bold" href="tel:+375295000252">+375 (29) 5000-252</a>
+                          </li>
+                          <li class="info-block-item">
+                            <a class="info-block-link bold" href="tel:+375295000252">+375 (29) 5000-252</a>
+                          </li>
+                          <li class="info-block-item">
+                            <a class="info-block-link bold" href="tel:+79055591545">+375 (29) 5000-252</a>
+                          </li>
+                        </ul>
+                      </div>
                                     <div class="info-block">
                                       <div class="info-block-head"></div>
                                       <ul class="info-block-list">
-                                        <li class="info-block-item"><a class="info-block-link" href="tel:+74952818817">+7 (495) 281-88-17<span>Москва</span></a></li>
-                                        <li class="info-block-item"><a class="info-block-link" href="tel:+78122442019">+7 (812) 244-20-19<span>Санкт-Петербург</span></a></li>
+                                        <li class="info-block-item">
+                                          <a class="info-block-link bold descr" href="tel:+74952818817"> 
+                                            <span class="main">+7 (495) 281-88-17</span>
+                                            <span>Москва</span>
+                                          </a>
+                                        </li>
+                                        <li class="info-block-item">
+                                          <a class="info-block-link bold descr" href="tel:+78122442019"> 
+                                            <span class="main">+7 (812) 244-20-19</span>
+                                            <span>Санкт-Петербург</span>
+                                          </a>
+                                        </li>
                                       </ul>
                                     </div>
                     </div>
                     <div class="mobile-soc">
-                      <div class="soc-wrapp"><a class="soc-wrapp-item tw" href="#">
+                      <div class="soc-wrapp">
+                        <a class="soc-wrapp-item tw" href="#">
                           <svg class="icon icon-drop">
                             <use xlink:href="#tw" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
-                          </svg></a><a class="soc-wrapp-item in" href="#">
+                          </svg>
+                        </a>
+                        <a class="soc-wrapp-item in" href="#">
                           <svg class="icon icon-drop">
                             <use xlink:href="#inst" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
-                          </svg></a><a class="soc-wrapp-item gp" href="#">
+                          </svg>
+                        </a>
+                        <a class="soc-wrapp-item gp" href="#">
                           <svg class="icon icon-drop">
                             <use xlink:href="#g+" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
-                          </svg></a><a class="soc-wrapp-item fb" href="#">
+                          </svg>
+                        </a>
+                        <a class="soc-wrapp-item fb" href="#">
                           <svg class="icon icon-drop">
                             <use xlink:href="#fb" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
-                          </svg></a><a class="soc-wrapp-item ok" href="#">
+                          </svg>
+                        </a>
+                        <a class="soc-wrapp-item ok" href="#">
                           <svg class="icon icon-drop">
                             <use xlink:href="#ok" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
-                          </svg></a><a class="soc-wrapp-item vk" href="#">
+                          </svg>
+                        </a>
+                        <a class="soc-wrapp-item vk" href="#">
                           <svg class="icon icon-drop">
                             <use xlink:href="#vk" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
-                          </svg></a></div>
+                          </svg>
+                        </a>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -173,8 +344,13 @@
                       <div class="input-item s100">
                         <div class="input-wrapper">
                           <div class="select-item">
-                            <label class="select-label js-condition"><span class="select-main">
-                                <input class="select-real" type="checkbox" value="1" name="two-way-variant"><span class="select-checked"></span></span><span class="select-text">Туда и обратно</span></label>
+                            <label class="select-label js-condition">
+                              <span class="select-main">
+                                <input class="select-real" type="checkbox" value="1" name="two-way-variant">
+                                <span class="select-checked"></span>
+                              </span>
+                              <span class="select-text">Туда и обратно</span>
+                            </label>
                           </div>
                         </div>
                       </div>
@@ -197,59 +373,76 @@
                         </div>
                       </div>
                       <div class="input-item s50">
-                        <div class="input-wrapper">
+                        <div class="input-wrapper disabled">
                           <div class="label">Откуда</div>
                           <!--все селекты заменены на выпадашки из радиокнопок, функция initCustomSelectList(), можно реинитить каждый селект через $(.твой_select-check).trigger('reinit');, либо просто вызовом функции-->
                           <!--для отключенного селекта .disabled на .select-check-->
                           <!--так же можно связывать селекты. пока не выбран первый все последующие с таким же классом будут отключены. класс .depends-on, пример ниже-->
                           <div class="select-check js-select-custom depends-on">
-                            <button class="selects" data-placeholder="Выберите"><span class="btn-text">Выберите</span><i class="arr-down">
+                            <button class="selects" data-placeholder="Выберите">
+                              <span class="btn-text">Выберите</span>
+                              <i class="arr-down">
                                 <svg class="icon icon-drop">
                                   <use xlink:href="#strelka" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
-                                </svg></i></button>
+                                </svg>
+                              </i>
+                            </button>
                             <div class="dropdown-target">
                               <div class="dropdown-inner">
                                 <div class="dropdown-content">
                                   <div class="select-u-body select-list">
                                     <label class="option">
                                       <!--хотя бы на одном инпуте должен висеть дата-атрибут для валидации-->
-                                      <input type="radio" name="group47" value="val1" data-validation="required"><span>Минск</span>
+                                      <input type="radio" name="group47" value="val1" data-validation="required">
+                                      <span>Минск</span>
                                     </label>
                                     <label class="option">
-                                      <input type="radio" name="group47" value="val2"><span>Пинск</span>
+                                      <input type="radio" name="group47" value="val2">
+                                      <span>Пинск</span>
                                     </label>
                                     <label class="option">
-                                      <input type="radio" name="group47" value="val3"><span>Копенгаген</span>
+                                      <input type="radio" name="group47" value="val3">
+                                      <span>Копенгаген</span>
                                     </label>
                                     <label class="option">
-                                      <input type="radio" name="group47" value="val4"><span>Рига</span>
+                                      <input type="radio" name="group47" value="val4">
+                                      <span>Рига</span>
                                     </label>
                                     <label class="option">
-                                      <input type="radio" name="group47" value="val5"><span>Немига</span>
+                                      <input type="radio" name="group47" value="val5">
+                                      <span>Немига</span>
                                     </label>
                                     <label class="option">
-                                      <input type="radio" name="group47" value="val6"><span>Метро</span>
+                                      <input type="radio" name="group47" value="val6">
+                                      <span>Метро</span>
                                     </label>
                                     <label class="option">
-                                      <input type="radio" name="group47" value="val7"><span>Копенгаген</span>
+                                      <input type="radio" name="group47" value="val7">
+                                      <span>Копенгаген</span>
                                     </label>
                                     <label class="option">
-                                      <input type="radio" name="group47" value="val8"><span>Копенгаген</span>
+                                      <input type="radio" name="group47" value="val8">
+                                      <span>Копенгаген</span>
                                     </label>
                                     <label class="option">
-                                      <input type="radio" name="group47" value="val9"><span>1Копенгаген</span>
+                                      <input type="radio" name="group47" value="val9">
+                                      <span>1Копенгаген</span>
                                     </label>
                                     <label class="option">
-                                      <input type="radio" name="group47" value="val9"><span>12Копенгаген</span>
+                                      <input type="radio" name="group47" value="val9">
+                                      <span>12Копенгаген</span>
                                     </label>
                                     <label class="option">
-                                      <input type="radio" name="group47" value="val9"><span>142Копенгаген</span>
+                                      <input type="radio" name="group47" value="val9">
+                                      <span>142Копенгаген</span>
                                     </label>
                                     <label class="option">
-                                      <input type="radio" name="group47" value="val9"><span>Копенгаген</span>
+                                      <input type="radio" name="group47" value="val9">
+                                      <span>Копенгаген</span>
                                     </label>
                                     <label class="option">
-                                      <input type="radio" name="group47" value="val9"><span>1Копенгаген</span>
+                                      <input type="radio" name="group47" value="val9">
+                                      <span>1Копенгаген</span>
                                     </label>
                                   </div>
                                 </div>
@@ -262,52 +455,69 @@
                         <div class="input-wrapper">
                           <div class="label">Куда</div>
                           <div class="select-check js-select-custom depends-on">
-                            <button class="selects" data-placeholder="Выберите"><span class="btn-text">Выберите</span><i class="arr-down">
+                            <button class="selects" data-placeholder="Выберите">
+                              <span class="btn-text">Выберите</span>
+                              <i class="arr-down">
                                 <svg class="icon icon-drop">
                                   <use xlink:href="#strelka" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
-                                </svg></i></button>
+                                </svg>
+                              </i>
+                            </button>
                             <div class="dropdown-target">
                               <div class="dropdown-inner">
                                 <div class="dropdown-content">
                                   <div class="select-u-body select-list">
                                     <label class="option">
-                                      <input type="radio" name="group49" value="val1" data-validation="required"><span>Минск</span>
+                                      <input type="radio" name="group49" value="val1" data-validation="required">
+                                      <span>Минск</span>
                                     </label>
                                     <label class="option">
-                                      <input type="radio" name="group49" value="val2"><span>Пинск</span>
+                                      <input type="radio" name="group49" value="val2">
+                                      <span>Пинск</span>
                                     </label>
                                     <label class="option">
-                                      <input type="radio" name="group49" value="val3"><span>Копенгаген</span>
+                                      <input type="radio" name="group49" value="val3">
+                                      <span>Копенгаген</span>
                                     </label>
                                     <label class="option">
-                                      <input type="radio" name="group49" value="val4"><span>Рига</span>
+                                      <input type="radio" name="group49" value="val4">
+                                      <span>Рига</span>
                                     </label>
                                     <label class="option">
-                                      <input type="radio" name="group49" value="val5"><span>Немига</span>
+                                      <input type="radio" name="group49" value="val5">
+                                      <span>Немига</span>
                                     </label>
                                     <label class="option">
-                                      <input type="radio" name="group49" value="val6"><span>Метро</span>
+                                      <input type="radio" name="group49" value="val6">
+                                      <span>Метро</span>
                                     </label>
                                     <label class="option">
-                                      <input type="radio" name="group49" value="val7"><span>Копенгаген</span>
+                                      <input type="radio" name="group49" value="val7">
+                                      <span>Копенгаген</span>
                                     </label>
                                     <label class="option">
-                                      <input type="radio" name="group49" value="val8"><span>Копенгаген</span>
+                                      <input type="radio" name="group49" value="val8">
+                                      <span>Копенгаген</span>
                                     </label>
                                     <label class="option">
-                                      <input type="radio" name="group49" value="val9"><span>1Копенгаген</span>
+                                      <input type="radio" name="group49" value="val9">
+                                      <span>1Копенгаген</span>
                                     </label>
                                     <label class="option">
-                                      <input type="radio" name="group49" value="val9"><span>12Копенгаген</span>
+                                      <input type="radio" name="group49" value="val9">
+                                      <span>12Копенгаген</span>
                                     </label>
                                     <label class="option">
-                                      <input type="radio" name="group49" value="val9"><span>142Копенгаген</span>
+                                      <input type="radio" name="group49" value="val9">
+                                      <span>142Копенгаген</span>
                                     </label>
                                     <label class="option">
-                                      <input type="radio" name="group49" value="val9"><span>Копенгаген</span>
+                                      <input type="radio" name="group49" value="val9">
+                                      <span>Копенгаген</span>
                                     </label>
                                     <label class="option">
-                                      <input type="radio" name="group49" value="val9"><span>1Копенгаген</span>
+                                      <input type="radio" name="group49" value="val9">
+                                      <span>1Копенгаген</span>
                                     </label>
                                   </div>
                                 </div>
@@ -317,12 +527,22 @@
                         </div>
                       </div>
                       <div class="form-footer">
-                        <button class="btn btn-colored" type="sumbit"><span>Найти билеты</span></button><a class="link-border" href="#"><span>Все рейсы</span></a>
+                        <button class="btn btn-colored" type="sumbit">
+                          <span>Найти билеты</span>
+                        </button>
+                        <a class="link-border" href="#">
+                          <span>Все рейсы</span>
+                        </a>
                       </div>
                     </form>
                   </div>
                   <div class="promo-slider">
-                    <div class="promo-slider-inner js-promoslider"><a class="promo-slider-item" href="#" style="background-image: url(img/promo.jpg);"></a><a class="promo-slider-item" href="#" style="background-image: url(img/promo.jpg);"></a><a class="promo-slider-item" href="#" style="background-image: url(img/promo.jpg);"></a><a class="promo-slider-item" href="#" style="background-image: url(img/promo.jpg);"></a></div>
+                    <div class="promo-slider-inner js-promoslider">
+                      <a class="promo-slider-item" href="#" style="background-image: url(img/promo.jpg);"></a>
+                      <a class="promo-slider-item" href="#" style="background-image: url(img/promo.jpg);"></a>
+                      <a class="promo-slider-item" href="#" style="background-image: url(img/promo.jpg);"></a>
+                      <a class="promo-slider-item" href="#" style="background-image: url(img/promo.jpg);"></a>
+                    </div>
                     <div class="nav-dots"></div>
                   </div>
                 </div>
@@ -334,154 +554,267 @@
                   <div class="tour-wrapper">
                     <!--.twoway в обе стороны-->
                     <!--.oneway стрелка вправо , .backway стрелка влево-->
-                                  <div class="card-item twoway"><a class="card-item-inner" href="#">
+                                  <div class="card-item twoway">
+                                    <a class="card-item-inner" href="#">
                                       <div class="card-item-img">
                                         <div class="card-item-img-inner" style="background-image:url(img/tour/1.png);"></div>
                                       </div>
                                       <div class="card-item-content">
                                         <div class="text-sm">Туда и обратно</div>
                                         <div class="card-item-value">
-                                          <div class="card-item-name text-bold"><span>Минск</span><span>Берлин</span></div>
-                                          <div class="card-item-price text-bold">50<span>byn </span></div>
-                                        </div><i class="card-item-link">
+                                          <div class="card-item-name text-bold">
+                                            <span>Минск</span>
+                                            <span>Берлин</span>
+                                          </div>
+                                          <div class="card-item-price text-bold">50
+                                            <span>byn </span>
+                                          </div>
+                                        </div>
+                                        <i class="card-item-link">
                                           <svg class="icon icon-drop">
                                             <use xlink:href="#arr-circle" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
-                                          </svg></i>
-                                      </div></a></div>
-                                  <div class="card-item oneway"><a class="card-item-inner" href="#">
+                                          </svg>
+                                        </i>
+                                      </div>
+                                    </a>
+                                  </div>
+                                  <div class="card-item oneway">
+                                    <a class="card-item-inner" href="#">
                                       <div class="card-item-img">
                                         <div class="card-item-img-inner" style="background-image:url(img/tour/2.png);"></div>
                                       </div>
                                       <div class="card-item-content">
                                         <div class="text-sm">Туда и обратно</div>
                                         <div class="card-item-value">
-                                          <div class="card-item-name text-bold"><span>Санкт-Петербург</span><span>Аэропорт Вильнюс</span></div>
-                                          <div class="card-item-price text-bold">23<span>byn </span></div>
-                                        </div><i class="card-item-link">
+                                          <div class="card-item-name text-bold">
+                                            <span>Санкт-Петербург</span>
+                                            <span>Аэропорт Вильнюс</span>
+                                          </div>
+                                          <div class="card-item-price text-bold">23
+                                            <span>byn </span>
+                                          </div>
+                                        </div>
+                                        <i class="card-item-link">
                                           <svg class="icon icon-drop">
                                             <use xlink:href="#arr-circle" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
-                                          </svg></i>
-                                      </div></a></div>
-                                  <div class="card-item oneway"><a class="card-item-inner" href="#">
+                                          </svg>
+                                        </i>
+                                      </div>
+                                    </a>
+                                  </div>
+                                  <div class="card-item oneway">
+                                    <a class="card-item-inner" href="#">
                                       <div class="card-item-img">
                                         <div class="card-item-img-inner" style="background-image:url(img/tour/3.png);"></div>
                                       </div>
                                       <div class="card-item-content">
                                         <div class="text-sm">Туда и обратно</div>
                                         <div class="card-item-value">
-                                          <div class="card-item-name text-bold"><span>Минск</span><span>Москва</span></div>
-                                          <div class="card-item-price text-bold">12<span>byn </span></div>
-                                        </div><i class="card-item-link">
+                                          <div class="card-item-name text-bold">
+                                            <span>Минск</span>
+                                            <span>Москва</span>
+                                          </div>
+                                          <div class="card-item-price text-bold">12
+                                            <span>byn </span>
+                                          </div>
+                                        </div>
+                                        <i class="card-item-link">
                                           <svg class="icon icon-drop">
                                             <use xlink:href="#arr-circle" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
-                                          </svg></i>
-                                      </div></a></div>
-                                  <div class="card-item oneway"><a class="card-item-inner" href="#">
+                                          </svg>
+                                        </i>
+                                      </div>
+                                    </a>
+                                  </div>
+                                  <div class="card-item oneway">
+                                    <a class="card-item-inner" href="#">
                                       <div class="card-item-img">
                                         <div class="card-item-img-inner" style="background-image:url(img/tour/7.png);"></div>
                                       </div>
                                       <div class="card-item-content">
                                         <div class="text-sm">Туда и обратно</div>
                                         <div class="card-item-value">
-                                          <div class="card-item-name text-bold"><span>Минск</span><span>Таллин</span></div>
-                                          <div class="card-item-price text-bold">105<span>byn </span></div>
-                                        </div><i class="card-item-link">
+                                          <div class="card-item-name text-bold">
+                                            <span>Минск</span>
+                                            <span>Таллин</span>
+                                          </div>
+                                          <div class="card-item-price text-bold">105
+                                            <span>byn </span>
+                                          </div>
+                                        </div>
+                                        <i class="card-item-link">
                                           <svg class="icon icon-drop">
                                             <use xlink:href="#arr-circle" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
-                                          </svg></i>
-                                      </div></a></div>
-                                  <div class="card-item oneway"><a class="card-item-inner" href="#">
+                                          </svg>
+                                        </i>
+                                      </div>
+                                    </a>
+                                  </div>
+                                  <div class="card-item oneway">
+                                    <a class="card-item-inner" href="#">
                                       <div class="card-item-img">
                                         <div class="card-item-img-inner" style="background-image:url(img/tour/1.png);"></div>
                                       </div>
                                       <div class="card-item-content">
                                         <div class="text-sm">Туда и обратно</div>
                                         <div class="card-item-value">
-                                          <div class="card-item-name text-bold"><span>Минск</span><span>Аэропорт Санкт-Петербург</span></div>
-                                          <div class="card-item-price text-bold">18<span>byn </span></div>
-                                        </div><i class="card-item-link">
+                                          <div class="card-item-name text-bold">
+                                            <span>Минск</span>
+                                            <span>Аэропорт Санкт-Петербург</span>
+                                          </div>
+                                          <div class="card-item-price text-bold">18
+                                            <span>byn </span>
+                                          </div>
+                                        </div>
+                                        <i class="card-item-link">
                                           <svg class="icon icon-drop">
                                             <use xlink:href="#arr-circle" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
-                                          </svg></i>
-                                      </div></a></div>
-                                  <div class="card-item backway"><a class="card-item-inner" href="#">
+                                          </svg>
+                                        </i>
+                                      </div>
+                                    </a>
+                                  </div>
+                                  <div class="card-item backway">
+                                    <a class="card-item-inner" href="#">
                                       <div class="card-item-img">
                                         <div class="card-item-img-inner" style="background-image:url(img/tour/2.png);"></div>
                                       </div>
                                       <div class="card-item-content">
                                         <div class="text-sm">Туда и обратно</div>
                                         <div class="card-item-value">
-                                          <div class="card-item-name text-bold"><span>Минск</span><span>Рига</span></div>
-                                          <div class="card-item-price text-bold">18<span>byn </span></div>
-                                        </div><i class="card-item-link">
+                                          <div class="card-item-name text-bold">
+                                            <span>Минск</span>
+                                            <span>Рига</span>
+                                          </div>
+                                          <div class="card-item-price text-bold">18
+                                            <span>byn </span>
+                                          </div>
+                                        </div>
+                                        <i class="card-item-link">
                                           <svg class="icon icon-drop">
                                             <use xlink:href="#arr-circle" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
-                                          </svg></i>
-                                      </div></a></div>
-                                  <div class="card-item twoway"><a class="card-item-inner" href="#">
+                                          </svg>
+                                        </i>
+                                      </div>
+                                    </a>
+                                  </div>
+                                  <div class="card-item twoway">
+                                    <a class="card-item-inner" href="#">
                                       <div class="card-item-img">
                                         <div class="card-item-img-inner" style="background-image:url(img/tour/3.png);"></div>
                                       </div>
                                       <div class="card-item-content">
                                         <div class="text-sm">Туда и обратно</div>
                                         <div class="card-item-value">
-                                          <div class="card-item-name text-bold"><span>Минск</span><span>Рига</span></div>
-                                          <div class="card-item-price text-bold">45<span>byn </span></div>
-                                        </div><i class="card-item-link">
+                                          <div class="card-item-name text-bold">
+                                            <span>Минск</span>
+                                            <span>Рига</span>
+                                          </div>
+                                          <div class="card-item-price text-bold">45
+                                            <span>byn </span>
+                                          </div>
+                                        </div>
+                                        <i class="card-item-link">
                                           <svg class="icon icon-drop">
                                             <use xlink:href="#arr-circle" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
-                                          </svg></i>
-                                      </div></a></div>
-                                  <div class="card-item backway"><a class="card-item-inner" href="#">
+                                          </svg>
+                                        </i>
+                                      </div>
+                                    </a>
+                                  </div>
+                                  <div class="card-item backway">
+                                    <a class="card-item-inner" href="#">
                                       <div class="card-item-img">
                                         <div class="card-item-img-inner" style="background-image:url(img/tour/3.png);"></div>
                                       </div>
                                       <div class="card-item-content">
                                         <div class="text-sm">Туда и обратно</div>
                                         <div class="card-item-value">
-                                          <div class="card-item-name text-bold"><span>Минск</span><span>Берлин</span></div>
-                                          <div class="card-item-price text-bold">50<span>byn </span></div>
-                                        </div><i class="card-item-link">
+                                          <div class="card-item-name text-bold">
+                                            <span>Минск</span>
+                                            <span>Берлин</span>
+                                          </div>
+                                          <div class="card-item-price text-bold">50
+                                            <span>byn </span>
+                                          </div>
+                                        </div>
+                                        <i class="card-item-link">
                                           <svg class="icon icon-drop">
                                             <use xlink:href="#arr-circle" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
-                                          </svg></i>
-                                      </div></a></div>
-                                  <div class="card-item twoway"><a class="card-item-inner" href="#">
+                                          </svg>
+                                        </i>
+                                      </div>
+                                    </a>
+                                  </div>
+                                  <div class="card-item twoway">
+                                    <a class="card-item-inner" href="#">
                                       <div class="card-item-img">
                                         <div class="card-item-img-inner" style="background-image:url(img/tour/3.png);"></div>
                                       </div>
                                       <div class="card-item-content">
                                         <div class="text-sm">Туда и обратно</div>
                                         <div class="card-item-value">
-                                          <div class="card-item-name text-bold"><span>Минск</span><span>Берлин</span></div>
-                                          <div class="card-item-price text-bold">50<span>byn </span></div>
-                                        </div><i class="card-item-link">
+                                          <div class="card-item-name text-bold">
+                                            <span>Минск</span>
+                                            <span>Берлин</span>
+                                          </div>
+                                          <div class="card-item-price text-bold">50
+                                            <span>byn </span>
+                                          </div>
+                                        </div>
+                                        <i class="card-item-link">
                                           <svg class="icon icon-drop">
                                             <use xlink:href="#arr-circle" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
-                                          </svg></i>
-                                      </div></a></div>
+                                          </svg>
+                                        </i>
+                                      </div>
+                                    </a>
+                                  </div>
                     <!--на главной ведет на страницу туров, на внутренней подружает аяксом -->
-                  </div><a class="btn btn-gray" href="#"> <span>показать Ещё рейсы</span></a>
+                  </div>
+                  <a class="btn btn-gray" href="#"> 
+                    <span>показать Ещё рейсы</span>
+                  </a>
                   <div class="tour-sort-wrapper">
                     <div class="tour-sort-text">Популярные рейсы из</div>
                     <div class="tour-sort-dropdown">
                       <div class="sort_wrapper">
                         <div class="sort-select js-select-item select-check">
-                          <div class="sort-select-title"><span>Минск</span><i class="arr-down">
+                          <div class="sort-select-title">
+                            <span>Минск</span>
+                            <i class="arr-down">
                               <svg class="icon icon-drop">
                                 <use xlink:href="#small-arr-down" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
-                              </svg></i></div>
+                              </svg>
+                            </i>
+                          </div>
                           <div class="dropdown-target">
                             <div class="dropdown-inner">
                               <div class="dropdown-content">
-                                <div class="sort-select-item"><a href="#" data-text="Минск">Минск</a></div>
-                                <div class="sort-select-item"><a href="#" data-text="Пинск">Пинск</a></div>
-                                <div class="sort-select-item"><a href="#" data-text="Копенгаген">Копенгаген</a></div>
-                                <div class="sort-select-item active"><a href="#" data-text="Копенгаген">Копенгаген</a></div>
-                                <div class="sort-select-item"><a href="#" data-text="Копенгаген">Копенгаген</a></div>
-                                <div class="sort-select-item"><a href="#" data-text="Копенгаген">Копенгаген</a></div>
-                                <div class="sort-select-item"><a href="#" data-text="Копенгаген">Копенгаген</a></div>
-                                <div class="sort-select-item"><a href="#" data-text="Немига">Немига</a></div>
+                                <div class="sort-select-item">
+                                  <a href="#" data-text="Минск">Минск</a>
+                                </div>
+                                <div class="sort-select-item">
+                                  <a href="#" data-text="Пинск">Пинск</a>
+                                </div>
+                                <div class="sort-select-item">
+                                  <a href="#" data-text="Копенгаген">Копенгаген</a>
+                                </div>
+                                <div class="sort-select-item active">
+                                  <a href="#" data-text="Копенгаген">Копенгаген</a>
+                                </div>
+                                <div class="sort-select-item">
+                                  <a href="#" data-text="Копенгаген">Копенгаген</a>
+                                </div>
+                                <div class="sort-select-item">
+                                  <a href="#" data-text="Копенгаген">Копенгаген</a>
+                                </div>
+                                <div class="sort-select-item">
+                                  <a href="#" data-text="Копенгаген">Копенгаген</a>
+                                </div>
+                                <div class="sort-select-item">
+                                  <a href="#" data-text="Немига">Немига</a>
+                                </div>
                               </div>
                             </div>
                           </div>
@@ -500,7 +833,12 @@
                   <div class="services-item">
                     <div class="services-item-inner">
                       <div class="services-item-head">
-                        <div class="services-item-links"><a class="services-item-link" href="#">Минск → Москва</a><a class="services-item-link" href="#">Москва → Минск</a><a class="services-item-link" href="#">Минск → Санкт-Петербург</a></div><a class="services-item-img" href="#">
+                        <div class="services-item-links">
+                          <a class="services-item-link" href="#">Минск → Москва</a>
+                          <a class="services-item-link" href="#">Москва → Минск</a>
+                          <a class="services-item-link" href="#">Минск → Санкт-Петербург</a>
+                        </div>
+                        <a class="services-item-img" href="#">
                           <div class="services-item-img-inner">
                             <div class="services-item-img-main">
                               <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewbox="0 0 75.4 90.5" style="enable-background:new 0 0 75.4 90.5;" xml:space="preserve">
@@ -533,17 +871,27 @@
                                 </g>
                               </svg>
                             </div>
-                          </div></a>
-                      </div><a class="services-item-body" href="#">
+                          </div>
+                        </a>
+                      </div>
+                      <a class="services-item-body" href="#">
                         <div class="text-medium">Рейсы</div>
                         <div class="text-1">Ежедневные рейсы автобусов в удобное для вас время</div>
-                        <div class="link-border"><span>Все рейсы</span></div></a>
+                        <div class="link-border">
+                          <span>Все рейсы</span>
+                        </div>
+                      </a>
                     </div>
                   </div>
                   <div class="services-item">
                     <div class="services-item-inner">
                       <div class="services-item-head">
-                        <div class="services-item-links"><a class="services-item-link" href="#">Внуково</a><a class="services-item-link" href="#">Домодедово</a><a class="services-item-link" href="#">Шереметьево</a></div><a class="services-item-img" href="#">
+                        <div class="services-item-links">
+                          <a class="services-item-link" href="#">Внуково</a>
+                          <a class="services-item-link" href="#">Домодедово</a>
+                          <a class="services-item-link" href="#">Шереметьево</a>
+                        </div>
+                        <a class="services-item-img" href="#">
                           <div class="services-item-img-inner">
                             <div class="services-item-img-main">
                               <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewbox="0 0 89.1 89.1" style="enable-background:new 0 0 89.1 89.1;" xml:space="preserve">
@@ -566,17 +914,27 @@
                                 </g>
                               </svg>
                             </div>
-                          </div></a>
-                      </div><a class="services-item-body" href="#">
+                          </div>
+                        </a>
+                      </div>
+                      <a class="services-item-body" href="#">
                         <div class="text-medium">Трансфер в аэропорт</div>
                         <div class="text-1">Лучшая возможность вовремя прибыть в необходимый аэропорт</div>
-                        <div class="link-border"><span>Весь трансфер</span></div></a>
+                        <div class="link-border">
+                          <span>Весь трансфер</span>
+                        </div>
+                      </a>
                     </div>
                   </div>
                   <div class="services-item">
                     <div class="services-item-inner">
                       <div class="services-item-head">
-                        <div class="services-item-links"><a class="services-item-link" href="#">Volvo 9700H, 48 мест</a><a class="services-item-link" href="#">NEOPLAN, 49 мест</a><a class="services-item-link" href="#">Mercedes-Benz Travego, 49 </a></div><a class="services-item-img" href="#">
+                        <div class="services-item-links">
+                          <a class="services-item-link" href="#">Volvo 9700H, 48 мест</a>
+                          <a class="services-item-link" href="#">NEOPLAN, 49 мест</a>
+                          <a class="services-item-link" href="#">Mercedes-Benz Travego, 49 </a>
+                        </div>
+                        <a class="services-item-img" href="#">
                           <div class="services-item-img-inner">
                             <div class="services-item-img-main">
                               <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewbox="0 0 93.9 98.1" style="enable-background:new 0 0 93.9 98.1;" xml:space="preserve">
@@ -607,11 +965,16 @@
                                 </g>
                               </svg>
                             </div>
-                          </div></a>
-                      </div><a class="services-item-body" href="#">
+                          </div>
+                        </a>
+                      </div>
+                      <a class="services-item-body" href="#">
                         <div class="text-medium">Аренда автобусов</div>
                         <div class="text-1">Самые дальние путешествия без временных потерь и дискомфорта</div>
-                        <div class="link-border"><span>Все автобусы</span></div></a>
+                        <div class="link-border">
+                          <span>Все автобусы</span>
+                        </div>
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -628,40 +991,58 @@
               <section class="box">
                 <div class="news-wrapper">
                   <div class="news-nav">
-                    <h2 class="title h3">Акции и новости</h2><a class="btn btn-gray" href="#"> <span>Смотреть все</span></a>
+                    <h2 class="title h3">Акции и новости</h2>
+                    <a class="btn btn-gray" href="#"> 
+                      <span>Смотреть все</span>
+                    </a>
                   </div>
                   <div class="news-wrapper-inner">
-                                  <article class="news-item big"><a class="news-item-inner" href="#">
+                                  <article class="news-item big">
+                                    <a class="news-item-inner" href="#">
                                       <div class="news-item-img">
                                         <div class="card-item-img-inner" style="background-image:url(img/news1.jpg);"></div>
                                       </div>
                                       <div class="news-item-content">
                                         <!--либо .promo либо .news-->
-                                        <div class="small-block promo"><span>акции</span></div>
+                                        <div class="small-block promo">
+                                          <span>акции</span>
+                                        </div>
                                         <div class="news-item-content-inner">
                                           <time class="text-sm">15 февраля 2017</time>
                                           <div class="news-item-name">Зарегистрируйся на сайте и получи специальную цену</div>
                                           <div class="text-2">Из путешествий всегда хочется привезти своим близким что-то особенное. Зачастую этим особенным становятся сувениры, </div>
                                         </div>
-                                      </div></a></article>
-                                  <article class="news-item"><a class="news-item-inner" href="#">
+                                      </div>
+                                    </a>
+                                  </article>
+                                  <article class="news-item">
+                                    <a class="news-item-inner" href="#">
                                       <div class="news-item-content">
-                                        <div class="small-block news"><span>Новости</span></div>
+                                        <div class="small-block news">
+                                          <span>Новости</span>
+                                        </div>
                                         <div class="news-item-content-inner">
                                           <time class="text-sm">15 февраля 2017</time>
                                           <div class="news-item-name">Сувениры в Питере, где купить?</div>
                                           <div class="text-2">Из путешествий всегда хочется привезти своим близким что-то особенное. Зачастую этим особенным становятся	</div>
                                         </div>
-                                      </div></a></article>
-                                  <article class="news-item"><a class="news-item-inner" href="#">
+                                      </div>
+                                    </a>
+                                  </article>
+                                  <article class="news-item">
+                                    <a class="news-item-inner" href="#">
                                       <div class="news-item-content">
-                                        <div class="small-block news"><span>Новости</span></div>
+                                        <div class="small-block news">
+                                          <span>Новости</span>
+                                        </div>
                                         <div class="news-item-content-inner">
                                           <time class="text-sm">15 февраля 2017</time>
                                           <div class="news-item-name">Пересечения российско-белорусского участка государственной границы</div>
                                           <div class="text-2">	</div>
                                         </div>
-                                      </div></a></article>
+                                      </div>
+                                    </a>
+                                  </article>
                   </div>
                 </div>
               </section>
@@ -671,19 +1052,43 @@
                 <div class="question-outer">
                   <h2 class="title h3">Часто задаваемые вопросы</h2>
                   <div class="nav-arrows"></div>
-                  <div class="question-inner js-questionslider"><a class="question-item" href="#">
-                                    <div class="question-item-img"><img src="img/question/vopros_calendar.svg" alt=""></div>
-                                    <div class="question-item-name">Маршруты и расписание</div></a><a class="question-item" href="#">
-                                    <div class="question-item-img"><img src="img/question/vopros_action.svg" alt=""></div>
-                                    <div class="question-item-name">Скидки</div></a><a class="question-item" href="#">
-                                    <div class="question-item-img"><img src="img/question/vopros_bronirovanie.svg" alt=""></div>
-                                    <div class="question-item-name">Бронирование</div></a><a class="question-item" href="#">
-                                    <div class="question-item-img"><img src="img/question/vopros_price.svg" alt=""></div>
-                                    <div class="question-item-name">Оплата</div></a><a class="question-item" href="#">
-                                    <div class="question-item-img"><img src="img/question/vopros_bagaz.svg" alt=""></div>
-                                    <div class="question-item-name">Багаж</div></a><a class="question-item" href="#">
-                                    <div class="question-item-img"><img src="img/question/vopros_granica.svg" alt=""></div>
-                                    <div class="question-item-name">Пересечение границы</div></a>
+                  <div class="question-inner js-questionslider">
+                                  <a class="question-item" href="#">
+                                    <div class="question-item-img">
+                                      <img src="img/question/vopros_calendar.svg" alt="">
+                                    </div>
+                                    <div class="question-item-name">Маршруты и расписание</div>
+                                  </a>
+                                  <a class="question-item" href="#">
+                                    <div class="question-item-img">
+                                      <img src="img/question/vopros_action.svg" alt="">
+                                    </div>
+                                    <div class="question-item-name">Скидки</div>
+                                  </a>
+                                  <a class="question-item" href="#">
+                                    <div class="question-item-img">
+                                      <img src="img/question/vopros_bronirovanie.svg" alt="">
+                                    </div>
+                                    <div class="question-item-name">Бронирование</div>
+                                  </a>
+                                  <a class="question-item" href="#">
+                                    <div class="question-item-img">
+                                      <img src="img/question/vopros_price.svg" alt="">
+                                    </div>
+                                    <div class="question-item-name">Оплата</div>
+                                  </a>
+                                  <a class="question-item" href="#">
+                                    <div class="question-item-img">
+                                      <img src="img/question/vopros_bagaz.svg" alt="">
+                                    </div>
+                                    <div class="question-item-name">Багаж</div>
+                                  </a>
+                                  <a class="question-item" href="#">
+                                    <div class="question-item-img">
+                                      <img src="img/question/vopros_granica.svg" alt="">
+                                    </div>
+                                    <div class="question-item-name">Пересечение границы</div>
+                                  </a>
                   </div>
                   <div class="i-arrows">
                     <div class="slider-counter">
@@ -699,45 +1104,85 @@
           <footer class="page__footer">
             <div class="box">
               <div class="footer__main">
-                <div class="footer-main-nav"><a class="m-logo" href="#" style="background-image:url(img/logo.png);"></a><a class="btn js-popup-button" href="#" data-modal="callback">
-                    <!--дата-атрибут только на этой кнопке, больше нигде нету --><span data-text="Обратный звонок">Заказать обратный звонок</span></a></div>
+                <div class="footer-main-nav">
+                  <a class="m-logo" href="#" style="background-image:url(img/logo.png);"></a>
+                  <a class="btn js-popup-button" href="#" data-modal="callback">
+                    <!--дата-атрибут только на этой кнопке, больше нигде нету -->
+                    <span data-text="Обратный звонок">Заказать обратный звонок</span>
+                  </a>
+                </div>
                 <div class="footer-dop-nav">
                   <div class="footer-column-wrap">
+                    <!--.info-column для блоков с info-block-ами -->
                     <div class="footer-column">
-                      <ul class="footer-column-list">
-                                    <li class="footer-column-list-item"><a href="#">Рейсы</a></li>
-                                    <li class="footer-column-list-item"><a href="#">Трансфер в аэропорт</a></li>
-                                    <li class="footer-column-list-item"><a href="#">Аренда автобусов</a></li>
+                      <ul class="footer-column-list bold">
+                                    <li class="footer-column-list-item">
+                                      <a href="#">Рейсы</a>
+                                    </li>
+                                    <li class="footer-column-list-item">
+                                      <a href="#">Трансфер в аэропорт</a>
+                                    </li>
+                                    <li class="footer-column-list-item">
+                                      <a href="#">Аренда автобусов</a>
+                                    </li>
                       </ul>
                       <ul class="footer-column-list">
-                                    <li class="footer-column-list-item"><a href="#">Клиентам</a></li>
-                                    <li class="footer-column-list-item"><a href="#">Агентствам</a></li>
-                                    <li class="footer-column-list-item"><a href="#">Перевозчикам</a></li>
-                                    <li class="footer-column-list-item"><a href="#">Контакты</a></li>
-                                    <li class="footer-column-list-item"><a href="#">Бюро находок</a></li>
-                                    <li class="footer-column-list-item"><a href="#">Личный кабинет</a></li>
+                                    <li class="footer-column-list-item">
+                                      <a href="#">Клиентам</a>
+                                    </li>
+                                    <li class="footer-column-list-item">
+                                      <a href="#">Агентствам</a>
+                                    </li>
+                                    <li class="footer-column-list-item">
+                                      <a href="#">Перевозчикам</a>
+                                    </li>
+                                    <li class="footer-column-list-item">
+                                      <a href="#">Контакты</a>
+                                    </li>
+                                    <li class="footer-column-list-item">
+                                      <a href="#">Бюро находок</a>
+                                    </li>
+                                    <li class="footer-column-list-item">
+                                      <a href="#">Личный кабинет</a>
+                                    </li>
                       </ul>
                     </div>
-                    <div class="footer-column">
+                    <div class="footer-column info-column">
                                   <div class="info-block">
                                     <div class="info-block-head">Бронирование</div>
                                     <ul class="info-block-list">
                                       <li class="info-block-item">
-                                        <!--в ссылках может присутствовать спан с текстом--><a class="info-block-link" href="tel:+375295000252">+375 (29) 5000-252</a>
+                                        <!--в ссылках может присутствовать спан с текстом - класс .descr, в нем основной контент .main, описание - просто спан-->
+                                        <!-- жирный текст .bold-->
+                                        <a class="info-block-link bold" href="tel:+375295000252">+375 (29) 5000-252</a>
                                       </li>
-                                      <li class="info-block-item"><a class="info-block-link" href="tel:+375295000252">+375 (29) 5000-252</a></li>
-                                      <li class="info-block-item"><a class="info-block-link" href="tel:+79055591545">+375 (29) 5000-252</a></li>
+                                      <li class="info-block-item">
+                                        <a class="info-block-link bold" href="tel:+375295000252">+375 (29) 5000-252</a>
+                                      </li>
+                                      <li class="info-block-item">
+                                        <a class="info-block-link bold" href="tel:+79055591545">+375 (29) 5000-252</a>
+                                      </li>
                                     </ul>
                                   </div>
                                   <div class="info-block">
                                     <div class="info-block-head"></div>
                                     <ul class="info-block-list">
-                                      <li class="info-block-item"><a class="info-block-link" href="tel:+74952818817">+7 (495) 281-88-17<span>Москва</span></a></li>
-                                      <li class="info-block-item"><a class="info-block-link" href="tel:+78122442019">+7 (812) 244-20-19<span>Санкт-Петербург</span></a></li>
+                                      <li class="info-block-item">
+                                        <a class="info-block-link bold descr" href="tel:+74952818817"> 
+                                          <span class="main"> +7 (495) 281-88-17</span>
+                                          <span>Москва</span>
+                                        </a>
+                                      </li>
+                                      <li class="info-block-item">
+                                        <a class="info-block-link bold descr" href="tel:+78122442019"> 
+                                          <span class="main">+7 (812) 244-20-19</span>
+                                          <span>Санкт-Петербург</span>
+                                        </a>
+                                      </li>
                                     </ul>
                                   </div>
                     </div>
-                    <div class="footer-column">
+                    <div class="footer-column info-column">
                                   <div class="info-block">
                                     <div class="info-block-head">Адрес</div>
                                     <ul class="info-block-list">
@@ -749,20 +1194,34 @@
                                   <div class="info-block">
                                     <div class="info-block-head">E-mail</div>
                                     <ul class="info-block-list">
-                                      <li class="info-block-item"><a class="info-block-link" href="mailto:service@eurotrans.by">service@eurotrans.by <span>для обращений</span></a></li>
-                                      <li class="info-block-item"><a class="info-block-link" href="mailto:job@eurotrans.by">job@eurotrans.by<span>для резюме</span></a></li>
-                                      <li class="info-block-item"><a class="info-block-link" href="mailto:info@eurotrans.by">info@eurotrans.by</a></li>
+                                      <li class="info-block-item">
+                                        <a class="info-block-link descr" href="mailto:service@eurotrans.by"> 
+                                          <span class="main">service@eurotrans.by </span>
+                                          <span>для обращений</span>
+                                        </a>
+                                      </li>
+                                      <li class="info-block-item">
+                                        <a class="info-block-link descr" href="mailto:job@eurotrans.by"> 
+                                          <span class="main">job@eurotrans.by</span>
+                                          <span>для резюме</span>
+                                        </a>
+                                      </li>
+                                      <li class="info-block-item">
+                                        <a class="info-block-link" href="mailto:info@eurotrans.by">info@eurotrans.by</a>
+                                      </li>
                                     </ul>
                                   </div>
                     </div>
-                    <div class="footer-column">
-                                  <div class="info-block">
+                    <div class="footer-column info-column">
+                                  <div class="info-block small">
                                     <div class="info-block-head">Skype</div>
                                     <ul class="info-block-list">
-                                      <li class="info-block-item"><a class="info-block-link" href="skype:Eurotrans_bot">Eurotrans_bot</a></li>
+                                      <li class="info-block-item">
+                                        <a class="info-block-link" href="skype:Eurotrans_bot">Eurotrans_bot</a>
+                                      </li>
                                     </ul>
                                   </div>
-                                  <div class="info-block">
+                                  <div class="info-block small">
                                     <div class="info-block-head">Telegram</div>
                                     <ul class="info-block-list">
                                       <li class="info-block-item">
@@ -770,7 +1229,7 @@
                                       </li>
                                     </ul>
                                   </div>
-                                  <div class="info-block">
+                                  <div class="info-block small">
                                     <div class="info-block-head">Viber</div>
                                     <ul class="info-block-list">
                                       <li class="info-block-item">
@@ -782,51 +1241,81 @@
                   </div>
                 </div>
               </div>
+              <div class="footer-row">
+                <div class="footer-row-text">* Все цены в иностранной валюте несут исключительно информационный характер!</div>
+                <div class="footer-row-pay">
+                  <div class="footer-row-pay-inner">
+                                <div class="footer-row-pay-item">
+                                  <img src="img/pay/1.png" alt="vissssss">
+                                </div>
+                                <div class="footer-row-pay-item">
+                                  <img src="img/pay/2.png" alt="vissssss">
+                                </div>
+                                <div class="footer-row-pay-item">
+                                  <img src="img/pay/3.png" alt="vissssss">
+                                </div>
+                                <div class="footer-row-pay-item">
+                                  <img src="img/pay/4.png" alt="vissssss">
+                                </div>
+                                <div class="footer-row-pay-item">
+                                  <img src="img/pay/5.png" alt="vissssss">
+                                </div>
+                                <div class="footer-row-pay-item">
+                                  <img src="img/pay/6.png" alt="vissssss">
+                                </div>
+                                <div class="footer-row-pay-item">
+                                  <img src="img/pay/7.png" alt="vissssss">
+                                </div>
+                  </div>
+                </div>
+              </div>
               <div class="footer__footer">
-                <div class="soc-wrapp"><a class="soc-wrapp-item tw" href="#">
+                <div class="soc-wrapp">
+                  <a class="soc-wrapp-item tw" href="#">
                     <svg class="icon icon-drop">
                       <use xlink:href="#tw" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
-                    </svg></a><a class="soc-wrapp-item in" href="#">
+                    </svg>
+                  </a>
+                  <a class="soc-wrapp-item in" href="#">
                     <svg class="icon icon-drop">
                       <use xlink:href="#inst" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
-                    </svg></a><a class="soc-wrapp-item gp" href="#">
+                    </svg>
+                  </a>
+                  <a class="soc-wrapp-item gp" href="#">
                     <svg class="icon icon-drop">
                       <use xlink:href="#g+" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
-                    </svg></a><a class="soc-wrapp-item fb" href="#">
+                    </svg>
+                  </a>
+                  <a class="soc-wrapp-item fb" href="#">
                     <svg class="icon icon-drop">
                       <use xlink:href="#fb" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
-                    </svg></a><a class="soc-wrapp-item ok" href="#">
+                    </svg>
+                  </a>
+                  <a class="soc-wrapp-item ok" href="#">
                     <svg class="icon icon-drop">
                       <use xlink:href="#ok" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
-                    </svg></a><a class="soc-wrapp-item vk" href="#">
+                    </svg>
+                  </a>
+                  <a class="soc-wrapp-item vk" href="#">
                     <svg class="icon icon-drop">
                       <use xlink:href="#vk" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
-                    </svg></a></div>
-                <div class="footer-row">
-                  <div class="footer-row-text">* Все цены в иностранной валюте несут исключительно информационный характер!</div>
-                  <div class="footer-row-pay">
-                    <div class="footer-row-pay-inner">
-                                  <div class="footer-row-pay-item"><img src="img/pay/1.png" alt="vissssss"></div>
-                                  <div class="footer-row-pay-item"><img src="img/pay/2.png" alt="vissssss"></div>
-                                  <div class="footer-row-pay-item"><img src="img/pay/3.png" alt="vissssss"></div>
-                                  <div class="footer-row-pay-item"><img src="img/pay/4.png" alt="vissssss"></div>
-                                  <div class="footer-row-pay-item"><img src="img/pay/5.png" alt="vissssss"></div>
-                                  <div class="footer-row-pay-item"><img src="img/pay/6.png" alt="vissssss"></div>
-                                  <div class="footer-row-pay-item"><img src="img/pay/7.png" alt="vissssss"></div>
-                    </div>
-                  </div>
+                    </svg>
+                  </a>
                 </div>
                 <div class="footer__footer-copy">
                   <div class="text-sm">© 2016 Все права защищены.</div>
                 </div>
-                <div class="footer__footer-developer"><a class="footer-developer-link" href="#">
+                <div class="footer__footer-developer">
+                  <a class="footer-developer-link" href="#">
                     <div class="text-sm">Дизайн сайта: </div>
                     <div class="footer-developer-icon">
                       <svg class="icon icon-drop">
                         <use xlink:href="#logof" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
                       </svg>
                     </div>
-                    <div class="footer-developer-text">FLEX.MEDIA</div></a></div>
+                    <div class="footer-developer-text">FLEX.MEDIA</div>
+                  </a>
+                </div>
               </div>
             </div>
           </footer>
@@ -839,110 +1328,88 @@
         <!-- по саксесу вешаю на этот блок класс из-за которого следующий открывается-->
         <div class="modal-container">
           <div class="modal-container-header">
-            <div class="title h4">Обратная связь</div><i class="small-link pop-close closePopup"></i>
+            <div class="text-medium">Заказать обратный звонок</div>
+            <i class="small-link pop-close closePopup"></i>
           </div>
           <div class="modal-container-content">
-            <form class="form js-validate" data-block=".modal-container">
-              <div class="input-item s-50">
-                <div class="input-wrapper req">
-                  <label>Имя</label>
-                  <input class="input-main" type="text" placeholder="Имя" data-validation="length required" data-validation-length="min2" data-validation-error-msg="Не заполнено">
+            <form class="form-block-wrapper js-validate" action="/">
+              <div class="form-block-section">
+                <div class="input-form">
+                  <div class="input-item s50">
+                    <div class="input-wrapper req">
+                      <label for="imb1">Имя</label>
+                      <input class="input-main" type="text" placeholder="Имя" data-validation="length" data-validation-length="min2" data-validation-error-msg="Не заполнено" id="imb1">
+                    </div>
+                  </div>
+                  <div class="input-item s50">
+                    <div class="input-wrapper req">
+                      <label for="imb3">Телефон</label>
+                      <input class="input-main" type="tel" placeholder="Телефон" data-validation="custom" data-validation-regexp="^[-0-9()+ ]+$" data-validation-error-msg="Не заполнено" id="imb3">
+                    </div>
+                  </div>
+                  <div class="input-item s100">
+                    <div class="input-wrapper req">
+                      <label for="text12121">Комментарий</label>
+                      <textarea class="input-main" rows="5" id="text12121"></textarea>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div class="input-item s-50">
-                <div class="input-wrapper req">
-                  <label>E-mail</label>
-                  <input class="input-main" type="email" placeholder="example@mail.com" data-validation="email" data-validation-error-msg="Не заполнено">
-                </div>
-              </div>
-              <div class="input-item s-50">
-                <div class="input-wrapper req">
-                  <label>Телефон</label>
-                  <input class="input-main" type="tel" placeholder="Телефон" data-validation="custom" data-validation-regexp="^[-0-9()+ ]+$" data-validation-error-msg="Не заполнено">
-                </div>
-              </div>
-              <div class="input-item s-100">
-                <div class="input-wrapper">
-                  <label>Сообщение</label>
-                  <textarea class="input-main" rows="5" placeholder="Сообщение"> </textarea>
-                </div>
-              </div>
-              <div class="form-footer">
+              <div class="form-block-footer">
                 <div class="form-footer-notify">
-                  <div class="text">Поля обязательные для заполнения</div>
+                  <div class="text-sm">Поля для обязательного заполнения</div>
                 </div>
-                <button class="btn yell" type="submit">Отправить	</button>
+                <button class="btn btn-colored" type="sumbit">
+                  <span>Задать вопрос</span>
+                </button>
               </div>
             </form>
           </div>
         </div>
-        <!--контейнер модалки  -->
+        <!--контейнер ответа модалки -->
         <div class="modal-container response" style="display: none;">
           <div class="modal-container-header">
-            <div class="title h4">Спасибо</div><i class="small-link pop-close closePopup"></i>
+            <div class="text-medium">Спасибо</div>
+            <i class="small-link pop-close closePopup"></i>
           </div>
           <div class="modal-container-content">
-            <div class="text">Благодарим вас за проявленый интерес к нашей компании. С вами свяжется наш специалист для решения вашего вопроса.  </div>
-          </div>
-          <div class="modal-container-footer">
-            <button class="link-black closePopup" type="button">Закрыть</button>
+            <div class="text-1">Благодарим вас за проявленый интерес к нашей компании. С вами свяжется наш специалист для решения вашего вопроса.  </div>
           </div>
         </div>
       </div>
-      <div class="modal-layout js-popup-container" data-modal="fallback">
+      <div class="modal-layout js-popup-container" data-modal="payback">
         <!--контейнер модалки-->
+        <!-- по саксесу вешаю на этот блок класс из-за которого следующий открывается-->
         <div class="modal-container">
           <div class="modal-container-header">
-            <div class="title h4">Заказать обратный звонок</div><i class="small-link pop-close closePopup"></i>
+            <div class="text-medium">Возврат билетов</div>
+            <i class="small-link pop-close closePopup"></i>
           </div>
           <div class="modal-container-content">
-            <form class="form js-validate" data-block=".modal-container">
-              <div class="input-item s-50">
-                <div class="input-wrapper req">
-                  <label>Имя</label>
-                  <input class="input-main" type="text" placeholder="Имя" data-validation="length required" data-validation-length="min2" data-validation-error-msg="Не заполнено">
+            <div class="text-1">Вы уверены, что хотите отменить этот билет?</div>
+            <div class="form-block-footer">
+              <div class="input-form">
+                <div class="input-item s33">
+                  <a class="btn btn-colored closePopup" href="#">
+                    <span>Нет, не нужно</span>
+                  </a>
+                </div>
+                <div class="input-item s33 text-center">
+                  <a class="btn btn-colored red closePopup" href="#">
+                    <span>да, отменить!</span>
+                  </a>
                 </div>
               </div>
-              <div class="input-item s-50">
-                <div class="input-wrapper req">
-                  <label>Телефон</label>
-                  <input class="input-main" type="tel" placeholder="Телефон" data-validation="custom" data-validation-regexp="^[-0-9()+ ]+$" data-validation-error-msg="Не заполнено">
-                </div>
-              </div>
-              <div class="input-item s-100">
-                <div class="input-wrapper">
-                  <label>Комментарий  </label>
-                  <textarea class="input-main" rows="5" placeholder="Комментарий"> </textarea>
-                </div>
-              </div>
-              <div class="form-footer">
-                <div class="form-footer-notify">
-                  <div class="text">Поля обязательные для заполнения</div>
-                </div>
-                <button class="btn yell" type="submit">Заказать звонок	</button>
-              </div>
-            </form>
-          </div>
-        </div>
-        <!--контейнер модалки  -->
-        <div class="modal-container response" style="display: none;">
-          <div class="modal-container-header">
-            <div class="title h4">Спасибо</div><i class="small-link pop-close closePopup"></i>
-          </div>
-          <div class="modal-container-content">
-            <div class="text">Благодарим вас за проявленый интерес к нашей компании. С вами свяжется наш специалист для решения вашего вопроса.  </div>
-          </div>
-          <div class="modal-container-footer">
-            <button class="link-black closePopup" type="button">Закрыть</button>
+            </div>
           </div>
         </div>
       </div>
-      <div class="modal-layout js-popup-container" id="modal-road" data-modal="road"></div>
     </div>
     <!--END out-->
     <script src="js/lib.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.60/jquery.form-validator.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.60/logic.js"></script>
     <script src="js/common.min.js"></script>
+    <script src="http://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
   </body>
 </html>

@@ -3,75 +3,51 @@
 	// по саксесу вешаю на этот блок класс из-за которого следующий открывается
 	.modal-container
 		.modal-container-header
-			.title.h4 Обратная связь
+			.text-medium Заказать обратный звонок
 			i.small-link.pop-close.closePopup
 		.modal-container-content
-			form.form.js-validate(data-block='.modal-container')
-				.input-item.s-50
-					.input-wrapper.req
-						label Имя
-						input.input-main(type="text",placeholder='Имя',data-validation="length required",data-validation-length='min2',data-validation-error-msg="Не заполнено")
-				.input-item.s-50
-					.input-wrapper.req
-						label E-mail
-						input.input-main(type="email",placeholder='example@mail.com',data-validation="email",data-validation-error-msg="Не заполнено")
-				.input-item.s-50
-					.input-wrapper.req
-						label Телефон
-						input.input-main(type="tel",placeholder='Телефон',data-validation="custom",data-validation-regexp="^[-0-9()+ ]+$",data-validation-error-msg="Не заполнено")
-				.input-item.s-100
-					.input-wrapper
-						label Сообщение
-						textarea.input-main(rows='5',placeholder='Сообщение') 
-				.form-footer
+			form(action="/").form-block-wrapper.js-validate
+				.form-block-section
+					.input-form
+						.input-item.s50
+							.input-wrapper.req
+								label(for='imb1') Имя
+								input.input-main(type="text",placeholder='Имя',data-validation="length",data-validation-length='min2',data-validation-error-msg="Не заполнено",id='imb1')
+						.input-item.s50
+							.input-wrapper.req
+								label(for='imb3') Телефон
+								input.input-main(type="tel",placeholder='Телефон',data-validation="custom",data-validation-regexp="^[-0-9()+ ]+$",data-validation-error-msg="Не заполнено",id='imb3')
+						.input-item.s100
+							.input-wrapper.req
+								label(for='text12121') Комментарий
+								textarea.input-main(rows='5',id='text12121')
+				.form-block-footer
 					.form-footer-notify
-						.text Поля обязательные для заполнения
-					button(type='submit').btn.yell Отправить	
-	//контейнер модалки  
+						.text-sm Поля для обязательного заполнения
+					button(type='sumbit').btn.btn-colored
+						span Задать вопрос
+
+	//контейнер ответа модалки 
 	.modal-container.response(style='display: none')
 		.modal-container-header
-			.title.h4 Спасибо
+			.text-medium Спасибо
 			i.small-link.pop-close.closePopup
 		.modal-container-content
-			.text Благодарим вас за проявленый интерес к нашей компании. С вами свяжется наш специалист для решения вашего вопроса.  
-		.modal-container-footer
-			button(type='button').link-black.closePopup Закрыть
-.modal-layout(data-modal='fallback').js-popup-container
+			.text-1 Благодарим вас за проявленый интерес к нашей компании. С вами свяжется наш специалист для решения вашего вопроса.  
+.modal-layout(data-modal='payback').js-popup-container
 	//контейнер модалки
+	// по саксесу вешаю на этот блок класс из-за которого следующий открывается
 	.modal-container
 		.modal-container-header
-			.title.h4 Заказать обратный звонок
+			.text-medium Возврат билетов
 			i.small-link.pop-close.closePopup
 		.modal-container-content
-			form.form.js-validate(data-block='.modal-container')
-				.input-item.s-50
-					.input-wrapper.req
-						label Имя
-						input.input-main(type="text",placeholder='Имя',data-validation="length required",data-validation-length='min2',data-validation-error-msg="Не заполнено")
-				.input-item.s-50
-					.input-wrapper.req
-						label Телефон
-						input.input-main(type="tel",placeholder='Телефон',data-validation="custom",data-validation-regexp="^[-0-9()+ ]+$",data-validation-error-msg="Не заполнено")
-				.input-item.s-100
-					.input-wrapper
-						label Комментарий  
-						textarea.input-main(rows='5',placeholder='Комментарий') 
-				.form-footer
-					.form-footer-notify
-						.text Поля обязательные для заполнения
-					button(type='submit').btn.yell Заказать звонок	
-	//контейнер модалки  
-	.modal-container.response(style='display: none')
-		.modal-container-header
-			.title.h4 Спасибо
-			i.small-link.pop-close.closePopup
-		.modal-container-content
-			.text Благодарим вас за проявленый интерес к нашей компании. С вами свяжется наш специалист для решения вашего вопроса.  
-		.modal-container-footer
-			button(type='button').link-black.closePopup Закрыть
-.modal-layout#modal-road(data-modal='road').js-popup-container
-	
-
-
-
-
+			.text-1 Вы уверены, что хотите отменить этот билет?
+			.form-block-footer
+				.input-form
+					.input-item.s33
+						a(href="#").btn.btn-colored.closePopup
+							span Нет, не нужно
+					.input-item.s33.text-center
+						a(href="#").btn.btn-colored.red.closePopup
+							span да, отменить!

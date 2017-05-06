@@ -40,19 +40,20 @@ include _mixins.pug
 			ul.header-bottom-menu.js-slideline
 				//.active для текущей страницы
 				li.header-bottom-menu-item(class = mainclass)
-					a(href="#")
+					span.header-bottom-menu-navlink
 						span Рейсы
 				li.header-bottom-menu-item
-					a(href="#")
+					a(href="#").header-bottom-menu-navlink
 						span Трансфер в аэропорт
 				li.header-bottom-menu-item
-					a(href="#")
+					a(href="#").header-bottom-menu-navlink
 						span Аренда автобусов
 		.header-bottom-contact
 			//селект региона, такой же есть в заказе
 			.dropdown-select-wrapp.dropdown-trigger
-				.country-head
-					a(href="#").country-list-link
+				.country-head.js-country-swap.js-content-switch
+
+					a(href="#",data-block='bel').country-list-link.js-country-swap-item.active
 						// флаг выбирается через id <use>: для британии gb раша ru и беларусь by,больше свг не заливал, если будут еще флаги то пихать картинку 
 						span.country-img
 							svg(class="icon icon-drop")
@@ -64,20 +65,44 @@ include _mixins.pug
 				.dropdown-target.small-dropdown-target
 					.dropdown-inner
 						.dropdown-content
-							ul.country-list
+							ul.country-list.js-country-swap-list
 								li.country-list-item
-									a(href="#").country-list-link
+									a(href="#",data-block='ru').country-list-link.js-country-swap-item
 										span.country-img
 											img(src="img/ru.svg", alt="россия")
 										span.country-text Россия
-			.dropdown-tel-wrapp
-				.dropdown-tel-inner
+									a(href="#",data-block='bangbangbang').js-country-swap-item.country-list-link
+										span.country-img
+											img(src="img/ru.svg", alt="россия")
+										span.country-text Бангладеш
+			.dropdown-tel-wrapp.js-content-switch-parent
+				.dropdown-tel-inner.js-content-switch-item(data-block='bel')
 					.dropdown-tel-content
-						//максимум 3 номера
+						//максимум 4 номера, дальше это уже партянка некрасивая
 						a(href="tel:+375445000252").dropdown-tel-item 
 							span +375 (44) 5 000 252
 						a(href="tel:+375295000252").dropdown-tel-item 
 							span +375 (29) 5 000 252
+				.dropdown-tel-inner.js-content-switch-item(data-block='ru')
+					.dropdown-tel-content
+						//максимум 4 номера
+						a(href="tel:+375445000252").dropdown-tel-item 
+							span +375 (244) 5 000 252
+						a(href="tel:+375295000252").dropdown-tel-item 
+							span +375 (294) 5 000 252						
+						a(href="tel:+375295000252").dropdown-tel-item 
+							span +375 (294) 5 000 252						
+						a(href="tel:+375295000252").dropdown-tel-item 
+							span +375 (294) 5 000 252
+				.dropdown-tel-inner.js-content-switch-item(data-block='bangbangbang')
+					.dropdown-tel-content
+						//максимум 4 номера
+						a(href="tel:+375445000252").dropdown-tel-item 
+							span +375 (344) 5 000 252
+						a(href="tel:+375295000252").dropdown-tel-item 
+							span +375 (394) 5 000 252						
+						a(href="tel:+375295000252").dropdown-tel-item 
+							span +375 (394) 5 000 252
 		//отображается с 1024
 		.header-bottom-mobnav
 			a(href="#").header-bottom-mobnav-acc
@@ -90,10 +115,14 @@ include _mixins.pug
 						i
 						i
 						i
-
 .header-mobile-menu
 	.header-mobile-menu-outer
 		.header-mobile-menu-inner
+			.mobile-header-lang
+				a(href="#").top-link.header-lang-item.active
+					span Ru
+				span.top-link.header-lang-item
+					span En
 			.mobile-list-wrapper
 				ul.mobile-list.bold
 					li.mobile-menu-item.active
@@ -122,20 +151,23 @@ include _mixins.pug
 						a(href="#")
 							span Бюро находок
 			.mobile-contact
-				+Infoblock('Бронирование')
-					li.info-block-item
-						//в ссылках может присутствовать спан с текстом
-						a.info-block-link(href="tel:+375295000252") +375 (29) 5000-252
-					li.info-block-item
-						a.info-block-link(href="tel:+375295000252") +375 (29) 5000-252
-					li.info-block-item
-						a.info-block-link(href="tel:+79055591545") +375 (29) 5000-252
+				.info-block
+					a(href="#").info-block-head Бронирование
+					ul.info-block-list
+						li.info-block-item
+							a.info-block-link.bold(href="tel:+375295000252") +375 (29) 5000-252
+						li.info-block-item
+							a.info-block-link.bold(href="tel:+375295000252") +375 (29) 5000-252
+						li.info-block-item
+							a.info-block-link.bold(href="tel:+79055591545") +375 (29) 5000-252
 				+Infoblock('')
 					li.info-block-item
-						a.info-block-link(href="tel:+74952818817") +7 (495) 281-88-17
+						a.info-block-link.bold.descr(href="tel:+74952818817") 
+							span.main +7 (495) 281-88-17
 							span Москва
 					li.info-block-item
-						a.info-block-link(href="tel:+78122442019") +7 (812) 244-20-19
+						a.info-block-link.bold.descr(href="tel:+78122442019") 
+							span.main +7 (812) 244-20-19
 							span Санкт-Петербург
 			.mobile-soc
 				.soc-wrapp

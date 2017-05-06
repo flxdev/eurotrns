@@ -242,13 +242,14 @@ body, .out
 				.header-bottom-menu
 					white-space: nowrap
 					+rem(margin-left, 15px)
-				.header-bottom-menu-item a
+				.header-bottom-menu-item .header-bottom-menu-navlink
 					+padlr(16px)
 				.dropdown-tel-wrapp
 					+rem(max-width,200px)
 					.dropdown-tel-item 
 						+rem(font-size,17px)
 						+rem(padding, 20px )
+
 			+rm(1025)
 				transform: translateY(-3.75rem)
 				#slide-line
@@ -270,7 +271,7 @@ body, .out
 							max-width: 100%
 							+rem(padding-right,195px)
 						&-menu-item
-							a 
+							.header-bottom-menu-navlink
 								+rem(padding-top,0px)
 						&-contact
 							+rem(padding-top,15px)
@@ -281,6 +282,8 @@ body, .out
 					height: auto
 					.dropdown-target
 						+rem(margin-top,-15px)
+					.country-text
+						+rem(padding-right,3px)
 				.dropdown-tel-content
 					background-color: $bl
 				.dropdown-tel-inner
@@ -288,9 +291,9 @@ body, .out
 					transition-delay: .3s
 					animation: fadein .5s forwards
 					&:hover
-						+rem(max-height,180px)
+						+rem(max-height,228px)
 				.dropdown-tel-item
-					+rem(padding,17px 30px)
+					+rem(padding,17px 30px 17px 20px)
 
 								
 				.dropdown-tel-wrapp
@@ -466,19 +469,21 @@ body, .out
 				display: inline-block
 				vertical-align: top
 				height: 100%
+				&.active
+					pointer-events: none
 				&:nth-of-type(n+5)
 					display: none
 				+r(600)
-					a
+					.header-bottom-menu-navlink
 						+padlr(10px)
 						+rem(padding-top,16px)
 						+rem(padding-bottom,16px)
 				+r(420)
-					a 
+					.header-bottom-menu-navlink
 						+padlr(4px)
 						span 
 							+rem(font-size,13px)
-				a 
+				.header-bottom-menu-navlink
 					line-height: 1;
 					color: $white
 					+padlr(20px)
@@ -490,6 +495,7 @@ body, .out
 					+tr(color .3s)
 					&:hover
 						color: $org
+
 					span 
 						display: inline-block
 						vertical-align: middle
@@ -671,7 +677,7 @@ body, .out
 			+vertical
 		&-inner
 			overflow-y: auto
-			max-height: 96%
+			max-height: 88%
 			+padlr(16px)
 			+rem(padding-bottom, 30px)
 			display: inline-block
@@ -830,8 +836,9 @@ body, .out
 					+rem(padding-left, 3px)			
 	&.disabled
 		opacity: .95
-		background-color: #cecece
 		pointer-events: none
+		.selects
+			background-color: #f5f5f5
 	&.error
 		border-color: red
 	div::-webkit-scrollbar
@@ -903,23 +910,34 @@ body, .out
 			text-transform: uppercase
 			line-height: 1
 			text-overflow: initial
+			vertical-align: inherit;
 			span 
 				padding: 0
 				+rem(padding-right,5px)
-				+rem(padding-left, 5px)
 				color: $org
 				line-height: 1
 				vertical-align: top
 				text-overflow: initial
 				
 .price-total
+	border-bottom-right-radius: 3px
+	border-top-right-radius: 3px
 	.selects
 		.btn-text
 			.elem-price-value
 				+rem(font-size,15px)
+				+rem(margin-top,1px)
+				span 
+					+rem(padding-left, 0px)
 			+rem(font-size,12px)
 			font-weight: 400
 			color: $grayl
+			&.active
+				+rem(padding-top,2px)
+			&:not(.active)
+				+rem(font-size,14px)
+				font-weight: 600
+				color: $blk
 
 //=====================================//
 //         datepicker
@@ -946,6 +964,12 @@ body, .out
 		background-image: url(../img/icons/strelka.svg)
 	.ui-selectmenu-button
 		+padlr(0)
+		+rem(padding-right,12px)
+		background-image: url(../img/icons/strelka.svg)
+		+rem(background-size, 8px 12px)
+		background-position: right center
+		background-repeat: no-repeat
+		
 select.ui-datepicker-year,select.ui-datepicker-month
 	+rem(max-width,60px)
 	opacity: 0
@@ -984,9 +1008,12 @@ select.ui-datepicker-year,select.ui-datepicker-month
 		+nosel
 		pointer-events: none
 		opacity: .9
+		.selects
+			background-color: #f5f5f5
 		.input-main
-			background-color: $grayl
-		
+			background-color: #f5f5f5
+			+placeholder 
+				color: transparent !important
 	&.double
 		font-size: 0
 		.select-check
@@ -1053,6 +1080,7 @@ select.ui-datepicker-year,select.ui-datepicker-month
 			+placeholder
 				color: $blk2
 				opacity: 1 
+				font-weight: 700
 			&:valid
 				+placeholder
 					color: $white
@@ -1070,6 +1098,7 @@ select.ui-datepicker-year,select.ui-datepicker-month
 		+placeholder
 			color: #c5c5c5
 			+rem(font-size,14px)
+			font-weight: 400
 	textarea.input-main
 		line-height: 1.3
 		+rem(padding-top,10px)
@@ -1080,8 +1109,37 @@ select.ui-datepicker-year,select.ui-datepicker-month
 		+rem(font-size,12px)
 		color: red
 		left: 0
-
+.text-right
+	text-align: right
+.text-center
+	text-align: center
 .mobile
+	&-header-lang
+		display: block
+		width: 100%
+		text-align: center
+		display: inline-block
+		+rem(font-size,14px)
+		color: $white
+		+rem(margin, 15px 0 )
+		.top-link
+			+rem(padding, 10px)
+			color: $white
+			&:not(:last-child)
+				position: relative
+				span 
+					&:before
+						content: ''
+						position: absolute
+						+rem(right,-1px)
+						+rem(top, 10px)
+						+rem(bottom, 10px)
+						width: 1px
+						background-color: $grayy
+			&:not(.active)
+				span
+					opacity: .7
+
 	&-list
 		+rem(padding,0 0 24px 0)
 		&-wrapper
@@ -1092,7 +1150,10 @@ select.ui-datepicker-year,select.ui-datepicker-month
 				color: rgb(146, 155, 174);
 				line-height: 2.077;
 				+rem(padding, 5px 10px)
-				&:hover,&.active
+				&:hover
+					+rm(1024)
+						color: $org
+				&:active,&.active
 					color: $org
 
 		&.bold
@@ -1103,8 +1164,12 @@ select.ui-datepicker-year,select.ui-datepicker-month
 					color: $white
 					line-height: 1.687;
 					+rem(padding, 8px 10px)
+					&:hover
+						+rm(1024)
+							color: $org
+					&:active,&.active
+						color: $org
 	&-soc
-
 		.soc-wrapp
 			max-width: 120%
 			text-align: center
@@ -1121,27 +1186,21 @@ select.ui-datepicker-year,select.ui-datepicker-month
 			font-weight: 400
 			color: $white
 			position: relative
-			span 
-				position: absolute
-				left: 0
-				right: 0
-				+rem(top, -12px)
-				text-align: center
-.modal-layout
-	display: none
 
 .index-wrapper
 	background-color: $bl
 	+cover
-	background-size: 400%
-	background-position: top -1000px right -1000px
+	// background-size: 400%
+	// background-position: top -1000px right -1000px
 	// background-position: top 55px right 
 	position: relative
 	backface-visibility: hidden
 	// background-size: 100% 
 	background-attachment: fixed
-	animation: stars 1s 1s ease-in-out forwards 1
+	// animation: stars 1s 1s ease-in-out forwards 1
 	will-change: background
+	background-size: 100% 
+	background-position: top 55px right
 	z-index: 2
 	+gpu
 	&:after
@@ -1431,6 +1490,18 @@ select.ui-datepicker-year,select.ui-datepicker-month
 		&:hover
 			background-color: $orgl
 			border-color: $orgl
+		&.red 
+			background-color: $danger
+			border-color: $danger
+			&:hover
+				background-color: lighten($danger, 20)
+				border-color: lighten($danger, 20)
+		&.blue 
+			background-color: $bl
+			border-color: $bl
+			&:hover
+				background-color: lighten($bl, 20)
+				border-color: lighten($bl, 20)
 		&.small
 			+rem(min-width, 180px)
 			span
@@ -1463,11 +1534,20 @@ select.ui-datepicker-year,select.ui-datepicker-month
 			&:hover
 				background-color: $orgl
 				border-color: $orgl
-	&.disabled,&.btn-extrasmall.disabled,&.btn-colored.disabled
+	&.disabled:not(.btn-extrasmall),&.btn-colored.disabled
 		border-color: $disabled
 		background-color: $disabled
 		color: $white
 		pointer-events: none
+	&.btn-extrasmall:not(.blue).disabled,&.btn-extrasmall:not(.orange ).disabled
+		opacity: .5
+		pointer-events: none
+	&.btn-extrasmall.blue.disabled,&.btn-extrasmall.orange.disabled
+		border-color: $disabled
+		background-color: $disabled
+		color: $white
+		pointer-events: none
+
 
 
 
@@ -1505,7 +1585,7 @@ select.ui-datepicker-year,select.ui-datepicker-month
 
 
 .dropdown-select-wrapp
-	+rem(width,122px)
+	+rem(min-width,122px)
 	cursor: pointer
 	&:hover
 		transition-delay: .3s
@@ -1517,8 +1597,9 @@ select.ui-datepicker-year,select.ui-datepicker-month
 			display: block
 			font-size: 0
 
+
 		&-link
-			+rem(padding,9px 22px 9px 10px)
+			+rem(padding,9px 24px 9px 10px)
 			font-size: 0
 			+tr(background-color .3s)
 			background-color: $bl
@@ -1527,6 +1608,8 @@ select.ui-datepicker-year,select.ui-datepicker-month
 			white-space: nowrap
 			&:hover
 				background-color: #275ca5
+			&.active
+				pointer-events: none
 	&-img,&-text
 		display: inline-block
 		vertical-align: middle
@@ -1550,6 +1633,7 @@ select.ui-datepicker-year,select.ui-datepicker-month
 		+rem(font-size,13px)
 		line-height: 1
 		+rem(padding-left,12px)
+		+rem(margin-right,5px)
 	&-head
 		position: relative
 		
@@ -1583,6 +1667,8 @@ select.ui-datepicker-year,select.ui-datepicker-month
 		transition: max-height .3s, background-color .3s
 		+rem(max-height,33px)
 		transition-delay: .15s
+		&:not(.active)
+			display: none
 		&:hover
 			+rem(max-height,165px)
 			background-color: $bl
@@ -1595,6 +1681,7 @@ select.ui-datepicker-year,select.ui-datepicker-month
 		+rem(padding, 5px 0px)
 		+rem(letter-spacing,-0.4px)
 		text-align: right
+		white-space: nowrap;
 	&-content
 		+tr(background-color .3s)
 
@@ -1609,6 +1696,15 @@ select.ui-datepicker-year,select.ui-datepicker-month
 			opacity: 1
 			visibility: visible
 			transform: translateY(0)
+.js-select-item.active
+	.arr-down
+		svg
+			transform: scale(1,-1)
+	.dropdown-target
+		transition-delay: .15s
+		opacity: 1
+		visibility: visible
+		transform: translateY(0)
 .dropdown-target
 	+gpu
 	position: absolute
@@ -1661,11 +1757,11 @@ select.ui-datepicker-year,select.ui-datepicker-month
 		padding-left: 25%
 		// +rem(padding-right,30px)
 		pointer-events: none
-		+rem(right,15px)
-		+rem(left,15px)
+		// +rem(right,15px)
+		// +rem(left,15px)
 		// +rem(margin-top,-100px)
-		position: absolute
-		+rem(bottom, 145px)
+		// position: absolute
+		// +rem(bottom, 145px)
 		+r(1040)
 			// +rem(padding-right,20px)
 			padding-left: 0
@@ -1675,7 +1771,14 @@ select.ui-datepicker-year,select.ui-datepicker-month
 			+rem(bottom, 165px)
 		+r(735)
 			.footer-row-pay
-				display: none
+				+rem(margin-top,20px)
+				width: 100%
+				pointer-events: all
+				overflow-x: auto
+				&-inner
+					+rem(min-width,600px)
+					justify-content: space-around
+					+rem(padding-bottom,5px)
 			.footer-row-text
 				width: 100%	
 				text-align: center
@@ -1719,7 +1822,7 @@ select.ui-datepicker-year,select.ui-datepicker-month
 			justify-content: space-between
 		+r(870)
 			flex-flow: column nowrap
-			min-height: 56vh
+			min-height: 46vh
 			justify-content: flex-start
 	&-main-nav
 		width: 100%
@@ -1730,7 +1833,6 @@ select.ui-datepicker-year,select.ui-datepicker-month
 		+r(735)
 			+rem(padding-top, 35px)
 		.m-logo
-
 			+r(768)
 				+rem(width,202px)
 				padding-bottom: 0
@@ -1779,8 +1881,8 @@ select.ui-datepicker-year,select.ui-datepicker-month
 				+rem(padding-bottom,20px)
 				display: block !important
 				flex-basis: 0%
-			+r(1040)
-				+rem(margin-bottom,60px)
+			// +r(1040)
+			// 	+rem(margin-bottom,60px)
 			+r(600)
 				margin-bottom: 0
 				padding-bottom: 0
@@ -1801,7 +1903,7 @@ select.ui-datepicker-year,select.ui-datepicker-month
 				+r(1040)
 					+rem(padding-right,20px)
 				+r(435)
-					&:first-child
+					&:not(.info-column)
 						.footer-column-list	
 							.footer-column-list-item	
 								a
@@ -1819,7 +1921,7 @@ select.ui-datepicker-year,select.ui-datepicker-month
 							
 
 				+r(768)
-					&:not(:first-child)
+					&:not(.bold)
 						width: 33.33%
 						padding-bottom: 0
 
@@ -1828,7 +1930,7 @@ select.ui-datepicker-year,select.ui-datepicker-month
 						.footer-column-list
 							width: 100%
 							border-top: $bby
-							&:first-child
+							&.bold
 								margin-bottom: 0
 								display: flex
 								flex-flow: row nowrap
@@ -1847,10 +1949,10 @@ select.ui-datepicker-year,select.ui-datepicker-month
 									a
 										+rem(padding, 30px 10px)
 
-							&:not(:first-child)
+							&:not(.bold)
 								.footer-column-list-item
 									display: none
-									margin-bottom: 0s
+									margin-bottom: 0
 							.footer-column-list-item
 								display: inline-block
 								vertical-align: top
@@ -1863,15 +1965,11 @@ select.ui-datepicker-year,select.ui-datepicker-month
 					+rem(margin-right,-30px)
 					+r(1040)
 						+rem(margin-right,-20px)
-				&:not(:first-child)
+				&.info-column
 					+rem(margin-top,7px)
 					+rem(padding-bottom,60px)
-				&:nth-child(4)
-					.info
-						&-block
-							+rem(margin-bottom,14px)
 				.footer-column-list
-					&:first-child
+					&.bold
 						.footer-column-list-item
 							a 
 								font-weight: bold;
@@ -1944,6 +2042,8 @@ select.ui-datepicker-year,select.ui-datepicker-month
 		display: block
 		width: 100%
 		+rem(margin-bottom,30px)
+		&.small
+			+rem(margin-bottom,14px)
 		&-head
 			display: block
 			+rem(font-size,13px)
@@ -1957,23 +2057,30 @@ select.ui-datepicker-year,select.ui-datepicker-month
 			display: block
 			+tr(color .3s)
 			+clr
-			+r(1040)
-				position: relative
-				// +rem(padding-top,10px)
-				span 
-					position: absolute
-					left: 0
-					+rem(top,-12px)
-					padding-left: 0
-			span
-				+rem(font-size,12px)
-				color: $grayf
-				+rem(padding-left,3px)
-				font-weight: 400
-		a[href^="tel:"]
-			font-weight: 600
+
+
+			&.bold
+				font-weight: 600
+			&.descr
+				display: flex
+				flex-flow: row nowrap
+				align-items: flex-end
+				+r(1040)
+					flex-flow: row wrap
+					span 
+						order: 2
+						width: 100%
+					span:not(.main)
+						order: 1
+						line-height: 1
+						padding-left: 0
+				span:not(.main)
+					+rem(font-size,12px)
+					color: $grayf
+					+rem(padding-left,3px)
+					font-weight: 400
 		a 
-			&:hover
+			&:hover,&:active
 				color: $org
 
 
@@ -2082,10 +2189,7 @@ select.ui-datepicker-year,select.ui-datepicker-month
 		+rem(padding-bottom,4px)
 	.btn.btn-gray
 		width: 100%
-		// +rem(margin-right,30px)
-	// +r(1024)
-	// 	.btn.btn-gray
-	// 		width: calc(100% - 1.25rem)
+
 .tour-wrapper
 	
 	
@@ -2687,7 +2791,7 @@ select.ui-datepicker-year,select.ui-datepicker-month
 	font-family: $os
 	transition: box-shadow .3s, background-color .3s
 	&.promo
-		background-color: #fcb212
+		background-color: #f7d61d
 	&.news
 		background-color: #f7941d
 .news
@@ -2995,7 +3099,7 @@ select.ui-datepicker-year,select.ui-datepicker-month
 				vertical-align: top
 				width: 50%
 				&:first-child
-					.input-main,.select-check
+					.input-main,.select-check:not(.price-total)
 						border-bottom-right-radius: 0
 						border-top-right-radius: 0
 				&:last-child
@@ -3050,6 +3154,12 @@ select.ui-datepicker-year,select.ui-datepicker-month
 		transform: rotate(0)
 	100%
 		transform: rotate(360deg)
+form.processed
+	.input-wrapper
+		opacity: 0.5
+		pointer-events: none
+		.input-main,.selects
+			background-color: #f5f5f5
 .content
 	&-bread
 		&-item
@@ -3447,10 +3557,13 @@ ul.special
 							border-right: $bbf
 						i 
 							display: none
+						+r(400)
+							+rem(font-size,14px)
 				+r(330)
 					+rem(margin-right,-10px)
 					+rem(margin-left,-10px)
 					width: calc(100% + 10px)
+
 	&-wrapp
 		font-size: 0
 		position: relative
@@ -3834,7 +3947,7 @@ ul.special
 			.table-item
 				white-space: normal
 				&:not(:first-child)
-					+rem(min-width,100px)
+					+rem(min-width,70px)
 				&.table-tel,&.table-road
 					+rem(min-width,140px)
 		&:not(.sold)
@@ -3996,6 +4109,34 @@ ul.special
 			.table-item:not(.table-actions)
 				+rem(padding-bottom,20px)
 				+rem(padding-top,35px)
+		&.report
+			.table-num
+				padding-left: 0
+				+rem(width,30px)
+			.table-check
+				+rem(width,65px)
+				+rem(padding-left,22px)
+				+r(1024)
+					+rem(padding-left,10px)
+			.table-row .table-item
+				+rem(padding-top,35px)
+				+rem(padding-bottom,45px)
+			+r(920)
+				.table-item
+					white-space: normal
+				white-space: nowrap;
+				overflow-x: scroll;
+				display: block;
+				margin: 0 -.9375rem;
+				width: 100%
+			+r(768)
+				width: calc(100% + 30px)
+				.table-item
+					+rem(min-width, 30px)
+					&.table-num,&.table-check
+						+padlr(15px)
+
+
 .table-tel
 	+rem(width,150px)
 	a:not([class])
@@ -4320,6 +4461,8 @@ ul.special
 				text-align: left
 				+rem(margin, 120px 0 160px auto)
 				display: block
+				+r(991)
+					+rem(margin, 30px 0 0 auto)
 			+r(991)
 				order: 1
 				flex-shrink: 1
@@ -4734,6 +4877,40 @@ a.caption-content
 	&-footer
 		+rem(padding,0px 32px 80px 32px)
 		+rem(margin-top,-15px)
+		.input-form
+			font-size: 0
+			+rem(margin-right,-5px)
+			.btn
+				+rem(min-width,0px)
+				width: 100%
+				+rem(margin-bottom,10px)
+				span
+					white-space: normal
+			+r(1130)
+				.input-item
+					&.s33
+						width: 50%
+			+r(991)
+				.input-item
+					&.s33
+						width: 33.33%
+
+			+r(600)
+				.input-item
+					&.s33
+						width: 50%	
+						.btn 
+							+rem(font-size,12px)
+							span 
+								+padlr(10px)
+			+r(480)
+				.input-item	
+					&.s50
+						.btn 
+							+rem(font-size,12px)
+							span 
+								+padlr(10px)	
+
 		+r(768)
 			+rem(padding,0px 25px 50px 25px)
 .form-footer-notify
@@ -4911,6 +5088,12 @@ a.caption-content
 				height: 100%
 				+r(1024)
 					+rem(margin, 0 -15px)
+				&.half-year
+					.history-year.month
+						&:nth-child(n+2):nth-child(odd)
+							.text-2
+								transform: translateY(-2.375rem)
+
 
 .history-year
 	position: absolute
@@ -5047,6 +5230,7 @@ a.caption-content
 	+rem(margin-top,55px)
 	+r(768)
 		+rem(margin-top,25px)
+		align-items: flex-end
 	&-links
 		font-size: 0
 		.table-navigation-link
@@ -5054,23 +5238,45 @@ a.caption-content
 				width: 50%
 				+rem(margin-bottom,10px)
 				display: inline-block
-
+		+r(735)
+			.table-navigation-link
+				width: 100%
+				span
+					white-space: normal
+				&:last-child
+					margin-bottom: 0
 				
 	&-nav
+		+clr
 		.table-pagination,.table-collapse
 			display: inline-block
 			vertical-align: middle
 		.table-pagination
 			+rem(margin-right,15px)
+		+r(1100)
+			.table-collapse
+				float: right
+			.table-pagination
+				text-align: right
+
 	&-link 
 		color: $grayy
 		+rem(padding-right,22px)
 		+rem(font-size,13px)
 		+tr(color .25s)
 		white-space: nowrap
+		position: relative
+		cursor: pointer
+		svg 
+			.sttable0
+				+tr(fill .3s)
 		&:hover
 			+rm(1025)
-				color: $org
+				color: $bl 
+				svg 
+					.sttable0
+						fill: $org
+
 		&:active
 			color: $org
 		&.active
@@ -5092,15 +5298,48 @@ a.caption-content
 				+rem(width,8px)
 				position: static
 				+rem(margin-left,8px)
+		&.has-select
+			cursor: pointer
+			span 
+				text-align: left
+			&.active
+				color: $org
+			.dropdown-target
+				+rem(left,-13px)
+			.dropdown-content
+				+rem(padding,10px)
+				+nosel
+			.sort-select-item
+				+rem(font-size,13px)
+				text-align: left
+				a 
+					color: $grayy
+					display: block
+					+rem(padding, 5px 3px)
+					&:hover
+						color: $bl
+				&.active
+					opacity: .5
+					pointer-events: none
+
 .table-collapse
 	text-align: right
 	.table-navigation-link
 		margin-right: 0
+
 .table-pagination
 	white-space: nowrap
+	span 
+		color: $grayy
+	+r(1100)
+		width: 100%
+		+rem(margin-bottom,5px)
+
+			
 	&-arr,&-inner
 		display: inline-block
 		vertical-align: middle
+
 		.arr-down
 			position: static
 			+rem(height,13px)
@@ -5110,18 +5349,26 @@ a.caption-content
 				+rem(margin-top,-5px)
 				
 	&-arr
+		&:hover
+			svg 
+				fill: $org
 		&.left
 			svg 
 				transform: rotate(90deg)
 		&.right
 			svg 
 				transform: rotate(-90deg)
+		&.disabled
+			opacity: .5
+			pointer-events: none
 
 	&-item
 		+rem(font-size,13px)
 		color: $grayy
 		+rem(padding, 5px 8px)
 		display: inline-block
+		&:hover:not(.active)
+			color: $org
 		&.active
 			color: $bl
 			pointer-events: none
@@ -5145,7 +5392,7 @@ ymaps
 		+rem(min-width,180px)
 		margin-right: 36px !important
 		ymaps
-			+rem(min-width,180px)
+			// +rem(min-width,180px)
 			// +rem(padding-right,5px)
 	b 
 		+rem(font-size,20px)
@@ -5156,4 +5403,155 @@ ymaps
 		font-size: .9375rem;
 		color: #656565;
 		line-height: 1.25;
+.table-notification
+	position: fixed
+	z-index: 8
+	left: 0
+	bottom: 0
+	width: 100%
+	background-color: $white
+	box-shadow: 0px 5px 14px 0px rgba(7, 35, 53, 0.11);
+	+rem(padding, 15px)
+	+tr(transform .3s ease-in-out)
+	&:not(.active)
+		transform: translateY(100%)
+	.aside-wrapp
+		padding: 0
+		margin: 0
+	+r(767)
+		.aside-menu
+			margin: 0
+	&-content 
+		.text-1,.table-navigation-link
+			display: inline-block
+			vertical-align: middle
+		.text-1
+			+rem(padding-right,15px)
+			+rem(max-width,190px)
+			span
+				+rem(padding-right,5px)
+	&-inner
+		// +rem(max-width,850px)
+		width: 100%
+		display: flex
+		flex-flow: row nowrap
+		justify-content: space-between
+		align-items: center
+		.table-navigation-link
+			padding-right: 0
 
+		+r(600)
+			// flex-flow: row wrap
+			// .table-notification-btn,.table-notification-content
+			// 	width: 100%
+			// 	text-align: center
+			+rem(margin, 0 -20px)
+
+			width: auto
+			.text-1,.table-navigation-link
+				display: block
+			.table-navigation-link
+				+rem(font-size,14px)
+			.table-notification-btn
+				.btn
+					+rem(font-size,12px)
+					span 
+						+rem(padding,11px 12px)
+				
+		+r(340)
+			.table-notification-btn
+				.btn
+					+rem(font-size,11px)
+					span 
+						+rem(padding,12px 7px)
+
+
+//=====================================//
+//         feedback / questions
+//=====================================//
+
+.modal-layout
+	position: fixed
+	left: 0
+	right: 0
+	bottom: 0
+	top: 0
+	width: 100%
+	height: 100%
+	margin: 0
+	background-color: rgba(15, 74, 155,.1);
+	z-index: 200
+	opacity: 0
+	visibility: hidden
+	transition: opacity .2s, visibility .2s
+	+vertical
+	contain: paint 
+	transition-delay: .5s
+	&.active
+		visibility: visible
+		opacity: 1
+		transition-delay: 0s
+		.modal-container
+			transform: translateY(0)
+			opacity: 1
+			transition-delay: .2s
+	.modal-container
+		display: inline-block
+		vertical-align: middle 
+		+rem(min-width,320px)
+		+rem(max-width,647px)
+		max-height: 100%;
+		overflow-y: auto 
+		width: 100%
+		background-color: $white
+		position: relative
+		transform: translateY(5%)
+		transition: transform .2s, opacity .2s
+		opacity: 0
+		transition-delay: 0.3s
+		+rem(padding,50px 34px)
+		overflow: hidden
+		box-shadow: 0px 10px 27px 0px rgba(7, 35, 53, 0.11);
+
+
+		+r(480)
+			+rem(padding,32px 20px)
+	.modal-container-content
+		+rem(margin-top,30px)
+		text-align: left
+		.form-block-wrapper
+			border: none
+		.form-block-section
+			+padlr(0)
+			+rem(padding-top,10px)
+		.form-block-footer
+			+padlr(0)
+			padding-bottom: 0
+		&>.form-block-footer
+			+rem(margin-top,30px)
+	.modal-container-footer
+		+rem(padding, 25px 0 35px)
+		text-align: left
+	.modal-container-header
+		position: relative
+		text-align: left
+		.small-link
+			cursor: pointer
+			position: absolute
+			+rem(right,-16px)
+			+rem(top,-14px)
+			display: inline-block
+			+rem(width,40px)
+			+rem(height,40px)
+			+vertical
+			+tr(opacity .3s)
+			&:not(:hover)
+				opacity: .7
+			&:after
+				content: ''
+				+rem(width,13px)
+				+rem(height,13px)
+				+contain
+				background-image: url(../img/icons/i-close.png)
+				display: inline-block
+				vertical-align: middle

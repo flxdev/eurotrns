@@ -16,7 +16,6 @@
     <link rel="apple-touch-icon" sizes="72x72" href="img/fav/72x72.png">
     <link rel="apple-touch-icon" sizes="114x114" href="img/fav/114x114.png">
     <link rel="stylesheet" media="all" href="css/screen.min.css">
-    <script src="http://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
   </head>
   <body>
     <!--скрипт при первой загрузке страницы грузит шрифты и кладет их в localStorage-->
@@ -31,36 +30,85 @@
             <div class="page__header cd-auto-hide-header">
               <div class="header-top">
                 <div class="header-top-inner">
-                  <div class="header-lang"><a class="top-link header-lang-item active" href="#"><span>Ru</span></a><span class="top-link header-lang-item"><span>En</span></span></div>
+                  <div class="header-lang">
+                    <a class="top-link header-lang-item active" href="#">
+                      <span>Ru</span>
+                    </a>
+                    <span class="top-link header-lang-item">
+                      <span>En</span>
+                    </span>
+                  </div>
                   <div class="header-top-nav">
-                    <div class="header-top-nav-menu"><span class="top-link top-nav-item"><span>О нас</span></span><span class="top-link top-nav-item active"><span>Клиентам</span></span><a class="top-link top-nav-item" href="#"><span>Агентствам</span></a><a class="top-link top-nav-item" href="#"><span>Перевозчикам</span></a><a class="top-link top-nav-item" href="#"><span>Контакты</span></a></div><span class="top-link top-nav-botton">
+                    <div class="header-top-nav-menu">
+                      <span class="top-link top-nav-item">
+                        <span>О нас</span>
+                      </span>
+                      <span class="top-link top-nav-item active">
+                        <span>Клиентам</span>
+                      </span>
+                      <a class="top-link top-nav-item" href="#">
+                        <span>Агентствам</span>
+                      </a>
+                      <a class="top-link top-nav-item" href="#">
+                        <span>Перевозчикам</span>
+                      </a>
+                      <a class="top-link top-nav-item" href="#">
+                        <span>Контакты</span>
+                      </a>
+                    </div>
+                    <span class="top-link top-nav-botton">
                       <svg class="icon icon-drop">
                         <use xlink:href="#bag" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
-                      </svg><span>Бюро находок</span></span><a class="top-link top-nav-botton fixed" href="#">
+                      </svg>
+                      <span>Бюро находок</span>
+                    </span>
+                    <a class="top-link top-nav-botton fixed" href="#">
                       <svg class="icon icon-drop">
                         <use xlink:href="#login" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
-                      </svg><span>Личный кабинет</span></a>
+                      </svg>
+                      <span>Личный кабинет</span>
+                    </a>
                   </div>
                 </div>
               </div>
               <div class="header-bottom">
-                <div class="box header-bottom-inner"><a class="m-logo" href="#"><img src="img/logo-header.png" alt="Евротранс"></a>
+                <div class="box header-bottom-inner">
+                  <a class="m-logo" href="#">
+                    <img src="img/logo-header.png" alt="Евротранс">
+                  </a>
                   <div class="header-bottom-nav">
                     <ul class="header-bottom-menu js-slideline">
                       <!--.active для текущей страницы-->
-                      <li class="header-bottom-menu-item"><a href="#"><span>Рейсы</span></a></li>
-                      <li class="header-bottom-menu-item"><a href="#"><span>Трансфер в аэропорт</span></a></li>
-                      <li class="header-bottom-menu-item"><a href="#"><span>Аренда автобусов</span></a></li>
+                      <li class="header-bottom-menu-item">
+                        <span class="header-bottom-menu-navlink">
+                          <span>Рейсы</span>
+                        </span>
+                      </li>
+                      <li class="header-bottom-menu-item">
+                        <a class="header-bottom-menu-navlink" href="#">
+                          <span>Трансфер в аэропорт</span>
+                        </a>
+                      </li>
+                      <li class="header-bottom-menu-item">
+                        <a class="header-bottom-menu-navlink" href="#">
+                          <span>Аренда автобусов</span>
+                        </a>
+                      </li>
                     </ul>
                   </div>
                   <div class="header-bottom-contact">
                     <!--селект региона, такой же есть в заказе-->
                     <div class="dropdown-select-wrapp dropdown-trigger">
-                      <div class="country-head"><a class="country-list-link" href="#">
-                          <!-- флаг выбирается через id <use>: для британии gb раша ru и беларусь by,больше свг не заливал, если будут еще флаги то пихать картинку --><span class="country-img">
+                      <div class="country-head js-country-swap js-content-switch">
+                        <a class="country-list-link js-country-swap-item active" href="#" data-block="bel">
+                          <!-- флаг выбирается через id <use>: для британии gb раша ru и беларусь by,больше свг не заливал, если будут еще флаги то пихать картинку -->
+                          <span class="country-img">
                             <svg class="icon icon-drop">
                               <use xlink:href="#by" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
-                            </svg></span><span class="country-text">Беларусь</span></a>
+                            </svg>
+                          </span>
+                          <span class="country-text">Беларусь</span>
+                        </a>
                         <div class="arr-down">
                           <svg class="icon icon-drop">
                             <use xlink:href="#arr-down" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
@@ -70,31 +118,87 @@
                       <div class="dropdown-target small-dropdown-target">
                         <div class="dropdown-inner">
                           <div class="dropdown-content">
-                            <ul class="country-list">
-                              <li class="country-list-item"><a class="country-list-link" href="#"><span class="country-img"><img src="img/ru.svg" alt="россия"></span><span class="country-text">Россия</span></a></li>
+                            <ul class="country-list js-country-swap-list">
+                              <li class="country-list-item">
+                                <a class="country-list-link js-country-swap-item" href="#" data-block="ru">
+                                  <span class="country-img">
+                                    <img src="img/ru.svg" alt="россия">
+                                  </span>
+                                  <span class="country-text">Россия</span>
+                                </a>
+                                <a class="js-country-swap-item country-list-link" href="#" data-block="bangbangbang">
+                                  <span class="country-img">
+                                    <img src="img/ru.svg" alt="россия">
+                                  </span>
+                                  <span class="country-text">Бангладеш</span>
+                                </a>
+                              </li>
                             </ul>
                           </div>
                         </div>
                       </div>
                     </div>
-                    <div class="dropdown-tel-wrapp">
-                      <div class="dropdown-tel-inner">
+                    <div class="dropdown-tel-wrapp js-content-switch-parent">
+                      <div class="dropdown-tel-inner js-content-switch-item" data-block="bel">
                         <div class="dropdown-tel-content">
-                          <!--максимум 3 номера--><a class="dropdown-tel-item" href="tel:+375445000252"> <span>+375 (44) 5 000 252</span></a><a class="dropdown-tel-item" href="tel:+375295000252"> <span>+375 (29) 5 000 252</span></a>
+                          <!--максимум 4 номера, дальше это уже партянка некрасивая-->
+                          <a class="dropdown-tel-item" href="tel:+375445000252"> 
+                            <span>+375 (44) 5 000 252</span>
+                          </a>
+                          <a class="dropdown-tel-item" href="tel:+375295000252"> 
+                            <span>+375 (29) 5 000 252</span>
+                          </a>
+                        </div>
+                      </div>
+                      <div class="dropdown-tel-inner js-content-switch-item" data-block="ru">
+                        <div class="dropdown-tel-content">
+                          <!--максимум 4 номера-->
+                          <a class="dropdown-tel-item" href="tel:+375445000252"> 
+                            <span>+375 (244) 5 000 252</span>
+                          </a>
+                          <a class="dropdown-tel-item" href="tel:+375295000252"> 
+                            <span>+375 (294) 5 000 252						</span>
+                          </a>
+                          <a class="dropdown-tel-item" href="tel:+375295000252"> 
+                            <span>+375 (294) 5 000 252						</span>
+                          </a>
+                          <a class="dropdown-tel-item" href="tel:+375295000252"> 
+                            <span>+375 (294) 5 000 252</span>
+                          </a>
+                        </div>
+                      </div>
+                      <div class="dropdown-tel-inner js-content-switch-item" data-block="bangbangbang">
+                        <div class="dropdown-tel-content">
+                          <!--максимум 4 номера-->
+                          <a class="dropdown-tel-item" href="tel:+375445000252"> 
+                            <span>+375 (344) 5 000 252</span>
+                          </a>
+                          <a class="dropdown-tel-item" href="tel:+375295000252"> 
+                            <span>+375 (394) 5 000 252						</span>
+                          </a>
+                          <a class="dropdown-tel-item" href="tel:+375295000252"> 
+                            <span>+375 (394) 5 000 252</span>
+                          </a>
                         </div>
                       </div>
                     </div>
                   </div>
                   <!--отображается с 1024-->
-                  <div class="header-bottom-mobnav"><a class="header-bottom-mobnav-acc" href="#">
+                  <div class="header-bottom-mobnav">
+                    <a class="header-bottom-mobnav-acc" href="#">
                       <div class="header-btn-inner">
                         <svg class="icon icon-drop">
                           <use xlink:href="#login" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
                         </svg>
-                      </div></a>
+                      </div>
+                    </a>
                     <div class="header-bottom-mobnav-btn js-menu">
                       <div class="header-btn-inner">
-                        <div class="navTrigger"><i></i><i></i><i></i></div>
+                        <div class="navTrigger">
+                          <i></i>
+                          <i></i>
+                          <i></i>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -103,59 +207,126 @@
               <div class="header-mobile-menu">
                 <div class="header-mobile-menu-outer">
                   <div class="header-mobile-menu-inner">
+                    <div class="mobile-header-lang">
+                      <a class="top-link header-lang-item active" href="#">
+                        <span>Ru</span>
+                      </a>
+                      <span class="top-link header-lang-item">
+                        <span>En</span>
+                      </span>
+                    </div>
                     <div class="mobile-list-wrapper">
                       <ul class="mobile-list bold">
-                        <li class="mobile-menu-item active"><a href="#"><span>Рейсы</span></a></li>
-                        <li class="mobile-menu-item"><a href="#"><span>Трансфер в аэропорт</span></a></li>
-                        <li class="mobile-menu-item"><a href="#"><span>Аренда автобусов</span></a></li>
+                        <li class="mobile-menu-item active">
+                          <a href="#">
+                            <span>Рейсы</span>
+                          </a>
+                        </li>
+                        <li class="mobile-menu-item">
+                          <a href="#">
+                            <span>Трансфер в аэропорт</span>
+                          </a>
+                        </li>
+                        <li class="mobile-menu-item">
+                          <a href="#">
+                            <span>Аренда автобусов</span>
+                          </a>
+                        </li>
                       </ul>
                       <ul class="mobile-list">
-                        <li class="mobile-menu-item active"><a href="#"><span>Клиентам</span></a></li>
-                        <li class="mobile-menu-menu-item"><a href="#"><span>Агентствам</span></a></li>
-                        <li class="mobile-menu-menu-item"><a href="#"><span>Перевозчикам</span></a></li>
-                        <li class="mobile-menu-menu-item"><a href="#"><span>Контакты</span></a></li>
-                        <li class="mobile-menu-menu-item"><a href="#"><span>Бюро находок</span></a></li>
+                        <li class="mobile-menu-item active">
+                          <a href="#">
+                            <span>Клиентам</span>
+                          </a>
+                        </li>
+                        <li class="mobile-menu-menu-item">
+                          <a href="#">
+                            <span>Агентствам</span>
+                          </a>
+                        </li>
+                        <li class="mobile-menu-menu-item">
+                          <a href="#">
+                            <span>Перевозчикам</span>
+                          </a>
+                        </li>
+                        <li class="mobile-menu-menu-item">
+                          <a href="#">
+                            <span>Контакты</span>
+                          </a>
+                        </li>
+                        <li class="mobile-menu-menu-item">
+                          <a href="#">
+                            <span>Бюро находок</span>
+                          </a>
+                        </li>
                       </ul>
                     </div>
                     <div class="mobile-contact">
-                                    <div class="info-block">
-                                      <div class="info-block-head">Бронирование</div>
-                                      <ul class="info-block-list">
-                                        <li class="info-block-item">
-                                          <!--в ссылках может присутствовать спан с текстом--><a class="info-block-link" href="tel:+375295000252">+375 (29) 5000-252</a>
-                                        </li>
-                                        <li class="info-block-item"><a class="info-block-link" href="tel:+375295000252">+375 (29) 5000-252</a></li>
-                                        <li class="info-block-item"><a class="info-block-link" href="tel:+79055591545">+375 (29) 5000-252</a></li>
-                                      </ul>
-                                    </div>
+                      <div class="info-block">
+                        <a class="info-block-head" href="#">Бронирование</a>
+                        <ul class="info-block-list">
+                          <li class="info-block-item">
+                            <a class="info-block-link bold" href="tel:+375295000252">+375 (29) 5000-252</a>
+                          </li>
+                          <li class="info-block-item">
+                            <a class="info-block-link bold" href="tel:+375295000252">+375 (29) 5000-252</a>
+                          </li>
+                          <li class="info-block-item">
+                            <a class="info-block-link bold" href="tel:+79055591545">+375 (29) 5000-252</a>
+                          </li>
+                        </ul>
+                      </div>
                                     <div class="info-block">
                                       <div class="info-block-head"></div>
                                       <ul class="info-block-list">
-                                        <li class="info-block-item"><a class="info-block-link" href="tel:+74952818817">+7 (495) 281-88-17<span>Москва</span></a></li>
-                                        <li class="info-block-item"><a class="info-block-link" href="tel:+78122442019">+7 (812) 244-20-19<span>Санкт-Петербург</span></a></li>
+                                        <li class="info-block-item">
+                                          <a class="info-block-link bold descr" href="tel:+74952818817"> 
+                                            <span class="main">+7 (495) 281-88-17</span>
+                                            <span>Москва</span>
+                                          </a>
+                                        </li>
+                                        <li class="info-block-item">
+                                          <a class="info-block-link bold descr" href="tel:+78122442019"> 
+                                            <span class="main">+7 (812) 244-20-19</span>
+                                            <span>Санкт-Петербург</span>
+                                          </a>
+                                        </li>
                                       </ul>
                                     </div>
                     </div>
                     <div class="mobile-soc">
-                      <div class="soc-wrapp"><a class="soc-wrapp-item tw" href="#">
+                      <div class="soc-wrapp">
+                        <a class="soc-wrapp-item tw" href="#">
                           <svg class="icon icon-drop">
                             <use xlink:href="#tw" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
-                          </svg></a><a class="soc-wrapp-item in" href="#">
+                          </svg>
+                        </a>
+                        <a class="soc-wrapp-item in" href="#">
                           <svg class="icon icon-drop">
                             <use xlink:href="#inst" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
-                          </svg></a><a class="soc-wrapp-item gp" href="#">
+                          </svg>
+                        </a>
+                        <a class="soc-wrapp-item gp" href="#">
                           <svg class="icon icon-drop">
                             <use xlink:href="#g+" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
-                          </svg></a><a class="soc-wrapp-item fb" href="#">
+                          </svg>
+                        </a>
+                        <a class="soc-wrapp-item fb" href="#">
                           <svg class="icon icon-drop">
                             <use xlink:href="#fb" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
-                          </svg></a><a class="soc-wrapp-item ok" href="#">
+                          </svg>
+                        </a>
+                        <a class="soc-wrapp-item ok" href="#">
                           <svg class="icon icon-drop">
                             <use xlink:href="#ok" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
-                          </svg></a><a class="soc-wrapp-item vk" href="#">
+                          </svg>
+                        </a>
+                        <a class="soc-wrapp-item vk" href="#">
                           <svg class="icon icon-drop">
                             <use xlink:href="#vk" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
-                          </svg></a></div>
+                          </svg>
+                        </a>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -169,7 +340,11 @@
                                 <h1 class="title h1">Автопарк		</h1>
                               </div>
                               <div class="page-head-breadcrums">
-                                <div class="content-bread"><a class="content-bread-item text-sm" href="#">Главная</a><a class="content-bread-item text-sm" href="#">Кабинет пользователя </a><a class="content-bread-item text-sm" href="#">Мои брони</a></div>
+                                <div class="content-bread">
+                                  <a class="content-bread-item text-sm" href="#">Главная</a>
+                                  <a class="content-bread-item text-sm" href="#">Кабинет пользователя </a>
+                                  <a class="content-bread-item text-sm" href="#">Мои брони</a>
+                                </div>
                               </div>
                             </div>
                           </div>
@@ -181,11 +356,34 @@
                       <!--.bold-->
                       <!-- .active для ссылки текущей страницы-->
                       <!--тайтл ниже поялвляется на мобилках-->
-                      <div class="aside-title text-1 js-dropdown"> <span>О нас</span><i class="arr-down">
+                      <div class="aside-title text-1 js-dropdown"> 
+                        <span>О нас</span>
+                        <i class="arr-down">
                           <svg class="icon icon-drop">
                             <use xlink:href="#strelka" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
-                          </svg></i></div>
-                      <div class="aside-list bold js-dropdown-target"><span class="aside-list-item text-1 active"><span>Автопарк</span></span><a class="aside-list-item text-1" href="#"><span>Вопрос/ответ</span></a><a class="aside-list-item text-1" href="#"><span>Перевозчикам</span></a><a class="aside-list-item text-1" href="#"><span>Агентам</span></a><a class="aside-list-item text-1" href="#"><span>Способы оплаты</span></a><a class="aside-list-item text-1" href="#"><span>Политика конфиденциальности</span></a></div>
+                          </svg>
+                        </i>
+                      </div>
+                      <div class="aside-list bold js-dropdown-target">
+                        <span class="aside-list-item text-1 active">
+                          <span>Автопарк</span>
+                        </span>
+                        <a class="aside-list-item text-1" href="#">
+                          <span>Вопрос/ответ</span>
+                        </a>
+                        <a class="aside-list-item text-1" href="#">
+                          <span>Перевозчикам</span>
+                        </a>
+                        <a class="aside-list-item text-1" href="#">
+                          <span>Агентам</span>
+                        </a>
+                        <a class="aside-list-item text-1" href="#">
+                          <span>Способы оплаты</span>
+                        </a>
+                        <a class="aside-list-item text-1" href="#">
+                          <span>Политика конфиденциальности</span>
+                        </a>
+                      </div>
                     </div>
                   </aside>
                   <div class="aside-content">
@@ -197,21 +395,27 @@
                             <p> В нашем автопарке исключительно новые автобусы и микроавтобусы, которые проходят технический осмотр перед каждым рейсом. </p>
                           </div>
                         </div>
-                        <div class="content-column-right"><a class="border-card-link" href="#">
+                        <div class="content-column-right">
+                          <a class="border-card-link" href="#">
                                           <div class="border-card small">
                                             <div class="border-card-inner" style="background-image:url(img/cards/sm1.jpg);">
                                               <div class="border-card-name">Арендовать автобус</div>
                                               <div class="border-card-content"> 
-                                                <div class="link-border"><span>Оформить заявку</span></div>
+                                                <div class="link-border">
+                                                  <span>Оформить заявку</span>
+                                                </div>
                                               </div>
                                             </div>
-                                          </div></a></div>
+                                          </div>
+                          </a>
+                        </div>
                       </div>
                     </section>
                     <section class="aside-section">
                       <div class="bus-wrapper">
                         <!--.vip для вип машины-->
-                                      <div class="card-item card-item-bus"><a class="card-item-inner" href="#">
+                                      <div class="card-item card-item-bus">
+                                        <a class="card-item-inner" href="#">
                                           <div class="card-item-img">
                                             <div class="card-item-img-inner" style="background-image:url(img/tour/b1.jpg);"></div>
                                           </div>
@@ -227,15 +431,22 @@
                                                 <div class="card-bus-val">АЕ6984-4</div>
                                               </div>
                                               <div class="card-bus-content-block">
-                                                <div class="text-sm">Посадочных <br>мест</div>
+                                                <div class="text-sm">Посадочных 
+                                                  <br>мест
+                                                </div>
                                                 <div class="card-bus-val">50</div>
                                               </div>
-                                            </div><i class="card-item-link">
+                                            </div>
+                                            <i class="card-item-link">
                                               <svg class="icon icon-drop">
                                                 <use xlink:href="#arr-circle" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
-                                              </svg></i>
-                                          </div></a></div>
-                                      <div class="card-item card-item-bus"><a class="card-item-inner" href="#">
+                                              </svg>
+                                            </i>
+                                          </div>
+                                        </a>
+                                      </div>
+                                      <div class="card-item card-item-bus">
+                                        <a class="card-item-inner" href="#">
                                           <div class="card-item-img">
                                             <div class="card-item-img-inner" style="background-image:url(img/tour/b2.jpg);"></div>
                                           </div>
@@ -251,15 +462,22 @@
                                                 <div class="card-bus-val">АЕ6984-4</div>
                                               </div>
                                               <div class="card-bus-content-block">
-                                                <div class="text-sm">Посадочных <br>мест</div>
+                                                <div class="text-sm">Посадочных 
+                                                  <br>мест
+                                                </div>
                                                 <div class="card-bus-val">8</div>
                                               </div>
-                                            </div><i class="card-item-link">
+                                            </div>
+                                            <i class="card-item-link">
                                               <svg class="icon icon-drop">
                                                 <use xlink:href="#arr-circle" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
-                                              </svg></i>
-                                          </div></a></div>
-                                      <div class="card-item card-item-bus"><a class="card-item-inner" href="#">
+                                              </svg>
+                                            </i>
+                                          </div>
+                                        </a>
+                                      </div>
+                                      <div class="card-item card-item-bus">
+                                        <a class="card-item-inner" href="#">
                                           <div class="card-item-img">
                                             <div class="card-item-img-inner" style="background-image:url(img/tour/b3.jpg);"></div>
                                           </div>
@@ -275,18 +493,27 @@
                                                 <div class="card-bus-val">АЕ6984-4</div>
                                               </div>
                                               <div class="card-bus-content-block">
-                                                <div class="text-sm">Посадочных <br>мест</div>
+                                                <div class="text-sm">Посадочных 
+                                                  <br>мест
+                                                </div>
                                                 <div class="card-bus-val">12</div>
                                               </div>
-                                            </div><i class="card-item-link">
+                                            </div>
+                                            <i class="card-item-link">
                                               <svg class="icon icon-drop">
                                                 <use xlink:href="#arr-circle" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
-                                              </svg></i>
-                                          </div></a></div>
-                                      <div class="card-item card-item-bus vip"><a class="card-item-inner" href="#">
+                                              </svg>
+                                            </i>
+                                          </div>
+                                        </a>
+                                      </div>
+                                      <div class="card-item card-item-bus vip">
+                                        <a class="card-item-inner" href="#">
                                           <div class="card-item-img">
                                             <div class="card-item-img-inner" style="background-image:url(img/tour/b4.jpg);"></div>
-                                            <div class="small-block"><span>VIP</span></div>
+                                            <div class="small-block">
+                                              <span>VIP</span>
+                                            </div>
                                           </div>
                                           <div class="card-item-content">
                                             <div class="card-bus-content">
@@ -300,14 +527,20 @@
                                                 <div class="card-bus-val">АЕ6984-4</div>
                                               </div>
                                               <div class="card-bus-content-block">
-                                                <div class="text-sm">Посадочных <br>мест</div>
+                                                <div class="text-sm">Посадочных 
+                                                  <br>мест
+                                                </div>
                                                 <div class="card-bus-val">105</div>
                                               </div>
-                                            </div><i class="card-item-link">
+                                            </div>
+                                            <i class="card-item-link">
                                               <svg class="icon icon-drop">
                                                 <use xlink:href="#arr-circle" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
-                                              </svg></i>
-                                          </div></a></div>
+                                              </svg>
+                                            </i>
+                                          </div>
+                                        </a>
+                                      </div>
                       </div>
                     </section>
                   </div>
@@ -319,11 +552,34 @@
                 <div class="aside-wrapp">
                   <aside class="aside-menu" data-sticky_parent>
                     <div class="aside-stick js-dropdown-parent" data-sticky_column>
-                      <div class="aside-title text-1 js-dropdown"> <span>О нас</span><i class="arr-down">
+                      <div class="aside-title text-1 js-dropdown"> 
+                        <span>О нас</span>
+                        <i class="arr-down">
                           <svg class="icon icon-drop">
                             <use xlink:href="#strelka" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
-                          </svg></i></div>
-                      <div class="aside-list bold js-dropdown-target"><span class="aside-list-item text-1"><span>Автопарк</span></span><a class="aside-list-item text-1 active" href="#"><span>Вопрос/ответ</span></a><a class="aside-list-item text-1" href="#"><span>Перевозчикам</span></a><a class="aside-list-item text-1" href="#"><span>Агентам</span></a><a class="aside-list-item text-1" href="#"><span>Способы оплаты</span></a><a class="aside-list-item text-1" href="#"><span>Политика конфиденциальности</span></a></div>
+                          </svg>
+                        </i>
+                      </div>
+                      <div class="aside-list bold js-dropdown-target">
+                        <span class="aside-list-item text-1">
+                          <span>Автопарк</span>
+                        </span>
+                        <a class="aside-list-item text-1 active" href="#">
+                          <span>Вопрос/ответ</span>
+                        </a>
+                        <a class="aside-list-item text-1" href="#">
+                          <span>Перевозчикам</span>
+                        </a>
+                        <a class="aside-list-item text-1" href="#">
+                          <span>Агентам</span>
+                        </a>
+                        <a class="aside-list-item text-1" href="#">
+                          <span>Способы оплаты</span>
+                        </a>
+                        <a class="aside-list-item text-1" href="#">
+                          <span>Политика конфиденциальности</span>
+                        </a>
+                      </div>
                     </div>
                   </aside>
                   <div class="aside-content">
@@ -335,15 +591,20 @@
                             <p> В нашем автопарке исключительно новые автобусы и микроавтобусы, которые проходят технический осмотр перед каждым рейсом. </p>
                           </div>
                         </div>
-                        <div class="content-column-right"><a class="border-card-link" href="#">
+                        <div class="content-column-right">
+                          <a class="border-card-link" href="#">
                                           <div class="border-card small">
                                             <div class="border-card-inner" style="background-image:url(img/cards/sm1.jpg);">
                                               <div class="border-card-name">Арендовать автобус</div>
                                               <div class="border-card-content"> 
-                                                <div class="link-border"><span>Оформить заявку</span></div>
+                                                <div class="link-border">
+                                                  <span>Оформить заявку</span>
+                                                </div>
                                               </div>
                                             </div>
-                                          </div></a></div>
+                                          </div>
+                          </a>
+                        </div>
                       </div>
                     </section>
                     <section class="aside-section">
@@ -374,7 +635,11 @@
                                 <div class="card-bus-val">49</div>
                               </div>
                             </div>
-                            <div class="slider-bus-btn"><a class="btn btn-colored" href="#"><span>Арендовать автобус</span></a></div>
+                            <div class="slider-bus-btn">
+                              <a class="btn btn-colored" href="#">
+                                <span>Арендовать автобус</span>
+                              </a>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -384,7 +649,9 @@
                         <div class="feature-wrap">
                           <div class="feature-inner">
                                           <div class="feature-item dropdown-trigger">
-                                            <div class="feature-item-img"><img src="img/route/reys_wifi.svg" alt=""></div>
+                                            <div class="feature-item-img">
+                                              <img src="img/route/reys_wifi.svg" alt="">
+                                            </div>
                                             <div class="feature-item-name text-1">Wi-Fi</div>
                                             <div class="dropdown-target arrow-bottom">
                                               <div class="dropdown-inner">
@@ -395,7 +662,9 @@
                                             </div>
                                           </div>
                                           <div class="feature-item dropdown-trigger">
-                                            <div class="feature-item-img"><img src="img/route/reys_tv wifi.svg" alt=""></div>
+                                            <div class="feature-item-img">
+                                              <img src="img/route/reys_tv wifi.svg" alt="">
+                                            </div>
                                             <div class="feature-item-name text-1">Wi-Fi-Кино</div>
                                             <div class="dropdown-target arrow-bottom">
                                               <div class="dropdown-inner">
@@ -406,7 +675,9 @@
                                             </div>
                                           </div>
                                           <div class="feature-item dropdown-trigger">
-                                            <div class="feature-item-img"><img src="img/route/reys_220.svg" alt=""></div>
+                                            <div class="feature-item-img">
+                                              <img src="img/route/reys_220.svg" alt="">
+                                            </div>
                                             <div class="feature-item-name text-1">220v</div>
                                             <div class="dropdown-target arrow-bottom">
                                               <div class="dropdown-inner">
@@ -417,7 +688,9 @@
                                             </div>
                                           </div>
                                           <div class="feature-item dropdown-trigger">
-                                            <div class="feature-item-img"><img src="img/route/reys_sidenia.svg" alt=""></div>
+                                            <div class="feature-item-img">
+                                              <img src="img/route/reys_sidenia.svg" alt="">
+                                            </div>
                                             <div class="feature-item-name text-1">Комфортные сидения</div>
                                             <div class="dropdown-target arrow-bottom">
                                               <div class="dropdown-inner">
@@ -428,7 +701,9 @@
                                             </div>
                                           </div>
                                           <div class="feature-item dropdown-trigger">
-                                            <div class="feature-item-img"><img src="img/route/reys_pled.svg" alt=""></div>
+                                            <div class="feature-item-img">
+                                              <img src="img/route/reys_pled.svg" alt="">
+                                            </div>
                                             <div class="feature-item-name text-1">Пледы</div>
                                             <div class="dropdown-target arrow-bottom">
                                               <div class="dropdown-inner">
@@ -439,7 +714,9 @@
                                             </div>
                                           </div>
                                           <div class="feature-item dropdown-trigger">
-                                            <div class="feature-item-img"><img src="img/route/reys_candicianer.svg" alt=""></div>
+                                            <div class="feature-item-img">
+                                              <img src="img/route/reys_candicianer.svg" alt="">
+                                            </div>
                                             <div class="feature-item-name text-1">Кондиционер</div>
                                             <div class="dropdown-target arrow-bottom">
                                               <div class="dropdown-inner">
@@ -455,7 +732,12 @@
                       <div class="content-column-wrap">
                         <div class="content-column-content">
                           <div class="content-column-content-inner">
-                            <p class="caption"> Мы внимательно относимся к каждому клиенту, поэтому гарантируем индивидуальный подход в организации любой поездки. Наши сотрудники помогут вам рассчитать оптимальный маршрут, который бы полностью вас удовлетворял. В нашем автопарке представлены только лучшие модели автобусов и микроавтобусов. Мы предлагаем комфортабельные условия для поездок на любые расстояния. А опыт наших водителей позволит вам полностью расслабиться на протяжении всей поездки.<span class="caption-content"><span>Жить необязательно. Путешествовать — необходимо.</span><i>Уильям Берроуза</i></span></p>
+                            <p class="caption"> Мы внимательно относимся к каждому клиенту, поэтому гарантируем индивидуальный подход в организации любой поездки. Наши сотрудники помогут вам рассчитать оптимальный маршрут, который бы полностью вас удовлетворял. В нашем автопарке представлены только лучшие модели автобусов и микроавтобусов. Мы предлагаем комфортабельные условия для поездок на любые расстояния. А опыт наших водителей позволит вам полностью расслабиться на протяжении всей поездки.
+                              <span class="caption-content">
+                                <span>Жить необязательно. Путешествовать — необходимо.</span>
+                                <i>Уильям Берроуза</i>
+                              </span>
+                            </p>
                           </div>
                         </div>
                         <div class="content-column-right"></div>
@@ -476,52 +758,69 @@
                                   <div class="input-wrapper">
                                     <div class="label">Откуда</div>
                                     <div class="select-check js-select-custom depends-on">
-                                      <button class="selects" data-placeholder="Выберите"><span class="btn-text">Выберите</span><i class="arr-down">
+                                      <button class="selects" data-placeholder="Выберите">
+                                        <span class="btn-text">Выберите</span>
+                                        <i class="arr-down">
                                           <svg class="icon icon-drop">
                                             <use xlink:href="#strelka" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
-                                          </svg></i></button>
+                                          </svg>
+                                        </i>
+                                      </button>
                                       <div class="dropdown-target">
                                         <div class="dropdown-inner">
                                           <div class="dropdown-content">
                                             <div class="select-u-body select-list">
                                               <label class="option">
-                                                <input type="radio" name="group47" value="val1" data-validation="required"><span>Минск</span>
+                                                <input type="radio" name="group47" value="val1" data-validation="required">
+                                                <span>Минск</span>
                                               </label>
                                               <label class="option">
-                                                <input type="radio" name="group47" value="val2"><span>Пинск</span>
+                                                <input type="radio" name="group47" value="val2">
+                                                <span>Пинск</span>
                                               </label>
                                               <label class="option">
-                                                <input type="radio" name="group47" value="val3"><span>Копенгаген</span>
+                                                <input type="radio" name="group47" value="val3">
+                                                <span>Копенгаген</span>
                                               </label>
                                               <label class="option">
-                                                <input type="radio" name="group47" value="val4"><span>Рига</span>
+                                                <input type="radio" name="group47" value="val4">
+                                                <span>Рига</span>
                                               </label>
                                               <label class="option">
-                                                <input type="radio" name="group47" value="val5"><span>Немига</span>
+                                                <input type="radio" name="group47" value="val5">
+                                                <span>Немига</span>
                                               </label>
                                               <label class="option">
-                                                <input type="radio" name="group47" value="val6"><span>Метро</span>
+                                                <input type="radio" name="group47" value="val6">
+                                                <span>Метро</span>
                                               </label>
                                               <label class="option">
-                                                <input type="radio" name="group47" value="val7"><span>Копенгаген</span>
+                                                <input type="radio" name="group47" value="val7">
+                                                <span>Копенгаген</span>
                                               </label>
                                               <label class="option">
-                                                <input type="radio" name="group47" value="val8"><span>Копенгаген</span>
+                                                <input type="radio" name="group47" value="val8">
+                                                <span>Копенгаген</span>
                                               </label>
                                               <label class="option">
-                                                <input type="radio" name="group47" value="val9"><span>1Копенгаген</span>
+                                                <input type="radio" name="group47" value="val9">
+                                                <span>1Копенгаген</span>
                                               </label>
                                               <label class="option">
-                                                <input type="radio" name="group47" value="val9"><span>12Копенгаген</span>
+                                                <input type="radio" name="group47" value="val9">
+                                                <span>12Копенгаген</span>
                                               </label>
                                               <label class="option">
-                                                <input type="radio" name="group47" value="val9"><span>142Копенгаген</span>
+                                                <input type="radio" name="group47" value="val9">
+                                                <span>142Копенгаген</span>
                                               </label>
                                               <label class="option">
-                                                <input type="radio" name="group47" value="val9"><span>Копенгаген</span>
+                                                <input type="radio" name="group47" value="val9">
+                                                <span>Копенгаген</span>
                                               </label>
                                               <label class="option">
-                                                <input type="radio" name="group47" value="val9"><span>1Копенгаген</span>
+                                                <input type="radio" name="group47" value="val9">
+                                                <span>1Копенгаген</span>
                                               </label>
                                             </div>
                                           </div>
@@ -534,52 +833,69 @@
                                   <div class="input-wrapper">
                                     <div class="label">Куда</div>
                                     <div class="select-check js-select-custom depends-on">
-                                      <button class="selects" data-placeholder="Выберите"><span class="btn-text">Выберите</span><i class="arr-down">
+                                      <button class="selects" data-placeholder="Выберите">
+                                        <span class="btn-text">Выберите</span>
+                                        <i class="arr-down">
                                           <svg class="icon icon-drop">
                                             <use xlink:href="#strelka" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
-                                          </svg></i></button>
+                                          </svg>
+                                        </i>
+                                      </button>
                                       <div class="dropdown-target">
                                         <div class="dropdown-inner">
                                           <div class="dropdown-content">
                                             <div class="select-u-body select-list">
                                               <label class="option">
-                                                <input type="radio" name="group49" value="val1" data-validation="required"><span>Минск</span>
+                                                <input type="radio" name="group49" value="val1" data-validation="required">
+                                                <span>Минск</span>
                                               </label>
                                               <label class="option">
-                                                <input type="radio" name="group49" value="val2"><span>Пинск</span>
+                                                <input type="radio" name="group49" value="val2">
+                                                <span>Пинск</span>
                                               </label>
                                               <label class="option">
-                                                <input type="radio" name="group49" value="val3"><span>Копенгаген</span>
+                                                <input type="radio" name="group49" value="val3">
+                                                <span>Копенгаген</span>
                                               </label>
                                               <label class="option">
-                                                <input type="radio" name="group49" value="val4"><span>Рига</span>
+                                                <input type="radio" name="group49" value="val4">
+                                                <span>Рига</span>
                                               </label>
                                               <label class="option">
-                                                <input type="radio" name="group49" value="val5"><span>Немига</span>
+                                                <input type="radio" name="group49" value="val5">
+                                                <span>Немига</span>
                                               </label>
                                               <label class="option">
-                                                <input type="radio" name="group49" value="val6"><span>Метро</span>
+                                                <input type="radio" name="group49" value="val6">
+                                                <span>Метро</span>
                                               </label>
                                               <label class="option">
-                                                <input type="radio" name="group49" value="val7"><span>Копенгаген</span>
+                                                <input type="radio" name="group49" value="val7">
+                                                <span>Копенгаген</span>
                                               </label>
                                               <label class="option">
-                                                <input type="radio" name="group49" value="val8"><span>Копенгаген</span>
+                                                <input type="radio" name="group49" value="val8">
+                                                <span>Копенгаген</span>
                                               </label>
                                               <label class="option">
-                                                <input type="radio" name="group49" value="val9"><span>1Копенгаген</span>
+                                                <input type="radio" name="group49" value="val9">
+                                                <span>1Копенгаген</span>
                                               </label>
                                               <label class="option">
-                                                <input type="radio" name="group49" value="val9"><span>12Копенгаген</span>
+                                                <input type="radio" name="group49" value="val9">
+                                                <span>12Копенгаген</span>
                                               </label>
                                               <label class="option">
-                                                <input type="radio" name="group49" value="val9"><span>142Копенгаген</span>
+                                                <input type="radio" name="group49" value="val9">
+                                                <span>142Копенгаген</span>
                                               </label>
                                               <label class="option">
-                                                <input type="radio" name="group49" value="val9"><span>Копенгаген</span>
+                                                <input type="radio" name="group49" value="val9">
+                                                <span>Копенгаген</span>
                                               </label>
                                               <label class="option">
-                                                <input type="radio" name="group49" value="val9"><span>1Копенгаген</span>
+                                                <input type="radio" name="group49" value="val9">
+                                                <span>1Копенгаген</span>
                                               </label>
                                             </div>
                                           </div>
@@ -601,37 +917,49 @@
                                   <div class="input-wrapper double">
                                     <div class="label">Время выезда</div>
                                     <div class="select-check js-select-custom">
-                                      <button class="selects" data-placeholder="Выберите"><span class="btn-text">Выберите</span><i class="arr-down">
+                                      <button class="selects" data-placeholder="Выберите">
+                                        <span class="btn-text">Выберите</span>
+                                        <i class="arr-down">
                                           <svg class="icon icon-drop">
                                             <use xlink:href="#strelka" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
-                                          </svg></i></button>
+                                          </svg>
+                                        </i>
+                                      </button>
                                       <div class="dropdown-target">
                                         <div class="dropdown-inner">
                                           <div class="dropdown-content">
                                             <div class="select-u-body select-list">
                                               <label class="option">
-                                                <input type="radio" name="group50" value="10" data-validation="required"><span>03 ч</span>
+                                                <input type="radio" name="group50" value="10" data-validation="required">
+                                                <span>03 ч</span>
                                               </label>
                                               <label class="option">
-                                                <input type="radio" name="group50" value="11"><span>04 ч</span>
+                                                <input type="radio" name="group50" value="11">
+                                                <span>04 ч</span>
                                               </label>
                                               <label class="option">
-                                                <input type="radio" name="group50" value="12"><span>05 ч</span>
+                                                <input type="radio" name="group50" value="12">
+                                                <span>05 ч</span>
                                               </label>
                                               <label class="option">
-                                                <input type="radio" name="group50" value="13"><span>09 ч</span>
+                                                <input type="radio" name="group50" value="13">
+                                                <span>09 ч</span>
                                               </label>
                                               <label class="option">
-                                                <input type="radio" name="group50" value="14"><span>10 ч</span>
+                                                <input type="radio" name="group50" value="14">
+                                                <span>10 ч</span>
                                               </label>
                                               <label class="option">
-                                                <input type="radio" name="group50" value="15"><span>12 ч</span>
+                                                <input type="radio" name="group50" value="15">
+                                                <span>12 ч</span>
                                               </label>
                                               <label class="option">
-                                                <input type="radio" name="group50" value="16"><span>13 ч</span>
+                                                <input type="radio" name="group50" value="16">
+                                                <span>13 ч</span>
                                               </label>
                                               <label class="option">
-                                                <input type="radio" name="group50" value="17"><span>14 ч</span>
+                                                <input type="radio" name="group50" value="17">
+                                                <span>14 ч</span>
                                               </label>
                                             </div>
                                           </div>
@@ -639,25 +967,33 @@
                                       </div>
                                     </div>
                                     <div class="select-check js-select-custom">
-                                      <button class="selects" data-placeholder="Выберите"><span class="btn-text">Выберите</span><i class="arr-down">
+                                      <button class="selects" data-placeholder="Выберите">
+                                        <span class="btn-text">Выберите</span>
+                                        <i class="arr-down">
                                           <svg class="icon icon-drop">
                                             <use xlink:href="#strelka" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
-                                          </svg></i></button>
+                                          </svg>
+                                        </i>
+                                      </button>
                                       <div class="dropdown-target">
                                         <div class="dropdown-inner">
                                           <div class="dropdown-content">
                                             <div class="select-u-body select-list">
                                               <label class="option">
-                                                <input type="radio" name="group51" value="10" data-validation="required"><span>15 мин</span>
+                                                <input type="radio" name="group51" value="10" data-validation="required">
+                                                <span>15 мин</span>
                                               </label>
                                               <label class="option">
-                                                <input type="radio" name="group51" value="11"><span>00 мин</span>
+                                                <input type="radio" name="group51" value="11">
+                                                <span>00 мин</span>
                                               </label>
                                               <label class="option">
-                                                <input type="radio" name="group51" value="12"><span>45 мин</span>
+                                                <input type="radio" name="group51" value="12">
+                                                <span>45 мин</span>
                                               </label>
                                               <label class="option">
-                                                <input type="radio" name="group51" value="13"><span>30 мин</span>
+                                                <input type="radio" name="group51" value="13">
+                                                <span>30 мин</span>
                                               </label>
                                             </div>
                                           </div>
@@ -670,37 +1006,49 @@
                                   <div class="input-wrapper">
                                     <div class="label">Общее кол-во пассажиров</div>
                                     <div class="select-check js-select-custom">
-                                      <button class="selects" data-placeholder="Выберите"><span class="btn-text">Выберите</span><i class="arr-down">
+                                      <button class="selects" data-placeholder="Выберите">
+                                        <span class="btn-text">Выберите</span>
+                                        <i class="arr-down">
                                           <svg class="icon icon-drop">
                                             <use xlink:href="#strelka" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
-                                          </svg></i></button>
+                                          </svg>
+                                        </i>
+                                      </button>
                                       <div class="dropdown-target">
                                         <div class="dropdown-inner">
                                           <div class="dropdown-content">
                                             <div class="select-u-body select-list">
                                               <label class="option">
-                                                <input type="radio" name="group40" value="val1" data-validation="required"><span>40</span>
+                                                <input type="radio" name="group40" value="val1" data-validation="required">
+                                                <span>40</span>
                                               </label>
                                               <label class="option">
-                                                <input type="radio" name="group40" value="val2"><span>46</span>
+                                                <input type="radio" name="group40" value="val2">
+                                                <span>46</span>
                                               </label>
                                               <label class="option">
-                                                <input type="radio" name="group40" value="val3"><span>32</span>
+                                                <input type="radio" name="group40" value="val3">
+                                                <span>32</span>
                                               </label>
                                               <label class="option">
-                                                <input type="radio" name="group40" value="val4"><span>22</span>
+                                                <input type="radio" name="group40" value="val4">
+                                                <span>22</span>
                                               </label>
                                               <label class="option">
-                                                <input type="radio" name="group40" value="val5"><span>34</span>
+                                                <input type="radio" name="group40" value="val5">
+                                                <span>34</span>
                                               </label>
                                               <label class="option">
-                                                <input type="radio" name="group40" value="val6"><span>343</span>
+                                                <input type="radio" name="group40" value="val6">
+                                                <span>343</span>
                                               </label>
                                               <label class="option">
-                                                <input type="radio" name="group40" value="val7"><span>343</span>
+                                                <input type="radio" name="group40" value="val7">
+                                                <span>343</span>
                                               </label>
                                               <label class="option">
-                                                <input type="radio" name="group40" value="val8"><span>К34343</span>
+                                                <input type="radio" name="group40" value="val8">
+                                                <span>К34343</span>
                                               </label>
                                             </div>
                                           </div>
@@ -713,37 +1061,49 @@
                                   <div class="input-wrapper">
                                     <div class="label">Кол-во детей до 16 лет</div>
                                     <div class="select-check js-select-custom">
-                                      <button class="selects" data-placeholder="Выберите"><span class="btn-text">Выберите</span><i class="arr-down">
+                                      <button class="selects" data-placeholder="Выберите">
+                                        <span class="btn-text">Выберите</span>
+                                        <i class="arr-down">
                                           <svg class="icon icon-drop">
                                             <use xlink:href="#strelka" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
-                                          </svg></i></button>
+                                          </svg>
+                                        </i>
+                                      </button>
                                       <div class="dropdown-target">
                                         <div class="dropdown-inner">
                                           <div class="dropdown-content">
                                             <div class="select-u-body select-list">
                                               <label class="option">
-                                                <input type="radio" name="group41" value="val1" data-validation="required"><span>40</span>
+                                                <input type="radio" name="group41" value="val1" data-validation="required">
+                                                <span>40</span>
                                               </label>
                                               <label class="option">
-                                                <input type="radio" name="group41" value="val2"><span>46</span>
+                                                <input type="radio" name="group41" value="val2">
+                                                <span>46</span>
                                               </label>
                                               <label class="option">
-                                                <input type="radio" name="group41" value="val3"><span>32</span>
+                                                <input type="radio" name="group41" value="val3">
+                                                <span>32</span>
                                               </label>
                                               <label class="option">
-                                                <input type="radio" name="group41" value="val4"><span>22</span>
+                                                <input type="radio" name="group41" value="val4">
+                                                <span>22</span>
                                               </label>
                                               <label class="option">
-                                                <input type="radio" name="group41" value="val5"><span>34</span>
+                                                <input type="radio" name="group41" value="val5">
+                                                <span>34</span>
                                               </label>
                                               <label class="option">
-                                                <input type="radio" name="group41" value="val6"><span>343</span>
+                                                <input type="radio" name="group41" value="val6">
+                                                <span>343</span>
                                               </label>
                                               <label class="option">
-                                                <input type="radio" name="group41" value="val7"><span>343</span>
+                                                <input type="radio" name="group41" value="val7">
+                                                <span>343</span>
                                               </label>
                                               <label class="option">
-                                                <input type="radio" name="group41" value="val8"><span>К34343</span>
+                                                <input type="radio" name="group41" value="val8">
+                                                <span>К34343</span>
                                               </label>
                                             </div>
                                           </div>
@@ -756,19 +1116,25 @@
                                   <div class="input-wrapper">
                                     <div class="label">Предоставление проживания для водителей</div>
                                     <div class="select-check js-select-custom">
-                                      <button class="selects" data-placeholder="Выберите"><span class="btn-text">Выберите</span><i class="arr-down">
+                                      <button class="selects" data-placeholder="Выберите">
+                                        <span class="btn-text">Выберите</span>
+                                        <i class="arr-down">
                                           <svg class="icon icon-drop">
                                             <use xlink:href="#strelka" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
-                                          </svg></i></button>
+                                          </svg>
+                                        </i>
+                                      </button>
                                       <div class="dropdown-target">
                                         <div class="dropdown-inner">
                                           <div class="dropdown-content">
                                             <div class="select-u-body select-list">
                                               <label class="option">
-                                                <input type="radio" name="group42" value="val1" data-validation="required"><span>Да</span>
+                                                <input type="radio" name="group42" value="val1" data-validation="required">
+                                                <span>Да</span>
                                               </label>
                                               <label class="option">
-                                                <input type="radio" name="group42" value="val2"><span>Нет</span>
+                                                <input type="radio" name="group42" value="val2">
+                                                <span>Нет</span>
                                               </label>
                                             </div>
                                           </div>
@@ -780,8 +1146,13 @@
                                 <div class="input-item s50">
                                   <div class="input-wrapper">
                                     <div class="select-item">
-                                      <label class="select-label"><span class="select-main">
-                                          <input class="select-real" type="checkbox" value="twoway"><span class="select-checked"></span></span><span class="select-text">Маршрут туда и обратно</span></label>
+                                      <label class="select-label">
+                                        <span class="select-main">
+                                          <input class="select-real" type="checkbox" value="twoway">
+                                          <span class="select-checked"></span>
+                                        </span>
+                                        <span class="select-text">Маршрут туда и обратно</span>
+                                      </label>
                                     </div>
                                   </div>
                                 </div>
@@ -838,19 +1209,40 @@
                               <div class="form-footer-notify">
                                 <div class="text-sm">Поля для обязательного заполнения</div>
                               </div>
-                              <button class="btn btn-colored" type="sumbit"><span>Отправить заявку</span></button>
+                              <div class="input-form">
+                                <div class="input-item s33">
+                                  <button class="btn btn-colored" type="sumbit">
+                                    <span>Отправить заявку</span>
+                                  </button>
+                                </div>
+                                <div class="input-item s33">
+                                  <button class="btn btn-colored red" type="sumbit">
+                                    <span>Отправить заявку</span>
+                                  </button>
+                                </div>
+                                <div class="input-item s33">
+                                  <button class="btn btn-colored blue" type="sumbit">
+                                    <span>Отправить заявку</span>
+                                  </button>
+                                </div>
+                              </div>
                             </div>
                           </form>
                         </div>
-                        <div class="content-column-right"><a class="border-card-link" href="#">
+                        <div class="content-column-right">
+                          <a class="border-card-link" href="#">
                                           <div class="border-card small">
                                             <div class="border-card-inner" style="background-image:url(img/cards/sm1.jpg);">
                                               <div class="border-card-name">Правила перевозки багажа</div>
                                               <div class="border-card-content"> 
-                                                <div class="link-border"><span>Смотреть</span></div>
+                                                <div class="link-border">
+                                                  <span>Смотреть</span>
+                                                </div>
                                               </div>
                                             </div>
-                                          </div></a></div>
+                                          </div>
+                          </a>
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -862,11 +1254,34 @@
                 <div class="aside-wrapp">
                   <aside class="aside-menu" data-sticky_parent>
                     <div class="aside-stick js-dropdown-parent" data-sticky_column>
-                      <div class="aside-title text-1 js-dropdown"> <span>О нас</span><i class="arr-down">
+                      <div class="aside-title text-1 js-dropdown"> 
+                        <span>О нас</span>
+                        <i class="arr-down">
                           <svg class="icon icon-drop">
                             <use xlink:href="#strelka" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
-                          </svg></i></div>
-                      <div class="aside-list bold js-dropdown-target"><span class="aside-list-item text-1"><span>Автопарк</span></span><a class="aside-list-item text-1" href="#"><span>Вопрос/ответ</span></a><a class="aside-list-item text-1 active" href="#"><span>Перевозчикам</span></a><a class="aside-list-item text-1" href="#"><span>Агентам</span></a><a class="aside-list-item text-1" href="#"><span>Способы оплаты</span></a><a class="aside-list-item text-1" href="#"><span>Политика конфиденциальности</span></a></div>
+                          </svg>
+                        </i>
+                      </div>
+                      <div class="aside-list bold js-dropdown-target">
+                        <span class="aside-list-item text-1">
+                          <span>Автопарк</span>
+                        </span>
+                        <a class="aside-list-item text-1" href="#">
+                          <span>Вопрос/ответ</span>
+                        </a>
+                        <a class="aside-list-item text-1 active" href="#">
+                          <span>Перевозчикам</span>
+                        </a>
+                        <a class="aside-list-item text-1" href="#">
+                          <span>Агентам</span>
+                        </a>
+                        <a class="aside-list-item text-1" href="#">
+                          <span>Способы оплаты</span>
+                        </a>
+                        <a class="aside-list-item text-1" href="#">
+                          <span>Политика конфиденциальности</span>
+                        </a>
+                      </div>
                     </div>
                   </aside>
                   <div class="aside-content">
@@ -877,7 +1292,8 @@
                             <h2>Задать вопрос</h2>
                             <p> Если у вас есть вопросы, напишите нам. Мы всегда рады ответить на все ваши вопросы.</p>
                           </div>
-                          <form class="form-block-wrapper js-validate" action="/">
+                          <!--.processed для формы в процессе отправки-->
+                          <form class="processed form-block-wrapper js-validate" action="/">
                             <div class="form-block-section">
                               <div class="title h3">Ваш вопрос</div>
                               <div class="input-form">
@@ -911,7 +1327,42 @@
                               <div class="form-footer-notify">
                                 <div class="text-sm">Поля для обязательного заполнения</div>
                               </div>
-                              <button class="btn btn-colored" type="sumbit"><span>Задать вопрос</span></button>
+                              <div class="input-form">
+                                <div class="input-item s33">
+                                  <button class="btn btn-colored" type="sumbit">
+                                    <span>Отправить заявку</span>
+                                  </button>
+                                </div>
+                                <div class="input-item s33 text-center">
+                                  <button class="btn btn-colored red disabled" type="sumbit">
+                                    <span>Отправить заявку</span>
+                                  </button>
+                                </div>
+                                <div class="input-item s33 text-right">
+                                  <button class="btn btn-colored blue" type="sumbit">
+                                    <span>Отправить заявку</span>
+                                  </button>
+                                </div>
+                              </div>
+                              <div class="input-form">
+                                <div class="input-item s50">
+                                  <button class="btn btn-colored" type="sumbit">
+                                    <span>Отправить заявку</span>
+                                  </button>
+                                </div>
+                                <div class="input-item s50">
+                                  <button class="btn btn-colored red" type="sumbit">
+                                    <span>Отправить заявку</span>
+                                  </button>
+                                </div>
+                              </div>
+                              <div class="input-form">
+                                <div class="input-item s100 text-center">
+                                  <button class="btn btn-colored has-animation animated" type="sumbit">
+                                    <span>Отправить заявку</span>
+                                  </button>
+                                </div>
+                              </div>
                             </div>
                           </form>
                           <div class="feedback-wrapper">
@@ -920,7 +1371,9 @@
                                 <div class="text-sm">7 февраля 2017</div>
                               </div>
                               <div class="feedback-item-who">
-                                <div class="who-line"><span class="text-bold">Липский Кирилл</span></div>
+                                <div class="who-line">
+                                  <span class="text-bold">Липский Кирилл</span>
+                                </div>
                               </div>
                               <div class="feedback-item-content">
                                 <div class="text-1">Каким образом можно оплатить билет?</div>
@@ -935,7 +1388,9 @@
                                 <div class="text-sm">7 февраля 2017</div>
                               </div>
                               <div class="feedback-item-who">
-                                <div class="who-line"><span class="text-bold">Ольга</span></div>
+                                <div class="who-line">
+                                  <span class="text-bold">Ольга</span>
+                                </div>
                               </div>
                               <div class="feedback-item-content">
                                 <div class="text-1">Каким образом можно оплатить билет?</div>
@@ -947,16 +1402,23 @@
                             </div>
                           </div>
                         </div>
-                        <div class="content-column-right"><a class="border-card-link" href="#">
+                        <div class="content-column-right">
+                          <a class="border-card-link" href="#">
                                           <div class="border-card small">
                                             <div class="border-card-inner" style="background-image:url(img/cards/sm1.jpg);">
                                               <div class="border-card-name">Зарегистрируйся на сайте и получи скидку</div>
                                               <div class="border-card-content"> 
-                                                <div class="link-border"><span>Регистрация</span></div>
+                                                <div class="link-border">
+                                                  <span>Регистрация</span>
+                                                </div>
                                               </div>
                                             </div>
                                           </div>
-                            <div class="caption-content"><span>Скидка не распространяется на акционные и дополнительные рейсы компании.</span></div></a></div>
+                            <div class="caption-content">
+                              <span>Скидка не распространяется на акционные и дополнительные рейсы компании.</span>
+                            </div>
+                          </a>
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -964,19 +1426,43 @@
                 <div class="question-outer">
                   <h2 class="title h3">Часто задаваемые вопросы</h2>
                   <div class="nav-arrows"></div>
-                  <div class="question-inner js-questionslider"><a class="question-item" href="#">
-                                    <div class="question-item-img"><img src="img/question/vopros_calendar.svg" alt=""></div>
-                                    <div class="question-item-name">Маршруты и расписание</div></a><a class="question-item" href="#">
-                                    <div class="question-item-img"><img src="img/question/vopros_action.svg" alt=""></div>
-                                    <div class="question-item-name">Скидки</div></a><a class="question-item" href="#">
-                                    <div class="question-item-img"><img src="img/question/vopros_bronirovanie.svg" alt=""></div>
-                                    <div class="question-item-name">Бронирование</div></a><a class="question-item" href="#">
-                                    <div class="question-item-img"><img src="img/question/vopros_price.svg" alt=""></div>
-                                    <div class="question-item-name">Оплата</div></a><a class="question-item" href="#">
-                                    <div class="question-item-img"><img src="img/question/vopros_bagaz.svg" alt=""></div>
-                                    <div class="question-item-name">Багаж</div></a><a class="question-item" href="#">
-                                    <div class="question-item-img"><img src="img/question/vopros_granica.svg" alt=""></div>
-                                    <div class="question-item-name">Пересечение границы</div></a>
+                  <div class="question-inner js-questionslider">
+                                  <a class="question-item" href="#">
+                                    <div class="question-item-img">
+                                      <img src="img/question/vopros_calendar.svg" alt="">
+                                    </div>
+                                    <div class="question-item-name">Маршруты и расписание</div>
+                                  </a>
+                                  <a class="question-item" href="#">
+                                    <div class="question-item-img">
+                                      <img src="img/question/vopros_action.svg" alt="">
+                                    </div>
+                                    <div class="question-item-name">Скидки</div>
+                                  </a>
+                                  <a class="question-item" href="#">
+                                    <div class="question-item-img">
+                                      <img src="img/question/vopros_bronirovanie.svg" alt="">
+                                    </div>
+                                    <div class="question-item-name">Бронирование</div>
+                                  </a>
+                                  <a class="question-item" href="#">
+                                    <div class="question-item-img">
+                                      <img src="img/question/vopros_price.svg" alt="">
+                                    </div>
+                                    <div class="question-item-name">Оплата</div>
+                                  </a>
+                                  <a class="question-item" href="#">
+                                    <div class="question-item-img">
+                                      <img src="img/question/vopros_bagaz.svg" alt="">
+                                    </div>
+                                    <div class="question-item-name">Багаж</div>
+                                  </a>
+                                  <a class="question-item" href="#">
+                                    <div class="question-item-img">
+                                      <img src="img/question/vopros_granica.svg" alt="">
+                                    </div>
+                                    <div class="question-item-name">Пересечение границы</div>
+                                  </a>
                   </div>
                   <div class="i-arrows">
                     <div class="slider-counter">
@@ -993,11 +1479,34 @@
                 <div class="aside-wrapp">
                   <aside class="aside-menu" data-sticky_parent>
                     <div class="aside-stick js-dropdown-parent" data-sticky_column>
-                      <div class="aside-title text-1 js-dropdown"> <span>О нас</span><i class="arr-down">
+                      <div class="aside-title text-1 js-dropdown"> 
+                        <span>О нас</span>
+                        <i class="arr-down">
                           <svg class="icon icon-drop">
                             <use xlink:href="#strelka" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
-                          </svg></i></div>
-                      <div class="aside-list bold js-dropdown-target"><span class="aside-list-item text-1"><span>Автопарк</span></span><a class="aside-list-item text-1" href="#"><span>Вопрос/ответ</span></a><a class="aside-list-item text-1 active" href="#"><span>Перевозчикам</span></a><a class="aside-list-item text-1" href="#"><span>Агентам</span></a><a class="aside-list-item text-1" href="#"><span>Способы оплаты</span></a><a class="aside-list-item text-1" href="#"><span>Политика конфиденциальности</span></a></div>
+                          </svg>
+                        </i>
+                      </div>
+                      <div class="aside-list bold js-dropdown-target">
+                        <span class="aside-list-item text-1">
+                          <span>Автопарк</span>
+                        </span>
+                        <a class="aside-list-item text-1" href="#">
+                          <span>Вопрос/ответ</span>
+                        </a>
+                        <a class="aside-list-item text-1 active" href="#">
+                          <span>Перевозчикам</span>
+                        </a>
+                        <a class="aside-list-item text-1" href="#">
+                          <span>Агентам</span>
+                        </a>
+                        <a class="aside-list-item text-1" href="#">
+                          <span>Способы оплаты</span>
+                        </a>
+                        <a class="aside-list-item text-1" href="#">
+                          <span>Политика конфиденциальности</span>
+                        </a>
+                      </div>
                     </div>
                   </aside>
                   <div class="aside-content">
@@ -1086,20 +1595,29 @@
                               <div class="form-footer-notify">
                                 <div class="text-sm">Поля для обязательного заполнения</div>
                               </div>
-                              <button class="btn btn-colored" type="sumbit"><span>Задать вопрос</span></button>
+                              <button class="btn btn-colored" type="sumbit">
+                                <span>Задать вопрос</span>
+                              </button>
                             </div>
                           </form>
                         </div>
-                        <div class="content-column-right"><a class="border-card-link" href="#">
+                        <div class="content-column-right">
+                          <a class="border-card-link" href="#">
                                           <div class="border-card small">
                                             <div class="border-card-inner" style="background-image:url(img/cards/sm1.jpg);">
                                               <div class="border-card-name">Зарегистрируйся на сайте и получи скидку</div>
                                               <div class="border-card-content"> 
-                                                <div class="link-border"><span>Регистрация</span></div>
+                                                <div class="link-border">
+                                                  <span>Регистрация</span>
+                                                </div>
                                               </div>
                                             </div>
                                           </div>
-                            <div class="caption-content"><span>Скидка не распространяется на акционные и дополнительные рейсы компании.</span></div></a></div>
+                            <div class="caption-content">
+                              <span>Скидка не распространяется на акционные и дополнительные рейсы компании.</span>
+                            </div>
+                          </a>
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -1111,11 +1629,34 @@
                 <div class="aside-wrapp">
                   <aside class="aside-menu" data-sticky_parent>
                     <div class="aside-stick js-dropdown-parent" data-sticky_column>
-                      <div class="aside-title text-1 js-dropdown"> <span>О нас</span><i class="arr-down">
+                      <div class="aside-title text-1 js-dropdown"> 
+                        <span>О нас</span>
+                        <i class="arr-down">
                           <svg class="icon icon-drop">
                             <use xlink:href="#strelka" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
-                          </svg></i></div>
-                      <div class="aside-list bold js-dropdown-target"><span class="aside-list-item text-1"><span>Автопарк</span></span><a class="aside-list-item text-1" href="#"><span>Вопрос/ответ</span></a><a class="aside-list-item text-1" href="#"><span>Перевозчикам</span></a><span class="aside-list-item text-1 active"><span>Агентам</span></span><a class="aside-list-item text-1" href="#"><span>Способы оплаты</span></a><a class="aside-list-item text-1" href="#"><span>Политика конфиденциальности</span></a></div>
+                          </svg>
+                        </i>
+                      </div>
+                      <div class="aside-list bold js-dropdown-target">
+                        <span class="aside-list-item text-1">
+                          <span>Автопарк</span>
+                        </span>
+                        <a class="aside-list-item text-1" href="#">
+                          <span>Вопрос/ответ</span>
+                        </a>
+                        <a class="aside-list-item text-1" href="#">
+                          <span>Перевозчикам</span>
+                        </a>
+                        <span class="aside-list-item text-1 active">
+                          <span>Агентам</span>
+                        </span>
+                        <a class="aside-list-item text-1" href="#">
+                          <span>Способы оплаты</span>
+                        </a>
+                        <a class="aside-list-item text-1" href="#">
+                          <span>Политика конфиденциальности</span>
+                        </a>
+                      </div>
                     </div>
                   </aside>
                   <div class="aside-content">
@@ -1136,19 +1677,33 @@
                                                   <li>Необходимы только персональный компьютер, принтер и подключение к интернету</li>
                                                   <li>Простота выписки билета в режиме on-line</li>
                                                   <li>Отсутствие бланков билетов (билет электронный, печатается на любом принтере)</li>
-                                                </ul><a class="btn btn-colored" href="#"><span>Стать партнёром</span></a>
+                                                </ul>
+                                                <a class="btn btn-colored" href="#">
+                                                  <span>Стать партнёром</span>
+                                                </a>
                                               </div>
                                             </div>
                                           </div>
                           </div>
                         </div>
-                        <div class="content-column-right"><a class="border-card-link" href="#">
+                        <div class="content-column-right">
+                          <a class="border-card-link" href="#">
                                           <div class="border-card small">
                                             <div class="border-card-inner" style="background-image:url(img/cards/sm1.jpg);">
-                                              <div class="border-card-name">Комиссионный процент от стоимости билета<br><span>10%</span></div>
+                                              <div class="border-card-name">Комиссионный процент от стоимости билета
+                                                <br>
+                                                <span>10%</span>
+                                              </div>
                                             </div>
                                           </div>
-                            <div class="caption-content"><span>Проводим бесплатное обучение ваших сотрудников</span><br><br><span>Обеспечиваем информационную и техническую поддержку</span></div></a></div>
+                            <div class="caption-content">
+                              <span>Проводим бесплатное обучение ваших сотрудников</span>
+                              <br>
+                              <br>
+                              <span>Обеспечиваем информационную и техническую поддержку</span>
+                            </div>
+                          </a>
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -1159,45 +1714,85 @@
           <footer class="page__footer">
             <div class="box">
               <div class="footer__main">
-                <div class="footer-main-nav"><a class="m-logo" href="#" style="background-image:url(img/logo.png);"></a><a class="btn js-popup-button" href="#" data-modal="callback">
-                    <!--дата-атрибут только на этой кнопке, больше нигде нету --><span data-text="Обратный звонок">Заказать обратный звонок</span></a></div>
+                <div class="footer-main-nav">
+                  <a class="m-logo" href="#" style="background-image:url(img/logo.png);"></a>
+                  <a class="btn js-popup-button" href="#" data-modal="callback">
+                    <!--дата-атрибут только на этой кнопке, больше нигде нету -->
+                    <span data-text="Обратный звонок">Заказать обратный звонок</span>
+                  </a>
+                </div>
                 <div class="footer-dop-nav">
                   <div class="footer-column-wrap">
+                    <!--.info-column для блоков с info-block-ами -->
                     <div class="footer-column">
-                      <ul class="footer-column-list">
-                                    <li class="footer-column-list-item"><a href="#">Рейсы</a></li>
-                                    <li class="footer-column-list-item"><a href="#">Трансфер в аэропорт</a></li>
-                                    <li class="footer-column-list-item"><a href="#">Аренда автобусов</a></li>
+                      <ul class="footer-column-list bold">
+                                    <li class="footer-column-list-item">
+                                      <a href="#">Рейсы</a>
+                                    </li>
+                                    <li class="footer-column-list-item">
+                                      <a href="#">Трансфер в аэропорт</a>
+                                    </li>
+                                    <li class="footer-column-list-item">
+                                      <a href="#">Аренда автобусов</a>
+                                    </li>
                       </ul>
                       <ul class="footer-column-list">
-                                    <li class="footer-column-list-item"><a href="#">Клиентам</a></li>
-                                    <li class="footer-column-list-item"><a href="#">Агентствам</a></li>
-                                    <li class="footer-column-list-item"><a href="#">Перевозчикам</a></li>
-                                    <li class="footer-column-list-item"><a href="#">Контакты</a></li>
-                                    <li class="footer-column-list-item"><a href="#">Бюро находок</a></li>
-                                    <li class="footer-column-list-item"><a href="#">Личный кабинет</a></li>
+                                    <li class="footer-column-list-item">
+                                      <a href="#">Клиентам</a>
+                                    </li>
+                                    <li class="footer-column-list-item">
+                                      <a href="#">Агентствам</a>
+                                    </li>
+                                    <li class="footer-column-list-item">
+                                      <a href="#">Перевозчикам</a>
+                                    </li>
+                                    <li class="footer-column-list-item">
+                                      <a href="#">Контакты</a>
+                                    </li>
+                                    <li class="footer-column-list-item">
+                                      <a href="#">Бюро находок</a>
+                                    </li>
+                                    <li class="footer-column-list-item">
+                                      <a href="#">Личный кабинет</a>
+                                    </li>
                       </ul>
                     </div>
-                    <div class="footer-column">
+                    <div class="footer-column info-column">
                                   <div class="info-block">
                                     <div class="info-block-head">Бронирование</div>
                                     <ul class="info-block-list">
                                       <li class="info-block-item">
-                                        <!--в ссылках может присутствовать спан с текстом--><a class="info-block-link" href="tel:+375295000252">+375 (29) 5000-252</a>
+                                        <!--в ссылках может присутствовать спан с текстом - класс .descr, в нем основной контент .main, описание - просто спан-->
+                                        <!-- жирный текст .bold-->
+                                        <a class="info-block-link bold" href="tel:+375295000252">+375 (29) 5000-252</a>
                                       </li>
-                                      <li class="info-block-item"><a class="info-block-link" href="tel:+375295000252">+375 (29) 5000-252</a></li>
-                                      <li class="info-block-item"><a class="info-block-link" href="tel:+79055591545">+375 (29) 5000-252</a></li>
+                                      <li class="info-block-item">
+                                        <a class="info-block-link bold" href="tel:+375295000252">+375 (29) 5000-252</a>
+                                      </li>
+                                      <li class="info-block-item">
+                                        <a class="info-block-link bold" href="tel:+79055591545">+375 (29) 5000-252</a>
+                                      </li>
                                     </ul>
                                   </div>
                                   <div class="info-block">
                                     <div class="info-block-head"></div>
                                     <ul class="info-block-list">
-                                      <li class="info-block-item"><a class="info-block-link" href="tel:+74952818817">+7 (495) 281-88-17<span>Москва</span></a></li>
-                                      <li class="info-block-item"><a class="info-block-link" href="tel:+78122442019">+7 (812) 244-20-19<span>Санкт-Петербург</span></a></li>
+                                      <li class="info-block-item">
+                                        <a class="info-block-link bold descr" href="tel:+74952818817"> 
+                                          <span class="main"> +7 (495) 281-88-17</span>
+                                          <span>Москва</span>
+                                        </a>
+                                      </li>
+                                      <li class="info-block-item">
+                                        <a class="info-block-link bold descr" href="tel:+78122442019"> 
+                                          <span class="main">+7 (812) 244-20-19</span>
+                                          <span>Санкт-Петербург</span>
+                                        </a>
+                                      </li>
                                     </ul>
                                   </div>
                     </div>
-                    <div class="footer-column">
+                    <div class="footer-column info-column">
                                   <div class="info-block">
                                     <div class="info-block-head">Адрес</div>
                                     <ul class="info-block-list">
@@ -1209,20 +1804,34 @@
                                   <div class="info-block">
                                     <div class="info-block-head">E-mail</div>
                                     <ul class="info-block-list">
-                                      <li class="info-block-item"><a class="info-block-link" href="mailto:service@eurotrans.by">service@eurotrans.by <span>для обращений</span></a></li>
-                                      <li class="info-block-item"><a class="info-block-link" href="mailto:job@eurotrans.by">job@eurotrans.by<span>для резюме</span></a></li>
-                                      <li class="info-block-item"><a class="info-block-link" href="mailto:info@eurotrans.by">info@eurotrans.by</a></li>
+                                      <li class="info-block-item">
+                                        <a class="info-block-link descr" href="mailto:service@eurotrans.by"> 
+                                          <span class="main">service@eurotrans.by </span>
+                                          <span>для обращений</span>
+                                        </a>
+                                      </li>
+                                      <li class="info-block-item">
+                                        <a class="info-block-link descr" href="mailto:job@eurotrans.by"> 
+                                          <span class="main">job@eurotrans.by</span>
+                                          <span>для резюме</span>
+                                        </a>
+                                      </li>
+                                      <li class="info-block-item">
+                                        <a class="info-block-link" href="mailto:info@eurotrans.by">info@eurotrans.by</a>
+                                      </li>
                                     </ul>
                                   </div>
                     </div>
-                    <div class="footer-column">
-                                  <div class="info-block">
+                    <div class="footer-column info-column">
+                                  <div class="info-block small">
                                     <div class="info-block-head">Skype</div>
                                     <ul class="info-block-list">
-                                      <li class="info-block-item"><a class="info-block-link" href="skype:Eurotrans_bot">Eurotrans_bot</a></li>
+                                      <li class="info-block-item">
+                                        <a class="info-block-link" href="skype:Eurotrans_bot">Eurotrans_bot</a>
+                                      </li>
                                     </ul>
                                   </div>
-                                  <div class="info-block">
+                                  <div class="info-block small">
                                     <div class="info-block-head">Telegram</div>
                                     <ul class="info-block-list">
                                       <li class="info-block-item">
@@ -1230,7 +1839,7 @@
                                       </li>
                                     </ul>
                                   </div>
-                                  <div class="info-block">
+                                  <div class="info-block small">
                                     <div class="info-block-head">Viber</div>
                                     <ul class="info-block-list">
                                       <li class="info-block-item">
@@ -1242,51 +1851,81 @@
                   </div>
                 </div>
               </div>
+              <div class="footer-row">
+                <div class="footer-row-text">* Все цены в иностранной валюте несут исключительно информационный характер!</div>
+                <div class="footer-row-pay">
+                  <div class="footer-row-pay-inner">
+                                <div class="footer-row-pay-item">
+                                  <img src="img/pay/1.png" alt="vissssss">
+                                </div>
+                                <div class="footer-row-pay-item">
+                                  <img src="img/pay/2.png" alt="vissssss">
+                                </div>
+                                <div class="footer-row-pay-item">
+                                  <img src="img/pay/3.png" alt="vissssss">
+                                </div>
+                                <div class="footer-row-pay-item">
+                                  <img src="img/pay/4.png" alt="vissssss">
+                                </div>
+                                <div class="footer-row-pay-item">
+                                  <img src="img/pay/5.png" alt="vissssss">
+                                </div>
+                                <div class="footer-row-pay-item">
+                                  <img src="img/pay/6.png" alt="vissssss">
+                                </div>
+                                <div class="footer-row-pay-item">
+                                  <img src="img/pay/7.png" alt="vissssss">
+                                </div>
+                  </div>
+                </div>
+              </div>
               <div class="footer__footer">
-                <div class="soc-wrapp"><a class="soc-wrapp-item tw" href="#">
+                <div class="soc-wrapp">
+                  <a class="soc-wrapp-item tw" href="#">
                     <svg class="icon icon-drop">
                       <use xlink:href="#tw" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
-                    </svg></a><a class="soc-wrapp-item in" href="#">
+                    </svg>
+                  </a>
+                  <a class="soc-wrapp-item in" href="#">
                     <svg class="icon icon-drop">
                       <use xlink:href="#inst" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
-                    </svg></a><a class="soc-wrapp-item gp" href="#">
+                    </svg>
+                  </a>
+                  <a class="soc-wrapp-item gp" href="#">
                     <svg class="icon icon-drop">
                       <use xlink:href="#g+" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
-                    </svg></a><a class="soc-wrapp-item fb" href="#">
+                    </svg>
+                  </a>
+                  <a class="soc-wrapp-item fb" href="#">
                     <svg class="icon icon-drop">
                       <use xlink:href="#fb" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
-                    </svg></a><a class="soc-wrapp-item ok" href="#">
+                    </svg>
+                  </a>
+                  <a class="soc-wrapp-item ok" href="#">
                     <svg class="icon icon-drop">
                       <use xlink:href="#ok" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
-                    </svg></a><a class="soc-wrapp-item vk" href="#">
+                    </svg>
+                  </a>
+                  <a class="soc-wrapp-item vk" href="#">
                     <svg class="icon icon-drop">
                       <use xlink:href="#vk" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
-                    </svg></a></div>
-                <div class="footer-row">
-                  <div class="footer-row-text">* Все цены в иностранной валюте несут исключительно информационный характер!</div>
-                  <div class="footer-row-pay">
-                    <div class="footer-row-pay-inner">
-                                  <div class="footer-row-pay-item"><img src="img/pay/1.png" alt="vissssss"></div>
-                                  <div class="footer-row-pay-item"><img src="img/pay/2.png" alt="vissssss"></div>
-                                  <div class="footer-row-pay-item"><img src="img/pay/3.png" alt="vissssss"></div>
-                                  <div class="footer-row-pay-item"><img src="img/pay/4.png" alt="vissssss"></div>
-                                  <div class="footer-row-pay-item"><img src="img/pay/5.png" alt="vissssss"></div>
-                                  <div class="footer-row-pay-item"><img src="img/pay/6.png" alt="vissssss"></div>
-                                  <div class="footer-row-pay-item"><img src="img/pay/7.png" alt="vissssss"></div>
-                    </div>
-                  </div>
+                    </svg>
+                  </a>
                 </div>
                 <div class="footer__footer-copy">
                   <div class="text-sm">© 2016 Все права защищены.</div>
                 </div>
-                <div class="footer__footer-developer"><a class="footer-developer-link" href="#">
+                <div class="footer__footer-developer">
+                  <a class="footer-developer-link" href="#">
                     <div class="text-sm">Дизайн сайта: </div>
                     <div class="footer-developer-icon">
                       <svg class="icon icon-drop">
                         <use xlink:href="#logof" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
                       </svg>
                     </div>
-                    <div class="footer-developer-text">FLEX.MEDIA</div></a></div>
+                    <div class="footer-developer-text">FLEX.MEDIA</div>
+                  </a>
+                </div>
               </div>
             </div>
           </footer>
@@ -1299,110 +1938,88 @@
         <!-- по саксесу вешаю на этот блок класс из-за которого следующий открывается-->
         <div class="modal-container">
           <div class="modal-container-header">
-            <div class="title h4">Обратная связь</div><i class="small-link pop-close closePopup"></i>
+            <div class="text-medium">Заказать обратный звонок</div>
+            <i class="small-link pop-close closePopup"></i>
           </div>
           <div class="modal-container-content">
-            <form class="form js-validate" data-block=".modal-container">
-              <div class="input-item s-50">
-                <div class="input-wrapper req">
-                  <label>Имя</label>
-                  <input class="input-main" type="text" placeholder="Имя" data-validation="length required" data-validation-length="min2" data-validation-error-msg="Не заполнено">
+            <form class="form-block-wrapper js-validate" action="/">
+              <div class="form-block-section">
+                <div class="input-form">
+                  <div class="input-item s50">
+                    <div class="input-wrapper req">
+                      <label for="imb1">Имя</label>
+                      <input class="input-main" type="text" placeholder="Имя" data-validation="length" data-validation-length="min2" data-validation-error-msg="Не заполнено" id="imb1">
+                    </div>
+                  </div>
+                  <div class="input-item s50">
+                    <div class="input-wrapper req">
+                      <label for="imb3">Телефон</label>
+                      <input class="input-main" type="tel" placeholder="Телефон" data-validation="custom" data-validation-regexp="^[-0-9()+ ]+$" data-validation-error-msg="Не заполнено" id="imb3">
+                    </div>
+                  </div>
+                  <div class="input-item s100">
+                    <div class="input-wrapper req">
+                      <label for="text12121">Комментарий</label>
+                      <textarea class="input-main" rows="5" id="text12121"></textarea>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div class="input-item s-50">
-                <div class="input-wrapper req">
-                  <label>E-mail</label>
-                  <input class="input-main" type="email" placeholder="example@mail.com" data-validation="email" data-validation-error-msg="Не заполнено">
-                </div>
-              </div>
-              <div class="input-item s-50">
-                <div class="input-wrapper req">
-                  <label>Телефон</label>
-                  <input class="input-main" type="tel" placeholder="Телефон" data-validation="custom" data-validation-regexp="^[-0-9()+ ]+$" data-validation-error-msg="Не заполнено">
-                </div>
-              </div>
-              <div class="input-item s-100">
-                <div class="input-wrapper">
-                  <label>Сообщение</label>
-                  <textarea class="input-main" rows="5" placeholder="Сообщение"> </textarea>
-                </div>
-              </div>
-              <div class="form-footer">
+              <div class="form-block-footer">
                 <div class="form-footer-notify">
-                  <div class="text">Поля обязательные для заполнения</div>
+                  <div class="text-sm">Поля для обязательного заполнения</div>
                 </div>
-                <button class="btn yell" type="submit">Отправить	</button>
+                <button class="btn btn-colored" type="sumbit">
+                  <span>Задать вопрос</span>
+                </button>
               </div>
             </form>
           </div>
         </div>
-        <!--контейнер модалки  -->
+        <!--контейнер ответа модалки -->
         <div class="modal-container response" style="display: none;">
           <div class="modal-container-header">
-            <div class="title h4">Спасибо</div><i class="small-link pop-close closePopup"></i>
+            <div class="text-medium">Спасибо</div>
+            <i class="small-link pop-close closePopup"></i>
           </div>
           <div class="modal-container-content">
-            <div class="text">Благодарим вас за проявленый интерес к нашей компании. С вами свяжется наш специалист для решения вашего вопроса.  </div>
-          </div>
-          <div class="modal-container-footer">
-            <button class="link-black closePopup" type="button">Закрыть</button>
+            <div class="text-1">Благодарим вас за проявленый интерес к нашей компании. С вами свяжется наш специалист для решения вашего вопроса.  </div>
           </div>
         </div>
       </div>
-      <div class="modal-layout js-popup-container" data-modal="fallback">
+      <div class="modal-layout js-popup-container" data-modal="payback">
         <!--контейнер модалки-->
+        <!-- по саксесу вешаю на этот блок класс из-за которого следующий открывается-->
         <div class="modal-container">
           <div class="modal-container-header">
-            <div class="title h4">Заказать обратный звонок</div><i class="small-link pop-close closePopup"></i>
+            <div class="text-medium">Возврат билетов</div>
+            <i class="small-link pop-close closePopup"></i>
           </div>
           <div class="modal-container-content">
-            <form class="form js-validate" data-block=".modal-container">
-              <div class="input-item s-50">
-                <div class="input-wrapper req">
-                  <label>Имя</label>
-                  <input class="input-main" type="text" placeholder="Имя" data-validation="length required" data-validation-length="min2" data-validation-error-msg="Не заполнено">
+            <div class="text-1">Вы уверены, что хотите отменить этот билет?</div>
+            <div class="form-block-footer">
+              <div class="input-form">
+                <div class="input-item s33">
+                  <a class="btn btn-colored closePopup" href="#">
+                    <span>Нет, не нужно</span>
+                  </a>
+                </div>
+                <div class="input-item s33 text-center">
+                  <a class="btn btn-colored red closePopup" href="#">
+                    <span>да, отменить!</span>
+                  </a>
                 </div>
               </div>
-              <div class="input-item s-50">
-                <div class="input-wrapper req">
-                  <label>Телефон</label>
-                  <input class="input-main" type="tel" placeholder="Телефон" data-validation="custom" data-validation-regexp="^[-0-9()+ ]+$" data-validation-error-msg="Не заполнено">
-                </div>
-              </div>
-              <div class="input-item s-100">
-                <div class="input-wrapper">
-                  <label>Комментарий  </label>
-                  <textarea class="input-main" rows="5" placeholder="Комментарий"> </textarea>
-                </div>
-              </div>
-              <div class="form-footer">
-                <div class="form-footer-notify">
-                  <div class="text">Поля обязательные для заполнения</div>
-                </div>
-                <button class="btn yell" type="submit">Заказать звонок	</button>
-              </div>
-            </form>
-          </div>
-        </div>
-        <!--контейнер модалки  -->
-        <div class="modal-container response" style="display: none;">
-          <div class="modal-container-header">
-            <div class="title h4">Спасибо</div><i class="small-link pop-close closePopup"></i>
-          </div>
-          <div class="modal-container-content">
-            <div class="text">Благодарим вас за проявленый интерес к нашей компании. С вами свяжется наш специалист для решения вашего вопроса.  </div>
-          </div>
-          <div class="modal-container-footer">
-            <button class="link-black closePopup" type="button">Закрыть</button>
+            </div>
           </div>
         </div>
       </div>
-      <div class="modal-layout js-popup-container" id="modal-road" data-modal="road"></div>
     </div>
     <!--END out-->
     <script src="js/lib.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.60/jquery.form-validator.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.60/logic.js"></script>
     <script src="js/common.min.js"></script>
+    <script src="http://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
   </body>
 </html>

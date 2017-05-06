@@ -447,8 +447,16 @@ block content
 									.form-block-footer
 										.form-footer-notify
 											.text-sm Поля для обязательного заполнения
-										button(type='sumbit').btn.btn-colored
-											span Отправить заявку
+										.input-form
+											.input-item.s33
+												button(type='sumbit').btn.btn-colored
+													span Отправить заявку
+											.input-item.s33
+												button(type='sumbit').btn.btn-colored.red
+													span Отправить заявку
+											.input-item.s33
+												button(type='sumbit').btn.btn-colored.blue
+													span Отправить заявку
 							.content-column-right
 								a(href="#").border-card-link
 									+cardmedium('sm1.jpg','small')
@@ -487,7 +495,8 @@ block content
 								.content-column-content-inner
 									h2 Задать вопрос
 									p  Если у вас есть вопросы, напишите нам. Мы всегда рады ответить на все ваши вопросы.
-								form(action="/").form-block-wrapper.js-validate
+								//.processed для формы в процессе отправки
+								form(action="/").processed.form-block-wrapper.js-validate
 									.form-block-section
 										.title.h3 Ваш вопрос
 										.input-form
@@ -510,8 +519,27 @@ block content
 									.form-block-footer
 										.form-footer-notify
 											.text-sm Поля для обязательного заполнения
-										button(type='sumbit').btn.btn-colored
-											span Задать вопрос
+										.input-form
+											.input-item.s33
+												button(type='sumbit').btn.btn-colored
+													span Отправить заявку
+											.input-item.s33.text-center
+												button(type='sumbit').btn.btn-colored.red.disabled
+													span Отправить заявку
+											.input-item.s33.text-right
+												button(type='sumbit').btn.btn-colored.blue
+													span Отправить заявку
+										.input-form
+											.input-item.s50
+												button(type='sumbit').btn.btn-colored
+													span Отправить заявку
+											.input-item.s50
+												button(type='sumbit').btn.btn-colored.red
+													span Отправить заявку
+										.input-form
+											.input-item.s100.text-center
+												button(type='sumbit').btn.btn-colored.has-animation.animated
+													span Отправить заявку
 								.feedback-wrapper
 									.feedback-item
 										.feedback-item-head
