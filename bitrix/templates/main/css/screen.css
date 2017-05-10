@@ -1561,15 +1561,44 @@ body, .out {
     background-size: 0.5rem 0.75rem;
     background-position: right center;
     background-repeat: no-repeat; }
+  .ui-datepicker .date-range-selected a {
+    color: #ff8400;
+    font-weight: 600;
+    background-color: #f2f2f2;
+    border-radius: 0; }
+  .ui-datepicker .date-range-selected:not(.ui-datepicker-current-day) a {
+    border-radius: 0;
+    width: auto;
+    display: block;
+    margin: 0 -0.625rem;
+    padding-left: 0.8125rem;
+    padding-right: 0.8125rem; }
+  .ui-datepicker .date-range-selected.ui-datepicker-current-day a {
+    margin-left: -0.625rem;
+    display: block;
+    width: auto;
+    padding-left: 0.8125rem; }
 
 select.ui-datepicker-year, select.ui-datepicker-month {
   max-width: 3.75rem;
   opacity: 0; }
 
+.input-form {
+  position: relative; }
+  .input-form > .small-link {
+    top: 1.5625rem;
+    right: 0.9375rem;
+    width: 1.25rem; }
+
 .input-item {
   display: inline-block;
   vertical-align: top;
-  padding-right: 0.375rem; }
+  padding-right: 0.375rem;
+  position: relative; }
+  .input-item > .small-link {
+    top: 1.5625rem;
+    right: 0.9375rem;
+    width: 1.25rem; }
   .input-item.s100 {
     width: 100%; }
     .input-item.s100 .select-label {
@@ -1592,6 +1621,8 @@ select.ui-datepicker-year, select.ui-datepicker-month {
 .input-wrapper {
   position: relative;
   margin-bottom: 0.9375rem; }
+  .input-wrapper .small-link {
+    right: 0; }
   .input-wrapper.disabled {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -1616,6 +1647,8 @@ select.ui-datepicker-year, select.ui-datepicker-month {
         color: transparent !important; }
       .input-wrapper.disabled .input-main::-webkit-input-placeholder {
         color: transparent !important; }
+  .input-wrapper:nth-child(n+2) label {
+    opacity: 0; }
   .input-wrapper.double {
     font-size: 0; }
     .input-wrapper.double .select-check {
@@ -1719,14 +1752,14 @@ select.ui-datepicker-year, select.ui-datepicker-month {
       .input-wrapper .input-main.datepicker:valid::-webkit-input-placeholder {
         color: #fff;
         opacity: 0; }
-      .input-wrapper .input-main.datepicker ~ svg {
-        position: absolute;
-        top: 53%;
-        pointer-events: none;
-        width: 1.1875rem;
-        height: 1.1875rem;
-        right: 0.75rem;
-        z-index: 2; }
+    .input-wrapper .input-main ~ svg {
+      position: absolute;
+      top: 53%;
+      pointer-events: none;
+      width: 1.1875rem;
+      height: 1.1875rem;
+      right: 0.75rem;
+      z-index: 2; }
     .input-wrapper .input-main:focus {
       border-color: #ff9829; }
     .input-wrapper .input-main::-webkit-input-placeholder {
@@ -1762,7 +1795,11 @@ select.ui-datepicker-year, select.ui-datepicker-month {
     bottom: -0.9375rem;
     font-size: 0.75rem;
     color: red;
-    left: 0; }
+    left: 0;
+    white-space: nowrap;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis; }
 
 .text-right {
   text-align: right; }
@@ -1959,7 +1996,8 @@ select.ui-datepicker-year, select.ui-datepicker-month {
   display: inline-block;
   font-size: 0.9375rem;
   font-weight: 600;
-  color: #404040; }
+  color: #404040;
+  cursor: pointer; }
   .link-border.gray {
     font-size: 0.8125rem;
     color: #929bae; }
@@ -5172,8 +5210,6 @@ a.caption-content:active span {
     .table-navigation-nav .table-pagination, .table-navigation-nav .table-collapse {
       display: inline-block;
       vertical-align: middle; }
-    .table-navigation-nav .table-pagination {
-      margin-right: 0.9375rem; }
   .table-navigation-link {
     color: #929bae;
     padding-right: 1.375rem;
@@ -5242,7 +5278,9 @@ a.caption-content:active span {
 .table-collapse {
   text-align: right; }
   .table-collapse .table-navigation-link {
-    margin-right: 0; }
+    margin-right: 0;
+    padding-right: 0;
+    padding-left: 0.625rem; }
 
 .table-pagination {
   white-space: nowrap; }
@@ -5377,7 +5415,8 @@ ymaps p {
   font-size: 0;
   contain: paint;
   -webkit-transition-delay: .5s;
-  transition-delay: .5s; }
+  transition-delay: .5s;
+  overflow-y: auto; }
   .modal-layout:before {
     content: "";
     display: inline-block;
@@ -5396,12 +5435,21 @@ ymaps p {
       opacity: 1;
       -webkit-transition-delay: .2s;
       transition-delay: .2s; }
+  .modal-layout.modal-login .modal-container {
+    padding-top: 0; }
+    .modal-layout.modal-login .modal-container-header {
+      padding: 1.5625rem 2.125rem;
+      margin: 0 -2.125rem;
+      border-bottom: 1px solid #c5d4e7; }
+      .modal-layout.modal-login .modal-container-header .small-link {
+        top: 1.375rem;
+        right: 1.875rem; }
   .modal-layout .modal-container {
     display: inline-block;
     vertical-align: middle;
     min-width: 20rem;
     max-width: 40.4375rem;
-    max-height: 100%;
+    margin-bottom: 1.25rem;
     overflow-y: auto;
     width: 100%;
     background-color: #fff;
@@ -5442,54 +5490,144 @@ ymaps p {
     position: relative;
     text-align: left; }
     .modal-layout .modal-container-header .small-link {
-      cursor: pointer;
-      position: absolute;
       right: -1rem;
-      top: -0.875rem;
-      display: inline-block;
-      width: 2.5rem;
-      height: 2.5rem;
-      text-align: center;
-      font-size: 0;
-      -webkit-transition: opacity 0.3s;
-      transition: opacity 0.3s; }
-      .modal-layout .modal-container-header .small-link:before {
-        content: "";
-        display: inline-block;
-        vertical-align: middle;
-        width: 0;
-        height: 100%; }
-      .modal-layout .modal-container-header .small-link:not(:hover) {
-        opacity: .7; }
-      .modal-layout .modal-container-header .small-link:after {
-        content: '';
-        width: 0.8125rem;
-        height: 0.8125rem;
-        background-repeat: no-repeat;
-        background-size: contain;
-        background-position: 50% 50%;
-        background-image: url(../img/icons/i-close.png);
-        display: inline-block;
-        vertical-align: middle; }
-      @media only screen and (max-width: 768px) and (max-width: 400px) {
+      top: -0.875rem; }
+
+.small-link {
+  cursor: pointer;
+  position: absolute;
+  display: inline-block;
+  width: 2.5rem;
+  height: 2.5rem;
+  text-align: center;
+  font-size: 0;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s; }
+  .small-link:before {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    width: 0;
+    height: 100%; }
+  .small-link:not(:hover) {
+    opacity: .7; }
+  .small-link:after {
+    content: '';
+    width: 0.8125rem;
+    height: 0.875rem;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: 50% 50%;
+    background-image: url(../img/icons/i-close.png);
+    display: inline-block;
+    vertical-align: middle; }
+
+.text-bold.yep, .text-bold.nope {
+  text-align: center;
+  font-size: 0; }
+  .text-bold.yep:before, .text-bold.nope:before {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    width: 0;
+    height: 100%; }
+  .text-bold.yep:after, .text-bold.nope:after {
+    display: inline-block;
+    vertical-align: middle;
+    content: '';
+    width: 0.6875rem;
+    height: 0.5625rem;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: 50% 50%; }
+
+.text-bold.yep:after {
+  background-image: url(../img/icons/da.svg); }
+
+.text-bold.nope:after {
+  background-image: url(../img/icons/net.svg); }
+
+.login-container {
+  font-size: 0;
+  margin-right: -4.6875rem; }
+  .login-container-block {
+    display: inline-block;
+    vertical-align: top;
+    width: 50%;
+    padding-right: 4.6875rem; }
+    .login-container-block .text-1 {
+      margin-bottom: 0.3125rem; }
+    .login-container-block .text-sm {
+      padding: 0.625rem 0 2.5rem;
+      color: #656565; }
+    .login-container-block .form-block-wrapper {
+      margin-top: 0; }
+      .login-container-block .form-block-wrapper .input-item {
+        margin-bottom: 1.25rem;
+        *zoom: 1; }
+        .login-container-block .form-block-wrapper .input-item:after {
+          content: " ";
+          display: table;
+          clear: both; }
+        .login-container-block .form-block-wrapper .input-item .link-border {
+          font-size: 0.75rem;
+          margin-top: 0.625rem;
+          float: right; }
+    .login-container-block .form-block-footer {
+      margin-top: 0.3125rem; }
+      .login-container-block .form-block-footer .btn {
+        min-width: 0; }
+
+.multipicker-real {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  z-index: 3; }
+  .multipicker-real:before {
+    content: '';
+    top: -2.5rem;
+    height: 2.5rem;
+    right: 2.5rem;
+    width: 1px;
+    background-color: #e3e3e3;
+    position: absolute;
+    z-index: -1; }
+  .multipicker-real .ui-datepicker-buttonpane {
+    text-align: center; }
+    .multipicker-real .ui-datepicker-buttonpane .btn {
+      font-family: "Open Sans";
+      float: none;
+      margin-bottom: 1.875rem;
+      padding: 0; }
+    .multipicker-real .ui-datepicker-buttonpane .ui-datepicker-current {
+      display: none; }
+
+.lilform-wrap {
+  border: 1px solid #e3e3e3;
+  padding: 1.25rem 1.0625rem;
+  margin-top: 0.1875rem; }
+  .lilform-wrap .input-item {
+    padding-right: 0; }
+  @media only screen and (max-width: 768px) and (max-width: 400px) {
 
   .aside-list.bold.aside-list-tabs .aside-list-item {
     font-size: 0.875rem; } }
-      @media only screen and (max-width: 600px) and (max-width: 600px) {
+  @media only screen and (max-width: 600px) and (max-width: 600px) {
 
   .table-sheldue .table-item.table-item-from {
     height: 2.1875rem; } }
-      @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
 
   * {
     -webkit-text-size-adjust: none; } }
-      @media only screen and (max-width: 1280px) {
+  @media only screen and (max-width: 1280px) {
 
   .header-top .top-nav-botton {
     padding-left: 0.9375rem;
     padding-right: 0.9375rem;
     min-width: 11rem; } }
-      @media only screen and (max-width: 1260px) {
+  @media only screen and (max-width: 1260px) {
 
   .page__header.is-hidden .m-logo {
     margin-left: 0; }
@@ -5508,33 +5646,39 @@ ymaps p {
   .page__header.is-hidden .dropdown-tel-wrapp .dropdown-tel-item {
     font-size: 1.0625rem;
     padding: 1.25rem; } }
-      @media only screen and (max-width: 1210px) {
+  @media only screen and (max-width: 1210px) {
 
   .roadmap-inner {
     width: -webkit-calc(100% - 1.25rem);
     width: calc(100% - 1.25rem); } }
-      @media only screen and (max-width: 1190px) {
+  @media only screen and (max-width: 1190px) {
 
   .profile-total {
     width: 22%;
     min-width: 13.9375rem;
     padding-left: 1.25rem;
     padding-right: 1.25rem; } }
-      @media only screen and (max-width: 1180px) {
+  @media only screen and (max-width: 1180px) {
+
+  .input-form > .small-link {
+    right: 0; }
+
+  .input-item > .small-link {
+    right: 0; }
 
   .form-block-section .input-form {
     margin-right: -1.5625rem; }
 
   .form-block-section .input-form .input-item {
     padding-right: 1.5625rem; } }
-      @media only screen and (max-width: 1150px) {
+  @media only screen and (max-width: 1150px) {
 
   html {
     font-size: 15px; }
 
   .table-tickets.buyed .table-head .table-item:nth-child(3), .table-tickets.buyed .table-head .table-item:nth-child(4), .table-tickets.buyed .table-head .table-item:nth-child(5) {
     width: 8.75rem; } }
-      @media only screen and (max-width: 1130px) {
+  @media only screen and (max-width: 1130px) {
 
   .footer__main {
     -webkit-box-pack: justify;
@@ -5547,11 +5691,11 @@ ymaps p {
 
   .form-block-footer .input-form .input-item.s33 {
     width: 50%; } }
-      @media only screen and (max-width: 1110px) {
+  @media only screen and (max-width: 1110px) {
 
   .slider-bus-about-inner {
     padding: 5% 9% 7%; } }
-      @media only screen and (max-width: 1100px) {
+  @media only screen and (max-width: 1100px) {
 
   .card-item-bus {
     padding-right: 1.25rem; }
@@ -5576,14 +5720,14 @@ ymaps p {
   .table-pagination {
     width: 100%;
     margin-bottom: 0.3125rem; } }
-      @media only screen and (max-width: 1050px) {
+  @media only screen and (max-width: 1050px) {
 
   .card-item-bus .card-item-content {
     padding: 2% 2% 3% 5%; }
 
   .card-item-bus .card-item-content .card-item-link {
     top: 0.625rem; } }
-      @media only screen and (max-width: 1040px) {
+  @media only screen and (max-width: 1040px) {
 
   .footer-row {
     padding-left: 0;
@@ -5632,11 +5776,11 @@ ymaps p {
     order: 1;
     line-height: 1;
     padding-left: 0; } }
-      @media only screen and (max-width: 1025px) {
+  @media only screen and (max-width: 1025px) {
 
   .promo-form {
     padding: 1.875rem 1.875rem 2.8125rem 1.875rem; } }
-      @media only screen and (min-width: 1025px) {
+  @media only screen and (min-width: 1025px) {
 
   .page__header.is-hidden {
     -webkit-transform: translateY(-3.75rem);
@@ -5754,31 +5898,7 @@ ymaps p {
 
   a.text-1:hover {
     color: #ff8400; } }
-      @media only screen and (min-width: 1024px) {
-
-  .mobile-list li a:hover {
-    color: #ff8400; }
-
-  .mobile-list.bold li a:hover {
-    color: #ff8400; }
-
-  .services-item-inner:hover .services-item-head {
-    margin-left: -0.8125rem; }
-
-  .services-item-inner:hover .services-item-img {
-    left: 0; }
-
-  .services-item-inner:hover .services-item-img-arrow {
-    -webkit-transform: scale(1.2);
-    -ms-transform: scale(1.2);
-    transform: scale(1.2); }
-
-  .news-item-inner:hover:before {
-    opacity: 1; }
-
-  .news-item-inner:hover .news-item-name {
-    color: #ff8400; } }
-      @media only screen and (max-width: 1024px) {
+  @media only screen and (max-width: 1024px) {
 
   body.menu-open, .out.menu-open {
     position: fixed; }
@@ -5964,31 +6084,63 @@ ymaps p {
 
   .profile-coupons-history-inner {
     margin: 0 -0.9375rem; } }
-      @media only screen and (max-width: 1000px) {
+  @media only screen and (min-width: 1024px) {
+
+  .mobile-list li a:hover {
+    color: #ff8400; }
+
+  .mobile-list.bold li a:hover {
+    color: #ff8400; }
+
+  .services-item-inner:hover .services-item-head {
+    margin-left: -0.8125rem; }
+
+  .services-item-inner:hover .services-item-img {
+    left: 0; }
+
+  .services-item-inner:hover .services-item-img-arrow {
+    -webkit-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform: scale(1.2); }
+
+  .news-item-inner:hover:before {
+    opacity: 1; }
+
+  .news-item-inner:hover .news-item-name {
+    color: #ff8400; } }
+  @media only screen and (max-width: 1000px) {
 
   .card-item {
     width: 50%; } }
-      @media only screen and (min-width: 992px) {
+  @media only screen and (min-width: 992px) {
 
   .content-column-wrap.content-small .content-column-right {
     -webkit-flex-basis: 21.25rem;
     -ms-flex-preferred-size: 21.25rem;
-    flex-basis: 21.25rem;
-    padding-left: 0; }
+    flex-basis: 21.25rem; }
 
   .content-column-wrap.content-small .content-column-right .border-card-link {
     margin-left: -1px; }
 
+  .content-column-wrap.content-small .content-column-content {
+    margin-right: -2.0625rem; }
+
   .content-column-wrap.content-small .content-column-content-inner {
     padding-right: 2.1875rem; } }
-      @media only screen and (min-width: 991px) {
+  @media only screen and (min-width: 991px) {
 
   .content-bread-item:hover {
     color: #ff8400; } }
-      @media only screen and (max-width: 991px) {
+  @media only screen and (max-width: 991px) {
 
   body.open, .out.open {
     overflow: hidden; }
+
+  .input-form > .small-link {
+    right: 0.3125rem; }
+
+  .input-item > .small-link {
+    right: 0.3125rem; }
 
   .border-card.small .border-card-inner {
     padding: 6% 1% 6% 5%; }
@@ -6037,7 +6189,7 @@ ymaps p {
 
   .form-block-footer .input-form .input-item.s33 {
     width: 33.33%; } }
-      @media only screen and (min-width: 950px) {
+  @media only screen and (min-width: 950px) {
 
   .services-outer .nav-arrows {
     display: none; }
@@ -6048,7 +6200,7 @@ ymaps p {
 
   .i-arrows {
     display: none; } }
-      @media only screen and (max-width: 950px) {
+  @media only screen and (max-width: 950px) {
 
   .services-wrapper {
     padding-left: 3.75rem;
@@ -6117,7 +6269,7 @@ ymaps p {
   .profile-wrapper .profile-img-inner {
     height: 0;
     padding-bottom: 100%; } }
-      @media only screen and (max-width: 945px) {
+  @media only screen and (max-width: 945px) {
 
   .card-item-bus {
     width: 100%; }
@@ -6125,7 +6277,7 @@ ymaps p {
   .card-item-bus .card-item-img-inner {
     height: 0;
     padding-bottom: 100%; } }
-      @media only screen and (max-width: 920px) {
+  @media only screen and (max-width: 920px) {
 
   .index-tours .card-item:nth-of-type(n+7) {
     display: none; }
@@ -6139,7 +6291,7 @@ ymaps p {
 
   .table-tickets.sold.report .table-item {
     white-space: normal; } }
-      @media only screen and (max-width: 919px) {
+  @media only screen and (max-width: 919px) {
 
   .card-item-bus {
     width: 100%; }
@@ -6149,7 +6301,7 @@ ymaps p {
     -webkit-justify-content: center;
     -ms-flex-pack: center;
     justify-content: center; } }
-      @media only screen and (min-width: 900px) {
+  @media only screen and (min-width: 900px) {
 
   .soc-wrapp-item.vk:hover {
     background-color: #4d74c6; }
@@ -6168,7 +6320,7 @@ ymaps p {
 
   .soc-wrapp-item.ok:hover {
     background-color: #ff9000; } }
-      @media only screen and (max-width: 900px) {
+  @media only screen and (max-width: 900px) {
 
   .slider-bus {
     -webkit-box-orient: horizontal;
@@ -6221,7 +6373,7 @@ ymaps p {
 
   .slider-bus .slider-bus-btn .btn {
     max-width: 12.625rem; } }
-      @media only screen and (max-width: 870px) {
+  @media only screen and (max-width: 870px) {
 
   .footer__main {
     -webkit-box-orient: vertical;
@@ -6259,7 +6411,7 @@ ymaps p {
   .feature-item {
     padding-left: 0.9375rem;
     padding-right: 0.9375rem; } }
-      @media only screen and (max-width: 860px) {
+  @media only screen and (max-width: 860px) {
 
   .rules-inner {
     -webkit-box-orient: horizontal;
@@ -6270,7 +6422,7 @@ ymaps p {
 
   .rules-inner .border-card {
     width: 50%; } }
-      @media only screen and (max-width: 850px) {
+  @media only screen and (max-width: 850px) {
 
   .promo-wrapper {
     -webkit-box-orient: horizontal;
@@ -6324,20 +6476,20 @@ ymaps p {
 
   .route-table-head-link {
     padding-right: 1rem; } }
-      @media only screen and (max-width: 840px) {
+  @media only screen and (max-width: 840px) {
 
   .footer__footer .soc-wrapp {
     top: 6%; } }
-      @media only screen and (max-width: 820px) {
+  @media only screen and (max-width: 820px) {
 
   .table-price .table-item:not(.table-item-from) {
     width: 30%;
     max-width: 30%; } }
-      @media only screen and (max-width: 800px) {
+  @media only screen and (max-width: 800px) {
 
   .table-tickets .table-head .table-item:nth-child(6) {
     width: 5rem; } }
-      @media only screen and (min-width: 769px) {
+  @media only screen and (min-width: 769px) {
 
   .aside-title {
     display: none; }
@@ -6347,7 +6499,7 @@ ymaps p {
 
   .price-table-table .title {
     padding-top: 1.875rem; } }
-      @media only screen and (min-width: 768px) {
+  @media only screen and (min-width: 768px) {
 
   .page__content::-webkit-scrollbar {
     width: 0.25rem; }
@@ -6357,7 +6509,13 @@ ymaps p {
     border-radius: 0.1875rem;
     background: #888888;
     cursor: pointer; } }
-      @media only screen and (max-width: 768px) {
+  @media only screen and (max-width: 768px) {
+
+  .input-form > .small-link {
+    right: 0.5rem; }
+
+  .input-item > .small-link {
+    right: 0.5rem; }
 
   .footer-row {
     bottom: 10.3125rem; }
@@ -6618,18 +6776,18 @@ ymaps p {
     -webkit-align-items: flex-end;
     -ms-flex-align: end;
     align-items: flex-end; } }
-      @media only screen and (max-width: 767px) {
+  @media only screen and (max-width: 767px) {
 
   .table-notification .aside-menu {
     margin: 0; } }
-      @media only screen and (min-width: 736px) {
+  @media only screen and (min-width: 736px) {
 
   .tabs-wrapper {
     padding-bottom: 3.125rem; }
 
   .tabs-item.active {
     margin-right: -1px; } }
-      @media only screen and (max-width: 735px) {
+  @media only screen and (max-width: 735px) {
 
   .footer-row .footer-row-pay {
     margin-top: 1.25rem;
@@ -6714,7 +6872,7 @@ ymaps p {
 
   .table-navigation-links .table-navigation-link:last-child {
     margin-bottom: 0; } }
-      @media only screen and (max-width: 700px) {
+  @media only screen and (max-width: 700px) {
 
   .card-item-content .text-sm {
     padding-left: 0.75rem; }
@@ -6777,14 +6935,14 @@ ymaps p {
 
   .page-head-inner {
     padding-top: 2.5rem; } }
-      @media only screen and (max-width: 660px) {
+  @media only screen and (max-width: 660px) {
 
   .index-tours .card-item:nth-of-type(n+4) {
     display: none; }
 
   .card-item {
     width: 100%; } }
-      @media only screen and (min-width: 651px) {
+  @media only screen and (min-width: 651px) {
 
   .table-tickets {
     margin-top: 1.25rem; }
@@ -6794,7 +6952,7 @@ ymaps p {
 
   .table-tickets .table-row .table-item.table-actions {
     padding-top: 1.25rem; } }
-      @media only screen and (max-width: 650px) {
+  @media only screen and (max-width: 650px) {
 
   .page-head-form .form-group {
     width: 100%; }
@@ -6911,7 +7069,15 @@ ymaps p {
 
   .table-row .table-item.table-actions .link-border, .table-head .table-item.table-actions .link-border {
     text-align: left; } }
-      @media only screen and (max-width: 600px) {
+  @media only screen and (min-width: 601px) {
+
+  .modal-layout.modal-login {
+    text-align: right;
+    padding-top: 3.75rem; }
+
+  .modal-layout.modal-login:before {
+    display: none; } }
+  @media only screen and (max-width: 600px) {
 
   .header-bottom:before {
     bottom: 0.75rem; }
@@ -7158,8 +7324,23 @@ ymaps p {
     font-size: 0.75rem; }
 
   .table-notification-inner .table-notification-btn .btn span {
-    padding: 0.6875rem 0.75rem; } }
-      @media only screen and (max-width: 544px) {
+    padding: 0.6875rem 0.75rem; }
+
+  .modal-layout {
+    padding-left: 0.625rem;
+    padding-right: 0.625rem;
+    padding-top: 3.75rem; }
+
+  .modal-layout .modal-container .form-block-wrapper {
+    margin: 0; }
+
+  .login-container-block {
+    width: 100%;
+    margin-bottom: 2.1875rem; }
+
+  .login-container-block .form-block-wrapper {
+    margin: 0; } }
+  @media only screen and (max-width: 544px) {
 
   .footer-main-nav .m-logo {
     width: -webkit-calc(100% - 10rem);
@@ -7238,11 +7419,17 @@ ymaps p {
   .news-item-content .news-item-content-inner {
     padding-top: 3.125rem;
     padding-bottom: 2.1875rem; } }
-      @media only screen and (min-width: 500px) {
+  @media only screen and (min-width: 500px) {
 
   .form-block-section .input-item .input-wrapper .select-item {
     margin-top: 1.875rem; } }
-      @media only screen and (max-width: 500px) {
+  @media only screen and (max-width: 500px) {
+
+  .input-form > .small-link {
+    right: -0.1875rem; }
+
+  .input-item > .small-link {
+    right: -0.1875rem; }
 
   .border-card-name .text-medium a {
     font-size: 1.125rem; }
@@ -7277,7 +7464,7 @@ ymaps p {
 
   .profile-wrapper .profile-total .link-border {
     white-space: nowrap; } }
-      @media only screen and (max-width: 480px) {
+  @media only screen and (max-width: 480px) {
 
   .card-item-bus {
     min-height: 0px; }
@@ -7316,17 +7503,24 @@ ymaps p {
     padding-left: 0.625rem;
     padding-right: 0.625rem; }
 
+  .modal-layout.modal-login .modal-container-header {
+    margin: 0 -1.25rem;
+    padding: 1.5625rem 1.25rem; }
+
+  .modal-layout.modal-login .modal-container-header .small-link {
+    right: 0.625rem; }
+
   .modal-layout .modal-container {
     padding: 2rem 1.25rem; } }
-      @media only screen and (max-width: 440px) {
+  @media only screen and (max-width: 440px) {
 
   .header-bottom-mobnav-acc, .header-bottom-mobnav-btn {
     width: 40%; } }
-      @media only screen and (max-width: 435px) {
+  @media only screen and (max-width: 435px) {
 
   .footer-dop-nav .footer-column:not(.info-column) .footer-column-list .footer-column-list-item a {
     font-size: 0.75rem; } }
-      @media only screen and (max-width: 420px) {
+  @media only screen and (max-width: 420px) {
 
   .header-bottom-menu-item .header-bottom-menu-navlink {
     padding-left: 0.25rem;
@@ -7334,7 +7528,7 @@ ymaps p {
 
   .header-bottom-menu-item .header-bottom-menu-navlink span {
     font-size: 0.8125rem; } }
-      @media only screen and (max-width: 400px) {
+  @media only screen and (max-width: 400px) {
 
   .form-block-section .title .link-border {
     display: block;
@@ -7348,12 +7542,12 @@ ymaps p {
 
   .company-section {
     padding: 0.9375rem 1.125rem; } }
-      @media only screen and (max-width: 380px) {
+  @media only screen and (max-width: 380px) {
 
   .card-item-bus .card-item-img-inner {
     padding: 0;
     height: 100%; } }
-      @media only screen and (max-width: 350px) {
+  @media only screen and (max-width: 350px) {
 
   .tour-sort-text {
     display: block; }
@@ -7361,7 +7555,7 @@ ymaps p {
   .tour-sort-dropdown .dropdown-target {
     left: 0;
     right: -1.5625rem; } }
-      @media only screen and (max-width: 340px) {
+  @media only screen and (max-width: 340px) {
 
   .mobile-soc .soc-wrapp {
     margin: 0 -0.75rem; }
@@ -7378,11 +7572,11 @@ ymaps p {
 
   .table-notification-inner .table-notification-btn .btn span {
     padding: 0.75rem 0.4375rem; } }
-      @media only screen and (max-width: 335px) {
+  @media only screen and (max-width: 335px) {
 
   .slider-bus .text-sm {
     height: 1.75rem; } }
-      @media only screen and (max-width: 330px) {
+  @media only screen and (max-width: 330px) {
 
   .aside-list.bold.aside-list-tabs {
     margin-right: -0.625rem;

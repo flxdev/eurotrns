@@ -62,7 +62,7 @@
                       </svg>
                       <span>Бюро находок</span>
                     </span>
-                    <a class="top-link top-nav-botton fixed" href="#">
+                    <a class="top-link top-nav-botton fixed js-popup-button" href="#" data-modal="login">
                       <svg class="icon icon-drop">
                         <use xlink:href="#login" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
                       </svg>
@@ -185,7 +185,7 @@
                   </div>
                   <!--отображается с 1024-->
                   <div class="header-bottom-mobnav">
-                    <a class="header-bottom-mobnav-acc" href="#">
+                    <a class="header-bottom-mobnav-acc js-popup-button" href="#" data-modal="login">
                       <div class="header-btn-inner">
                         <svg class="icon icon-drop">
                           <use xlink:href="#login" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
@@ -1236,6 +1236,57 @@
                     <span>да, отменить!</span>
                   </a>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--модификатор .modal-login-->
+      <div class="modal-layout js-popup-container modal-login" data-modal="login">
+        <div class="modal-container">
+          <div class="modal-container-header">
+            <div class="title h2">Личный кабинет</div>
+            <i class="small-link pop-close closePopup"></i>
+          </div>
+          <div class="modal-container-content">
+            <div class="login-container">
+              <div class="login-container-block">
+                <div class="text-1">Вход</div>
+                <form class="form-block-wrapper js-validate" action="/">
+                  <div class="form-block-section">
+                    <div class="input-form">
+                      <div class="input-item s100">
+                        <div class="input-wrapper req">
+                          <label for="imbl4">E-mail</label>
+                          <input class="input-main" type="email" placeholder="example@mail.com" data-validation="email" data-validation-error-msg="Не заполнено" id="imbl4">
+                        </div>
+                      </div>
+                      <div class="input-item s100">
+                        <!--пароли короче 6 символов в принципе не принимаем-->
+                        <div class="input-wrapper req">
+                          <label for="imbl3">Пароль</label>
+                          <input class="input-main" type="password" placeholder="Пароль" data-validation="length" data-validation-length="min6" data-validation-error-msg="Не заполнено" id="imbl3">
+                        </div>
+                        <!-- ведет на соотв. страницу-->
+                        <a class="link-border dotted js-popup-button" href="#" data-modal="password">
+                          <span>Забыли пароль?</span>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-block-footer">
+                    <button class="btn btn-colored" type="sumbit">
+                      <span>Войти</span>
+                    </button>
+                  </div>
+                </form>
+              </div>
+              <div class="login-container-block">
+                <div class="text-1">Регистрация</div>
+                <div class="text-sm">При совершении брони из личного кабинета, клиент получает скидку от 10% на стандартную поездку.</div>
+                <a class="btn" href="#">
+                  <span>Зарегистрироваться</span>
+                </a>
               </div>
             </div>
           </div>

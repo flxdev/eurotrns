@@ -62,7 +62,7 @@
                       </svg>
                       <span>Бюро находок</span>
                     </span>
-                    <a class="top-link top-nav-botton fixed" href="#">
+                    <a class="top-link top-nav-botton fixed js-popup-button" href="#" data-modal="login">
                       <svg class="icon icon-drop">
                         <use xlink:href="#login" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
                       </svg>
@@ -185,7 +185,7 @@
                   </div>
                   <!--отображается с 1024-->
                   <div class="header-bottom-mobnav">
-                    <a class="header-bottom-mobnav-acc" href="#">
+                    <a class="header-bottom-mobnav-acc js-popup-button" href="#" data-modal="login">
                       <div class="header-btn-inner">
                         <svg class="icon icon-drop">
                           <use xlink:href="#login" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
@@ -904,16 +904,19 @@
                                     </div>
                                   </div>
                                 </div>
-                                <div class="input-item s50">
+                                <div class="input-item s50 js-btn-add-block">
                                   <div class="input-wrapper">
                                     <label>Дата выезда</label>
-                                    <input class="input-main datepicker" type="text" placeholder="-- Выберите --" data-validation="required" data-validation-error-msg="Не выбрано" readonly>
+                                    <input class="input-main datepicker" type="text" placeholder="-- Выберите --" data-validation="required" name="DATE[0]" data-validation-error-msg="Не выбрано" readonly>
                                     <svg class="icon icon-drop">
                                       <use xlink:href="#calendar" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
                                     </svg>
                                   </div>
+                                  <div class="btn-add js-btn-add" data-type="multiple">
+                                    <span>Добавить дату</span>
+                                  </div>
                                 </div>
-                                <div class="input-item s50">
+                                <div class="input-item s50 js-btn-add-block">
                                   <div class="input-wrapper double">
                                     <div class="label">Время выезда</div>
                                     <div class="select-check js-select-custom">
@@ -930,35 +933,35 @@
                                           <div class="dropdown-content">
                                             <div class="select-u-body select-list">
                                               <label class="option">
-                                                <input type="radio" name="group50" value="10" data-validation="required">
+                                                <input type="radio" name="HOURS[0]" value="10" data-validation="required">
                                                 <span>03 ч</span>
                                               </label>
                                               <label class="option">
-                                                <input type="radio" name="group50" value="11">
+                                                <input type="radio" name="HOURS[0]" value="11">
                                                 <span>04 ч</span>
                                               </label>
                                               <label class="option">
-                                                <input type="radio" name="group50" value="12">
+                                                <input type="radio" name="HOURS[0]" value="12">
                                                 <span>05 ч</span>
                                               </label>
                                               <label class="option">
-                                                <input type="radio" name="group50" value="13">
+                                                <input type="radio" name="HOURS[0]" value="13">
                                                 <span>09 ч</span>
                                               </label>
                                               <label class="option">
-                                                <input type="radio" name="group50" value="14">
+                                                <input type="radio" name="HOURS[0]" value="14">
                                                 <span>10 ч</span>
                                               </label>
                                               <label class="option">
-                                                <input type="radio" name="group50" value="15">
+                                                <input type="radio" name="HOURS[0]" value="15">
                                                 <span>12 ч</span>
                                               </label>
                                               <label class="option">
-                                                <input type="radio" name="group50" value="16">
+                                                <input type="radio" name="HOURS[0]" value="16">
                                                 <span>13 ч</span>
                                               </label>
                                               <label class="option">
-                                                <input type="radio" name="group50" value="17">
+                                                <input type="radio" name="HOURS[0]" value="17">
                                                 <span>14 ч</span>
                                               </label>
                                             </div>
@@ -980,19 +983,19 @@
                                           <div class="dropdown-content">
                                             <div class="select-u-body select-list">
                                               <label class="option">
-                                                <input type="radio" name="group51" value="10" data-validation="required">
+                                                <input type="radio" name="MINUTS[0]" value="10" data-validation="required">
                                                 <span>15 мин</span>
                                               </label>
                                               <label class="option">
-                                                <input type="radio" name="group51" value="11">
+                                                <input type="radio" name="MINUTS[0]" value="11">
                                                 <span>00 мин</span>
                                               </label>
                                               <label class="option">
-                                                <input type="radio" name="group51" value="12">
+                                                <input type="radio" name="MINUTS[0]" value="12">
                                                 <span>45 мин</span>
                                               </label>
                                               <label class="option">
-                                                <input type="radio" name="group51" value="13">
+                                                <input type="radio" name="MINUTS[0]" value="13">
                                                 <span>30 мин</span>
                                               </label>
                                             </div>
@@ -1192,9 +1195,12 @@
                                   </div>
                                 </div>
                                 <div class="input-item s50">
-                                  <div class="input-wrapper req">
+                                  <div class="input-wrapper req js-btn-add-input">
                                     <label for="inp5">Телефон</label>
-                                    <input class="input-main" type="tel" placeholder="Телефон" data-validation="custom" data-validation-regexp="^[-0-9()+ ]+$" data-validation-error-msg="Не заполнено" id="inp5">
+                                    <input class="input-main" type="tel" name="tel[0]" placeholder="Телефон" data-validation="custom" data-validation-regexp="^[-0-9()+ ]+$" data-validation-error-msg="Не заполнено" id="inp5">
+                                  </div>
+                                  <div class="btn-add js-btn-add" data-type="single">
+                                    <span>Добавить телефон</span>
                                   </div>
                                 </div>
                                 <div class="input-item s50">
@@ -1564,29 +1570,32 @@
                             </div>
                             <div class="form-block-section">
                               <div class="title h3">Информация о вашем транспорте</div>
-                              <div class="input-form">
+                              <div class="input-form js-btn-add-section">
                                 <div class="input-item s50">
                                   <div class="input-wrapper req">
                                     <label for="imp7">Модель</label>
-                                    <input class="input-main" type="text" placeholder="Имя" data-validation="length" data-validation-length="min2" data-validation-error-msg="Не заполнено" id="imp7">
+                                    <input class="input-main" type="text" placeholder="Имя" data-validation="length" name="MODEL[0]" data-validation-length="min2" data-validation-error-msg="Не заполнено" id="imp7">
                                   </div>
                                 </div>
                                 <div class="input-item s25">
                                   <div class="input-wrapper">
                                     <label for="imp71">Год выпуска</label>
-                                    <input class="input-main" type="number" placeholder="Год" data-validation="number" data-validation-error-msg="Не заполнено" id="imp71" data-validation-allowing="range[1950;2020]">
+                                    <input class="input-main" type="number" placeholder="Год" data-validation="number" name="MODELYEAR[0]" data-validation-error-msg="Не заполнено" id="imp71" data-validation-allowing="range[1950;2020]">
                                   </div>
                                 </div>
                                 <div class="input-item s25">
                                   <div class="input-wrapper">
                                     <label for="imp72">Посадочных мест</label>
-                                    <input class="input-main" type="number" placeholder="Количество" data-validation="number" data-validation-error-msg="Не заполнено" id="imp72" data-validation-allowing="range[3;250]">
+                                    <input class="input-main" type="number" placeholder="Количество" data-validation="number" name="MODELSITS[0]" data-validation-error-msg="Не заполнено" id="imp72" data-validation-allowing="range[3;250]">
                                   </div>
                                 </div>
                                 <div class="input-item s50">
                                   <div class="input-wrapper">
                                     <label for="imp8">Регистрационный номер</label>
-                                    <input class="input-main" type="text" placeholder="Комер" data-validation="length" data-validation-length="min2" data-validation-error-msg="Не заполнено" id="imp8">
+                                    <input class="input-main" type="text" placeholder="Комер" data-validation="length" name="MODELREGISTER[0]" data-validation-length="min2" data-validation-error-msg="Не заполнено" id="imp8">
+                                  </div>
+                                  <div class="btn-add js-btn-add" data-type="section">
+                                    <span>Добавить транспорт</span>
                                   </div>
                                 </div>
                               </div>
@@ -2009,6 +2018,57 @@
                     <span>да, отменить!</span>
                   </a>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--модификатор .modal-login-->
+      <div class="modal-layout js-popup-container modal-login" data-modal="login">
+        <div class="modal-container">
+          <div class="modal-container-header">
+            <div class="title h2">Личный кабинет</div>
+            <i class="small-link pop-close closePopup"></i>
+          </div>
+          <div class="modal-container-content">
+            <div class="login-container">
+              <div class="login-container-block">
+                <div class="text-1">Вход</div>
+                <form class="form-block-wrapper js-validate" action="/">
+                  <div class="form-block-section">
+                    <div class="input-form">
+                      <div class="input-item s100">
+                        <div class="input-wrapper req">
+                          <label for="imbl4">E-mail</label>
+                          <input class="input-main" type="email" placeholder="example@mail.com" data-validation="email" data-validation-error-msg="Не заполнено" id="imbl4">
+                        </div>
+                      </div>
+                      <div class="input-item s100">
+                        <!--пароли короче 6 символов в принципе не принимаем-->
+                        <div class="input-wrapper req">
+                          <label for="imbl3">Пароль</label>
+                          <input class="input-main" type="password" placeholder="Пароль" data-validation="length" data-validation-length="min6" data-validation-error-msg="Не заполнено" id="imbl3">
+                        </div>
+                        <!-- ведет на соотв. страницу-->
+                        <a class="link-border dotted js-popup-button" href="#" data-modal="password">
+                          <span>Забыли пароль?</span>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-block-footer">
+                    <button class="btn btn-colored" type="sumbit">
+                      <span>Войти</span>
+                    </button>
+                  </div>
+                </form>
+              </div>
+              <div class="login-container-block">
+                <div class="text-1">Регистрация</div>
+                <div class="text-sm">При совершении брони из личного кабинета, клиент получает скидку от 10% на стандартную поездку.</div>
+                <a class="btn" href="#">
+                  <span>Зарегистрироваться</span>
+                </a>
               </div>
             </div>
           </div>

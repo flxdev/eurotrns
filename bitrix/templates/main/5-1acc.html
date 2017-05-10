@@ -62,7 +62,7 @@
                       </svg>
                       <span>Бюро находок</span>
                     </span>
-                    <a class="top-link top-nav-botton fixed" href="#">
+                    <a class="top-link top-nav-botton fixed js-popup-button" href="#" data-modal="login">
                       <svg class="icon icon-drop">
                         <use xlink:href="#login" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
                       </svg>
@@ -185,7 +185,7 @@
                   </div>
                   <!--отображается с 1024-->
                   <div class="header-bottom-mobnav">
-                    <a class="header-bottom-mobnav-acc" href="#">
+                    <a class="header-bottom-mobnav-acc js-popup-button" href="#" data-modal="login">
                       <div class="header-btn-inner">
                         <svg class="icon icon-drop">
                           <use xlink:href="#login" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
@@ -500,15 +500,29 @@
                           <div class="table-navigation-links"></div>
                           <div class="table-navigation-nav">
                             <div class="table-collapse">
-                              <!--.active чтобы развернуть-->
-                              <a class="table-navigation-link" href="#">
+                              <div class="table-navigation-link has-select js-select-item">
                                 <span>Смотреть все</span>
                                 <i class="arr-down">
                                   <svg class="icon icon-drop">
                                     <use xlink:href="#strelka" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
                                   </svg>
                                 </i>
-                              </a>
+                                <div class="dropdown-target">
+                                  <div class="dropdown-inner">
+                                    <div class="dropdown-content">
+                                      <div class="sort-select-item">
+                                        <a class="active" href="#" data-text="Смотреть все">Смотреть все</a>
+                                      </div>
+                                      <div class="sort-select-item">
+                                        <a href="#" data-text="Оплачены">Оплачены</a>
+                                      </div>
+                                      <div class="sort-select-item">
+                                        <a href="#" data-text="Не оплачены">Не оплачены</a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -703,21 +717,21 @@
                           </div>
                         </div>
                         <div class="content-column-right">
-                          <a class="border-card-link" href="#">
-                                          <div class="border-card small percent">
-                                            <div class="border-card-inner" style="background-image:url(img/cards/percent.jpg);">
-                                              <div class="border-card-name"> 
-                                                <div class="text-sm">Ваш комиссионный процент от стоимости билета</div>
-                                                <span>10%</span>
-                                              </div>
-                                              <div class="border-card-content bonus-content">
-                                                <div class="link-border">
-                                                  <span>Расчитать комиссию</span>
-                                                </div>
-                                              </div>
-                                            </div>
-                                          </div>
-                          </a>
+                          <form class="lilform-wrap js-validate" action="/">
+                            <div class="input-form">
+                              <div class="input-item s100">
+                                <!--тут отдельная инициализация датапикера и измененная структура-->
+                                <div class="input-wrapper">
+                                  <label for="impg5">Календарь</label>
+                                  <input class="input-main multipicker" type="text" placeholder="-- Выберите --" data-validation="length" data-validation-length="min18" data-validation-error-msg="Выберите период" readonly id="impg5">
+                                  <svg class="icon icon-drop">
+                                    <use xlink:href="#calendar" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
+                                  </svg>
+                                  <div class="multipicker-real"></div>
+                                </div>
+                              </div>
+                            </div>
+                          </form>
                         </div>
                       </div>
                       <div class="table-wrapper js-report-table">
@@ -786,7 +800,6 @@
                               </a>
                             </div>
                             <div class="table-collapse">
-                              <!--.active чтобы развернуть-->
                               <div class="table-navigation-link has-select js-select-item">
                                 <span>Смотреть все</span>
                                 <i class="arr-down">
@@ -941,6 +954,7 @@
                               <div class="text-bold">45 BYN</div>
                             </div>
                             <div class="table-item">
+                              <!--.nope для неоплаченных-->
                               <div class="text-bold yep"></div>
                             </div>
                             <div class="table-item table-actions">
@@ -1367,6 +1381,57 @@
                     <span>да, отменить!</span>
                   </a>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--модификатор .modal-login-->
+      <div class="modal-layout js-popup-container modal-login" data-modal="login">
+        <div class="modal-container">
+          <div class="modal-container-header">
+            <div class="title h2">Личный кабинет</div>
+            <i class="small-link pop-close closePopup"></i>
+          </div>
+          <div class="modal-container-content">
+            <div class="login-container">
+              <div class="login-container-block">
+                <div class="text-1">Вход</div>
+                <form class="form-block-wrapper js-validate" action="/">
+                  <div class="form-block-section">
+                    <div class="input-form">
+                      <div class="input-item s100">
+                        <div class="input-wrapper req">
+                          <label for="imbl4">E-mail</label>
+                          <input class="input-main" type="email" placeholder="example@mail.com" data-validation="email" data-validation-error-msg="Не заполнено" id="imbl4">
+                        </div>
+                      </div>
+                      <div class="input-item s100">
+                        <!--пароли короче 6 символов в принципе не принимаем-->
+                        <div class="input-wrapper req">
+                          <label for="imbl3">Пароль</label>
+                          <input class="input-main" type="password" placeholder="Пароль" data-validation="length" data-validation-length="min6" data-validation-error-msg="Не заполнено" id="imbl3">
+                        </div>
+                        <!-- ведет на соотв. страницу-->
+                        <a class="link-border dotted js-popup-button" href="#" data-modal="password">
+                          <span>Забыли пароль?</span>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-block-footer">
+                    <button class="btn btn-colored" type="sumbit">
+                      <span>Войти</span>
+                    </button>
+                  </div>
+                </form>
+              </div>
+              <div class="login-container-block">
+                <div class="text-1">Регистрация</div>
+                <div class="text-sm">При совершении брони из личного кабинета, клиент получает скидку от 10% на стандартную поездку.</div>
+                <a class="btn" href="#">
+                  <span>Зарегистрироваться</span>
+                </a>
               </div>
             </div>
           </div>

@@ -247,13 +247,15 @@ block content
 																		label.option
 																			input(type='radio', name='group49', value='val9')
 																			span 1Копенгаген
-											.input-item.s50
+											.input-item.s50.js-btn-add-block
 												.input-wrapper
 													label Дата выезда
-													input.input-main.datepicker(type="text",placeholder='-- Выберите --',data-validation="required",data-validation-error-msg="Не выбрано",readonly)
+													input.input-main.datepicker(type="text",placeholder='-- Выберите --',data-validation="required",name='DATE[0]',data-validation-error-msg="Не выбрано",readonly)
 													svg(class="icon icon-drop")
 														use(xlink:href="#calendar" xmlns:xlink="http://www.w3.org/1999/xlink")
-											.input-item.s50
+												.btn-add.js-btn-add(data-type='multiple')
+													span Добавить дату
+											.input-item.s50.js-btn-add-block
 												.input-wrapper.double
 													.label Время выезда
 													.select-check.js-select-custom
@@ -267,28 +269,28 @@ block content
 																.dropdown-content
 																	.select-u-body.select-list
 																		label.option
-																			input(type='radio', name='group50', value='10',data-validation="required")
+																			input(type='radio', name='HOURS[0]', value='10',data-validation="required")
 																			span 03 ч
 																		label.option
-																			input(type='radio', name='group50', value='11')
+																			input(type='radio', name='HOURS[0]', value='11')
 																			span 04 ч
 																		label.option
-																			input(type='radio', name='group50', value='12')
+																			input(type='radio', name='HOURS[0]', value='12')
 																			span 05 ч
 																		label.option
-																			input(type='radio', name='group50', value='13')
+																			input(type='radio', name='HOURS[0]', value='13')
 																			span 09 ч
 																		label.option
-																			input(type='radio', name='group50', value='14')
+																			input(type='radio', name='HOURS[0]', value='14')
 																			span 10 ч
 																		label.option
-																			input(type='radio', name='group50', value='15')
+																			input(type='radio', name='HOURS[0]', value='15')
 																			span 12 ч
 																		label.option
-																			input(type='radio', name='group50', value='16')
+																			input(type='radio', name='HOURS[0]', value='16')
 																			span 13 ч
 																		label.option
-																			input(type='radio', name='group50', value='17')
+																			input(type='radio', name='HOURS[0]', value='17')
 																			span 14 ч
 													.select-check.js-select-custom
 														button.selects(data-placeholder='Выберите')
@@ -301,16 +303,16 @@ block content
 																.dropdown-content
 																	.select-u-body.select-list
 																		label.option
-																			input(type='radio', name='group51', value='10',data-validation="required")
+																			input(type='radio', name='MINUTS[0]', value='10',data-validation="required")
 																			span 15 мин
 																		label.option
-																			input(type='radio', name='group51', value='11')
+																			input(type='radio', name='MINUTS[0]', value='11')
 																			span 00 мин
 																		label.option
-																			input(type='radio', name='group51', value='12')
+																			input(type='radio', name='MINUTS[0]', value='12')
 																			span 45 мин
 																		label.option
-																			input(type='radio', name='group51', value='13')
+																			input(type='radio', name='MINUTS[0]', value='13')
 																			span 30 мин
 											.input-item.s50
 												.input-wrapper
@@ -437,9 +439,11 @@ block content
 													label(for='inp4') Имя
 													input.input-main(type="text",placeholder='Имя',data-validation="length required",data-validation-length='min2',data-validation-error-msg="Не заполнено",id='inp4')
 											.input-item.s50
-												.input-wrapper.req
+												.input-wrapper.req.js-btn-add-input
 													label(for='inp5') Телефон
-													input.input-main(type="tel",placeholder='Телефон',data-validation="custom",data-validation-regexp="^[-0-9()+ ]+$",data-validation-error-msg="Не заполнено",id='inp5')
+													input.input-main(type="tel",name='tel[0]',placeholder='Телефон',data-validation="custom",data-validation-regexp="^[-0-9()+ ]+$",data-validation-error-msg="Не заполнено",id='inp5')
+												.btn-add.js-btn-add(data-type='single')
+													span Добавить телефон
 											.input-item.s50
 												.input-wrapper.req
 													label(for='inp6') E-mail
@@ -653,23 +657,25 @@ block content
 													input.input-main(type="text",placeholder='Имя',data-validation="length",data-validation-length='min2',data-validation-error-msg="Не заполнено",id='imp6')
 									.form-block-section
 										.title.h3 Информация о вашем транспорте
-										.input-form
+										.input-form.js-btn-add-section
 											.input-item.s50
 												.input-wrapper.req
 													label(for='imp7') Модель
-													input.input-main(type="text",placeholder='Имя',data-validation="length",data-validation-length='min2',data-validation-error-msg="Не заполнено",id='imp7')
+													input.input-main(type="text",placeholder='Имя',data-validation="length",name='MODEL[0]',data-validation-length='min2',data-validation-error-msg="Не заполнено",id='imp7')
 											.input-item.s25
 												.input-wrapper
 													label(for='imp71') Год выпуска
-													input.input-main(type="number",placeholder='Год',data-validation="number",data-validation-error-msg="Не заполнено",id='imp71',data-validation-allowing="range[1950;2020]")
+													input.input-main(type="number",placeholder='Год',data-validation="number",name='MODELYEAR[0]',data-validation-error-msg="Не заполнено",id='imp71',data-validation-allowing="range[1950;2020]")
 											.input-item.s25
 												.input-wrapper
 													label(for='imp72') Посадочных мест
-													input.input-main(type="number",placeholder='Количество',data-validation="number",data-validation-error-msg="Не заполнено",id='imp72',data-validation-allowing="range[3;250]")
+													input.input-main(type="number",placeholder='Количество',data-validation="number",name='MODELSITS[0]',data-validation-error-msg="Не заполнено",id='imp72',data-validation-allowing="range[3;250]")
 											.input-item.s50
 												.input-wrapper
 													label(for='imp8') Регистрационный номер
-													input.input-main(type="text",placeholder='Комер',data-validation="length",data-validation-length='min2',data-validation-error-msg="Не заполнено",id='imp8')
+													input.input-main(type="text",placeholder='Комер',data-validation="length",name='MODELREGISTER[0]',data-validation-length='min2',data-validation-error-msg="Не заполнено",id='imp8')
+												.btn-add.js-btn-add(data-type='section')
+														span Добавить транспорт
 									.form-block-footer
 										.form-footer-notify
 											.text-sm Поля для обязательного заполнения

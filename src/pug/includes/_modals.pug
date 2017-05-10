@@ -26,7 +26,6 @@
 						.text-sm Поля для обязательного заполнения
 					button(type='sumbit').btn.btn-colored
 						span Задать вопрос
-
 	//контейнер ответа модалки 
 	.modal-container.response(style='display: none')
 		.modal-container-header
@@ -51,3 +50,36 @@
 					.input-item.s33.text-center
 						a(href="#").btn.btn-colored.red.closePopup
 							span да, отменить!
+//модификатор .modal-login
+.modal-layout(data-modal='login').js-popup-container.modal-login
+	.modal-container
+		.modal-container-header
+			.title.h2 Личный кабинет
+			i.small-link.pop-close.closePopup
+		.modal-container-content
+			.login-container
+				.login-container-block
+					.text-1 Вход
+					form(action="/").form-block-wrapper.js-validate
+						.form-block-section
+							.input-form
+								.input-item.s100
+									.input-wrapper.req
+										label(for='imbl4') E-mail
+										input.input-main(type="email",placeholder='example@mail.com',data-validation="email",data-validation-error-msg="Не заполнено",id='imbl4')
+								.input-item.s100
+									//пароли короче 6 символов в принципе не принимаем
+									.input-wrapper.req
+										label(for='imbl3') Пароль
+										input.input-main(type="password",placeholder='Пароль',data-validation="length",data-validation-length='min6',data-validation-error-msg="Не заполнено",id='imbl3')
+									// ведет на соотв. страницу
+									a(href="#").link-border.dotted.js-popup-button(data-modal='password')
+										span Забыли пароль?
+						.form-block-footer
+							button(type='sumbit').btn.btn-colored
+								span Войти
+				.login-container-block
+					.text-1 Регистрация
+					.text-sm При совершении брони из личного кабинета, клиент получает скидку от 10% на стандартную поездку.
+					a(href="#").btn
+						span Зарегистрироваться

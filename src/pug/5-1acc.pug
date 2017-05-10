@@ -105,12 +105,20 @@ block content
 								.table-navigation-links
 								.table-navigation-nav
 									.table-collapse
-										//.active чтобы развернуть
-										a(href="#").table-navigation-link
+										.table-navigation-link.has-select.js-select-item
 											span Смотреть все
 											i.arr-down
 												svg(class="icon icon-drop")
 													use(xlink:href="#strelka" xmlns:xlink="http://www.w3.org/1999/xlink")
+											.dropdown-target
+												.dropdown-inner
+													.dropdown-content
+														.sort-select-item
+															a(href="#",data-text="Смотреть все").active Смотреть все
+														.sort-select-item
+															a(href="#",data-text="Оплачены") Оплачены
+														.sort-select-item
+															a(href="#",data-text="Не оплачены") Не оплачены
 							.table.table-tickets.sold
 								.table-head
 									.table-item.table-num
@@ -154,14 +162,17 @@ block content
 									h2 Сформировать отчет
 									p  Выберите из календаря дату, начало с которой будет формироваться отчёт. Период подачи отчета по – дата окончания.
 							.content-column-right
-								a(href="#").border-card-link
-									+cardmedium('percent.jpg','small percent')
-										.border-card-name 
-											.text-sm Ваш комиссионный процент от стоимости билета
-											span 10%
-										.border-card-content.bonus-content
-											.link-border
-												span Расчитать комиссию
+								form(action="/").lilform-wrap.js-validate
+									.input-form
+										.input-item.s100
+											//тут отдельная инициализация датапикера и измененная структура
+											.input-wrapper
+												label(for='impg5') Календарь
+												input.input-main.multipicker(type="text",placeholder='-- Выберите --',data-validation="length",data-validation-length='min18',data-validation-error-msg="Выберите период",readonly,id='impg5')
+												
+												svg(class="icon icon-drop")
+													use(xlink:href="#calendar" xmlns:xlink="http://www.w3.org/1999/xlink")
+												.multipicker-real
 						.table-wrapper.js-report-table
 							.table-navigation
 								.table-navigation-links
@@ -229,7 +240,6 @@ block content
 												svg(class="icon icon-drop")
 													use(xlink:href="#strelka" xmlns:xlink="http://www.w3.org/1999/xlink")
 									.table-collapse
-										//.active чтобы развернуть
 										.table-navigation-link.has-select.js-select-item
 											span Смотреть все
 											i.arr-down
@@ -333,6 +343,7 @@ block content
 									.table-item
 										.text-bold 45 BYN
 									.table-item
+										//.nope для неоплаченных
 										.text-bold.yep
 									.table-item.table-actions
 										a(href="#").btn.btn-extrasmall

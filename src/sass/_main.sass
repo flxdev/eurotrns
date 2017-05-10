@@ -39,7 +39,6 @@ a
 
 textarea
 	resize: none
-
 	+placeholder 
 		font-family: $os
 		+rem(font-size,14px)
@@ -53,16 +52,6 @@ html
 	overflow-x: hidden
 	+r(1150)
 		font-size: 15px
-  // +r(1280)
-  //   font-size: 14px
-  // +r(991)
-  //   font-size: 16px
-  //   // &:not(.bx-ios)
-  //   overflow-x: hidden
-  // +r(769)
-  //   font-size: 15px
-	// +r(600)
-	// 	font-size: 15px
 body
 	background-color: #fff
 	+box
@@ -81,7 +70,6 @@ body
 body, .out
 	width: 100%
 	height: 100%
-	// overflow-x: hidden
 	&.modal_open
 		position: fixed
 	&.open
@@ -153,7 +141,6 @@ body, .out
 		background-color: #e3ecf2
 		flex-flow: row wrap
 	&__content
-		// +rem(padding,0 0 0100px)
 		flex: 1 0 auto
 		width: 100%
 		* 
@@ -950,6 +937,14 @@ body, .out
 		td 
 			a 
 				+rem(height,25px)
+		// .date-range-selected:first-of-type
+		// 	a
+		// 			border-top-right-radius: 0
+		// 			border-bottom-right-radius: 0
+		// .date-range-selected:last-of-type
+		// 	a
+		// 			border-top-left-radius: 0
+		// 			border-bottom-left-radius: 0
 	.ui-datepicker-next
 		right: 0
 		transform: rotate(-90deg)
@@ -969,7 +964,26 @@ body, .out
 		+rem(background-size, 8px 12px)
 		background-position: right center
 		background-repeat: no-repeat
-		
+	.date-range-selected
+		a
+			color: #ff8400;
+			font-weight: 600;
+			background-color: #f2f2f2;
+			border-radius: 0
+		&:not(.ui-datepicker-current-day)
+			a
+				border-radius: 0
+				width: auto
+				display: block
+				+rem(margin,0 -10px)
+				+padlr(13px)
+		&.ui-datepicker-current-day
+			a
+
+				+rem(margin-left, -10px)
+				display: block
+				width: auto
+				+rem(padding-left,13px)
 select.ui-datepicker-year,select.ui-datepicker-month
 	+rem(max-width,60px)
 	opacity: 0
@@ -977,11 +991,38 @@ select.ui-datepicker-year,select.ui-datepicker-month
 //=====================================//
 //         inputs
 //=====================================//	
-
+.input-form
+	position: relative
+	
+	&>.small-link
+		+rem(top,25px)
+		+rem(right,15px)
+		+rem(width,20px)
+		+r(1180)
+			+rem(right,0px)
+		+r(991)
+			+rem(right,5px)
+		+r(768)
+			+rem(right,8px)
+		+r(500)
+			+rem(right,-3px)
 .input-item
 	display: inline-block
 	vertical-align: top
 	+rem(padding-right,6px)
+	position: relative
+	&>.small-link
+		+rem(top,25px)
+		+rem(right,15px)
+		+rem(width,20px)
+		+r(1180)
+			+rem(right,0px)
+		+r(991)
+			+rem(right,5px)
+		+r(768)
+			+rem(right,8px)
+		+r(500)
+			+rem(right,-3px)
 	&.s100
 		width: 100%
 		.select-label
@@ -1004,6 +1045,8 @@ select.ui-datepicker-year,select.ui-datepicker-month
 .input-wrapper
 	position: relative;
 	+rem(margin-bottom,15px)
+	.small-link
+		+rem(right,0)
 	&.disabled
 		+nosel
 		pointer-events: none
@@ -1014,6 +1057,9 @@ select.ui-datepicker-year,select.ui-datepicker-month
 			background-color: #f5f5f5
 			+placeholder 
 				color: transparent !important
+	&:nth-child(n+2)
+		label
+			opacity: 0
 	&.double
 		font-size: 0
 		.select-check
@@ -1085,14 +1131,14 @@ select.ui-datepicker-year,select.ui-datepicker-month
 				+placeholder
 					color: $white
 					opacity: 0 
-			&~ svg
-				position: absolute
-				top: 53%
-				pointer-events: none
-				+rem(width,19px)
-				+rem(height,19px)
-				+rem(right, 12px)
-				z-index: 2
+		&~ svg
+			position: absolute
+			top: 53%
+			pointer-events: none
+			+rem(width,19px)
+			+rem(height,19px)
+			+rem(right, 12px)
+			z-index: 2
 		&:focus
 			border-color: $focus
 		+placeholder
@@ -1109,10 +1155,18 @@ select.ui-datepicker-year,select.ui-datepicker-month
 		+rem(font-size,12px)
 		color: red
 		left: 0
+		white-space: nowrap
+		width: 100%
+		overflow: hidden
+		text-overflow: ellipsis
+
+
 .text-right
 	text-align: right
 .text-center
 	text-align: center
+
+
 .mobile
 	&-header-lang
 		display: block
@@ -1331,6 +1385,7 @@ select.ui-datepicker-year,select.ui-datepicker-month
 	+rem(font-size,15px)
 	font-weight: 600
 	color: $blk2
+	cursor: pointer
 	&.gray
 		+rem(font-size,13px)
 		color: $grayy
@@ -4369,12 +4424,15 @@ ul.special
 			.content-column-right
 				+rm(992)
 					+rem(flex-basis, 340px)
-					padding-left: 0
 					.border-card-link
 						margin-left: -1px
+			.content-column-content
+				+rm(992)
+					+rem(margin-right,-33px)
 			.content-column-content-inner
 				+rm(992)
 					+rem(padding-right,35px)
+					
 		+r(991)
 			flex-direction: column
 	&-content
@@ -5251,8 +5309,8 @@ a.caption-content
 		.table-pagination,.table-collapse
 			display: inline-block
 			vertical-align: middle
-		.table-pagination
-			+rem(margin-right,15px)
+		// .table-navigation-link
+		// 	+rem(padding-left,15px)
 		+r(1100)
 			.table-collapse
 				float: right
@@ -5326,6 +5384,8 @@ a.caption-content
 	text-align: right
 	.table-navigation-link
 		margin-right: 0
+		padding-right: 0
+		+rem(padding-left,10px)
 
 .table-pagination
 	white-space: nowrap
@@ -5334,8 +5394,6 @@ a.caption-content
 	+r(1100)
 		width: 100%
 		+rem(margin-bottom,5px)
-
-			
 	&-arr,&-inner
 		display: inline-block
 		vertical-align: middle
@@ -5487,6 +5545,10 @@ ymaps
 	+vertical
 	contain: paint 
 	transition-delay: .5s
+	overflow-y: auto
+	+r(600)
+		+padlr(10px)
+		+rem(padding-top,60px)
 	&.active
 		visibility: visible
 		opacity: 1
@@ -5495,12 +5557,34 @@ ymaps
 			transform: translateY(0)
 			opacity: 1
 			transition-delay: .2s
+
+	&.modal-login
+		+rm(601)
+			&:before
+				display: none
+			text-align: right
+			+rem(padding-top,60px)
+		.modal-container
+			padding-top: 0
+			&-header
+				+rem(padding, 25px 34px)
+				+rem(margin, 0 -34px)
+				border-bottom: $bby
+				.small-link 
+					+rem(top,22px)
+					+rem(right,30px)
+				+r(480)
+					+rem(margin, 0 -20px)
+					+rem(padding,25px 20px)
+					.small-link 
+						+rem(right,10px)
 	.modal-container
 		display: inline-block
 		vertical-align: middle 
 		+rem(min-width,320px)
 		+rem(max-width,647px)
-		max-height: 100%;
+		// max-height: 100%;
+		+rem(margin-bottom,20px)
 		overflow-y: auto 
 		width: 100%
 		background-color: $white
@@ -5512,7 +5596,9 @@ ymaps
 		+rem(padding,50px 34px)
 		overflow: hidden
 		box-shadow: 0px 10px 27px 0px rgba(7, 35, 53, 0.11);
-
+		+r(600)
+			.form-block-wrapper
+				margin: 0
 
 		+r(480)
 			+rem(padding,32px 20px)
@@ -5536,22 +5622,103 @@ ymaps
 		position: relative
 		text-align: left
 		.small-link
-			cursor: pointer
-			position: absolute
 			+rem(right,-16px)
 			+rem(top,-14px)
+.small-link
+	cursor: pointer
+	position: absolute
+	display: inline-block
+	+rem(width,40px)
+	+rem(height,40px)
+	+vertical
+	+tr(opacity .3s)
+	&:not(:hover)
+		opacity: .7
+	&:after
+		content: ''
+		+rem(width,13px)
+		+rem(height,14px)
+		+contain
+		background-image: url(../img/icons/i-close.png)
+		display: inline-block
+		vertical-align: middle
+.text-bold.yep,.text-bold.nope
+		+vertical
+		&:after
+			display: inline-block	
+			vertical-align: middle
+			content: ''
+			+rem(width,11px)
+			+rem(height,9px)
+			+contain
+.text-bold.yep
+	&:after
+		background-image: url(../img/icons/da.svg)
+.text-bold.nope
+	&:after
+		background-image: url(../img/icons/net.svg)
+.login
+	&-container
+		font-size: 0
+		+rem(margin-right,-75px)
+		&-block
 			display: inline-block
-			+rem(width,40px)
-			+rem(height,40px)
-			+vertical
-			+tr(opacity .3s)
-			&:not(:hover)
-				opacity: .7
-			&:after
-				content: ''
-				+rem(width,13px)
-				+rem(height,13px)
-				+contain
-				background-image: url(../img/icons/i-close.png)
-				display: inline-block
-				vertical-align: middle
+			vertical-align: top
+			width: 50%
+			+rem(padding-right,75px)
+			+r(600)
+				width: 100%
+				+rem(margin-bottom,35px)
+				.form-block-wrapper
+					margin: 0
+			.text-1
+				+rem(margin-bottom,5px)
+			.text-sm
+				+rem(padding,10px 0 40px)
+				color: $text
+			.form-block-wrapper
+				margin-top: 0
+				.input-item
+					+rem(margin-bottom,20px)
+					+clr
+					.link-border
+						+rem(font-size,12px)
+						+rem(margin-top,10px)
+						float: right
+			.form-block-footer
+				+rem(margin-top,5px)
+				.btn 
+					min-width: 0
+.multipicker-real
+	position: absolute
+	left: 0
+	right: 0
+	top: 100%
+	z-index: 3
+	&:before
+		content: ''
+		+rem(top,-40px)
+		+rem(height,40px)
+		+rem(right,40px)
+		width: 1px
+		background-color: #e3e3e3
+		position: absolute
+		z-index: -1
+
+	.ui-datepicker-buttonpane
+		text-align: center
+		.btn 
+			font-family: $os
+			float: none
+			+rem(margin-bottom,30px)
+			padding: 0
+		.ui-datepicker-current
+			display: none
+.lilform-wrap
+	border: 1px solid #e3e3e3
+	+rem(padding,20px 17px)
+	+rem(margin-top,3px)
+	.input-item
+		padding-right: 0
+			
+		

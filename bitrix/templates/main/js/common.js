@@ -262,7 +262,10 @@ document.addEventListener("DOMContentLoaded", function() {
 	validateForms();
 	initCustomSelectList();
 	GrabReports();
+
 	datepick();
+	multiPicker();
+
 	Tabs();
 	sortItem();
 	listhide();
@@ -398,11 +401,11 @@ function initCustomSelectList() {
 			}
 			CheckForSelect($(this).parents('form'));
 		});
-		_button.on('click', function() {
+		_button.off('click').on('click', function() {
 			_button.parent().toggleClass('active').siblings().removeClass('active');
 			return (false);
 		});
-		_select.on('click', 'label', function() {
+		_select.off('click').on('click', 'label', function() {
 			var _label = $(this),
 				_input = _label.find('input');
 			_input.prop('checked', true);
@@ -411,8 +414,9 @@ function initCustomSelectList() {
 		});
 		_select.trigger('reinit');
 		_select.addClass(_conf.initClass);
-		$(document).on('mouseup', function(e) {
-			if (!_select.is(e.target) && _select.has(e.target).length === 0) {
+		 $(document).on('mouseup', function (e){
+			if (!_select.is(e.target)
+				&& _select.has(e.target).length === 0) {
 				_select.removeClass('active');
 			}
 		});
@@ -450,11 +454,26 @@ function updateToSelectMenu() {
 	$('.ui-datepicker-title').append($('.ui-selectmenu-menu'));
 }
 
+
+$.datepicker._defaults.onAfterUpdate = null;
+
+var datepicker__updateDatepicker = $.datepicker._updateDatepicker;
+$.datepicker._updateDatepicker = function( inst ) {
+	 datepicker__updateDatepicker.call( this, inst );
+
+	 var onAfterUpdate = this._get(inst, 'onAfterUpdate');
+	 if (onAfterUpdate)
+		onAfterUpdate.apply((inst.input ? inst.input[0] : null),
+				 [(inst.input ? inst.input.val() : ''), inst]);
+}
+
+
 function datepick() {
 
 	var item = $(".datepicker"),
 		yearClass = 'datepicker-chengeyear',
 		pastClass = 'datepicker-past',
+		multiClass = 'datepicker-rangedate',
 		monthClass = 'datepicker-chengemonth';
 
 	item.each(function() {
@@ -473,8 +492,8 @@ function datepick() {
 			showOn: "focus",
 			//еобновляем меню при смене месяца
 			beforeShow: function() {
- 				setTimeout(function() {
- 				updateToSelectMenu()
+				setTimeout(function() {
+					updateToSelectMenu()
 				},0);
 			},
 			onChangeMonthYear: function() {
@@ -494,6 +513,81 @@ function datepick() {
 			_.datepicker( "option", "changeMonth", true );
 		}
 	});
+}
+function multiPicker(){
+
+	var cur = -1, prv = -1;
+	var item = $('.multipicker');
+
+	item.each(function(){
+		var _ = $(this),
+			dateToday = new Date();
+		realPicker = _.parent().find('.multipicker-real');
+
+		realPicker.datepicker({
+			changeMonth: false,
+			changeYear: false,
+			maxDate: dateToday,
+			showButtonPanel: true,
+			beforeShowDay: function ( date ) {
+				return [true, ( (date.getTime() >= Math.min(prv, cur) && date.getTime() <= Math.max(prv, cur)) ? 'date-range-selected' : '')];
+			},
+			onSelect: function ( dateText, inst ) {
+				var d1, d2;
+				prv = cur;
+				cur = (new Date(inst.selectedYear, inst.selectedMonth, inst.selectedDay)).getTime();
+				if ( prv == -1 || prv == cur ) {
+					prv = cur;
+					_.val( dateText );
+				} else {
+					d1 = $.datepicker.formatDate( 'dd.mm.yy', new Date(Math.min(prv,cur)), {} );
+					d2 = $.datepicker.formatDate( 'dd.mm.yy', new Date(Math.max(prv,cur)), {} );
+					_.val( d1+' - '+d2 );
+				}
+			},
+
+			onChangeMonthYear: function ( year, month, inst ) {
+							//prv = cur = -1;
+			},
+
+			onAfterUpdate: function ( inst ) {
+				$('<button type="submit" class="btn btn-colored" data-handler="hide" data-event="click"><span>Сформировать отчет</span></button>')
+							.appendTo(realPicker.find('.ui-datepicker-buttonpane'))
+							.on('click', function () { realPicker.hide(); });
+				validateForms();
+					 }
+		 }).hide();
+
+	 _.on('focus', function (e) {
+
+				 var v = this.value,
+						 d;
+
+				 try {
+					if ( v.indexOf(' - ') > -1 ) {
+						d = v.split(' - ');
+
+						prv = $.datepicker.parseDate( 'dd.mm.yy', d[0] ).getTime();
+						cur = $.datepicker.parseDate( 'dd.mm.yy', d[1] ).getTime();
+
+					} else if ( v.length > 0 ) {
+							 prv = cur = $.datepicker.parseDate( 'dd.mm.yy', v ).getTime();
+					}
+				} catch ( e ) {
+					cur = prv = -1;
+				}
+		if ( cur > -1 )
+			realPicker.datepicker('setDate', new Date(cur));
+
+		realPicker.datepicker('refresh').show();
+
+		$(document).on('mousedown', function(e) {
+			if (!realPicker.is(e.target) && realPicker.has(e.target).length === 0) {
+				realPicker.hide();
+			}
+		});
+	});
+	 });
 }
 
 function promoSlider() {
@@ -703,9 +797,9 @@ function mapMarkerinit(elem) {
 		//ловим клик по принятому геообьекту и переключаем класс на соотв. лишке
 		function getElem(target,trigger){
 			trigger.events.add('click',function(e){
-	 			var elemClicked = e.get('target'),
-	 				elemId = elemClicked.properties.get('id');
-	 			target.eq(elemId).addClass('active').siblings().removeClass('active');
+				var elemClicked = e.get('target'),
+					elemId = elemClicked.properties.get('id');
+				target.eq(elemId).addClass('active').siblings().removeClass('active');
 			});
 		}
 		// убираем .active  с лишек на закрытии балуна
@@ -1068,6 +1162,117 @@ function CountryReplace(){
 var coutryRep = new CountryReplace();
 coutryRep.init();
 
+function AddBlocks(){
+	var _this = this;
+	_this.elem = $('.js-btn-add');
+	_this.props = {
+		single: 'single',
+		multi: 'multiple',
+		section: 'section',
+		addedCls: 'added'
+	};
+	_this.elems = {
+		inp: '.js-btn-add-input',
+		block: '.js-btn-add-block',
+		section: '.js-btn-add-section',
+		close : '<i class=" js-btn-add-remove small-link"></i>'
+	};
+	_this.init = function(){
+		_this.elem.each(function(){
+			var _ = $(this),
+				type = _.data('type');
+			_this.findElems(_,type)
+		});
+	};
+	_this.findElems = function(trigger,type){
+		if(type == _this.props.single){
+			var target = trigger.closest('.input-item').find($(_this.elems.inp)).last();
+			_this.initClickSingle(trigger,target)
+		}
+		if(type == _this.props.multi){
+			var target = trigger.closest('.input-form').find(_this.elems.block).slice(-2);
+			_this.initClickMulti(trigger,target)
+		}
+		if(type == _this.props.section){
+			var target = trigger.closest('.form-block-section').find(_this.elems.section).last();
+			_this.initClickSection(trigger,target)
+		}
+		_this.refreshListeners();
+	};
+	_this.initClickSingle = function(trigger,target){
+		var clone;
+		trigger.off('click').on('click',function(){
+			clone = target.clone();
+			var input = clone.find('input');
+			clone.insertBefore(trigger);
+			if(!clone.hasClass(_this.props.addedCls)) clone.append(_this.elems.close).addClass(_this.props.addedCls);
+			ChangeName(input);
+			_this.findElems(trigger,_this.props.single);
+		});
+	};
+	_this.initClickMulti = function(trigger,target){
+		trigger.off('click').on('click',function(){
+			var fragment = document.createDocumentFragment();
+			target.each(function(){
+				var _ = $(this),
+					clone = _.clone(),
+					input = clone.find('input');
+				clone.find('.js-btn-add').remove();
+				if(!clone.hasClass(_this.props.addedCls)) {
+					clone.find('.double').after(_this.elems.close);
+					clone.addClass(_this.props.addedCls);
+				}
+				clone.appendTo(fragment);
+				ChangeName(input);
+			});
+			target.last().after(fragment);
+			_this.findElems(trigger,_this.props.multi);
+		});
+	};
+	_this.initClickSection = function(trigger,target){
+		trigger.off('click').on('click',function(){
+			var clone = target.clone();
+			var input = clone.find('input');
+			clone.find('.js-btn-add').remove();
+			if(!clone.hasClass(_this.props.addedCls)) {
+				clone.append(_this.elems.close).addClass(_this.props.addedCls);
+			}
+			input.each(function(){
+				ChangeName($(this));
+			});
+			clone.insertAfter(target);
+			_this.findElems(trigger,_this.props.section);
+		});
+	}
+	_this.refreshListeners = function(){
+		$(".hasDatepicker").removeClass("hasDatepicker");
+		$(".datepicker").datepicker("destroy").removeAttr('id');
+		setTimeout(function(){
+			validateForms();
+		}, 10);
+		datepick();
+		$('.datepicker').datepicker('refresh');
+		initCustomSelectList();
+	};
 
-
+	function removeAddedElements(){
+		$('.form-block-section').on('click','.js-btn-add-remove',function(){
+			var _ = $(this);
+			var target = _.parent();
+			target.hasClass('js-btn-add-block') ? target.prev().addBack().remove() : target.remove();
+			_this.init();
+		})
+	}removeAddedElements();
+	//меняем имя инпута
+	function ChangeName(inp){
+		var name = inp.attr('name'),
+			cutname = name.substring(0, name.indexOf("[")+ 1),
+			number = parseInt(name.substring(name.indexOf("[") + 1)),
+			newNumber = number++,
+			newName= cutname + number + ']';
+		inp.attr('name',newName)
+	}
+}
+var AdditionalBlocks = new AddBlocks();
+AdditionalBlocks.init();
 

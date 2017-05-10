@@ -24,7 +24,7 @@ include _mixins.pug
 				svg(class="icon icon-drop")
 					use(xlink:href="#bag" xmlns:xlink="http://www.w3.org/1999/xlink")
 				span Бюро находок
-			a(href="#").top-link.top-nav-botton.fixed
+			a(href="#",data-modal='login').top-link.top-nav-botton.fixed.js-popup-button
 				svg(class="icon icon-drop")
 					use(xlink:href="#login" xmlns:xlink="http://www.w3.org/1999/xlink")
 				span Личный кабинет
@@ -105,7 +105,7 @@ include _mixins.pug
 							span +375 (394) 5 000 252
 		//отображается с 1024
 		.header-bottom-mobnav
-			a(href="#").header-bottom-mobnav-acc
+			a(href="#",data-modal='login').header-bottom-mobnav-acc.js-popup-button
 				.header-btn-inner
 					svg(class="icon icon-drop")
 						use(xlink:href="#login" xmlns:xlink="http://www.w3.org/1999/xlink")
