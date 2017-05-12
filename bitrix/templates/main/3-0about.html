@@ -12,9 +12,21 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="format-detection" content="address=no">
     <link rel="shortcut icon" href="img/fav/48x48.png" type="image/x-icon">
-    <link rel="apple-touch-icon" href="img/fav/57x57.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="img/fav/72x72.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="img/fav/114x114.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="img/fav/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="img/fav/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="img/fav/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="img/fav/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="img/fav/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="img/fav/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="img/fav/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="img/fav/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/fav/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/fav/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="194x194" href="img/fav/favicon-194x194.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="img/fav/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/fav/favicon-16x16.png">
+    <meta name="msapplication-TileColor" content="#2b5797">
+    <meta name="msapplication-TileImage" content="img/fav/mstile-144x144.png">
     <link rel="stylesheet" media="all" href="css/screen.min.css">
   </head>
   <body>
@@ -118,22 +130,20 @@
                       <div class="dropdown-target small-dropdown-target">
                         <div class="dropdown-inner">
                           <div class="dropdown-content">
-                            <ul class="country-list js-country-swap-list">
-                              <li class="country-list-item">
-                                <a class="country-list-link js-country-swap-item" href="#" data-block="ru">
-                                  <span class="country-img">
-                                    <img src="img/ru.svg" alt="россия">
-                                  </span>
-                                  <span class="country-text">Россия</span>
-                                </a>
-                                <a class="js-country-swap-item country-list-link" href="#" data-block="bangbangbang">
-                                  <span class="country-img">
-                                    <img src="img/ru.svg" alt="россия">
-                                  </span>
-                                  <span class="country-text">Бангладеш</span>
-                                </a>
-                              </li>
-                            </ul>
+                            <div class="country-list js-country-swap-list">
+                              <a class="country-list-link js-country-swap-item" href="#" data-block="ru">
+                                <span class="country-img">
+                                  <img src="img/ru.svg" alt="россия">
+                                </span>
+                                <span class="country-text">Россия</span>
+                              </a>
+                              <a class="js-country-swap-item country-list-link" href="#" data-block="bangbangbang">
+                                <span class="country-img">
+                                  <img src="img/ru.svg" alt="россия">
+                                </span>
+                                <span class="country-text">Бангладеш</span>
+                              </a>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -912,6 +922,9 @@
                                       <use xlink:href="#calendar" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
                                     </svg>
                                   </div>
+                                  <!--этих кнопок 3 типа меняющихся от data-type-->
+                                  <!-- для каждого data-type свой класс вешается на соотв. блоки-->
+                                  <!--multiple самый заковыристый, его лучше использовать только на добалвение даты, как здесь т.к кнопку крестика тупо некуда бвыло аппендить и тут я ее пихаю в input-wrapper.double-->
                                   <div class="btn-add js-btn-add" data-type="multiple">
                                     <span>Добавить дату</span>
                                   </div>
@@ -2069,6 +2082,128 @@
                 <a class="btn" href="#">
                   <span>Зарегистрироваться</span>
                 </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--модификатор .modal-details подробности пассажира с 5-2-->
+      <div class="modal-layout js-popup-container modal-details" data-modal="details">
+        <div class="modal-container">
+          <div class="modal-container-header">
+            <div class="table-navigation">
+              <div class="table-navigation-links">
+                <a class="table-navigation-link" href="#">
+                  <i>
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewbox="0 0 15.8 13.8" style="enable-background:new 0 0 15.8 13.8;" xml:space="preserve">
+                      <style type="text/css">.sttable0{fill:#A8AFBD;}</style>
+                      <path class="sttable0" d="M11.9,11.8C11.8,11.8,11.8,11.8,11.9,11.8c-0.2,0-0.3-0.1-0.4-0.3c0-0.2,0.1-0.3,0.3-0.4								c1.9-0.2,3.3-1.9,3.3-3.7c0-2.1-1.7-3.7-3.7-3.7c-0.1,0-0.1,0-0.2,0c-0.2,0-0.3-0.1-0.3-0.2c-0.6-1.7-2.2-2.8-4-2.8								c-2.3,0-4.2,1.9-4.2,4.2c0,0.2,0,0.4,0.1,0.6c0,0.2-0.1,0.3-0.2,0.4C1.4,6.2,0.7,7.3,0.7,8.4c0,1.5,1.2,2.7,2.7,2.7h0.6								c0.2,0,0.3,0.1,0.3,0.3c0,0.2-0.1,0.3-0.3,0.3H3.3C1.5,11.8,0,10.3,0,8.4c0-1.4,0.8-2.6,2-3.1C2,5.2,2,5,2,4.9C2,2.2,4.2,0,6.9,0								c2,0,3.8,1.2,4.5,3c0,0,0,0,0,0c2.4,0,4.4,2,4.4,4.4C15.8,9.6,14,11.5,11.9,11.8z M6.1,11.3l1.4,1.4V7.6c0-0.2,0.1-0.3,0.3-0.3								s0.3,0.1,0.3,0.3v5.1l1.4-1.4c0.1-0.1,0.3-0.1,0.5,0c0.1,0.1,0.1,0.3,0,0.5l-2,2c0,0-0.1,0.1-0.1,0.1c0,0-0.1,0-0.1,0								c0,0-0.1,0-0.1,0c0,0-0.1,0-0.1-0.1l-2-2c-0.1-0.1-0.1-0.3,0-0.5C5.8,11.1,6,11.1,6.1,11.3z"></path>
+                    </svg>
+                  </i>
+                  <span>Скачать</span>
+                </a>
+                <a class="table-navigation-link" href="#">
+                  <i>
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewbox="0 0 15.6 14.6" style="enable-background:new 0 0 15.6 14.6;" xml:space="preserve">
+                      <style type="text/css">.sttable0{fill:#A8AFBD;}</style>
+                      <path class="sttable0" d="M14.3,2h-1.7V1.3c0-0.7-0.6-1.3-1.3-1.3H4.2C3.5,0,3,0.6,3,1.3V2H1.3C0.6,2,0,2.6,0,3.3v6								c0,0.7,0.6,1.3,1.3,1.3H3v2.7c0,0.7,0.6,1.3,1.3,1.3h7.1c0.7,0,1.3-0.6,1.3-1.3v-2.7l1.7,0c0.7,0,1.3-0.6,1.3-1.3v-6								C15.6,2.6,15,2,14.3,2z M3.6,1.3c0-0.4,0.3-0.6,0.6-0.6h7.1c0.4,0,0.6,0.3,0.6,0.6V2H3.6L3.6,1.3z M12,13.3c0,0.4-0.3,0.6-0.6,0.6								H4.2c-0.4,0-0.6-0.3-0.6-0.6V6.6H12V13.3z M15,9.3c0,0.4-0.3,0.6-0.6,0.6h-1.7V6H3v4H1.3c-0.4,0-0.6-0.3-0.6-0.6v-6								c0-0.4,0.3-0.6,0.6-0.6H3h9.7h1.7c0.4,0,0.6,0.3,0.6,0.6V9.3z"></path>
+                    </svg>
+                  </i>
+                  <span>Распечатать</span>
+                </a>
+              </div>
+            </div>
+            <i class="small-link pop-close closePopup"></i>
+          </div>
+          <div class="modal-container-content">
+            <div class="person-profile-wrapper">
+              <div class="person-profile-about">
+                <div class="person-profile-about-inner">
+                  <div class="person-profile-elem s33">
+                    <div class="text-sm">Пассажир
+                      <br>ФИО
+                    </div>
+                    <div class="text-1">Липский Кирилл Игоревич</div>
+                  </div>
+                  <div class="person-profile-elem s33">
+                    <div class="text-sm">День
+                      <br>рождения
+                    </div>
+                    <div class="text-1">15.07.1987</div>
+                  </div>
+                  <div class="person-profile-elem s33">
+                    <div class="text-sm">Дате и времени 
+                      <br>обновления
+                    </div>
+                    <div class="text-1">23.03.17 
+                      <br>16:25
+                    </div>
+                  </div>
+                  <div class="person-profile-elem s33">
+                    <div class="text-sm">Гражданство</div>
+                    <div class="text-1">Беларус</div>
+                  </div>
+                  <div class="person-profile-elem s33">
+                    <div class="text-sm">№ Паспорта</div>
+                    <div class="text-1">7123456А001РВ3</div>
+                  </div>
+                  <div class="person-profile-elem s66">
+                    <!-- подтягивать в инпут значение не надо, я сам, просто текст можно выплевывать и все-->
+                    <div class="comment-wrapper js-comment-wrapper">
+                      <div class="text-sm">Комментарий</div>
+                      <div class="text-1"> 
+                        <div class="text-1 js-comment-text"></div>
+                        <a class="table-navigation-link js-comment-btn" href="#" data-alt-text="Редактировать">
+                          <i>
+                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewbox="0 0 12 12" style="enable-background:new 0 0 12 12;" xml:space="preserve">
+                              <style type="text/css">.sttable0{fill:#A8AFBD;}</style>
+                              <path class="sttable0" d="M11.7,2.2C11.7,2.2,11.7,2.2,11.7,2.2C11.7,2.2,11.7,2.2,11.7,2.2l-5,5c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0												c0,0,0,0,0,0L4.3,8c0,0-0.1,0-0.1,0C4.2,8,4.1,8,4.1,7.9C4,7.9,4,7.8,4,7.7l0.8-2.3c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0												c0,0,0,0,0,0l5-5c0,0,0,0,0,0c0,0,0,0,0,0C10,0.1,10.4,0,10.7,0c0.3,0,0.7,0.2,0.9,0.4C12.2,1,12.1,1.7,11.7,2.2z M11.2,0.8												c-0.2-0.2-0.4-0.3-0.6-0.3c-0.2,0-0.4,0.1-0.5,0.2l-5,5L4.6,7.4l1.7-0.6l5-5C11.5,1.6,11.6,1.2,11.2,0.8z M6.5,2h-6v9.5h9.4v-6												c0-0.1,0.1-0.3,0.2-0.3c0.1,0,0.2,0.1,0.2,0.3v6.3c0,0.1,0,0.3-0.2,0.3h-10C0.1,12,0,11.9,0,11.7v-10c0-0.1,0.1-0.3,0.3-0.3h6.3												c0.1,0,0.3,0.1,0.3,0.3S6.6,2,6.5,2z"></path>
+                            </svg>
+                          </i>
+                          <span>Комментарий</span>
+                        </a>
+                      </div>
+                      <div class="comment-section js-comment-section">
+                        <div class="input-item s100">
+                          <div class="input-wrapper">
+                            <textarea class="input-main js-comment-input" rows="5"></textarea>
+                          </div>
+                          <a class="btn btn-colored" href="#">
+                            <span>Сохранить</span>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="person-profile-reys">
+                <div class="person-profile-reys-inner">
+                  <div class="person-profile-elem s100">
+                    <div class="text-sm">Наименование
+                      <br>билета
+                    </div>
+                    <div class="text-1"> 
+                      <a class="services-item-link" href="#">Гродно → Минск → Санкт-Петербург</a>
+                    </div>
+                  </div>
+                  <div class="person-profile-elem s50">
+                    <div class="text-sm">Стоимость 
+                      <br>билета
+                    </div>
+                    <div class="text-1"> 
+                      <div class="text-bold org">50 BYN</div>
+                    </div>
+                  </div>
+                  <div class="person-profile-elem s50">
+                    <div class="text-sm">№ Места
+                      <br>в автобусе
+                    </div>
+                    <div class="text-1"> 
+                      <div class="text-1"> 58</div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

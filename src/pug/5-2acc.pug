@@ -1,0 +1,161 @@
+extends _layout
+
+block title
+	title Информация
+
+block content
+	+headtwo('Информация')
+	.wrapper
+		.box
+			.aside-wrapp
+				aside.aside-menu(data-sticky_parent)
+					.aside-stick(data-sticky_column)
+						//.bold
+						// это получается уже 3 модификатор, на мобилке этом еню превращается как бы в табы
+						.aside-list.bold.aside-list-tabs
+							span.aside-list-item.text-1.active
+								span Информация
+							a(href="#").aside-list-item.text-1
+								span Рейсы
+							a(href="#").aside-list-item.text-1
+								span Список пассажиров
+				.aside-content
+					section.aside-section
+						.content-column-wrap.content-small
+							.content-column-content
+								.company-section
+									.text-sm Наименование агента
+									.text-medium ООО “ТревелТур”
+									.company-section-row
+										.company-section-block
+											.text-sm Юридический адрес
+											.text-1 220088, г. Минск ул. Соломенная, 23а пом. 16, офис 8
+										.company-section-block
+											.text-sm Банковские реквезиты
+											.text-1 ЗАО «МТБанк», код 117 р/с 3012373910011 220007, г. Минск ул. Толстого, 10
+									.text-medium Контактное лицо
+									.company-section-row
+										.company-section-block
+											.text-sm Представитель ФИО
+											.text-1 Израилов Андрей Александрович
+										.company-section-block
+											.text-sm Контактный телефон
+											a(href="tel:+375172260994").text-1 +375 (17) 226-09-94
+										.company-section-block
+											.text-sm Договор от
+											.text-1 02.10.2016 № 3012373910011
+										.company-section-block
+											.text-sm E-mail
+											a(href="mailto:+375172260994").text-1 kirilllipsk@yandex.ru
+							.content-column-right
+								a(href="#").border-card-link
+									+cardmedium('acc1.jpg','small percent')
+										.border-card-name 
+											.text-sm Количество 
+												br
+												|пассажиров сегодня
+											span 55 человек
+										.border-card-content.bonus-content
+											.link-border
+												span 25.03.17
+								a(href="#").caption-content
+									svg(version='1.1', xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink', x='0px', y='0px',width='23px',height='31.8px', viewbox='0 0 23 31.8', style='enable-background:new 0 0 23 31.8;', xml:space='preserve')
+										style(type='text/css').
+											.stpdf0{fill:none;stroke:#000000;stroke-width:1.5;stroke-miterlimit:10;}
+											.stpdf2{font-size:8.5213px;}
+										g
+											path.stpdf0(d='M20.7,31.1H2.3c-0.8,0-1.5-0.7-1.5-1.5V2.3c0-0.8,0.7-1.5,1.5-1.5h9.7c0.4,0,0.8,0.2,1.1,0.4l8.8,8.8\
+											c0.3,0.3,0.4,0.7,0.4,1.1v18.6C22.2,30.4,21.5,31.1,20.7,31.1z')
+											polyline.stpdf0(points='12.6,0.8 12.6,10.4 22.2,10.4 	')
+											text.stpdf1.stpdf2(transform='matrix(1.1391 0 0 1 3.6906 25.6917)') PDF
+									i Инструкция по работе с личным кабинетом
+									span Скачать
+	.wrapper
+		.box
+			.aside-wrapp
+				aside.aside-menu(data-sticky_parent)
+					.aside-stick(data-sticky_column)
+						.aside-list.bold.aside-list-tabs
+							a(href="#").aside-list-item.text-1
+								span Информация
+							span.aside-list-item.text-1.active
+								span Рейсы
+							a(href="#").aside-list-item.text-1
+								span Список пассажиров
+				.aside-content
+					section.aside-section
+						.content-column-wrap.content-small
+							.content-column-content
+								.content-column-content-inner
+									h2 Список рейсов на сегодня
+									p  Ваше агентство продаёт билеты через компьютерную систему, позволяющую выписывать билет на  маршрут eurotrans.by в режиме on-line в Вашем офисе, и получает комиссионный процент 10 % от стоимости билета.
+							.content-column-right
+								a(href="#").border-card-link
+									+cardmedium('acc1.jpg','small percent')
+										.border-card-name 
+											.text-sm Количество 
+												br
+												|пассажиров сегодня
+											span 55 человек
+										.border-card-content.bonus-content
+											.link-border
+												span 25.03.17
+					.table-wrapper
+						//модификатор .rays-today
+						.table.table-tickets.rays-today
+							.table-head
+								.table-item.table-num
+									span №
+								.table-item.table-road
+									span Рейс
+								.table-item 
+									span Время
+								.table-item
+									span Экипаж
+										br
+										|ФИО
+								.table-item 
+									span Данные 
+										br
+										|автобуса
+								.table-item.table-tel
+									span Номер телефона
+							+tiketTable2('1','Гродно → Минск → Санкт-Петербург','06:00','Резник Павел Николаевич Синкевич Антон Владимирович Леванцевич Илья Алексеевич','Автобус Volvo 9700H, 48 мест')
+							+tiketTable2('1','Гродно → Минск → Санкт-Петербург','06:00','Резник Павел Николаевич Синкевич Антон Владимирович Леванцевич Илья Алексеевич','Автобус Volvo 9700H, 48 мест')
+							+tiketTable2('100','Гродно → Минск → Санкт-Петербург','06:00','Резник Павел Николаевич Синкевич Антон Владимирович Леванцевич Илья Алексеевич','Автобус Volvo 9700H, 48 мест')
+	.wrapper
+		.box
+			.aside-wrapp
+				aside.aside-menu(data-sticky_parent)
+					.aside-stick(data-sticky_column)
+						.aside-list.bold.aside-list-tabs
+							a(href="#").aside-list-item.text-1
+								span Информация
+							a(href="#").aside-list-item.text-1
+								span Рейсы
+							span.aside-list-item.text-1.active
+								span Список пассажиров
+				.aside-content
+					.table-wrapper
+						//модификатор .table-inline добавляем к .rays-today для возможности впихнуть аккордеон
+						.table.table-tickets.table-inline.rays-today.sold
+							.table-head
+								.table-item.table-num
+									span №
+								.table-item.table-road
+									span Рейс
+								.table-item.table-time
+									span Время
+								.table-item.table-bus
+									span Данные 
+										br
+										|автобуса
+								.table-item.table-tel
+									span Номер телефона
+								.table-item.table-collapse
+									span Кол-во
+										br
+										|пассажиров
+							+tiketTable3('1','Гродно → Минск → Санкт-Петербург','06:00','Автобус Volvo 9700H, 48 мест')
+							+tiketTable3('1','Гродно → Минск → Санкт-Петербург','06:00','Автобус Volvo 9700H, 48 мест')
+							+tiketTable3('100','Гродно → Минск → Санкт-Петербург','06:00','Автобус Volvo 9700H, 48 мест')

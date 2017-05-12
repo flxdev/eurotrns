@@ -1,0 +1,77 @@
+extends _layout
+
+block title
+	title Оформление
+
+block content
+	+headtwo('Оформление')
+	.wrapper
+		.box
+			.booking-wrapper
+				//расположиние такое, чтобы в мобилку сворачивалось как в макете 
+				// функция bookingModule
+				.booking-wrapper-inner
+					.booking-smallcont.js-book-trigger.active(data-tabindex='tab1')
+						.booking-smallcont-inner
+							.text-1 Дата и место
+					.booking-block.js-book-block(data-tab='tab1')
+						.text-1   Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi rem voluptate natus illo dolor id, omnis quidem sint fugiat rerum, amet ad, ab fuga excepturi atque similique expedita, optio perferendis. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore facilis est ipsum voluptas deserunt odit porro consequatur sapiente necessitatibus, nihil perferendis voluptatum nam. Harum sed dolore minima quod, vero incidunt.
+					.booking-smallcont.js-book-trigger.off(data-tabindex='tab2')
+						.booking-smallcont-inner
+							.text-1 Билеты
+					.booking-block.js-book-block(data-tab='tab2')
+						.text-1   Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet error atque quos iste tempora pariatur deserunt dolorem corrupti aliquid cupiditate incidunt tempore perspiciatis, culpa. Accusantium, mollitia nostrum quis vero pariatur! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut laborum a molestias itaque assumenda culpa necessitatibus nostrum explicabo deleniti nobis illum id iusto eos, quaerat nam asperiores quod ex consequatur?
+					.booking-smallcont.js-book-trigger.off(data-tabindex='tab3')
+						.booking-smallcont-inner
+							.text-1 Бронь
+					.booking-block.js-book-block(data-tab='tab3')
+						.text-1   Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit culpa adipisci expedita architecto atque, veniam eum hic assumenda ut doloribus tenetur quae consequatur labore magni nobis cum qui, quasi deserunt. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel voluptate perspiciatis aliquam eius sequi architecto iste dolore eaque ea repellendus doloremque nemo, voluptatem laboriosam molestiae facere quaerat est quas, sapiente.
+					.booking-smallcont.js-book-trigger.off(data-tabindex='tab4')
+						.booking-smallcont-inner
+							.text-1 Подтверждение
+					.booking-block.js-book-block(data-tab='tab4')
+						.text-1   Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora odit veritatis culpa, fugit sapiente. Repudiandae fugit magni, soluta in facilis itaque aut accusantium, incidunt nihil autem, provident suscipit rem sint? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta ipsam, perferendis eligendi sapiente debitis voluptatem sequi a velit ratione possimus corrupti quia libero architecto reiciendis labore nobis quibusdam, nemo nulla.
+					.booking-smallcont.options
+						.booking-smallcont-inner
+							.btn-switcher
+								a(href="#").btn-switcher-elem.active
+									span BYN
+								a(href="#").btn-switcher-elem
+									span RUB
+							.contry-switcher
+								// выпадашка из шапки
+								//.js-content-switch убираем
+								//.white добавляем
+								.dropdown-select-wrapp.dropdown-trigger.white
+									.country-head.js-country-swap
+										a(href="#",data-block='bel').country-list-link.js-country-swap-item.active
+											span.country-img
+												svg(class="icon icon-drop")
+													use(xlink:href="#gb" xmlns:xlink="http://www.w3.org/1999/xlink")
+											span.country-text GB
+										.arr-down
+											svg(class="icon icon-drop")
+												use(xlink:href="#arr-down" xmlns:xlink="http://www.w3.org/1999/xlink")
+									.dropdown-target.small-dropdown-target
+										.dropdown-inner
+											.dropdown-content
+												.country-list.js-country-swap-list
+													a(href="#",data-block='ru').country-list-link.js-country-swap-item
+														span.country-img
+															svg(class="icon icon-drop")
+																use(xlink:href="#ru" xmlns:xlink="http://www.w3.org/1999/xlink")
+														span.country-text RU
+													a(href="#",data-block='bangbangbang').js-country-swap-item.country-list-link
+														span.country-img
+															svg(class="icon icon-drop")
+																use(xlink:href="#by" xmlns:xlink="http://www.w3.org/1999/xlink")
+														span.country-text BLR
+
+
+
+
+
+
+
+
+		

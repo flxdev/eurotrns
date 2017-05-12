@@ -253,6 +253,9 @@ block content
 													input.input-main.datepicker(type="text",placeholder='-- Выберите --',data-validation="required",name='DATE[0]',data-validation-error-msg="Не выбрано",readonly)
 													svg(class="icon icon-drop")
 														use(xlink:href="#calendar" xmlns:xlink="http://www.w3.org/1999/xlink")
+												//этих кнопок 3 типа меняющихся от data-type
+												// для каждого data-type свой класс вешается на соотв. блоки
+												//multiple самый заковыристый, его лучше использовать только на добалвение даты, как здесь т.к кнопку крестика тупо некуда бвыло аппендить и тут я ее пихаю в input-wrapper.double
 												.btn-add.js-btn-add(data-type='multiple')
 													span Добавить дату
 											.input-item.s50.js-btn-add-block

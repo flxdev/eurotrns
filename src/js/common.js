@@ -185,6 +185,38 @@ document.addEventListener("DOMContentLoaded", function() {
 			}, 400)
 		}
 	});
+	function Accordeon(){
+		if($('.js-accordion-trigger').length){
+			// $(".aside-stick").trigger("sticky_kit:detach");
+			// $(".aside-stick").stick_in_parent({
+			// 	offset_top : 73,
+			// 	recalc_every: 1
+			// });
+			var maintrigger = $('.js-accordion-trigger'),
+				body = $('.js-accordion-body'),
+				truetrigger = maintrigger.children('.accordeon-trigger');
+			maintrigger.not('.active').find(body).hide();
+			truetrigger.on('click',function(event){
+				var parent = $(this).parent(),
+					target = parent.find(body);
+
+				if(parent.hasClass('active')){
+					parent.siblings().removeClass('active').find(body).slideUp(200);
+					parent.removeClass('active').find(body).slideUp(300);
+
+				}else{
+					parent.siblings().removeClass('active').find(body).slideUp(200);
+					parent.addClass('active').find(body).slideDown(300, function(){
+						var pos = parent.offset().top;
+						$("body:not(:animated),html:not(:animated)").animate({scrollTop: pos -80}, 500);
+					});
+				}
+				setTimeout(function(){
+					$('body').trigger('scroll')
+				},801)
+			});
+		}
+	}Accordeon();
 
 	// отключаем инпуты, если поездка в одну сторону
 	//используется на главной
@@ -208,14 +240,8 @@ document.addEventListener("DOMContentLoaded", function() {
 			});
 		});
 	}
-	jQuery.fn.toggleText = function() {
-		var altText = this.data("alt-text");
-		if (altText) {
-			this.data("alt-text", this.text());
-			this.find('span').text(altText);
 
-		}
-	};
+
 	(function(factory) {
 		if (typeof define === "function" && define.amd) {
 
@@ -275,6 +301,12 @@ document.addEventListener("DOMContentLoaded", function() {
 	promoSlider();
 	routefeaturesSlider();
 
+	var commentInputs = new AddingComment();
+		commentInputs.init();
+	var AdditionalBlocks = new AddBlocks();
+		AdditionalBlocks.init();
+	var coutryRep = new CountryReplace();
+		coutryRep.init();
 //end of document.ready
 });
 //end of document.ready
@@ -328,6 +360,14 @@ function CompareHeight() {
 	});
 }
 
+jQuery.fn.toggleText = function() {
+	var altText = this.data("alt-text"),
+		target = this.find('span');
+	if (altText) {
+		this.data("alt-text", target.text());
+		target.text(altText);
+	}
+};
 
 var sortItem = function() {
 	var trigger = $('.js-select-item');
@@ -549,7 +589,7 @@ function multiPicker(){
 				onChangeMonthYear: function ( year, month, inst ) {
 							//prv = cur = -1;
 				},
-
+				// 
 				onAfterUpdate: function ( inst ) {
 					$('<button type="submit" class="btn btn-colored" data-handler="hide" data-event="click"><span>Сформировать отчет</span></button>')
 							.appendTo(realPicker.find('.ui-datepicker-buttonpane'))
@@ -561,7 +601,7 @@ function multiPicker(){
 	 _.on('focus', function (e) {
 
 				 var v = this.value,
-						 d;
+					d;
 
 				 try {
 						if ( v.indexOf(' - ') > -1 ) {
@@ -963,7 +1003,6 @@ function popUpsInit() {
 		$(_popup).on('click', '.modal-container', function(e) {
 			if (!$(_this.conf.close_selector).is(e.target)) {
 				e.stopPropagation();
-				console.log(1)
 			}
 		});
 		_popup.find(_this.conf.close_selector).add(_popup).off('click.popup').on('click.popup', function() {
@@ -1064,7 +1103,6 @@ function Tabs() {
 			} else {
 				tabcont.hide().eq(triggerIndex).show();
 			}
-
 			trigger.on('click', function(e) {
 				var _ = $(this),
 					id = _.data('id');
@@ -1118,49 +1156,51 @@ function CountryReplace(){
 	};
 
 	_this.elem = $('.js-country-swap');
-	_this.switchContelem = _this.elem.parent().parent().find('.js-content-switch-parent');
-	_this.switchContItems = _this.switchContelem.find('.js-content-switch-item');
-	var itemActive;
-	_this.findElems = function(elem){
-		var list = elem.parent().find('.js-country-swap-list'),
-			items = list.find('.js-country-swap-item');
-			itemActive = elem.find('.js-country-swap-item.active');
-			_this.initClick(list,items,itemActive);
-			_this.checkSwapContent();
-	}
 
-	_this.initClick = function(list,items,itemActive){
+	_this.findElems = function(elem){
+		elem.each(function(){
+			var _ = $(this),
+				list = _.parent().find('.js-country-swap-list'),
+				items = list.find('.js-country-swap-item'),
+				itemActive = _.find('.js-country-swap-item.active');
+			_this.initClick(list,items,itemActive,_);
+			_this.checkSwapContent(_,itemActive);
+		});
+	};
+
+	_this.initClick = function(list,items,itemActive,elem){
 		$(items).each(function(){
 			$(this).off('click').on('click',function(e){
 				e.preventDefault();
-				_this.changeBlock($(this),itemActive,list);
+				_this.changeBlock($(this),itemActive,list,elem);
 			});
 		});
-	}
-	_this.changeBlock = function(item,itemActive,list){
+	};
+	_this.changeBlock = function(item,itemActive,list,elem){
 		var _self = item;
-		_self.detach().appendTo(_this.elem).addClass(_this.options.activeCls);
+		_self.detach().appendTo(elem).addClass(_this.options.activeCls);
 		itemActive.detach().appendTo(list).removeClass(_this.options.activeCls);
-		_this.checkSwapContent();
-		_this.findElems(_this.elem);
-	}
+		_this.checkSwapContent(elem,itemActive);
+		_this.findElems(elem);
+	};
 	_this.swapContent = function(item,targetParent,targetItem){
 		var id = item.data('block');
 		targetParent.find('[data-block="'+id+'"]').addClass(_this.options.activeCls).siblings().removeClass(_this.options.activeCls);
-	}
-	_this.checkSwapContent = function(){
-		if(_this.elem.hasClass(_this.options.contSwitshCls)){
-			_this.swapContent(itemActive,_this.switchContelem,_this.switchContItems)
+	};
+	_this.checkSwapContent = function(element,itemActive){
+		if(element.hasClass(_this.options.contSwitshCls)){
+			var switchContelem = element.parent().parent().find('.js-content-switch-parent');
+			var switchContItems = switchContelem.find('.js-content-switch-item');
+			_this.swapContent(itemActive,switchContelem,switchContItems)
 		}
-	}
+	};
 	_this.init = function(){
 		_this.findElems(_this.elem);
 		
-	}
+	};
 }
 
-var coutryRep = new CountryReplace();
-coutryRep.init();
+
 
 function AddBlocks(){
 	var _this = this;
@@ -1197,37 +1237,39 @@ function AddBlocks(){
 			var target = trigger.closest('.form-block-section').find(_this.elems.section).last();
 				_this.initClickSection(trigger,target)
 		}
-		_this.refreshListeners();
+		_this.refreshListeners(trigger);
 	};
 	_this.initClickSingle = function(trigger,target){
-			var clone;
-			trigger.off('click').on('click',function(){
-					clone = target.clone();
-					var input = clone.find('input');
-					clone.insertBefore(trigger);
-					if(!clone.hasClass(_this.props.addedCls)) clone.append(_this.elems.close).addClass(_this.props.addedCls);
-					ChangeName(input);
-					_this.findElems(trigger,_this.props.single);
-			});
+		var clone;
+		trigger.off('click').on('click',function(){
+			clone = target.clone();
+			var input = clone.find('input');
+			clone.insertBefore(trigger);
+			if(!clone.hasClass(_this.props.addedCls)) clone.append(_this.elems.close).addClass(_this.props.addedCls);
+			ChangeName(input);
+			_this.findElems(trigger,_this.props.single);
+			DisableButton(trigger);
+		});
 	};
 	_this.initClickMulti = function(trigger,target){ 
-			trigger.off('click').on('click',function(){
-				var fragment = document.createDocumentFragment();
-					target.each(function(){
-						var _ = $(this),
-							clone = _.clone(),
-							input = clone.find('input');
-							clone.find('.js-btn-add').remove();
-							if(!clone.hasClass(_this.props.addedCls)) {
-								clone.find('.double').after(_this.elems.close);
-								clone.addClass(_this.props.addedCls);
-							}
-							clone.appendTo(fragment);
-							ChangeName(input);
-					});
-					target.last().after(fragment);
-					_this.findElems(trigger,_this.props.multi);
-			});
+		trigger.off('click').on('click',function(){
+			var fragment = document.createDocumentFragment();
+				target.each(function(){
+					var _ = $(this),
+						clone = _.clone(),
+						input = clone.find('input');
+						clone.find('.js-btn-add').remove();
+						if(!clone.hasClass(_this.props.addedCls)) {
+							clone.find('.double').after(_this.elems.close);
+							clone.addClass(_this.props.addedCls);
+						}
+						clone.appendTo(fragment);
+						ChangeName(input);
+				});
+				target.last().after(fragment);
+				_this.findElems(trigger,_this.props.multi);
+				DisableButton(trigger);
+		});
 	};
 	_this.initClickSection = function(trigger,target){
 			trigger.off('click').on('click',function(){
@@ -1242,25 +1284,31 @@ function AddBlocks(){
 				});
 				clone.insertAfter(target);
 				_this.findElems(trigger,_this.props.section);
+				DisableButton(trigger);
 			});
 	}
-	_this.refreshListeners = function(){
-		$(".hasDatepicker").removeClass("hasDatepicker");
-    $(".datepicker").datepicker("destroy").removeAttr('id');
-		setTimeout(function(){
-			validateForms();
-		}, 10);
+	_this.refreshListeners = function(elem){
+		var currWorkFlow = elem.closest('.form-block-section'),
+			datepickers = currWorkFlow.find(".datepicker");
+		datepickers.removeClass("hasDatepicker");
+		datepickers.datepicker("destroy").removeAttr('id');
+
+		// $(".hasDatepicker").removeClass("hasDatepicker");
+		// $(".datepicker").datepicker("destroy").removeAttr('id');
+		validateForms();
 		datepick();
-		$('.datepicker').datepicker('refresh');
+		datepickers.datepicker('refresh');
 		initCustomSelectList();
 	};
 
 	function removeAddedElements(){
 		$('.form-block-section').on('click','.js-btn-add-remove',function(){
-				var _ = $(this);
-				var target = _.parent();
-				target.hasClass('js-btn-add-block') ? target.prev().addBack().remove() : target.remove();
-				_this.init();
+			var _ = $(this),
+				target = _.parent(),
+				addBtn = target.siblings().find(_this.elem),
+				type = addBtn.data('type');
+			target.hasClass('js-btn-add-block') ? target.prev().addBack().remove() : target.remove();
+			_this.findElems(addBtn,type);
 		})
 	}removeAddedElements();
 	//меняем имя инпута
@@ -1272,7 +1320,92 @@ function AddBlocks(){
 				newName= cutname + number + ']';
 		inp.attr('name',newName)
 	}
+	//выключаем кнопку чтобы не баловались
+	function DisableButton(btn){
+		btn.addClass('disabled')
+		setTimeout(function(){
+			btn.removeClass('disabled');
+		},1200);
+	}
 }
-var AdditionalBlocks = new AddBlocks();
-AdditionalBlocks.init();
 
+
+function AddingComment(){
+	var _this = this;
+	_this.cont = $('.js-comment-wrapper');
+	_this.elems = {
+		btn: '.js-comment-btn',
+		input: '.js-comment-input',
+		section: '.js-comment-section',
+		textCont: '.js-comment-text'
+	};
+	_this.state = {
+		filled: 'filled',
+		open: 'active'
+	};
+	_this.init = function(){
+		_this.cont.each(function(){
+			var _ = $(this),
+				btn =  _.find(_this.elems.btn),
+				input = _.find(_this.elems.input),
+				section =  _.find(_this.elems.section),
+				textCont = _.find(_this.elems.textCont),
+				submit = section.find('.btn');
+			_this.initclick(btn,section,input,_);
+			_this.initState(input,textCont,btn);
+			_this.changeComment(submit,input,textCont,section,btn,_);
+			_this.checkCont(textCont,_)
+		});
+	};
+	//проверяем наличие текста в контейнере и, если 
+	//есть (или если в инпут выплюнулись какие либо данные),
+	// тянем их в инпут
+	_this.initState = function(input,text,btns){
+		var info = text.text(),
+			val = input.val(),
+			compare = info.localeCompare(val);
+		compare == 1 || compare == -1 ? input.val(info) : 0;
+		if(info.length > 0){
+			btns.addClass(_this.state.filled).toggleText();
+		}
+	}
+	//открываем/ закрываем
+	_this.initclick = function(btn,section,input,wrapper){
+		btn.on('click touchmove',function(e){
+			e.preventDefault();
+			if(section.hasClass(_this.state.open)){
+				section.slideUp(300).removeClass(_this.state.open);
+			}else{
+				section.slideDown(300).addClass(_this.state.open);
+				input.focus();
+			}
+		});
+		$(document).on('mousedown', function(e) {
+			if (!wrapper.is(e.target) && wrapper.has(e.target).length === 0) {
+				section.slideUp(300).removeClass(_this.state.open);
+			}
+		});
+	};
+	// сравниваем текст из инпута с текстом в блоке, заменяем при наличии  различий
+	_this.changeComment = function(submitBtn,input,text,section,btn,wrapper){
+		submitBtn.on('click touchmove',function(e){
+			e.preventDefault();
+			var info = text.text(),
+				val = input.val(),
+				compare = info.localeCompare(val);
+			compare == 1 || compare == -1 ? text.text(val) : 0;
+			section.slideUp(300).addClass(_this.state.open);
+
+			if(text.text().length > 0 && !btn.hasClass(_this.state.filled)){
+				btn.addClass(_this.state.filled).toggleText();
+			}else if(text.text().length === 0 && btn.hasClass(_this.state.filled)){
+				btn.removeClass(_this.state.filled).toggleText();
+			}
+			_this.checkCont(text,wrapper)
+		});
+	}
+	_this.checkCont = function(cont,elem){
+		var textlen = cont.text().length;
+		textlen > 0 ? elem.addClass(_this.state.open) : elem.removeClass(_this.state.open);
+	}
+}

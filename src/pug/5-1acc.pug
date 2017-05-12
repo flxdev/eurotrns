@@ -166,6 +166,8 @@ block content
 									.input-form
 										.input-item.s100
 											//тут отдельная инициализация датапикера и измененная структура
+											//конпку в датапикер пихаю js-ом так что тебе надо будет туда залезть, чтобы повесить свои листнеры
+											// при смене месяца или года кнопка реапендится
 											.input-wrapper
 												label(for='impg5') Календарь
 												input.input-main.multipicker(type="text",placeholder='-- Выберите --',data-validation="length",data-validation-length='min18',data-validation-error-msg="Выберите период",readonly,id='impg5')

@@ -52,7 +52,6 @@ include _mixins.pug
 			//селект региона, такой же есть в заказе
 			.dropdown-select-wrapp.dropdown-trigger
 				.country-head.js-country-swap.js-content-switch
-
 					a(href="#",data-block='bel').country-list-link.js-country-swap-item.active
 						// флаг выбирается через id <use>: для британии gb раша ru и беларусь by,больше свг не заливал, если будут еще флаги то пихать картинку 
 						span.country-img
@@ -65,16 +64,15 @@ include _mixins.pug
 				.dropdown-target.small-dropdown-target
 					.dropdown-inner
 						.dropdown-content
-							ul.country-list.js-country-swap-list
-								li.country-list-item
-									a(href="#",data-block='ru').country-list-link.js-country-swap-item
-										span.country-img
-											img(src="img/ru.svg", alt="россия")
-										span.country-text Россия
-									a(href="#",data-block='bangbangbang').js-country-swap-item.country-list-link
-										span.country-img
-											img(src="img/ru.svg", alt="россия")
-										span.country-text Бангладеш
+							.country-list.js-country-swap-list
+								a(href="#",data-block='ru').country-list-link.js-country-swap-item
+									span.country-img
+										img(src="img/ru.svg", alt="россия")
+									span.country-text Россия
+								a(href="#",data-block='bangbangbang').js-country-swap-item.country-list-link
+									span.country-img
+										img(src="img/ru.svg", alt="россия")
+									span.country-text Бангладеш
 			.dropdown-tel-wrapp.js-content-switch-parent
 				.dropdown-tel-inner.js-content-switch-item(data-block='bel')
 					.dropdown-tel-content

@@ -54,6 +54,7 @@ html
 		font-size: 15px
 body
 	background-color: #fff
+	background-attachment: fixed
 	+box
 	+font-smoothing
 	text-rendering: optimizeLegibility
@@ -970,20 +971,17 @@ body, .out
 			font-weight: 600;
 			background-color: #f2f2f2;
 			border-radius: 0
-		&:not(.ui-datepicker-current-day)
-			a
-				border-radius: 0
-				width: auto
-				display: block
-				+rem(margin,0 -10px)
-				+padlr(13px)
-		&.ui-datepicker-current-day
-			a
+			+rem(margin,0 -10px)
+			width: auto
+			+padlr(13px)
+			display: block
+		// &.ui-datepicker-current-day
+		// 	a
 
-				+rem(margin-left, -10px)
-				display: block
-				width: auto
-				+rem(padding-left,13px)
+		// 		+rem(margin-left, -10px)
+		// 		display: block
+		// 		width: auto
+		// 		+rem(padding-left,13px)
 select.ui-datepicker-year,select.ui-datepicker-month
 	+rem(max-width,60px)
 	opacity: 0
@@ -1402,7 +1400,7 @@ select.ui-datepicker-year,select.ui-datepicker-month
 		color: $blk
 		span:before
 			background: linear-gradient(90deg,$org 0,hsla(0,0%,100%,0) 30%);
-			background-position: bottom;
+			background-position: bottom left 2px;
 			background-size: 6px 2px;
 			background-repeat: repeat-x;	
 			height: 2px
@@ -1646,13 +1644,12 @@ select.ui-datepicker-year,select.ui-datepicker-month
 		transition-delay: .3s
 		box-shadow: 0px 5px 9px 0px rgba(7, 35, 53, 0.25);
 
+
 .country
 	&-list
 		&-item
 			display: block
 			font-size: 0
-
-
 		&-link
 			+rem(padding,9px 24px 9px 10px)
 			font-size: 0
@@ -1661,6 +1658,7 @@ select.ui-datepicker-year,select.ui-datepicker-month
 			width: 100%
 			display: block
 			white-space: nowrap
+			text-align: left
 			&:hover
 				background-color: #275ca5
 			&.active
@@ -1668,7 +1666,6 @@ select.ui-datepicker-year,select.ui-datepicker-month
 	&-img,&-text
 		display: inline-block
 		vertical-align: middle
-
 	&-img
 		+rem(width,16px)
 		+rem(height,11px)
@@ -1691,7 +1688,44 @@ select.ui-datepicker-year,select.ui-datepicker-month
 		+rem(margin-right,5px)
 	&-head
 		position: relative
-		
+.dropdown-select-wrapp.white
+	+rem(max-width,90px)
+	min-width: 0
+	box-shadow: none !important
+	&:not(:hover)
+		.country
+			&-head
+				border-bottom-left-radius: 3px
+				border-bottom-right-radius: 3px
+				overflow: hidden
+	.country
+		&-head
+			border-top-left-radius: 3px
+			border-top-right-radius: 3px
+		&-list-link
+			background-color: $white
+			+rem(padding,7.5px 20px 7.5px 8px)
+		&-text
+			color: $text
+	.arr-down
+		svg 
+			stroke: $bl
+	.country-head
+		border: $bb
+	.dropdown-target
+		.dropdown-inner
+			box-shadow: none !important
+			border-right: $bb 
+			border-left: $bb 
+			border-bottom: $bb
+			border-bottom-left-radius: 3px
+			border-bottom-right-radius: 3px
+			.country-list-link
+				&:not(:last-child)
+					border-bottom: $bb
+				&:hover
+					background-color: #d6d7db
+
 .arr-down
 	display: inline-block
 	+rem(width,9px)
@@ -1744,8 +1778,7 @@ select.ui-datepicker-year,select.ui-datepicker-month
 	position: relative
 	&:hover
 		.arr-down
-			svg
-				transform: scale(1,-1)
+			transform: scale(1,-1)
 		.dropdown-target
 			transition-delay: .15s
 			opacity: 1
@@ -1753,8 +1786,7 @@ select.ui-datepicker-year,select.ui-datepicker-month
 			transform: translateY(0)
 .js-select-item.active
 	.arr-down
-		svg
-			transform: scale(1,-1)
+		transform: scale(1,-1)
 	.dropdown-target
 		transition-delay: .15s
 		opacity: 1
@@ -3103,11 +3135,12 @@ select.ui-datepicker-year,select.ui-datepicker-month
 		content: ''
 		+coverdiv
 		background-image: radial-gradient(ellipse at center, rgba(15,74,155,0.55) 0%, rgba(15,74,155,1) 60%, rgba(15,74,155,1) 61%);
-		background-position: top -15% center
 		background-attachment: fixed
 		// +tr(background-color .3s)
 		// +gpu
-		will-change: transform
+		background-position: top -15% center
+		background-repeat: no-repeat
+		// will-change: transform
 		z-index: -1
 		// +tr(background .3s)
 		+r(600)
@@ -3396,6 +3429,7 @@ ul.special
 	&-name
 		position: relative
 		z-index: 1
+		max-width: 90%
 		.text-medium
 			color: $bl 
 			a,span
@@ -3766,11 +3800,36 @@ ul.special
 		vertical-align: top
 		+rem(padding, 15px 0)
 		// border-bottom: 1px solid $borderf
+		.comment-wrapper
+			position: relative
+			.text-1
+				+rem(margin,5px 0)
+			.text-sm
+				+rem(margin-top,5px)
+				+rem(margin-left,-5px)
+			.comment-section
+				position: absolute
+				left: 0
+				z-index: 1
+				+rem(margin-top,10px)
+				top: 100%
+				+rem(width,300px)
+				background-color: $white
+				+rem(padding,15px)
+				box-shadow: 0px 3px 14px 0px rgba(7, 35, 53, 0.11);
+				+r(650)
+					margin-top: 0
+					top: 90%
 	&-row
 		display: table-row
 		+rem(padding, 15px 0)
 		font-size: 0
 		position: relative
+		&:last-child,&:nth-last-child(2)
+			.comment-section
+				+r(850)
+					top: auto !important
+					bottom: 100%
 
 
 // расписание
@@ -3879,7 +3938,9 @@ ul.special
 						+rem(bottom, -4px)
 						+rem(right, -5px)
 .table-wrapper
-	position: relative			
+	position: relative
+	+rem(margin-bottom,-60px)
+	+rem(padding-bottom,60px)	
 .table-price
 	border: none
 	.table-item
@@ -3996,6 +4057,8 @@ ul.special
 		&.sold
 			white-space: nowrap
 			overflow-x: scroll
+			overflow-y: hidden
+			+rem(padding-bottom,20px)
 			display: block
 			+rem(margin, 0 -15px)
 			width: calc(100% + 30px)
@@ -4062,7 +4125,7 @@ ul.special
 	border-bottom: $bbf
 	+rem(margin-bottom,30px)
 	+rm(651)
-		+rem(margin-top,20px)
+		+rem(margin-top,30px)
 	.table-item
 		+padlr(5px)
 		.text-1,.text-bold,.text-sm
@@ -4164,6 +4227,7 @@ ul.special
 			.table-item:not(.table-actions)
 				+rem(padding-bottom,20px)
 				+rem(padding-top,35px)
+					
 		&.report
 			.table-num
 				padding-left: 0
@@ -4190,8 +4254,169 @@ ul.special
 					+rem(min-width, 30px)
 					&.table-num,&.table-check
 						+padlr(15px)
+	&.rays-today
+		.text-1
+			line-height: 1.3
+		.table-road
+			+rem(width,260px)
+		.table-item:nth-child(3)
+			+rem(width,57px)
+		.table-item:nth-child(4)
+			+rem(width,235px)
+		+r(650)
+			.table-item:nth-child(4)
+				+rem(min-height,72px)
+		+rm(651)
+			&:not(.table-inline)
+				.table-row:last-of-type
+					.table-item
+						+rem(padding-bottom,30px)
+.table-wrapper
+	font-size: 0
+	.table-inline
+		display: block
+		+rem(margin-top,3px)
+		+r(850)
+			overflow-x: auto
+		+r(650)
+			white-space: normal
+		&>.table-row,&>.table-head
+			white-space: nowrap
+			width: 100%
+			display: inline-block
+			font-size: 0
+			+r(850)
+				+rem(min-width,800px)
+			&>.table-item
+				display: inline-block
+				vertical-align: top
+				white-space: normal				
+				&.table-num
+					min-width: 5.5%
+					max-width: 5.5%
+				&.table-time
+					min-width: 8.5%
+					max-width: 8.5%
+				&.table-road
+					min-width: 30%
+					max-width: 30%
+				&.table-bus
+					min-width: 23%
+					max-width: 23%
+				&.table-tel
+					min-width: 17%
+					max-width: 17%
+				&.table-collapse
+					min-width: 16%
+					max-width: 16%
+					text-align: left
+					+r(1100)
+						min-width: 13%
+						max-width: 13%
+			.table-collapse
+				position: relative
+				+rem(padding-left,30px)
+				+r(1100)
+					+rem(padding-left,15px)
+					.arr-down 
+						+rem(right,20px)
+				.arr-down 
+					+rem(right,42px)
+					+rem(width,10px)
+					+rem(padding-top,20px)
+					+rem(padding-bottom,5px)
+					svg
+					
+						// max-height: 61%
+						+rem(width,10px)
+						+rem(height,6px)
+						fill: $grayl
+						margin: 0
 
+		&>.table-row
+			font-size: 0
+			position: relative
+			padding: 0
+			&:before
+				content: ''
+				+coverdiv
+				z-index: -1
+				box-shadow: 0px 3px 14px 0px rgba(7, 35, 53, 0.11);
+				opacity: 0
+				+tr(opacity .3s)
 
+			&.active
+				z-index: 1
+				&:before
+					opacity: 1
+				.arr-down 
+
+					+rem(padding-top,20px)
+					+rem(padding-bottom,20px)
+					transform: scale(1,-1)
+				.table-item
+					+rem(min-height,87px)
+		&>.table-head
+			+rem(height,72px)
+			.table-item
+				height: 100%
+				+rem(padding-top,22px)
+				+rem(padding-bottom,10px)
+				span 
+					+rem(min-height,40px)
+					+rem(font-size,12px)
+
+		.accordeon-content
+			position: relative
+			width: 100%
+			display: block
+			// +clr
+			&-inner
+				width: 100%
+				+rem(padding,15px 23px)
+				.table-wrapper
+					display: block
+					width: 100%
+					
+			.table
+				border: none
+				.table-item
+					border: none
+
+			.table-navigation
+				+rem(padding-top,30px)
+				border-top: $bb
+				margin-top: 0
+				margin-bottom: 0
+				+rem(padding-bottom,15px)
+				display: block
+				white-space: normal
+				
+			.table-head
+				// .table-item
+				// 	padding-top: 0
+			.table-row
+				padding: 0
+				.table-item
+					+rem(padding-top,7px)
+					white-space: normal
+					+rem(padding-bottom,17px)
+					&:nth-child(2)
+						width: 31%
+						max-width: 31%
+					&:nth-child(3)
+						width: 12%
+					&:nth-child(4)
+						width: 18%
+					&.table-num
+						width: 4%
+			.table-row,.table-head
+				.table-item
+					&.table-num
+						padding-left: 0
+				
+.accordeon-trigger
+	cursor: pointer
 .table-tel
 	+rem(width,150px)
 	a:not([class])
@@ -4589,6 +4814,8 @@ a.caption-content
 .stpdf2
 	font-family: Open Sans;
 	font-weight: 600
+
+
 //=====================================//
 //        стили табов карты
 //=====================================//
@@ -5221,6 +5448,9 @@ a.caption-content
 	+rem(margin-top,5px)
 	+rem(bottom, -20px)
 	+tr(color .2s)
+	&.disabled
+		opacity: .7
+		pointer-events: none
 	span
 		position: relative
 		&:before
@@ -5326,6 +5556,7 @@ a.caption-content
 		position: relative
 		cursor: pointer
 		svg 
+			overflow: visible
 			.sttable0
 				+tr(fill .3s)
 		&:hover
@@ -5339,7 +5570,7 @@ a.caption-content
 			color: $org
 		&.active
 			color: $org
-			svg
+			.arr-down
 				transform: scale(1,-1)
 		span, i
 			display: inline-block
@@ -5397,7 +5628,6 @@ a.caption-content
 	&-arr,&-inner
 		display: inline-block
 		vertical-align: middle
-
 		.arr-down
 			position: static
 			+rem(height,13px)
@@ -5411,11 +5641,9 @@ a.caption-content
 			svg 
 				fill: $org
 		&.left
-			svg 
-				transform: rotate(90deg)
+			transform: rotate(90deg)
 		&.right
-			svg 
-				transform: rotate(-90deg)
+			transform: rotate(-90deg)
 		&.disabled
 			opacity: .5
 			pointer-events: none
@@ -5578,10 +5806,25 @@ ymaps
 					+rem(padding,25px 20px)
 					.small-link 
 						+rem(right,10px)
+	&.modal-details
+		.modal-container
+			padding: 0
+			+rem(max-width,947px)
+			&-header
+				+padlr(25px)
+				.table-navigation
+					+rem(margin-top,30px)
+					margin-bottom: 0
+					+rem(padding-bottom,28px)
+					border-bottom: $bb
+				.small-link
+					+rem(right,10px)
+			&-content
+				margin-top: 0
 	.modal-container
 		display: inline-block
 		vertical-align: middle 
-		+rem(min-width,320px)
+		+rem(min-width,300px)
 		+rem(max-width,647px)
 		// max-height: 100%;
 		+rem(margin-bottom,20px)
@@ -5624,6 +5867,7 @@ ymaps
 		.small-link
 			+rem(right,-16px)
 			+rem(top,-14px)
+
 .small-link
 	cursor: pointer
 	position: absolute
@@ -5720,5 +5964,305 @@ ymaps
 	+rem(margin-top,3px)
 	.input-item
 		padding-right: 0
+
+//=====================================//
+//         	person details
+//=====================================//
+
+.person-profile
+	&-wrapper
+		font-size: 0
+		+rem(margin-right,-25px)
+		+rm(601)
+			display: flex
+			flex-flow: row nowrap
+			align-items: stretch
+	&-about,&-reys
+
+		+rem(padding-right,25px)
+		&-inner
+			font-size: 0
+		+r(600)
+			min-width: 100%
+			display: inline-block
+			vertical-align: top
+			+rem(padding-left,25px)
 			
+	&-about
+		width: 66%
+		// .person-profile-elem
+		// 	+rm(701)
+		// 		&:not(:nth-child(3n + 1))
+		// 			+rem(padding-left,45px)
+		// &-inner
+		// 	+rem(margin-right,-30px)
+	&-reys
+		width: 34%
+		+rem(padding-left,5px)
+		+rem(padding-bottom,10px)
+		position: relative
+		+r(700)
+			padding-left: 0
+		.person-profile-elem
+			+rem(padding-right,25px)
+		&:before
+			content: ''
+			display: inline-block
+			width: 1px
+			top: 0
+			bottom: 0
+			position: absolute
+			left: 0
+			background-image: linear-gradient(180deg,#bebebe 0,hsla(0,0%,100%,0) 30%);
+			background-position: left;
+			background-size: 2px 6px;
+			background-repeat: repeat-y;
+			+r(600)
+				width: 100%
+				height: 1px
+				bottom: auto
+				background-size: 6px 2px;
+				background-repeat: repeat-x;
+				background-position: bottom;
+				background-image: linear-gradient(90deg,#bebebe 0,hsla(0,0%,100%,0) 30%);
+				right: 0
+
+		a 
+			+rem(margin-bottom, -10px)
+			line-height: 1.5
+	&-elem
+		display: inline-block
+		vertical-align: top
+		+rem(padding-left,25px)
+		+rem(padding-right,35px)
+		+rem(padding-top,20px)
+		+rem(padding-bottom,20px)
+		+r(700)
+			+rem(padding-top,10px)
+		+r(600)
+			padding-left: 0
+		.table-navigation-link
+			+rem(margin,10px 0)
+		.text-sm
+			+rem(font-size,12px)
+			line-height: 1.6
+			color: $grayl
+			+rem(margin-bottom,15px)
+			+rem(min-height,19px)
+			+r(700)
+				+rem(margin-bottom,10px)	
+		.text-1
+			+rem(font-size,13px)
+			line-height: 1.4
+		&.s33
+			width: 33.33%
+			+r(700)
+				width: 50%
+				// +rem(padding-left,25px)
+		&.s66
+			width: 66.66%
+			+r(700)
+				width: 100%
+		&.s100
+			width: 100%
+		&.s50
+			width: 50%
+			+r(700)
+				width: 100%
+
+//=====================================//
+//         	adding comment block
+//=====================================//
+
+.comment
+	&-wrapper
+		.text-1
+			+rem(margin,10px 0 15px)
+			width: 100%
+		&>.text-sm
+			padding-left: 0
+		.table-navigation-link
+			+rem(font-size,13px)
+			i 
+				+rem(width,16px)
+				+rem(height,17px)
+				+rem(margin-top,2px)
+				
+				svg
+					width: 100%
+		&:not(.active)
+			&>.text-sm,&>.text-1
+				display: none
+	&-section
+		display: none
+		.input-main
+			font-weight: 400
+			+rem(font-size,14px)
+
+
+//=====================================//
+//         	small-switcher
+//=====================================//
+.btn-switcher
+	font-size: 0
+	white-space: nowrap
+	border-radius: 3px
+	overflow: hidden
+	display: inline-block
+	&-elem
+		display: inline-block
+		vertical-align: top
+		background-color: $white
+		+padlr(5px)
+		text-align: center 
+		text-align-last: center
+		line-height: 1
+		+nosel
+		+rem(padding-top,7.5px)
+		+rem(padding-bottom,7.5px)
+		+rem(font-size,13px)
+		+rem(min-width,60px)
+		color: $bl
+		cursor: pointer
+		border-top: 1px solid $bb
+		border-right: 1px solid $bb
+		border-bottom: 1px solid $bb
+		&:first-child
+			border-left: 1px solid $bb
+			border-bottom-left-radius: 3px
+			border-top-left-radius: 3px
+		&:last-child
+			border-bottom-right-radius: 3px
+			border-top-right-radius: 3px
+		&.active
+			background-color: $bl
+			color: $white
+			pointer-events: none
+			border-color: $bl
+
+
+
+
+
+//=====================================//
+//         	.booking module styles
+//====================================//
+
+.booking
+	&-wrapper
+		font-size: 0
+		+rem(padding-top,128px)
+		&-inner
+			counter-reset: blocks
+			border: 1px solid $bb
+			+rm(769)
+				display: flex
+				flex-flow: row wrap
+				align-items: flex-start
+				justify-content: center
+				.booking-smallcont
+					&:first-child
+						order: 1
+					&:nth-child(3)
+						order: 2
+					&:nth-child(5)
+						order: 3
+					&:nth-child(7)
+						order: 4
+					&:nth-child(9)
+						order: 5
+				.booking-block
+					&:nth-child(2)
+						order: 6
+					&:nth-child(4)
+						order: 7
+					&:nth-child(6)
+						order: 8
+					&:nth-child(8)
+						order: 9
+	&-smallcont
+		text-align: center
+		counter-increment: blocks
+		&:not(.options),&:not(.active)
+			cursor: pointer
+		&:not(:last-child)
+			border-right: 1px solid $bb
+			border-bottom: 1px solid $bb
+		+vertical
+		+rm(1025)
+			+rem(height,100px)
+			width: 18.7%
+			&.options
+				width: 25.2%
+		+screen(769,1024)
+			+rem(height,100px)
+			width: 20%
+			&.options
+				width: 20%
+		&.active
+			font-weight: 600
+			pointer-events: none
+			.text-1
+				color: $bl
+				&:before
+					background-color: $bl 
+					border-color: $bl 
+					color: $white
+		&.off
+			background-color: #fdfdfd
+			pointer-events: none
+			.text-1
+				color: $grayl
+				&:before
+					border-color: $grayl
+					color: $grayl
+		&.filled
+			.text-1
+				color: $blk
+				&:before
+					border-color: $blk
+					color: $blk
+		&.options
+			+padlr(30px)
+			+r(1160)
+				+padlr(15px)
+			+r(768)
+				order: 1
+			.booking-smallcont-inner
+				+rm(1025)
+					+justify
+					&>div
+						display: inline-block
+						vertical-align: middle
+				.contry-switcher
+					+r(1024)
+						.dropdown-select-wrapp
+							+rem(margin, 15px auto 0)
+					
+		&-inner
+			display: inline-block
+			vertical-align: middle
+			width: 100%
+			+padlr(5px)
+			&>.text-1
+				&:before
+					display: inline-block
+					+rem(padding,5px)
+					border-radius: 50%
+					content: counter(blocks)
+					+rem(font-size,13px)
+					border: 1.5px solid $bb
+					text-align: center
+					+rem(width,15px)
+					+rem(height,15px)
+					+rem(line-height,15px)
+					+rem(margin-right,10px)
 		
+
+
+
+
+		
+
+
+
