@@ -1,0 +1,91 @@
+extends _layout
+
+block title
+	title Контакты
+
+block content
+	+headtwo('Контакты')
+	.wrapper
+		.box
+			.aside-wrapp
+				//модификатор .aside-blue
+				aside.aside-menu.aside-blue(data-sticky_parent)
+					.aside-stick(data-sticky_column)
+						.blue-card
+							+Infoblock('Бронирование')
+								li.info-block-item
+									a.info-block-link.bold(href="tel:+375295000252") +375 (29) 5000-252
+								li.info-block-item
+									a.info-block-link.bold(href="tel:+375295000252") +375 (29) 5000-252
+								li.info-block-item
+									a.info-block-link.bold(href="tel:+375295000252") +375 (29) 5000-252
+							+Infoblock('')
+								li.info-block-item
+									a.info-block-link.bold.descr(href="tel:+74952818817") 
+										span.main  +7 (495) 281-88-17
+										span Москва
+								li.info-block-item
+									a.info-block-link.bold.descr(href="tel:+78122442019") 
+										span.main +7 (812) 244-20-19
+										span Санкт-Петербург
+							a(href="#",data-modal='callback').btn.js-popup-button
+								span Обратный звонок
+							+Infoblock('')
+								li.info-block-item
+									a.info-block-link.descr(href="mailto:service@eurotrans.by") 
+										span.main service@eurotrans.by 
+										span Для обращений
+								li.info-block-item
+									a.info-block-link.descr(href="mailto:job@eurotrans.by") 
+										span.main job@eurotrans.by
+										span Для резюме
+								li.info-block-item
+									a.info-block-link.descr(href="mailto:job@eurotrans.by") 
+										span.main job@eurotrans.by
+										span Для резюме
+
+				.aside-content
+					section.aside-section
+						.map-wrapper
+							.company-section
+								.text-medium ООО "Автотуронлайн"
+								.company-section-row
+									.company-section-block
+										.text-sm Банковские реквизиты
+										.text-1 УНП 192306323ОКПО 381844975000р/с 3012145380000 в ЗАО «БСБ-Банк» г. Минск, пр-т Победителей, 23, корп.3 МФО153001175
+									.company-section-block
+										.text-sm Юридический адрес
+										.text-1 220053, г.Минск ул. Новаторская, д.5
+									.company-section-block
+										.text-sm Контактный телефоны
+										a(href="tel:+375172260994").text-1 +375 (17) 226-09-94
+										a(href="tel:+375172260994").text-1 +375 (44) 5000-252
+									.company-section-block
+										.text-sm Факс
+										a(href="tel:+375172260994").text-1 +375 (17) 226-09-94
+									.map-container#map-contacts-1(data-imagesrc='/img/pin.svg',data-cords='[53.935054, 27.538905]',data-descr='ООО "Автотуронлайн", Проспект qe Космонавтов')
+									script.
+										document.addEventListener("DOMContentLoaded", function () {
+											mapMarkerinit('map-contacts-1');
+										});
+							.company-section
+								.text-medium ООО "Евротранс"
+								.company-section-row
+									.company-section-block
+										.text-sm Банковские реквизиты
+										.text-1 УНП 192306323ОКПО 381844975000р/с 3012145380000 в ЗАО «БСБ-Банк» г. Минск, пр-т Победителей, 23, корп.3 МФО153001175
+									.company-section-block
+										.text-sm Юридический адрес
+										.text-1 220053, г.Минск ул. Новаторская, д.5
+									.company-section-block
+										.text-sm Контактный телефоны
+										a(href="tel:+375172260994").text-1 +375 (17) 226-09-94
+										a(href="tel:+375172260994").text-1 +375 (44) 5000-252
+									.company-section-block
+										.text-sm Факс
+										a(href="tel:+375172260994").text-1 +375 (17) 226-09-94
+									.map-container#map-contacts-2(data-imagesrc='/img/pin.svg',data-cords='[53.935054, 27.538905]',data-descr='ООО "Евротранс", Проспект qe Космонавтов')
+									script.
+										document.addEventListener("DOMContentLoaded", function () {
+											mapMarkerinit('map-contacts-2');
+										});

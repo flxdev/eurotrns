@@ -805,8 +805,13 @@ function mapMarkerinit(elem) {
 	var centerarr =[];
 	var myMap, gCollection, myPlacemark,MyBalloonContentLayoutClass;
 	ymaps.ready(init);
-	makeArray(center,centerarr);
-
+	//выбираем между картой в конитактах и в маршруте
+	if(cords == undefined){
+		cords = $("#" + elem).data('cords');
+		makeArray($("#" + elem),centerarr)
+	}else{
+		makeArray(center,centerarr);
+	}
 	function init() {
 		var parent = $('.tabs-cont');
 		myMap = new ymaps.Map(elem, {
@@ -1085,7 +1090,6 @@ function openOnLoad() {
 	var scrollItem = window.location.hash,
 		target = $("[data-id='" + scrollItem + "']");
 	window.scrollTo(0, 0);
-	console.log(scrollItem,target)
 	if (target.length) {
 		setTimeout(function() {
 			var destination = target.offset().top;

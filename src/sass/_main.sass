@@ -821,6 +821,8 @@ body, .out
 					+rem(margin-top,-5px)
 					+rem(font-size,15px)
 					font-weight: 600
+					+r(700)
+						+rem(margin-top,0px)	
 				&:before
 					+rem(padding-right, 3px)
 				&:after
@@ -1738,7 +1740,7 @@ select.ui-datepicker-year,select.ui-datepicker-month
 		color: $white
 		+rem(font-size,13px)
 		line-height: 1
-		+rem(padding-left,12px)
+		+rem(padding-left,11px)
 		+rem(margin-right,5px)
 	&-head
 		position: relative
@@ -1830,6 +1832,7 @@ select.ui-datepicker-year,select.ui-datepicker-month
 
 .dropdown-trigger
 	position: relative
+	cursor: pointer
 	&:hover
 		.arr-down
 			transform: scale(1,-1)
@@ -3248,6 +3251,9 @@ select.ui-datepicker-year,select.ui-datepicker-month
 				display: inline-block
 				vertical-align: top
 				width: 50%
+				&:nth-child(2)
+					.label,label 
+						opacity: 1
 				&:first-child
 					.input-main,.select-check:not(.price-total)
 						border-bottom-right-radius: 0
@@ -3611,12 +3617,14 @@ ul.special
 			display: none
 	&-stick
 		+r(768)
-			border: 1px solid $border
+			
 			+rem(border-radius, 3px)
 			width: 100%
 			+rem(max-width,400px)
 			text-align: left
 			+rem(margin-bottom,30px)
+			&.js-dropdown-parent
+				border: 1px solid $border
 			.aside-list.bold
 				margin-top: 0
 				+tr(max-height .3s ease-in-out)
@@ -4643,6 +4651,23 @@ ul.special
 				text-align: left
 				+rem(padding-left,100px)
 				+rem(height,80px)
+				.dropdown-target
+					+rem(left,-84px)
+					right: auto
+					width: 100%
+					+rem(max-width,400px)
+					.dropdown-inner
+						&:after
+							display: none
+				&.small
+					.dropdown-target
+						+rem(left,-44px)
+			+r(440)
+				.dropdown-target
+					+rem(min-width,300px)	
+				&.small
+					.dropdown-target
+						+rem(left,-84px)
 			&:hover
 				.item-circle:after
 					background-color: $org
@@ -4652,7 +4677,9 @@ ul.special
 				+rem(min-width,240px)
 				left: -25%
 				+r(1024)
-					display: none
+					+rem(left,-34px)
+
+
 			.dropdown-content
 				+rem(padding,25px 15px 35px 15px)
 				.text-sm
@@ -4756,7 +4783,7 @@ ul.special
 			padding: 0
 		&-inner
 			width: 100%
-			h2
+			h3,.title.h3
 				color: $textTitle
 				line-height: 2;
 				+rem(font-size, 20px)
@@ -4772,6 +4799,66 @@ ul.special
 				+rem(margin,25px 0 25px)
 				&:first-child
 					+rem(margin,5px 0 25px)
+			.text-bold
+				+rem(margin,25px 0 25px)
+				&:first-child
+					+rem(margin,5px 0 25px)
+			b 
+				font-weight: 600
+				color: $blk
+			i 
+				font-style: italic
+			img,figure 
+				display: block
+				max-width: 100%
+				+rem(margin,60px auto)
+				position: relative
+				+r(768)
+					+rem(margin,35px auto)
+					&:first-child
+						+rem(margin,5px auto 35px)
+				&:first-child
+					+rem(margin,5px auto 60px)
+				figcaption 
+					+rem(font-size,13px)
+					font-style: italic
+					color: rgb(64, 64, 64);
+					line-height: 1.538;
+					position: absolute
+					left: 115%
+					+rem(width,200px)
+					bottom: 0
+					background-color: transparent
+					+rem(margin-top,15px)
+					+r(991)
+						position: static
+						width: 100%
+						
+			figure
+				&>img
+					margin: 0 auto !important
+			.slider-bus-slider
+				// +rem(max-width,642px)
+				max-width: 100%
+				padding-right: 0
+				display: block
+				width: auto
+				+rem(margin,40px auto)
+				&:first-child
+					+rem(margin,5px auto 40px)
+				&-inner
+					position: relative
+					height: 0
+					padding-bottom: 56.25%
+					.slick-list,.slick-track
+						+coverdiv
+				ul 
+					margin: 0
+				li 
+					padding-left: 0
+					&:before
+						display: none
+						
 			blockquote
 				background-color: #f0f4f7 
 				+rem(margin,55px 0 55px)
@@ -4783,7 +4870,7 @@ ul.special
 				+rem(padding,20px 25px)
 			ul 
 				+rem(margin,40px 0 40px)
-				li 
+				&>li 
 					+rem(font-size,15px)
 					color: rgb(101, 101, 101);
 					line-height: 1.25
@@ -4791,6 +4878,8 @@ ul.special
 					+rem(padding-left,17px)
 					display: block
 					+rem(margin,10px 0)
+					ol,ul 
+						+rem(margin, 5px 0 )
 					&:before
 						content: ''
 						display: inline-block
@@ -4801,6 +4890,23 @@ ul.special
 						+rem(left,2px)
 						+rem(top,7px)
 						position: absolute
+			ol 
+				+rem(margin,40px 0 40px)
+				counter-reset: num
+				li 
+					+rem(font-size,15px)
+					counter-increment: num
+					color: rgb(101, 101, 101);
+					line-height: 1.25
+					position: relative
+					display: block
+					+rem(margin,10px 0)
+					&:before
+						content: counter(num)
+						+rem(font-size,15px)
+						color: $bl 
+						font-weight: 600
+						+rem(margin-right,10px)
 			a 
 				box-shadow:  0 -2px 0 0 #fff,  0 1px 0 0 $org
 				&:active
@@ -5621,6 +5727,8 @@ a.caption-content
 			+rem(max-width,180px)
 			+rem(font-size,13px)
 			line-height: 1.4
+		a.text-1
+			display: block
 		.text-sm
 			+rem(margin-bottom,18px)
 			+r(768)
@@ -6333,7 +6441,7 @@ ymaps
 				+rem(height,80px)
 			&:not(:first-child):not(.options)
 				border-top: $bb
-			border-bottom: none
+			border-bottom: none!important
 		+r(600)
 			text-align: left
 			+rem(padding-left,55px)
@@ -6451,6 +6559,9 @@ ymaps
 					.table-item
 						+rem(padding-top,5px)
 						+rem(padding-bottom,5px)
+						+r(650)
+							+rem(min-height,47px)
+
 			.select-text
 				font-weight: 400
 			.form-block-section
@@ -6705,4 +6816,206 @@ ymaps
 			+rem(margin-top,60px)
 			+r(768)
 				+rem(margin-top,35px)
+.aside-blue
+	+rem(padding-right,20px)
+	.aside-stick
+			border: none
+.blue-card
+	background-color: #f0f4f7
+	+padlr(25px)
+	// +rem(max-width,233px)
+	+rem(padding-top,20px)
+	+rem(padding-bottom,30px)
+	+r(768)
+		text-align: center
+	.info-block
+		+rem(margin-bottom,10px)
+	.info-block-link
+		&.bold
+			color: $bl
+			+rem(font-size,16px)
+			+rem(margin,8px 0)
+			&:hover
+				color: $org
+			&.descr:not(:hover)
+				color: $blk2
+			&.descr
+				+rem(margin-bottom,17px)
+				+rem(font-size,15px)
+
+		&.descr
+			flex-flow: row wrap
+			line-height: 1.4
+			span.main
+				order: 2
+			span:not(.main)
+				order: 1
+				width: 100%
+				padding-left: 0	
+		&:not(.bold)
+			line-height: 1.6
+			+rem(margin-bottom,17px)
+	.btn
+		span 
+			+padlr(5px)
+		width: 100%
+		+rem(margin-top,12px)
+		+rem(margin-bottom,22px)
+		+rem(max-width,250px)
+.map-wrapper
+	width: 68%	
+	+rem(max-width,660px)
+	border: $bb
+	+r(950)
+		max-width: 100%
+		width: 100%
+		.company-section
+			padding-bottom: 0
+			margin-bottom: 0
+			.company-section-row
+				margin-right: 0
+			.company-section-block
+				+rem(padding-right,30px)
+				padding-left: 0 !important
+				&:first-child
+					width: 100%
+	+r(360)
+		.company-section-block
+			width: 100% !important
+	.company-section
+		border: none
+		position: relative
+		+rem(padding-bottom,30px)
+		&:not(:first-child)
+			border-top: $bb
+		&>.text-medium
+			+rem(margin-top,30px)
+		.text-sm
+			max-width: 	100%
+		.company-section-block
+			+rem(margin,20px 0 30px)
+			+rem(padding-right,70px)
+		.map-container
+			position: absolute
+			left: calc(100% - 4.375rem)
+			+rem(height,250px)
+			width: 59%	
+			+rem(top,35px)
+			border: $bb
+			background-color: $white
+			+r(950)
+				position: static
+				width: auto
+				+rem(margin,0 -32px)
+				border: none
+			+r(400)
+				+rem(margin,0 -18px)
+
+.service-mainwrap
+	.services
+		&-wrapper
+			font-size: 0
+			+rem(margin-right,-8px)
+			display: flex
+			flex-flow: row wrap
+			align-items: stretch
+			justify-content: center
+			+rem(margin-top,25px)
+			+rem(margin-bottom,115px)
+			+r(950)
+				+padlr(0)
+				+rem(margin-bottom,85px)
+			+r(700)
+				+rem(margin-bottom,45px)	
+		&-item
+			width: 33.33%
+			+rem(padding-right,8px)
+			+r(950)
+				width: 50%
+			+r(700)
+				width: 100%
+			&-inner
+				border: $bb
+				height: 100%
+				+tr(border-color .3s)
+				z-index: 1
+				&:after
+					content: ''
+					+coverdiv
+					z-index: -1
+					opacity: 0
+					+tr(opacity .3s)
+					box-shadow: 0px 10px 27px 0px rgba(7, 35, 53, 0.11)
+				&:before
+					display: none
+				&:hover
+					+rm(1025)
+						border-color: transparent 
+						&:after
+							opacity: 1
+						.services-item-bg
+							&-middle
+								transform: scale(1.1)
+						.services-item-footer
+							border-color: $bl
+							.btn 
+								opacity: 1
+								visibility: visible
+			&-bg 
+				+rem(height,121px)
+				+rem(margin-right,-1px)
+				+rem(margin-left,-1px)
+				+rem(margin-top,-1px)
+				overflow: hidden
+				&-middle
+					height: 100%
+					width: 100%
+					+tr(transform .3s)
+				&-inner
+					height: 100%
+					width: 100%
+					+cover
+					transform: translateX(0)
+			&-head
+				+rem(margin-top,-42px)
+			&-body
+				padding-left: 10%
+				+rem(margin-top,44px)
+				+rem(margin-bottom,57px)
+				+r(950)
+					+rem(margin-top,30px)
+					+rem(margin-bottom,45px)
+				+r(700)
+					+padlr(15px)
+			&-links
+				padding-left: 10%
+			&-footer
+				+rem(margin-top,19px)
+				padding-left: 10%
+				padding-right: 7%
+				+rem(padding-bottom,35px)
+				+clr
+				border-bottom: 2px solid transparent
+				+rem(min-height,82px)
+				+tr(border-color .3s)
+				+r(700)
+					+padlr(15px)
+				.link-border
+					+rem(margin-top,10px)
+				.btn 
+					float: right
+					transition: opacity .3s, visibility .3s,border-color .3s,background-color .3s
+					+r(700)
+						float: none
+					+rm(1025)
+						opacity: 0
+						visibility: hidden
+
+
+
+					
+
+									
+
+
 

@@ -1,0 +1,157 @@
+extends _layout
+
+block title
+	title Услуги
+block config
+	- var mainclass = 'active'
+block content
+	+headtwo('Услуги')
+	.wrapper
+		.box
+			.service-mainwrap
+				.services-wrapper
+					.services-item
+						.services-item-inner
+							.services-item-bg
+								.services-item-bg-middle
+									.services-item-bg-inner(style='background-image: url(img/serv1.jpg)')
+							.services-item-head
+								a(href="#").services-item-img
+									.services-item-img-inner
+										.services-item-img-main
+											svg(version='1.1', xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink', x='0px', y='0px', viewbox='0 0 75.4 90.5', style='enable-background:new 0 0 75.4 90.5;', xml:space='preserve')
+												style(type='text/css').
+													.stcalend0{fill:#1C4A9A;}
+												g
+													g
+														path.stcalend0(d='M15,13.5L15,13.5c-1.2,0-2.2-1-2.2-2.2V2.2C12.8,1,13.8,0,15,0h0c1.2,0,2.2,1,2.2,2.2v9.1\
+														C17.3,12.5,16.3,13.5,15,13.5z')
+														path.stcalend0(d='M37.7,13.5L37.7,13.5c-1.2,0-2.2-1-2.2-2.2V2.2c0-1.2,1-2.2,2.2-2.2h0c1.2,0,2.2,1,2.2,2.2v9.1\
+														C39.9,12.5,38.9,13.5,37.7,13.5z')
+														path.stcalend0(d='M60.3,13.5L60.3,13.5c-1.2,0-2.2-1-2.2-2.2V2.2c0-1.2,1-2.2,2.2-2.2h0c1.2,0,2.2,1,2.2,2.2v9.1\
+														C62.5,12.5,61.5,13.5,60.3,13.5z')
+														g
+															path.stcalend0(d='M75.4,24.4V10.2c0-1.5-1.2-2.7-2.7-2.7h-8.7v3.9c0,2.1-1.7,3.8-3.8,3.8s-3.8-1.7-3.8-3.8V7.6H41.4v3.9\
+															c0,2.1-1.7,3.8-3.8,3.8s-3.8-1.7-3.8-3.8V7.6H18.8v3.9c0,2.1-1.7,3.8-3.8,3.8s-3.8-1.7-3.8-3.8V7.6H2.7C1.2,7.6,0,8.7,0,10.2\
+															v14.2H75.4z')
+															path.stcalend0(d='M0,26.2v61.6c0,1.5,1.2,2.7,2.7,2.7h70.1c1.5,0,2.7-1.2,2.7-2.7V26.2H0z M22.6,81.1c0,1.2-1,2.1-2.1,2.1H9.6\
+															c-1.2,0-2.1-1-2.1-2.1V74c0-1.2,1-2.1,2.1-2.1h10.9c1.2,0,2.1,1,2.1,2.1V81.1z M22.6,62.2c0,1.2-1,2.1-2.1,2.1H9.6\
+															c-1.2,0-2.1-1-2.1-2.1v-7.1c0-1.2,1-2.1,2.1-2.1h10.9c1.2,0,2.1,1,2.1,2.1V62.2z M22.6,43.3c0,1.2-1,2.1-2.1,2.1H9.6\
+															c-1.2,0-2.1-1-2.1-2.1v-7.1c0-1.2,1-2.1,2.1-2.1h10.9c1.2,0,2.1,1,2.1,2.1V43.3z M45.3,81.1c0,1.2-1,2.1-2.1,2.1H32.3\
+															c-1.2,0-2.1-1-2.1-2.1V74c0-1.2,1-2.1,2.1-2.1h10.9c1.2,0,2.1,1,2.1,2.1V81.1z M45.3,62.2c0,1.2-1,2.1-2.1,2.1H32.3\
+															c-1.2,0-2.1-1-2.1-2.1v-7.1c0-1.2,1-2.1,2.1-2.1h10.9c1.2,0,2.1,1,2.1,2.1V62.2z M45.3,43.3c0,1.2-1,2.1-2.1,2.1H32.3\
+															c-1.2,0-2.1-1-2.1-2.1v-7.1c0-1.2,1-2.1,2.1-2.1h10.9c1.2,0,2.1,1,2.1,2.1V43.3z M67.9,81.1c0,1.2-1,2.1-2.1,2.1H54.9\
+															c-1.2,0-2.1-1-2.1-2.1V74c0-1.2,1-2.1,2.1-2.1h10.9c1.2,0,2.1,1,2.1,2.1V81.1z M67.9,62.2c0,1.2-1,2.1-2.1,2.1H54.9\
+															c-1.2,0-2.1-1-2.1-2.1v-7.1c0-1.2,1-2.1,2.1-2.1h10.9c1.2,0,2.1,1,2.1,2.1V62.2z M67.9,43.3c0,1.2-1,2.1-2.1,2.1H54.9\
+															c-1.2,0-2.1-1-2.1-2.1v-7.1c0-1.2,1-2.1,2.1-2.1h10.9c1.2,0,2.1,1,2.1,2.1V43.3z')
+										.services-item-img-arrow
+											svg(version='1.1', xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink', x='0px', y='0px', viewbox='0 0 38 38', style='enable-background:new 0 0 38 38;', xml:space='preserve')
+												style(type='text/css').
+													.circle-arr-org0{fill:#F7941D;}
+													.circle-arr-org1{fill:none;stroke:#1C4A9A;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+												g
+													circle.circle-arr-org0(cx='19', cy='19', r='19')
+												g
+													line.circle-arr-org1(x1='13.1', y1='19', x2='24.9', y2='19')
+													polyline.circle-arr-org1(points='19.6,13.7 24.9,19 19.6,24.3')
+							a(href="#").services-item-body
+								.text-medium Рейсы
+								.text-1 Ежедневные рейсы автобусов в удобное для вас время
+							.services-item-links
+								a(href="#").services-item-link Минск → Москва
+								a(href="#").services-item-link Москва → Минск
+								a(href="#").services-item-link Минск → Санкт-Петербург
+								a(href="#").services-item-link Минск → Санкт-Петербург
+								a(href="#").services-item-link Гродно → Санкт-Петербург
+							.services-item-footer
+								a(href="#").btn.btn-colored
+									span Заказать трансфер
+					.services-item
+						.services-item-inner
+							.services-item-bg
+								.services-item-bg-middle
+									.services-item-bg-inner(style='background-image: url(img/serv2.jpg)')
+							.services-item-head
+								a(href="#").services-item-img
+									.services-item-img-inner
+										.services-item-img-main
+											svg(version='1.1', xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink', x='0px', y='0px', viewbox='0 0 89.1 89.1', style='enable-background:new 0 0 89.1 89.1;', xml:space='preserve')
+												style(type='text/css').
+													.stransfer0{fill:#1C4A9A;}
+												path.stransfer0(d='M79.2,75.9c-2.9-8.5-10.1-30.5-12.4-36.4c-2-5,2.5-9.6,2.5-9.6s2.5-2.5,12.6-12.6S89.1,4,87.1,1.9\
+												c-2-2-5.3-4.8-15.4,5.3S59.2,19.8,59.2,19.8s-4.5,4.5-9.6,2.5C43.7,20,21.7,12.8,13.2,9.9c-2.1-0.7-4.4-0.2-5.9,1.4l-2.5,2.5\
+												c-1.3,1.3-1.3,3.6,0.2,4.8l25.7,21.7c2.1,1.8,2.3,4.9,0.5,6.9L18,61.7c-1.3,1.4-3.3,1.9-5.2,1.2l-5.6-2.2c-1.8-0.7-3.8-0.3-5.2,1.1\
+												L0.9,63c-1.2,1.2-1.2,3.1,0,4.3l10.5,10.5l10.5,10.5c1.2,1.2,3.1,1.2,4.3,0l1.2-1.2c1.4-1.4,1.8-3.4,1.1-5.2l-2.2-5.6\
+												c-0.7-1.8-0.2-3.9,1.2-5.2l14.6-13.1c2-1.8,5.1-1.6,6.9,0.5l21.7,25.7c1.2,1.5,3.4,1.6,4.8,0.2l2.5-2.5\
+												C79.4,80.2,79.9,77.9,79.2,75.9z')
+										.services-item-img-arrow
+											svg(version='1.1', xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink', x='0px', y='0px', viewbox='0 0 38 38', style='enable-background:new 0 0 38 38;', xml:space='preserve')
+												style(type='text/css').
+													.circle-arr-org0{fill:#F7941D;}
+													.circle-arr-org1{fill:none;stroke:#1C4A9A;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+												g
+													circle.circle-arr-org0(cx='19', cy='19', r='19')
+												g
+													line.circle-arr-org1(x1='13.1', y1='19', x2='24.9', y2='19')
+													polyline.circle-arr-org1(points='19.6,13.7 24.9,19 19.6,24.3')
+							a(href="#").services-item-body
+								.text-medium Трансфер в аэропорт
+								.text-1 Лучшая возможность вовремя прибыть в необходимый аэропорт
+							.services-item-links
+								a(href="#").services-item-link Внуково
+								a(href="#").services-item-link Домодедово
+								a(href="#").services-item-link Шереметьево
+								a(href="#").services-item-link Шереметьево
+								a(href="#").services-item-link Шереметьево
+							.services-item-footer
+								a(href="#").btn.btn-colored
+									span Заказать
+					.services-item
+						.services-item-inner
+							.services-item-bg
+								.services-item-bg-middle
+									.services-item-bg-inner(style='background-image: url(img/serv3.jpg)')
+							.services-item-head
+								a(href="#").services-item-img
+									.services-item-img-inner
+										.services-item-img-main
+											svg(version='1.1', xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink', x='0px', y='0px', viewbox='0 0 93.9 98.1', style='enable-background:new 0 0 93.9 98.1;', xml:space='preserve')
+												style(type='text/css').
+													.stbus0{fill:#1C4A9A;}
+												g
+													path.stbus0(d='M17.4,13.3h59.2c0.5,0,0.9-0.4,0.9-0.9V10c0-0.5-0.4-0.9-0.9-0.9H17.4c-0.5,0-0.9,0.4-0.9,0.9v2.4\
+													C16.4,12.9,16.8,13.3,17.4,13.3z')
+													path.stbus0(d='M81.5,1.1c-0.3-0.7-1-1.1-1.7-1.1H14.2c-0.7,0-1.4,0.4-1.7,1L9.9,6.1c-0.5,0.9-0.7,1.9-0.7,3v79.5\
+													c0,1,0.8,1.9,1.9,1.9h71.7c1,0,1.9-0.8,1.9-1.9V9c0-1-0.2-1.9-0.7-2.8L81.5,1.1z M14.8,9.3c0-1,0.8-1.9,1.9-1.9h60.6\
+													c1,0,1.9,0.8,1.9,1.9v3.8c0,1-0.8,1.9-1.9,1.9H16.6c-1,0-1.9-0.8-1.9-1.9V9.3z M79.1,73.7c0,1-0.8,1.9-1.9,1.9H16.6\
+													c-1,0-1.9-0.8-1.9-1.9v-4c0-1,0.8-1.9,1.9-1.9h10.5c0.5,0,1,0.2,1.4,0.6l2.7,2.8c0.4,0.4,0.9,0.6,1.4,0.6h28.6c0.5,0,1-0.2,1.4-0.6\
+													l2.7-2.8c0.4-0.4,0.9-0.6,1.4-0.6h10.7c1,0,1.9,0.8,1.9,1.9V73.7z M83,58.4c0,1-0.8,1.9-1.9,1.9H12.8c-1,0-1.9-0.8-1.9-1.9v-34\
+													c0-1,0.8-1.9,1.9-1.9h68.3c1,0,1.9,0.8,1.9,1.9V58.4z')
+													path.stbus0(d='M12.6,96.2c0,1,0.8,1.9,1.9,1.9h7.8c1,0,1.9-0.8,1.9-1.9v-4H12.6V96.2z')
+													path.stbus0(d='M69.7,96.2c0,1,0.8,1.9,1.9,1.9h7.8c1,0,1.9-0.8,1.9-1.9v-4H69.7V96.2z')
+													path.stbus0(d='M5.7,22.5h-1c-0.5,0-1,0.2-1.4,0.6L0.5,26C0.2,26.3,0,26.8,0,27.3v16c0,1,0.8,1.9,1.9,1.9h3.8\
+													c1,0,1.9-0.8,1.9-1.9V24.4C7.5,23.4,6.7,22.5,5.7,22.5z')
+													path.stbus0(d='M93.3,26l-2.8-2.9c-0.4-0.4-0.8-0.6-1.4-0.6h-1c-1,0-1.9,0.8-1.9,1.9v18.9c0,1,0.8,1.9,1.9,1.9H92\
+													c1,0,1.9-0.8,1.9-1.9v-16C93.9,26.8,93.7,26.3,93.3,26z')
+										.services-item-img-arrow
+											svg(version='1.1', xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink', x='0px', y='0px', viewbox='0 0 38 38', style='enable-background:new 0 0 38 38;', xml:space='preserve')
+												style(type='text/css').
+													.circle-arr-org0{fill:#F7941D;}
+													.circle-arr-org1{fill:none;stroke:#1C4A9A;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+												g
+													circle.circle-arr-org0(cx='19', cy='19', r='19')
+												g
+													line.circle-arr-org1(x1='13.1', y1='19', x2='24.9', y2='19')
+													polyline.circle-arr-org1(points='19.6,13.7 24.9,19 19.6,24.3')
+							a(href="#").services-item-body
+								.text-medium Аренда автобусов
+								.text-1 Самые дальние путешествия без временных потерь и дискомфорта
+							.services-item-links
+								a(href="#").services-item-link Volvo 9700H, 48 мест
+								a(href="#").services-item-link NEOPLAN, 49 мест
+								a(href="#").services-item-link Mercedes-Benz Travego, 49 
+								a(href="#").services-item-link Mercedes-Benz Travego, 49 
+								a(href="#").services-item-link Mercedes-Benz Travego, 49 
+							.services-item-footer
+								a(href="#").btn.btn-colored
+									span Наш автопарк
