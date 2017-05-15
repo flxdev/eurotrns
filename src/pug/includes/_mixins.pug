@@ -92,6 +92,11 @@ mixin question(img,name)
 		.question-item-img
 			img(src="img/question/"+img+".svg", alt="")
 		.question-item-name #{name}
+mixin question2(img,name,id)
+	a(href="#",data-id=id).question-item.js-tab-trigger
+		.question-item-img
+			img(src="img/question/"+img+".svg", alt="")
+		.question-item-name #{name}
 mixin cardmedium(img,clas)
 	.border-card(class=clas)
 		.border-card-inner(style='background-image:url(img/cards/'+img+')')
@@ -289,6 +294,17 @@ mixin headtwo(head)
 					a(href="#").content-bread-item.text-sm Главная
 					a(href="#").content-bread-item.text-sm Кабинет пользователя 
 					a(href="#").content-bread-item.text-sm Мои брони
+mixin head4(head)
+	.wrapper.page-head.page-margin(style='background-image: url(img/pageheade.jpg)')
+		.box.page-head-inner
+			.page-head-title
+				h1.title.h1 #{head}	
+				a(href="#").btn.btn-colored
+					span Задать впорос
+			.page-head-breadcrums
+				.content-bread
+					a(href="#").content-bread-item.text-sm Главная
+					a(href="#").content-bread-item.text-sm Часто задаваемые вопросы
 mixin routeFeachure(img,text,doptext)
 	.feature-item.dropdown-trigger
 		.feature-item-img
@@ -371,6 +387,19 @@ mixin tiketTable2(num,road,time,fio,bus)
 		.table-item.table-tel
 			a(href="tel:+375332260994") +375 (33) 226-09-94
 			a(href="tel:+375 (33) 226-09-94") +375 (33) 226-09-94
+			
+mixin tiketbook(road,num,date,date2,time)
+	.table-row
+		.table-item.table-road
+			a(href="#") #{road}
+		.table-item
+			.text-1 #{num}
+		.table-item
+			.text-1 #{date}
+		.table-item
+			.text-1 #{date2}
+		.table-item
+			.text-1 #{time}
 mixin tiketTable3(num,road,time,bus)
 	.table-row.js-accordion-trigger
 		.table-item.table-num.accordeon-trigger

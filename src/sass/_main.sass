@@ -710,6 +710,9 @@ body, .out
 		transition: color .3s;
 		font-weight: 600
 		line-height: 1.6;
+		span 
+			font-weight: 600
+			color: $bl
 	.select-real
 		position: absolute;
 		top: 0;
@@ -1039,6 +1042,8 @@ select.ui-datepicker-year,select.ui-datepicker-month
 			+rem(font-size,13px)
 			&:before,&:after
 				display: none !important
+	&.s20
+		width: 20%
 				
 .input-wrapper
 	position: relative;
@@ -1055,8 +1060,54 @@ select.ui-datepicker-year,select.ui-datepicker-month
 			background-color: #f5f5f5
 			+placeholder 
 				color: transparent !important
+	&.org
+		.input-main
+			border-color: $org
+			color: $org
+			font-weight: 600
+		&.disabled
+			.input-main
+				border-color: $org
+	&.special
+		.input-main
+			padding-right: 76%
+			+rem(padding-left,20px)
+		&.has-error
+			.input-value
+				border-left-color: red
+		.input-value
+			position: absolute
+			+rem(top,25px)
+			right: 0
+			width: 70%
+			+rem(height,38px)
+			border-left: $bb
+			overflow: hidden
+			text-overflow: ellipsis
+			white-space: nowrap
+			+nosel
+			.text-bold
+				+rem(padding-left,15px)
+				+rem(padding-top,12px)
+				line-height: 1
+	&.code
+		+clr
+		.input-main,.input-img
+			display: inline-block
+			vertical-align: bottom
+
+		.input-main
+			width: calc(100% - 11.8rem)
+		.input-img
+			+rem(width,170px)
+			float: right
+			overflow: hidden
+			+rem(height,40px)
+			border: $bbl
+			img
+				max-width: 100%
 	&:nth-child(n+2)
-		label
+		&>label
 			opacity: 0
 	&.double
 		font-size: 0
@@ -1255,6 +1306,8 @@ select.ui-datepicker-year,select.ui-datepicker-month
 	background-position: top 55px right
 	z-index: 2
 	+gpu
+	+r(1024)
+
 	&:after
 		content: ''
 		position: absolute
@@ -1612,6 +1665,7 @@ select.ui-datepicker-year,select.ui-datepicker-month
 	+rem(font-size,15px)
 	line-height: 1.75;
 	color: $text
+	font-weight: 400
 .text-2
 	+rem(font-size,14px)
 	line-height: 1.43;
@@ -2144,8 +2198,6 @@ select.ui-datepicker-year,select.ui-datepicker-month
 			display: block
 			+tr(color .3s)
 			+clr
-
-
 			&.bold
 				font-weight: 600
 			&.descr
@@ -3076,7 +3128,6 @@ select.ui-datepicker-year,select.ui-datepicker-month
 		+r(480)
 			padding-top: 2.5%
 			padding-bottom: 2.5%	
-			border-bottom: $bbl
 		&.active
 			border-bottom-color: $bl
 		border-right: $bbl
@@ -3144,7 +3195,7 @@ select.ui-datepicker-year,select.ui-datepicker-month
 		z-index: -1
 		// +tr(background .3s)
 		+r(600)
-			background-position: top 60px center
+			background-position: top 40px center
 	&-breadcrums
 		position: absolute
 		+rem(left, 15px)
@@ -3161,13 +3212,24 @@ select.ui-datepicker-year,select.ui-datepicker-month
 			+rem(padding-top,20px)
 	&-title
 		display: flex
-		flex-flow: row nowrap
+		flex-flow: row wrap
 		+rem(padding-bottom, 38px)
+		justify-content: space-between
+		align-items: center
 		.title
 			flex-basis: 70%
 			flex-grow: 1
 			line-height: 1.2
 			color: $white
+			&:not(:only-child)
+				max-width: calc(100% - 220px)
+				+r(650)
+					width: 100%
+					max-width: 100%
+				&~.btn
+					+rem(margin-top,25px)
+			&~.btn 
+				+rem(min-width,182px)
 	&-form
 		font-size: 0
 		+rem(margin-right,-11px)
@@ -3457,6 +3519,28 @@ ul.special
 			+rem(padding-bottom,60px)	
 		.title
 			+rem(padding-bottom,22px)
+		&.rules-content
+			padding-top: 0
+			+rem(margin-top,-60px)
+			padding-bottom: 0
+			.rules-inner
+				padding-top: 0
+			&+.aside-wrapp
+				+rem(padding-top,40px)
+				.content-column-right .caption-content
+					margin-bottom: 0
+					+rem(margin-top,30px)
+				.content-column-content
+					+clr 
+					p.special
+						+rem(max-width,300px)
+
+						float: right
+						+rem(margin-right,125px)
+						+r(1024)
+							max-width: 100%
+							float: none
+							margin-right: 0
 	&-inner
 		display: flex
 		flex-flow: row nowrap
@@ -3491,7 +3575,7 @@ ul.special
 					+rem(font-size,20px)
 					color: rgb(146, 155, 174);
 					position: absolute
-					+rem(top,4px)
+					+rem(top,6px)
 					+rem(left,-25px)
 
 
@@ -3939,8 +4023,6 @@ ul.special
 						+rem(right, -5px)
 .table-wrapper
 	position: relative
-	+rem(margin-bottom,-60px)
-	+rem(padding-bottom,60px)	
 .table-price
 	border: none
 	.table-item
@@ -5138,6 +5220,14 @@ a.caption-content
 				&.s50
 					+r(500)
 						width: 100%
+				&.s20
+					width: 20%
+					+r(950)
+						width: 33.33%
+					+r(700)
+						width: 50%
+					+r(450)
+						width: 100%
 			.selects,.input-main
 				background-color: #fafafa
 				+tr(background-color .3s)
@@ -5246,6 +5336,33 @@ a.caption-content
 			// 	line-height: 1.5
 			.text-bold
 				+rem(margin-bottom,10px)
+			ul 
+				+rem(margin,15px 0 15px)
+				li 
+					+rem(font-size,15px)
+					color: rgb(101, 101, 101);
+					line-height: 1.25
+					position: relative
+					+rem(padding-left,17px)
+					display: block
+					+rem(margin,10px 0)
+					&:before
+						content: ''
+						display: inline-block
+						border-radius: 50%
+						background-color: $bl 
+						+rem(width,6px)
+						+rem(height,6px)
+						+rem(left,2px)
+						+rem(top,7px)
+						position: absolute
+				a 
+					box-shadow:  0 -2px 0 0 #fff,  0 1px 0 0 $org
+					&:active
+						box-shadow: none
+					&:hover
+						+rm(1025)
+							box-shadow: none
 			&:before
 				content: ''
 				position: absolute
@@ -5572,6 +5689,9 @@ a.caption-content
 			color: $org
 			.arr-down
 				transform: scale(1,-1)
+		&.disabled
+			opacity: .7
+			pointer-events: none
 		span, i
 			display: inline-block
 			vertical-align: top
@@ -6152,9 +6272,18 @@ ymaps
 	&-wrapper
 		font-size: 0
 		+rem(padding-top,128px)
+		+rem(padding-bottom,150px)
+		+r(768)
+			+rem(padding-top,88px)
+			+rem(padding-bottom,50px)
+		+r(600)
+				+rem(margin, 0 -15px)
 		&-inner
 			counter-reset: blocks
 			border: 1px solid $bb
+			position: relative
+			+r(768)
+					+rem(margin-top,50px)
 			+rm(769)
 				display: flex
 				flex-flow: row wrap
@@ -6199,15 +6328,15 @@ ymaps
 			width: 20%
 			&.options
 				width: 20%
-		&.active
-			font-weight: 600
-			pointer-events: none
-			.text-1
-				color: $bl
-				&:before
-					background-color: $bl 
-					border-color: $bl 
-					color: $white
+		+r(768)
+			&:not(.options)
+				+rem(height,80px)
+			&:not(:first-child):not(.options)
+				border-top: $bb
+			border-bottom: none
+		+r(600)
+			text-align: left
+			+rem(padding-left,55px)
 		&.off
 			background-color: #fdfdfd
 			pointer-events: none
@@ -6222,22 +6351,37 @@ ymaps
 				&:before
 					border-color: $blk
 					color: $blk
+		&.active
+			font-weight: 600
+			pointer-events: none
+			border-bottom-color: transparent
+			.text-1
+				color: $bl
+				&:before
+					background-color: $bl 
+					border-color: $bl 
+					color: $white
 		&.options
 			+padlr(30px)
 			+r(1160)
 				+padlr(15px)
 			+r(768)
-				order: 1
+				position: absolute
+				left: 0
+				right: 0
+				+rem(top,-50px)
 			.booking-smallcont-inner
-				+rm(1025)
-					+justify
-					&>div
-						display: inline-block
-						vertical-align: middle
-				.contry-switcher
-					+r(1024)
-						.dropdown-select-wrapp
-							+rem(margin, 15px auto 0)
+				+justify
+				&>div
+					display: inline-block
+					vertical-align: middle
+					
+				+screen(769,1024)
+					text-align: center
+					.contry-switcher
+							display: block
+							.dropdown-select-wrapp
+								+rem(margin, 15px auto 0)
 					
 		&-inner
 			display: inline-block
@@ -6257,12 +6401,308 @@ ymaps
 					+rem(height,15px)
 					+rem(line-height,15px)
 					+rem(margin-right,10px)
+	&-block
+		width: 100%
+		&-inner
+			+padlr(40px)
+			+rem(padding-top,40px)
+			+rem(padding-bottom,50px)
+			+r(768)
+				+padlr(15px)
+				+rem(padding-top,20px)
+				position: relative
+				&:before
+					content: ''
+					position: absolute
+					+rem(left,15px)
+					+rem(right,15px)
+					top: 0
+					height: 1px
+					background-color: #d7d7d7
+			.page-head-form
+				padding-bottom: 0
+			.table-wrapper
+				*,.table-item
+					border: none
+					.dropdown-target
+						z-index: 2
+						+rem(min-width,210px)
+						.dropdown-inner
+							+rem(padding,15px)
+						
+				.table-item
+					width: auto
+					&.table-road
+						+rem(width,320px)
+						padding-left: 0
+					&:nth-child(2)
+						+rem(width,185px)
+					&:nth-child(3)
+						+rem(width,180px)
+					&:nth-child(5)
+						+rem(width,205px)
+						padding-right: 0
+						+r(1150)
+							+rem(width,165px)
+				.table-row
+					.table-item
+						padding-top: 12px !important
+				.table-head
+					.table-item
+						+rem(padding-top,5px)
+						+rem(padding-bottom,5px)
+			.select-text
+				font-weight: 400
+			.form-block-section
+				+padlr(0)
+				padding-bottom: 0
+				.select-text
+					+rem(font-size,15px)
+				.input-form
+					+rem(margin-right,-20px)
+					.input-item
+						+rem(padding-right,20px)
+						+rem(margin-bottom,25px)
+						.btn
+							+rem(margin-top,23px)
+			.form-block-wrapper
+				border: none
+				margin: 0
+				.form-block-section
+					.input-item
+						margin-bottom: 2.8125rem
+						&.s33
+							+r(700)
+								width: 50%
+							+r(440)
+								width: 100%
+						&.s50
+							+r(700)
+								width: 100%
+			.form-block-footer
+				+padlr(0)
+		&-head
+			+rem(margin-bottom,30px)
+			display: flex
+			flex-flow: row wrap
+			align-items: flex-start
+			justify-content: space-between
+			+r(768)
+				justify-content: flex-start
+				.title
+					width: 100%
+			.title
+				width: calc(100% - 25rem)
+		&-date
+			+rem(margin-right,-12px)
+			+rem(margin-top,10px)
+			+r(768)
+				+rem(margin-left,-8px)
+			+r(380)
+				.text-1
+					+rem(font-size,12px)
+					+padlr(5px)
+				.table-navigation-link
+					+rem(font-size,12px)
+					i 
+						+rem(margin-left,3px)
+						+rem(margin-right,3px)
+			&-inner
+				display: flex
+				flex-flow: row nowrap
+				align-items: baseline
+				white-space: nowrap
+				.text-1
+					+padlr(10px)
+					+rem(font-size,13px)
+					span
+						color: $bl
+				.table-navigation-link
+					padding-right: 0
+					svg 
+						stroke: #929bae
+					&:hover
+						svg 
+							stroke: #0f4a9b
+					&:first-child
+						i 
+							transform: rotate(90deg)
+					&:last-child
+						i 
+							transform: rotate(-90deg)
+.info-i
+	&>svg
+		+rem(width,15px)
+		+rem(height,15px)
+		vertical-align: sub
+		+rem(margin-left,5px)
+.promocode
+	&-wrapper
+		+rem(margin,0 -40px)
+		+padlr(40px)
+		position: relative
+		+r(768)
+			+rem(margin,0 -15px)
+			+padlr(15px)
+		.dropdown-target
+			z-index: 2
+			+rem(min-width,210px)
+			.dropdown-inner
+				+rem(padding,15px)
+	&-inner
+		display: flex
+		flex-flow: row wrap
+		align-items: flex-start
 		
+		+rem(padding-top,36px)
+		+rem(padding-bottom,38px)
+		+r(768)
+			+rem(padding-top,16px)
+			+rem(padding-bottom,20px)
+			&:before
+				display: none
+		&:before,&:after
+			content: ''
+			position: absolute
+			height: 1px
+			left: 0
+			right: 0
+			background: linear-gradient(90deg,#cecece,hsla(0,0%,100%,0) 30%);
+			background-position: bottom;
+			background-size: 6px 2px;
+			background-repeat: repeat-x;
+		&:before
+			top: 0
+		&:after
+			bottom: 0
+	&-text
+		+rem(max-width,332px)
+		+rem(padding-right,15px)
+		&>.text-1
+			+rem(margin-top,15px)
+			line-height: 1.3
+	&-input
+		+rem(padding-top,9px)
+		+r(768)
+			+rem(padding-top,15px)
+			width: 100%
+			white-space: nowrap
+		+r(380)
+			.input-wrapper
+				width: calc(100% - 7.5rem)
+				max-width: calc(100% - 7.5rem)
+		.input-wrapper,.promocode-btn
+			display: inline-block
+			vertical-align: top
+			white-space: normal
+		.input-wrapper
+			+rem(max-width,202px)
+	&-btn
+		+rem(padding-top,24px)
+		+rem(padding-left,20px)
+		+r(768)
+			+rem(padding-left,10px)
+			+rem(padding-top,25px)
+			.btn 
+				span
+					+padlr(15px)
+.booking-details
+	&-inner
+		display: flex
+		flex-flow: row wrap
+		align-items: stretch
+		+rem(margin-right,-26px)
+		.dropdown-target
+			z-index: 2
+			+rem(min-width,210px)
+			.dropdown-inner
+				+rem(padding,15px)
+	&-card
+		width: 33.33%
+		+rem(padding-right,26px)
+		+r(950)
+			width: 50%
+			+rem(margin-bottom,20px)
+		+r(600)
+			width: 100%
+		&-head
+			+padlr(24px)
+			+rem(padding-top,37px)
+			display: flex
+			flex-flow: row wrap
+			justify-content: space-between
+			align-items: center
+			+rem(margin-right,-5px)
+			+rem(margin-bottom,10px)
+			+r(600)
+				+rem(padding-top,27px)
+			.table-navigation-link
+				padding-right: 0
+		&-inner
+			border: $bbl
+			height: 100%
+			+rem(padding-bottom,35px)
+			.person-profile-about
+				width: 100%
+				max-width: 100%
+			.person-profile-elem 
+				+rem(padding-bottom,10px)
+				&.summ
+					position: relative
+					+rem(padding-top,80px)
+					&:before
+						content: ''
+						position: absolute
+						+rem(top,30px)
+						left: 0
+						+rem(right,-20px)
+						height: 1px
+						background: linear-gradient(90deg,#cecece,hsla(0,0%,100%,0) 30%);
+						background-position: bottom;
+						background-size: 6px 2px;
+						background-repeat: repeat-x;
+				.text-sm
+					+rem(margin-bottom,8px)
+				.services-item-link
+					line-height: 1.2
 
+.faq
+	&-wrapper
+		+r(1024)
+			+rem(padding-top,20px)
+		+r(735)
+			+rem(padding-top,40px)
+		.question-inner
+			+r(930)
+				overflow-x: scroll
+				justify-content: flex-start
+				.question-item
+					+rem(min-width,190px)
+					margin: 0
+	&-answer
+		+rem(margin-top,30px)
+		+r(768)
+			margin-top: 0
+		+r(480)
+			+padlr(15px)
+		.tabs-cont
+			+padlr(0)
+		.feedback-wrapper
+			+rem(margin, 5px auto)
+			+rem(max-width,700px)
+			.feedback-item
+				padding-bottom: 0
+				+rem(padding-top,20px)
+				.link-border
+					+rem(font-size,15px)
+					font-weight: 600
+			.feedback-item-reply
+				+rem(max-width,650px)
 
-
-
-		
-
-
+			.feedback-item:not(:last-child)
+				border: none
+		.feedback-all
+			+rem(margin-top,60px)
+			+r(768)
+				+rem(margin-top,35px)
 

@@ -185,13 +185,34 @@ document.addEventListener("DOMContentLoaded", function() {
 			}, 400)
 		}
 	});
+	//вопросы со страницы вопросов
+	function Expand(){
+		var block = $('.js-expand-block'),
+			openAllBtn = $('.js-expand-all');
+		block.each(function(){
+			var _ = $(this),
+				btn = _.find('.js-expand-btn'),
+				target = _.find('.js-expand-target');
+			btn.off('click').on('click',function(){
+				_.trigger('reinit');
+			});
+			_.on('reinit',function(){
+				if(target.hasClass('active')){
+					target.slideUp(300).removeClass('active');
+				}else{
+					target.slideDown(300).addClass('active');
+				}
+			});
+
+			target.hide();
+		});
+		openAllBtn.on('click',function(){
+			$(this).closest('.tabs-cont').find('.js-expand-target').slideDown(300).addClass('active');
+		});
+	}Expand();
+
 	function Accordeon(){
 		if($('.js-accordion-trigger').length){
-			// $(".aside-stick").trigger("sticky_kit:detach");
-			// $(".aside-stick").stick_in_parent({
-			// 	offset_top : 73,
-			// 	recalc_every: 1
-			// });
 			var maintrigger = $('.js-accordion-trigger'),
 				body = $('.js-accordion-body'),
 				truetrigger = maintrigger.children('.accordeon-trigger');
@@ -307,6 +328,8 @@ document.addEventListener("DOMContentLoaded", function() {
 	AdditionalBlocks.init();
 	var coutryRep = new CountryReplace();
 	coutryRep.init();
+	var Booking = new BookingModule();
+	Booking.init();
 //end of document.ready
 });
 //end of document.ready
@@ -1062,13 +1085,16 @@ function openOnLoad() {
 	var scrollItem = window.location.hash,
 		target = $("[data-id='" + scrollItem + "']");
 	window.scrollTo(0, 0);
+	console.log(scrollItem,target)
 	if (target.length) {
 		setTimeout(function() {
 			var destination = target.offset().top;
-			target.hasClass('js-tab-trigger') ? target.trigger('click') : false;
+
+
 			$("html,body:not(:animated)").animate({
 				scrollTop: destination - 60
 			}, 500);
+			target.hasClass('js-tab-trigger') ? target.trigger('click') : false;
 		}, 100);
 	}
 }
@@ -1408,4 +1434,91 @@ function AddingComment(){
 		var textlen = cont.text().length;
 		textlen > 0 ? elem.addClass(_this.state.open) : elem.removeClass(_this.state.open);
 	}
+}
+
+function BookingModule(){
+	var _this = this;
+	_this.elems = {
+		trigger: '.js-book-trigger',
+		elem: '.js-book-elem',
+		target: '.js-book-block',
+		link: '.js-book-link'
+	};
+	_this.cls = {
+		active: 'active',
+		disabled: 'off',
+		filled: 'filled'
+	};
+	_this.init = function(){
+		var mainCont = $(_this.elems.elem);
+
+		if(mainCont.length){
+			_this.initState(mainCont);
+		}
+	};
+	_this.initState = function(element){
+		var triggers = element.find(_this.elems.trigger),
+			blocks = element.find(_this.elems.target),
+			triggerA = triggers.filter('.' + _this.cls.active),
+			triggerTarget = triggerA.data('tabindex');
+		_this.hiding(triggerTarget,blocks);
+		_this.initClick(element,blocks,triggers);
+
+		_this.scrollToActive(triggerA);
+	};
+	_this.initClick = function(elem,block,trigger){
+		var link = elem.find(_this.elems.link);
+		trigger.off('click').on('click',function(){
+			var _ = $(this);
+			if(_.hasClass(_this.cls.filled)){
+				var targetBlock = _.data('tabindex');
+				_.addClass(_this.cls.active).siblings().removeClass(_this.cls.active);
+				_this.hiding(targetBlock,block);
+			}
+		});
+		link.each(function(){
+			var _ = $(this);
+			type = _.data('type');
+			if(type=='next'){
+					//тут свои условия
+
+				_.off('click').on('click',function(e){
+					e.preventDefault();
+
+					var triggerA = trigger.filter('.' + _this.cls.active),
+						triggerNext = triggerA.nextAll(_this.elems.trigger).first(),
+						triggerNextTarget = triggerNext.data('tabindex');
+
+					triggerA.addClass(_this.cls.filled);
+					trigger.removeClass(_this.cls.active);
+					triggerNext.addClass(_this.cls.active).removeClass(_this.cls.disabled);
+
+					_this.hiding(triggerNextTarget,block);
+					_this.scrollToActive(triggerNext);
+				});
+			}
+			if(type=='back'){
+				_.off('click').on('click',function(e){
+					e.preventDefault();
+					var triggerA = trigger.filter('.' + _this.cls.active),
+						triggerTarget = _.data('tabindex'),
+						NewActive = trigger.filter("[data-tabindex='" + triggerTarget + "']");
+					trigger.removeClass(_this.cls.active);
+					NewActive.addClass(_this.cls.active);
+					_this.hiding(triggerTarget,block);
+					_this.scrollToActive(NewActive);
+				});
+			}
+		});
+	};
+	_this.hiding= function(trgt,blocks){
+		blocks.hide().filter("[data-tab='" + trgt + "']").show();
+	};
+	_this.scrollToActive= function(target){
+		var destination = target.offset().top;
+		$("html,body:not(:animated)").animate({
+			scrollTop: destination - 60
+		}, 500);
+	};
+
 }

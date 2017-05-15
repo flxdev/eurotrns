@@ -10,27 +10,445 @@ block content
 			.booking-wrapper
 				//расположиние такое, чтобы в мобилку сворачивалось как в макете 
 				// функция bookingModule
-				.booking-wrapper-inner
-					.booking-smallcont.js-book-trigger.active(data-tabindex='tab1')
+				// если секция заполнена, то с последующих секций на нее можно вернуться просто кликнув по кнопке
+				//на последующие секции переход только при успешном заполнении
+				// на триггере  .active - текущий .filled - заполненый таб(можно кликунуть и перейти на него) .off - последжующие табы, на них перейти нельзя
+				// при загрузке страницы развешивай классы соответственно на триггеры и нужный таб включится
+				form(action="/").js-validate.booking-wrapper-inner.js-book-elem
+					.booking-smallcont.js-book-trigger.filled(data-tabindex='tab1')
 						.booking-smallcont-inner
 							.text-1 Дата и место
 					.booking-block.js-book-block(data-tab='tab1')
-						.text-1   Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi rem voluptate natus illo dolor id, omnis quidem sint fugiat rerum, amet ad, ab fuga excepturi atque similique expedita, optio perferendis. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore facilis est ipsum voluptas deserunt odit porro consequatur sapiente necessitatibus, nihil perferendis voluptatum nam. Harum sed dolore minima quod, vero incidunt.
-					.booking-smallcont.js-book-trigger.off(data-tabindex='tab2')
+						.booking-block-inner
+							.booking-block-head
+								.title.h2 Автобусные рейсы
+							.input-item.s100
+								.input-wrapper
+									.select-item
+										label.select-label.js-condition
+											span.select-main
+												input.select-real(type="checkbox",value ='1',name="two-way-variant")
+												span.select-checked
+											span.select-text Туда и обратно
+								.page-head-form
+									.form-group 
+										.input-wrapper
+											label Дата отправления
+											input.input-main.datepicker(type="text",placeholder='-- Выберите --',data-validation="required",data-validation-error-msg="Не выбрано",readonly)
+											svg(class="icon icon-drop")
+												use(xlink:href="#calendar" xmlns:xlink="http://www.w3.org/1999/xlink")
+										.input-wrapper.disabled.js-condition-target
+											label Дата возвращения
+											input.input-main.datepicker(type="text",placeholder='-- Выберите --',data-validation="required",data-validation-error-msg="Не выбрано",readonly)
+											svg(class="icon icon-drop")
+												use(xlink:href="#calendar" xmlns:xlink="http://www.w3.org/1999/xlink")
+									.form-group
+										.input-wrapper
+											.label Откуда
+											.select-check.js-select-custom
+												button.selects(data-placeholder='Выберите')
+													span.btn-text Выберите
+													i.arr-down
+														svg(class="icon icon-drop")
+															use(xlink:href="#strelka" xmlns:xlink="http://www.w3.org/1999/xlink")
+												.dropdown-target
+													.dropdown-inner
+														.dropdown-content
+															.select-u-body.select-list
+																label.option
+																	//хотя бы на одном инпуте должен висеть дата-атрибут для валидации
+																	input(type='radio', name='group4', value='val1',data-validation="required")
+																	span Минск
+																label.option
+																	input(type='radio', name='group4', value='val2')
+																	span Пинск
+																label.option
+																	input(type='radio', name='group4', value='val3')
+																	span Копенгаген
+																label.option
+																	input(type='radio', name='group4', value='val4')
+																	span Рига
+																label.option
+																	input(type='radio', name='group4', value='val5')
+																	span Немига
+																label.option
+																	input(type='radio', name='group4', value='val6')
+																	span Метро
+																label.option
+																	input(type='radio', name='group4', value='val7')
+																	span Копенгаген
+																label.option
+																	input(type='radio', name='group4', value='val8')
+																	span Копенгаген
+																label.option
+																	input(type='radio', name='group4', value='val9')
+																	span 1Копенгаген
+																label.option
+																	input(type='radio', name='group4', value='val9')
+																	span 12Копенгаген
+																label.option
+																	input(type='radio', name='group4', value='val9')
+																	span 142Копенгаген
+																label.option
+																	input(type='radio', name='group4', value='val9')
+																	span Копенгаген
+																label.option
+																	input(type='radio', name='group4', value='val9')
+																	span 1Копенгаген
+										.input-wrapper
+											.label Куда
+											.select-check.js-select-custom
+												button.selects(data-placeholder='Выберите')
+													span.btn-text Выберите
+													i.arr-down
+														svg(class="icon icon-drop")
+															use(xlink:href="#strelka" xmlns:xlink="http://www.w3.org/1999/xlink")
+												.dropdown-target
+													.dropdown-inner
+														.dropdown-content
+															.select-u-body.select-list
+																label.option
+																	//хотя бы на одном инпуте должен висеть дата-атрибут для валидации
+																	input(type='radio', name='group49', value='val1',data-validation="required")
+																	span Минск
+																label.option
+																	input(type='radio', name='group49', value='val2')
+																	span Пинск
+																label.option
+																	input(type='radio', name='group49', value='val3')
+																	span Копенгаген
+																label.option
+																	input(type='radio', name='group49', value='val4')
+																	span Рига
+																label.option
+																	input(type='radio', name='group49', value='val5')
+																	span Немига
+																label.option
+																	input(type='radio', name='group49', value='val6')
+																	span Метро
+																label.option
+																	input(type='radio', name='group49', value='val7')
+																	span Копенгаген
+																label.option
+																	input(type='radio', name='group49', value='val8')
+																	span Копенгаген
+																label.option
+																	input(type='radio', name='group49', value='val9')
+																	span 1Копенгаген
+																label.option
+																	input(type='radio', name='group49', value='val9')
+																	span 12Копенгаген
+																label.option
+																	input(type='radio', name='group49', value='val9')
+																	span 142Копенгаген
+																label.option
+																	input(type='radio', name='group49', value='val9')
+																	span Копенгаген
+																label.option
+																	input(type='radio', name='group49', value='val9')
+																	span 1Копенгаген
+
+								
+									.form-group
+										.input-wrapper
+											.label Цена
+											// модификатор для селекта цены .price-total
+											// .disabled если нужен выключеным
+											.select-check.js-select-custom.price-total
+												button.selects(data-placeholder='Выберите')
+													span.btn-text
+													i.arr-down
+														svg(class="icon icon-drop")
+															use(xlink:href="#strelka" xmlns:xlink="http://www.w3.org/1999/xlink")
+												.dropdown-target
+													.dropdown-inner
+														.dropdown-content
+															.select-u-body.select-list
+																label.option
+																	//хотя бы на одном инпуте должен висеть дата-атрибут для валидации
+																	input(type='radio', name='group7', value='val1',data-validation="required")
+																	.elem-price
+																		span.elem-price-value 50
+																			span byn
+																		| Стандарт
+																label.option
+																	input(type='radio', name='group7', value='val2')
+																	.elem-price
+																		span.elem-price-value 50
+																			span byn
+																		| Стандарт
+																label.option
+																	input(type='radio', name='group7', value='val3')
+																	.elem-price
+																		span.elem-price-value 4250
+																			span byn
+																		| Льготный
+																label.option
+																	input(type='radio', name='group7', value='val4')
+																	.elem-price
+																		span.elem-price-value 1450
+																			span byn
+																		| Про
+																label.option
+																	input(type='radio', name='group7', value='val5')
+																	.elem-price
+																		span.elem-price-value 4502
+																			span byn
+																		| Одинадцат
+																label.option
+																	input(type='radio', name='group7', value='val6')
+																	.elem-price
+																		span.elem-price-value 4502
+																			span byn
+																		| Метро
+										.input-wrapper
+											a(href="#",data-type='next').btn.btn-colored.small.js-book-link
+												span Забронировать
+					.booking-smallcont.js-book-trigger.active(data-tabindex='tab2')
 						.booking-smallcont-inner
 							.text-1 Билеты
 					.booking-block.js-book-block(data-tab='tab2')
-						.text-1   Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet error atque quos iste tempora pariatur deserunt dolorem corrupti aliquid cupiditate incidunt tempore perspiciatis, culpa. Accusantium, mollitia nostrum quis vero pariatur! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut laborum a molestias itaque assumenda culpa necessitatibus nostrum explicabo deleniti nobis illum id iusto eos, quaerat nam asperiores quod ex consequatur?
+						.booking-block-inner
+							.booking-block-head
+								.title.h2 Рейс из 
+									span Минска
+									|  в 
+									span Москву
+								.booking-block-date
+									.booking-block-date-inner
+										a(href="#").table-navigation-link.disabled
+											i.arr-down
+												svg(class="icon icon-drop")
+													use(xlink:href="#arr-down" xmlns:xlink="http://www.w3.org/1999/xlink")
+											span Предыдущая
+										.text-1 Дата выезда 
+											span 14.03.2017
+										a(href="#").table-navigation-link
+											span Следующая
+											i.arr-down
+												svg(class="icon icon-drop")
+													use(xlink:href="#arr-down" xmlns:xlink="http://www.w3.org/1999/xlink")
+							.table-wrapper
+								.table.table-tickets
+									.table-head
+										.table-item.table-road
+											span.dropdown-trigger Рейс
+												i.info-i
+													svg(class="icon icon-drop")
+														use(xlink:href="#info" xmlns:xlink="http://www.w3.org/1999/xlink")
+												.dropdown-target
+													.dropdown-inner
+														.dropdown-content
+															.text-1  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab recusandae laudantium adipisci aut 
+										.table-item
+											span Посадочных мест
+										.table-item 
+											span Отправления
+										.table-item
+											span Прибытие
+										.table-item
+											span Время в пути
+									+tiketbook('Минск → Москва','48','14.03.17, 06:00','14.03.17, 21:00','10ч 35мин')
+									+tiketbook('Минск → Москва','48','14.03.17, 06:00','14.03.17, 21:00','10ч 35мин')
+							.promocode-wrapper
+								.promocode-inner
+									.promocode-text
+										.text-bold.dropdown-trigger У вас есть промокод?
+											i.info-i
+												svg(class="icon icon-drop")
+													use(xlink:href="#info" xmlns:xlink="http://www.w3.org/1999/xlink")
+											.dropdown-target
+												.dropdown-inner
+													.dropdown-content
+														.text-1  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab recusandae laudantium adipisci aut 
+										.text-1 Значит, вы можете воспользоваться услугой выгоднее!
+									.promocode-input
+										.input-wrapper.req
+											label(for='promo1') Промо-код
+											input.input-main(type="text",id='promo1')
+										.promocode-btn
+											button(type='button').btn.btn-gray.has-animation.animated
+												span Применить
+							.form-block-section
+								.input-form
+									.input-item.s100
+										.input-wrapper
+											.select-item
+												label.select-label.js-condition
+													span.select-main
+														input.select-real(type="checkbox",value ='1',name="bonus")
+														span.select-checked
+													span.select-text Использовать 
+														span 75 
+														|  из 
+														span 200 
+														| накопленных баллов
+									.input-item.s20
+										.input-wrapper.special
+											label(for='imb31') Детский
+											input.input-main(type="number",data-validation="number",data-validation-error-msg="Не заполнено",id='imb31',value='0')
+											.input-value
+												.text-bold 22.31 BYN
+									.input-item.s20
+										.input-wrapper.special
+											label(for='imb344') Социальный
+											input.input-main(type="number",data-validation="number",data-validation-error-msg="Не заполнено",id='imb344',value='0')
+											.input-value
+												.text-bold 22.31 BYN
+									.input-item.s20
+										.input-wrapper.special
+											label(for='imb345') Стандарт
+											input.input-main(type="number",data-validation="number",data-validation-error-msg="Не заполнено",id='imb345',value='0')
+											.input-value
+												.text-bold 2222.31 BYN
+									.input-item.s20
+										.input-wrapper.org.disabled
+											label(for='imb348') Цена
+											input.input-main(type="text",id='imb348',value='00.00 BYN')
+									.input-item.s20
+										a(href="#",data-type='next').btn.btn-colored.small.js-book-link
+											span Забронировать
 					.booking-smallcont.js-book-trigger.off(data-tabindex='tab3')
 						.booking-smallcont-inner
 							.text-1 Бронь
 					.booking-block.js-book-block(data-tab='tab3')
-						.text-1   Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit culpa adipisci expedita architecto atque, veniam eum hic assumenda ut doloribus tenetur quae consequatur labore magni nobis cum qui, quasi deserunt. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel voluptate perspiciatis aliquam eius sequi architecto iste dolore eaque ea repellendus doloremque nemo, voluptatem laboriosam molestiae facere quaerat est quas, sapiente.
+						.booking-block-inner
+							.booking-block-head
+								.title.h2 Детали бронирования
+							.booking-details
+								.booking-details-inner
+									.booking-details-card
+										.booking-details-card-inner
+											.booking-details-card-head.text-medium Поездка
+												a(href="#",data-type='back',data-tabindex='tab1').table-navigation-link.js-book-link
+													span Выбрать другую дату
+											.person-profile-about
+												.person-profile-about-inner
+													.person-profile-elem.s100
+														.text-sm.dropdown-trigger Рейс
+															i.info-i
+																svg(class="icon icon-drop")
+																	use(xlink:href="#info" xmlns:xlink="http://www.w3.org/1999/xlink")
+															.dropdown-target
+																.dropdown-inner
+																	.dropdown-content
+																		.text-1  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab recusandae laudantium adipisci aut 
+														.text-1 
+															a(href="#").services-item-link Гродно → Минск → Санкт-Петербург
+													.person-profile-elem.s100
+														.text-sm Дата
+														.text-1 14.03.2017
+													.person-profile-elem.s50
+														.text-sm Отправление
+														.text-1 19:45
+															br
+															|Минск
+													.person-profile-elem.s50
+														.text-sm Прибытие
+														.text-1 19:45
+															br
+															|Минск
+									.booking-details-card
+										.booking-details-card-inner
+											.booking-details-card-head.text-medium Билет
+												a(href="#",data-type='back',data-tabindex='tab2').table-navigation-link.js-book-link
+													span Редактировать
+											.person-profile-about
+												.person-profile-about-inner
+													.person-profile-elem.s100
+														.text-sm Билет
+														.text-1 1 стандарт
+														.text-1 1 Детский
+													.person-profile-elem.s100
+														.text-sm Место
+														.text-1 58
+													.person-profile-elem.s100
+														.text-sm Стоимость билета
+														.text-1 
+															.text-bold.org 45 BYN
+									.booking-details-card
+										.booking-details-card-inner
+											.booking-details-card-head.text-medium Стоимость
+											.person-profile-about
+												.person-profile-about-inner
+													.person-profile-elem.s100
+														.text-sm Стоимость билетов
+														.text-1 
+															.text-bold.org 45 BYN
+													.person-profile-elem.s100.summ
+														.text-sm Сумма
+														.text-1 
+															.text-bold.org 45 BYN
+							.form-block-wrapper
+								.form-block-section
+									.title.h3 Информация о пассажирах
+									.input-form
+										.input-item.s33
+											.input-wrapper.req
+												label(for='inps1') Имя
+												input.input-main(type="text",placeholder='Имя',data-validation="length required",data-validation-length='min2',data-validation-error-msg="Не заполнено",id='inps1')
+										.input-item.s33
+											.input-wrapper.req.js-btn-add-input
+												label(for='inps5') Телефон
+												input.input-main(type="tel",name='tel[0]',placeholder='Телефон',data-validation="custom",data-validation-regexp="^[-0-9()+ ]+$",data-validation-error-msg="Не заполнено",id='inps5')
+											.btn-add.js-btn-add(data-type='single')
+												span Добавить телефон
+										.input-item.s33
+											.input-wrapper.req
+												label(for='inps2') Страна
+												input.input-main(type="text",placeholder='Страна',data-validation="length required",data-validation-length='min2',data-validation-error-msg="Не заполнено",id='inps2')
+										.input-item.s33
+											.input-wrapper.req
+												label(for='inps45') Фамилия
+												input.input-main(type="text",placeholder='Фамилия',data-validation="length required",data-validation-length='min2',data-validation-error-msg="Не заполнено",id='inps45')
+										.input-item.s33
+											.input-wrapper.req
+												label(for='inp63') E-mail
+												input.input-main(type="email",placeholder='example@mail.com',data-validation="email",data-validation-error-msg="Не заполнено",id='inp63')
+										.input-item.s33
+											.input-wrapper.req
+												label(for='inps95') № Паспорта
+												input.input-main(type="text",placeholder='№ Паспорта',data-validation="length required",data-validation-length='min2',data-validation-error-msg="Не заполнено",id='inps95')
+								.form-block-section
+									.title.h3 Личная информация
+									.input-form
+										.input-item.s33
+											.input-wrapper.req
+												label(for='inps45') Фамилия
+												input.input-main(type="text",placeholder='Фамилия',data-validation="length required",data-validation-length='min2',data-validation-error-msg="Не заполнено",id='inps45')
+										.input-item.s33
+											.input-wrapper.req
+												label(for='inps1') Имя
+												input.input-main(type="text",placeholder='Имя',data-validation="length required",data-validation-length='min2',data-validation-error-msg="Не заполнено",id='inps1')
+										.input-item.s33
+											.input-wrapper.req
+												label(for='inps5') Телефон
+												input.input-main(type="tel",name='tel[0]',placeholder='Телефон',data-validation="custom",data-validation-regexp="^[-0-9()+ ]+$",data-validation-error-msg="Не заполнено",id='inps5')
+										.input-item.s50
+											.input-wrapper.req.code
+												label(for='inps-5') Защитный код 
+												input.input-main(type="text",id='inps-5')
+												.input-img
+													img(src="img/cards/eurocard.png", alt="")
+										.input-item.s100
+											.input-wrapper
+												.select-item
+													label.select-label
+														span.select-main
+															input.select-real(type="checkbox",value ='news')
+															span.select-checked
+														span.select-text Получать уведомление о бронированиях, акция, отказах и т.д.
+									.form-block-footer
+										.form-footer-notify
+											.text-sm Поля для обязательного заполнения
+										a(href="#",data-type='next').btn.btn-colored.js-book-link
+											span ПОдтвердить
 					.booking-smallcont.js-book-trigger.off(data-tabindex='tab4')
 						.booking-smallcont-inner
 							.text-1 Подтверждение
 					.booking-block.js-book-block(data-tab='tab4')
-						.text-1   Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora odit veritatis culpa, fugit sapiente. Repudiandae fugit magni, soluta in facilis itaque aut accusantium, incidunt nihil autem, provident suscipit rem sint? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta ipsam, perferendis eligendi sapiente debitis voluptatem sequi a velit ratione possimus corrupti quia libero architecto reiciendis labore nobis quibusdam, nemo nulla.
+						.booking-block-inner
+							.text-1   Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora odit veritatis culpa, fugit sapiente. Repudiandae fugit magni, soluta in facilis itaque aut accusantium, incidunt nihil autem, provident suscipit rem sint? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta ipsam, perferendis eligendi sapiente debitis voluptatem sequi a velit ratione possimus corrupti quia libero architecto reiciendis labore nobis quibusdam, nemo nulla.
 					.booking-smallcont.options
 						.booking-smallcont-inner
 							.btn-switcher
