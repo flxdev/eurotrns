@@ -62,14 +62,21 @@ document.addEventListener("DOMContentLoaded", function() {
 			header = $('.page__header'),
 			body = $('body'),
 			OpenClass = 'active',
-			OpenClass2 = 'menu-open';
-		trigger.add(target).on('click', function() {
+			OpenClass2 = 'menu-open',
+			targetInner = $('.header-mobile-menu-content');
 
+		trigger.add(target).on('click', function() {
+			var _ = $(this),
+				targetElem = _.data('menu');
+			if( typeof targetElem !== 'undefined'){
+				targetInner.filter(targetElem).slideDown().siblings('.header-mobile-menu-content').slideUp();
+			}
 			if (!trigger.hasClass('anim')) {
 				trigger.addClass('anim');
 				scrollbody(OpenClass2);
 				trigger.add(target).toggleClass(OpenClass);
 				body.add(header).toggleClass(OpenClass2);
+
 				setTimeout(function() {
 					trigger.removeClass('anim')
 				}, 500);
@@ -185,6 +192,25 @@ document.addEventListener("DOMContentLoaded", function() {
 			}, 400)
 		}
 	});
+	function mobilePhones(){
+		var trigger = $('.js-phone-trigger'),
+			menutrigger = $('.js-menu'),
+			menuCont = $('.header-mobile-menu-inner'),
+			target = menuCont.find('.mobile-contact'),
+			targetOff = target.position().top;
+		$(window).on('resize',function(){
+			targetOff = target.position().top;
+		});
+
+		trigger.on('click', function(){
+			menutrigger.not('.active').trigger('click');
+			setTimeout(function() {
+				menuCont.not(':animated').animate({
+					scrollTop: targetOff
+				}, 300);
+			},500);
+		});
+	}mobilePhones();
 	//вопросы со страницы вопросов
 	function Expand(){
 		var block = $('.js-expand-block'),

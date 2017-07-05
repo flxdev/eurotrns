@@ -374,10 +374,10 @@ body, .out
 				position: relative
 				text-align: center
 				+r(600)
-					width: 50%
+					width: 33.33%
 					+rem(max-width,82px)
-				+r(440)	
-					width: 40%
+				// +r(440)	
+				// 	width: 40%
 				.header-btn-inner
 					+coverdiv
 					+vertical
@@ -391,7 +391,10 @@ body, .out
 					overflow: visible
 					vertical-align: middle
 					+rem(max-height, 25px)
-					
+				&.mobnav-phone
+					svg 
+						stroke: none
+						fill: $white
 				.navTrigger
 					+rem(width,33px)
 					+rem(height,23px)
@@ -671,9 +674,23 @@ body, .out
 			display: inline-block
 			width: 100%
 			vertical-align: middle
+			+rem(min-height,350px)
 			li 
 				display: block
 				text-align: center
+		&-content
+			display: inline-block
+			vertical-align: top
+			+tr(max-height .3s ease-in-out)
+			overflow: hidden
+			width: 100%
+		.phones-content
+			.info-block-list
+				+rem(margin-top,10px)
+			// max-height: 0
+			// &.active
+			// 	max-height: 800px
+		
 
 //=====================================//
 //         checkbox
@@ -1249,6 +1266,7 @@ select.ui-datepicker-year,select.ui-datepicker-month
 		+rem(padding,0 0 24px 0)
 		&-wrapper
 			border-bottom: $bby
+			+rem(margin-bottom,25px)
 		li 
 			a 
 				+rem(font-size,14px)
@@ -1284,13 +1302,14 @@ select.ui-datepicker-year,select.ui-datepicker-month
 			// 	.soc-wrapp-item
 			// 		+rem(margin, 0 11px)
 	&-contact
-		+rem(padding-top,25px)
+		+rem(margin-top,25px)
 		.info-block-head
 			text-align: center
 		.info-block-link
 			font-weight: 400
 			color: $white
 			position: relative
+
 
 .index-wrapper
 	background-color: $bl
@@ -2221,6 +2240,33 @@ select.ui-datepicker-year,select.ui-datepicker-month
 					color: $grayf
 					+rem(padding-left,3px)
 					font-weight: 400
+			// tel-button
+			&.phone-item
+				+rem(min-width,220px)
+				border: 1px solid rgb(113, 142, 161);
+				box-shadow: 0px 2px 7px 0px rgba(0, 40, 85, 0.3);
+				+rem(padding,5px 15px)
+				border-radius: 4px
+				display: inline-block
+				width: auto
+				+rem(font-size,17px)
+				font-weight: 500
+				color: #fff
+				+rem(margin,3px 0)
+				&.viber
+					position: relative
+					&:before
+						content: ''
+						position: absolute
+						+rem(width,30px)
+						+rem(height,30px)
+						+contain
+						+rem(left,-15px)
+						top: 50%
+						transform: translateY(-50%)
+						background-image: url(../img/icons/i-viber.png)
+				// &:first-child
+				// 	+rem(margin-top,15px)
 		a 
 			&:hover,&:active
 				color: $org

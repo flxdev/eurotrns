@@ -103,11 +103,16 @@ include _mixins.pug
 							span +375 (394) 5 000 252
 		//отображается с 1024
 		.header-bottom-mobnav
+
+			span.header-bottom-mobnav-acc.mobnav-phone.js-menu(data-menu='.phones-content')
+				.header-btn-inner
+					svg(class="icon icon-drop")
+						use(xlink:href="#phone" xmlns:xlink="http://www.w3.org/1999/xlink")
 			a(href="#",data-modal='login').header-bottom-mobnav-acc.js-popup-button
 				.header-btn-inner
 					svg(class="icon icon-drop")
 						use(xlink:href="#login" xmlns:xlink="http://www.w3.org/1999/xlink")
-			.header-bottom-mobnav-btn.js-menu
+			.header-bottom-mobnav-btn.js-menu(data-menu='.main-content')
 				.header-btn-inner
 					.navTrigger
 						i
@@ -116,57 +121,90 @@ include _mixins.pug
 .header-mobile-menu
 	.header-mobile-menu-outer
 		.header-mobile-menu-inner
-			.mobile-header-lang
-				a(href="#").top-link.header-lang-item.active
-					span Ru
-				span.top-link.header-lang-item
-					span En
-			.mobile-list-wrapper
-				ul.mobile-list.bold
-					li.mobile-menu-item.active
-						a(href="#")
-							span Рейсы
-					li.mobile-menu-item
-						a(href="#")
-							span Трансфер в аэропорт
-					li.mobile-menu-item
-						a(href="#")
-							span Аренда автобусов
-				ul.mobile-list
-					li.mobile-menu-item.active
-						a(href="#")
-							span Клиентам
-					li.mobile-menu-menu-item
-						a(href="#")
-							span Агентствам
-					li.mobile-menu-menu-item
-						a(href="#")
-							span Перевозчикам
-					li.mobile-menu-menu-item
-						a(href="#")
-							span Контакты
-					li.mobile-menu-menu-item
-						a(href="#")
-							span Бюро находок
-			.mobile-contact
-				.info-block
-					a(href="#").info-block-head Бронирование
-					ul.info-block-list
+			// 2 контейнера для меню и телефонов
+			// у кнопок выше дата атрибуты соответствующие классам контейнеров
+			.header-mobile-menu-content.main-content
+				.mobile-header-lang
+					a(href="#").top-link.header-lang-item.active
+						span Ru
+					span.top-link.header-lang-item
+						span En
+				.mobile-list-wrapper
+					ul.mobile-list.bold
+						li.mobile-menu-item.active
+							a(href="#")
+								span Рейсы
+						li.mobile-menu-item
+							a(href="#")
+								span Трансфер в аэропорт
+						li.mobile-menu-item
+							a(href="#")
+								span Аренда автобусов
+					ul.mobile-list
+						li.mobile-menu-item.active
+							a(href="#")
+								span Клиентам
+						li.mobile-menu-menu-item
+							a(href="#")
+								span Агентствам
+						li.mobile-menu-menu-item
+							a(href="#")
+								span Перевозчикам
+						li.mobile-menu-menu-item
+							a(href="#")
+								span Контакты
+						li.mobile-menu-menu-item
+							a(href="#")
+								span Бюро находок
+				.mobile-contact
+					.info-block
+						a(href="#").info-block-head Бронирование
+						ul.info-block-list
+							li.info-block-item
+								a.info-block-link.bold(href="tel:+375295000252") +375 (29) 5000-252
+							li.info-block-item
+								a.info-block-link.bold(href="tel:+375295000252") +375 (29) 5000-252
+							li.info-block-item
+								a.info-block-link.bold(href="tel:+79055591545") +375 (29) 5000-252
+					+Infoblock('')
 						li.info-block-item
-							a.info-block-link.bold(href="tel:+375295000252") +375 (29) 5000-252
+							a.info-block-link.bold.descr(href="tel:+74952818817")
+								span.main +7 (495) 281-88-17
+								span Москва
 						li.info-block-item
-							a.info-block-link.bold(href="tel:+375295000252") +375 (29) 5000-252
-						li.info-block-item
-							a.info-block-link.bold(href="tel:+79055591545") +375 (29) 5000-252
-				+Infoblock('')
-					li.info-block-item
-						a.info-block-link.bold.descr(href="tel:+74952818817") 
-							span.main +7 (495) 281-88-17
-							span Москва
-					li.info-block-item
-						a.info-block-link.bold.descr(href="tel:+78122442019") 
-							span.main +7 (812) 244-20-19
-							span Санкт-Петербург
+							a.info-block-link.bold.descr(href="tel:+78122442019") 
+								span.main +7 (812) 244-20-19
+								span Санкт-Петербург
+
+			.header-mobile-menu-content.phones-content
+				.phones-wrap
+					.info-block
+						a(href="#").info-block-head Бронирование
+						ul.info-block-list
+							li.info-block-item
+								a.info-block-link.phone-item(href="tel:+375295000252") +375 (29) 5000-252
+							li.info-block-item
+								a.info-block-link.phone-item(href="tel:+375295000252") +375 (29) 5000-252
+							li.info-block-item
+								a.info-block-link.phone-item(href="tel:+79055591545") +375 (29) 5000-252
+					.info-block
+						a(href="#").info-block-head Москва
+						ul.info-block-list
+							li.info-block-item
+								a.info-block-link.phone-item(href="tel:+375295000252") +375 (29) 5000-252
+							li.info-block-item
+								a.info-block-link.phone-item.viber(href="tel:+375295000252") +375 (29) 5000-252
+							li.info-block-item
+								a.info-block-link.phone-item(href="tel:+79055591545") +375 (29) 5000-252
+					.info-block
+						a(href="#").info-block-head Санкт-Петербург
+						ul.info-block-list
+							li.info-block-item
+								a.info-block-link.phone-item(href="tel:+375295000252") +375 (29) 5000-252
+							li.info-block-item
+								a.info-block-link.phone-item.viber(href="tel:+375295000252") +375 (29) 5000-252
+							li.info-block-item
+								a.info-block-link.phone-item(href="tel:+79055591545") +375 (29) 5000-252
 			.mobile-soc
 				.soc-wrapp
 					a(href="#").soc-wrapp-item.tw
